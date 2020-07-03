@@ -1,7 +1,6 @@
-# K0sLog
+# K0S Logbook
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version
-10.0.1.
+An amateur radio logging application built by Chris Keller, K0SWE.
 
 ## Development server
 
