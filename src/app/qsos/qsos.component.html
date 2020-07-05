@@ -1,6 +1,16 @@
 <table>
   <tr>
-    <td>{{qso.timeOff}}</td>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Band</th>
+    <th>Frequency</th>
+    <th>Mode</th>
+    <th>My Call</th>
+    <th>Their Call</th>
+  </tr>
+  <tr *ngFor="let qso of qsos">
+    <td>{{qso.timeOff | date : "yyyy-MM-dd" : "UTC"}}</td>
+    <td>{{qso.timeOff | date : "HHmm" : "UTC"}}</td>
     <td>{{qso.band}}</td>
     <td>{{qso.frequencyHz}}</td>
     <td>{{qso.mode}}</td>
