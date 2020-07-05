@@ -1,20 +1,34 @@
-<table>
+<table class="table table-striped">
+  <thead>
   <tr>
     <th>Date</th>
     <th>Time</th>
+    <th>Call</th>
+    <th>Name</th>
     <th>Band</th>
-    <th>Frequency</th>
+    <th class="d-none d-md-table-cell">Frequency</th>
     <th>Mode</th>
-    <th>My Call</th>
-    <th>Their Call</th>
+    <th class="d-none d-xl-table-cell">RST Sent</th>
+    <th class="d-none d-xl-table-cell">RST Rec.</th>
+    <th class="d-none d-md-table-cell">QTH</th>
+    <th>State</th>
+    <th>Country</th>
   </tr>
+  </thead>
+  <tbody>
   <tr *ngFor="let qso of qsos">
-    <td>{{qso.timeOff | date : "yyyy-MM-dd" : "UTC"}}</td>
+    <td>{{qso.timeOff | date : "yyyyMMdd" : "UTC"}}</td>
     <td>{{qso.timeOff | date : "HHmm" : "UTC"}}</td>
-    <td>{{qso.band}}</td>
-    <td>{{qso.frequencyHz}}</td>
-    <td>{{qso.mode}}</td>
-    <td>{{qso.myCall}}</td>
     <td>{{qso.dxCall}}</td>
+    <td>{{qso.name}}</td>
+    <td>{{qso.band}}</td>
+    <td class="d-none d-md-table-cell">{{qso.frequencyHz/1000000}}</td>
+    <td>{{qso.mode}}</td>
+    <td class="d-none d-xl-table-cell">{{qso.rstSent}}</td>
+    <td class="d-none d-xl-table-cell">{{qso.rstReceived}}</td>
+    <td class="d-none d-md-table-cell">{{qso.qth}}</td>
+    <td>{{qso.state}}</td>
+    <td>{{qso.country}}</td>
   </tr>
+  </tbody>
 </table>
