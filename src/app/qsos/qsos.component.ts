@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Qso} from '../qso';
 
 @Component({
-  selector: 'app-qsos',
+  selector: 'k0s-qsos',
   templateUrl: './qsos.component.html',
   styleUrls: ['./qsos.component.css']
 })

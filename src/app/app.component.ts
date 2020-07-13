@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {webSocket} from 'rxjs/webSocket';
 
 @Component({
-  selector: 'app-root',
+  selector: 'k0s-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
