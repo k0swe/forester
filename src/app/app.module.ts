@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {QsosComponent} from './qsos/qsos.component';
+import {QsoService} from './shared/qso.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import {QsosComponent} from './qsos/qsos.component';
     AppRoutingModule,
     BrowserModule
   ],
-  providers: [],
+  providers: [QsoService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

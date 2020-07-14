@@ -16,13 +16,13 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let qso of qsos">
+  <tr *ngFor="let qso of qsos$ | async">
     <td>{{qso.timeOff | date : "yyyyMMdd" : "UTC"}}</td>
     <td>{{qso.timeOff | date : "HHmm" : "UTC"}}</td>
     <td>{{qso.dxCall}}</td>
     <td>{{qso.name}}</td>
     <td>{{qso.band}}</td>
-    <td>{{qso.frequencyHz/1000000}}</td>
+    <td>{{qso.frequencyHz / 1000000}}</td>
     <td>{{qso.mode}}</td>
     <td>{{qso.rstSent}}</td>
     <td>{{qso.rstReceived}}</td>
