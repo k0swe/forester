@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Qso} from '../qso';
 import {QsoService} from '../shared/qso.service';
 import {Observable} from 'rxjs';
+import {K0sQso} from "../k0s-qso";
 
 @Component({
   selector: 'k0s-qsos',
@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
   styleUrls: ['./qsos.component.css']
 })
 export class QsosComponent implements OnInit {
-  qsos$: Observable<Qso[]>;
+  qsos$: Observable<K0sQso[]>;
 
   constructor(private qsoService: QsoService) {
   }
