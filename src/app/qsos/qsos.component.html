@@ -17,18 +17,18 @@
   </thead>
   <tbody>
   <tr *ngFor="let qso of qsos$ | async">
-    <td>{{qso.getTimeOn() | date : "yyyy-MM-dd" : "UTC"}}</td>
-    <td>{{qso.getTimeOn() | date : "HH:mm" : "UTC"}}</td>
-    <td>{{qso.contactedStation.opCall}}</td>
-    <td>{{qso.contactedStation.opName | titlecase}}</td>
+    <td>{{qso.timeOn | date : "yyyy-MM-dd" : "UTC"}}</td>
+    <td>{{qso.timeOn | date : "HH:mm" : "UTC"}}</td>
+    <td>{{qso.contactedCall}}</td>
+    <td>{{qso.contactedName | titlecase}}</td>
     <td>{{qso.band | lowercase}}</td>
     <td>{{qso.freq}}</td>
     <td>{{qso.mode | uppercase}}</td>
     <td>{{qso.rstSent}}</td>
     <td>{{qso.rstReceived}}</td>
-    <td>{{qso.contactedStation.city | titlecase}}</td>
-    <td>{{qso.contactedStation.state | uppercase}}</td>
-    <td>{{qso.contactedStation.country | titlecase}}</td>
+    <td>{{qso.contactedCity | titlecase}}</td>
+    <td>{{qso.contactedState | uppercase}}</td>
+    <td>{{qso.contactedCountry | titlecase}}</td>
   </tr>
   </tbody>
 </table>
