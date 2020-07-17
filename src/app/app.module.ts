@@ -3,14 +3,14 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {QsosComponent} from './qsos/qsos.component';
+import {QsoListComponent} from './qso-list/qso-list.component';
 import {QsoService} from './shared/qso.service';
 import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
-    QsosComponent
+    QsoListComponent
   ],
   imports: [
     AppRoutingModule,

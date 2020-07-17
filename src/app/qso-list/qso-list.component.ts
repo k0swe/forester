@@ -4,11 +4,11 @@ import {Observable} from 'rxjs';
 import {Qso} from "../qso";
 
 @Component({
-  selector: 'k0s-qsos',
-  templateUrl: './qsos.component.html',
-  styleUrls: ['./qsos.component.css']
+  selector: 'k0s-qso-list',
+  templateUrl: './qso-list.component.html',
+  styleUrls: ['./qso-list.component.css']
 })
-export class QsosComponent implements OnInit {
+export class QsoListComponent implements OnInit {
   qsos$: Observable<Qso[]>;
 
   constructor(private qsoService: QsoService) {
