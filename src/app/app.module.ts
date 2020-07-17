@@ -6,11 +6,13 @@ import {AppRoutingModule} from './app-routing.module';
 import {QsoListComponent} from './qso-list/qso-list.component';
 import {QsoService} from './shared/qso.service';
 import {HttpClientModule} from "@angular/common/http";
+import {HomeComponent} from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QsoListComponent
+    HomeComponent,
+    QsoListComponent,
   ],
   imports: [
     AppRoutingModule,
