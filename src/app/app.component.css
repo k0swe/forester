@@ -1,0 +1,9 @@
+mat-toolbar {
+  position: fixed;
+  z-index: 5;
+  box-shadow: 0 1px gray;
+}
+
+.content {
+  padding-top: 64px;
+}

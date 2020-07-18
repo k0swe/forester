@@ -1,34 +1,38 @@
-<table>
-  <thead>
-  <tr>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Call</th>
-    <th>Name</th>
-    <th>Band</th>
-    <th>Frequency</th>
-    <th>Mode</th>
-    <th>RST Sent</th>
-    <th>RST Rec.</th>
-    <th>QTH</th>
-    <th>State</th>
-    <th>Country</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let qso of qsos$ | async">
-    <td>{{qso.timeOn | date : "yyyy-MM-dd" : "UTC"}}</td>
-    <td>{{qso.timeOn | date : "HH:mm" : "UTC"}}</td>
-    <td>{{qso.contactedCall}}</td>
-    <td>{{qso.contactedName | titlecase}}</td>
-    <td>{{qso.band | lowercase}}</td>
-    <td>{{qso.freq}}</td>
-    <td>{{qso.mode | uppercase}}</td>
-    <td>{{qso.rstSent}}</td>
-    <td>{{qso.rstReceived}}</td>
-    <td>{{qso.contactedCity | titlecase}}</td>
-    <td>{{qso.contactedState | uppercase}}</td>
-    <td>{{qso.contactedCountry | titlecase}}</td>
-  </tr>
-  </tbody>
-</table>
+<mat-card>
+  <mat-card-content>
+    <table>
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Call</th>
+        <th>Name</th>
+        <th>Band</th>
+        <th>Frequency</th>
+        <th>Mode</th>
+        <th>RST Sent</th>
+        <th>RST Rec.</th>
+        <th>QTH</th>
+        <th>State</th>
+        <th>Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let qso of qsos$ | async">
+        <td>{{qso.timeOn | date : "yyyy-MM-dd" : "UTC"}}</td>
+        <td>{{qso.timeOn | date : "HH:mm" : "UTC"}}</td>
+        <td>{{qso.contactedCall}}</td>
+        <td>{{qso.contactedName | titlecase}}</td>
+        <td>{{qso.band | lowercase}}</td>
+        <td>{{qso.freq}}</td>
+        <td>{{qso.mode | uppercase}}</td>
+        <td>{{qso.rstSent}}</td>
+        <td>{{qso.rstReceived}}</td>
+        <td>{{qso.contactedCity | titlecase}}</td>
+        <td>{{qso.contactedState | uppercase}}</td>
+        <td>{{qso.contactedCountry | titlecase}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>
