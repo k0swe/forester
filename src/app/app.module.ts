@@ -8,6 +8,7 @@ import {QsoService} from './shared/qso.service';
 import {HttpClientModule} from "@angular/common/http";
 import {HomeComponent} from './home/home.component';
 import {AgentComponent} from './agent/agent.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {AgentComponent} from './agent/agent.component';
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [QsoService],
   bootstrap: [AppComponent]
