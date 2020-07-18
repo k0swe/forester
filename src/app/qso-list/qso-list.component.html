@@ -6,14 +6,14 @@
         <th>Date</th>
         <th>Time</th>
         <th>Call</th>
-        <th>Name</th>
+        <th fxHide.lt-sm>Name</th>
         <th>Band</th>
-        <th>Frequency</th>
+        <th fxHide.lt-md>Frequency</th>
         <th>Mode</th>
-        <th>RST Sent</th>
-        <th>RST Rec.</th>
-        <th>QTH</th>
-        <th>State</th>
+        <th fxHide.lt-lg>RST Sent</th>
+        <th fxHide.lt-lg>RST Rec.</th>
+        <th fxHide.lt-md>QTH</th>
+        <th fxHide.lt-sm>State</th>
         <th>Country</th>
       </tr>
       </thead>
@@ -21,15 +21,15 @@
       <tr *ngFor="let qso of qsos$ | async" class="qso-item">
         <td>{{qso.timeOn | date : "yyyy-MM-dd" : "UTC"}}</td>
         <td>{{qso.timeOn | date : "HH:mm" : "UTC"}}</td>
-        <td>{{qso.contactedCall}}</td>
-        <td>{{qso.contactedName | titlecase}}</td>
+        <td class="callsign-column">{{qso.contactedCall}}</td>
+        <td fxHide.lt-sm>{{qso.contactedName | titlecase}}</td>
         <td>{{qso.band | lowercase}}</td>
-        <td>{{qso.freq}}</td>
+        <td fxHide.lt-md>{{qso.freq}}</td>
         <td>{{qso.mode | uppercase}}</td>
-        <td>{{qso.rstSent}}</td>
-        <td>{{qso.rstReceived}}</td>
-        <td>{{qso.contactedCity | titlecase}}</td>
-        <td>{{qso.contactedState | uppercase}}</td>
+        <td fxHide.lt-lg>{{qso.rstSent}}</td>
+        <td fxHide.lt-lg>{{qso.rstReceived}}</td>
+        <td fxHide.lt-md>{{qso.contactedCity | titlecase}}</td>
+        <td fxHide.lt-sm>{{qso.contactedState | uppercase}}</td>
         <td>{{qso.contactedCountry | titlecase}}</td>
       </tr>
       </tbody>
