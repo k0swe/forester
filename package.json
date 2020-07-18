@@ -8,7 +8,9 @@
     "build-prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "docker-build": "docker build -t k0s-log .",
+    "docker-run": "docker run -d --rm -p 8080:80 --name k0s-log k0s-log"
   },
   "private": true,
   "dependencies": {

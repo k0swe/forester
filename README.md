@@ -27,6 +27,12 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Docker
+
+This repo contains Docker multi-stage build file to verify building works in a hermetic environment
+and to package up for running on an external provider. Run `npm run docker-build` to build, and `npm 
+run docker-run` to run it locally.
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the 
