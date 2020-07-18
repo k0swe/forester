@@ -1,4 +1,17 @@
+@import '../../styles/theme';
+
 mat-card {
   margin-left: 16px;
   margin-right: 16px;
+}
+
+table {
+  width: 100%;
+}
+
+.qso-item {
+
+  &:hover {
+    background-color: mat-color($k0s-background, 'hover');
+  }
 }
