@@ -1,0 +1,25 @@
+@import './theme';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+@include angular-material-theme($k0s-theme);
+
+// Global styles.
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+}
+body {
+  color: #212121;
+  background-color: #f3f3f3;
+  font-family: mat-font-family($k0s-typography);
+  line-height: mat-line-height($k0s-typography, body-1);
+  font-size: mat-font-size($k0s-typography, body-1);
+  height: 100%;
+  margin: 0;
+}

@@ -8,11 +8,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from "@angular/common/http";
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {QsoListComponent} from './qso-list/qso-list.component';
 import {QsoService} from './shared/qso.service';
-import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {MatCardModule} from "@angular/material/card";
     BrowserModule,
     FlexLayoutModule,
     HttpClientModule,
+    MatButtonModule,
     MatCardModule,
     MatIconModule,
     MatToolbarModule,

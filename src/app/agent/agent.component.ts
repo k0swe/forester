@@ -4,7 +4,7 @@ import {webSocket} from "rxjs/webSocket";
 @Component({
   selector: 'k0s-agent',
   templateUrl: './agent.component.html',
-  styleUrls: ['./agent.component.css']
+  styleUrls: ['./agent.component.scss']
 })
 export class AgentComponent implements OnInit {
   connectedState = "Disconnected"

@@ -1,0 +1,27 @@
+@import '../styles/theme';
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.toolbar {
+  background-color: mat-color($k0s-primary, 'default');
+  color: mat-color($k0s-primary, 'default-contrast');
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  box-shadow: 0 1px mat-color($k0s-foreground, divider);
+}
+
+.toolbar__menu-button {
+  background-color: mat-color($k0s-primary, 'default');
+  color: mat-color($k0s-primary, 'default-contrast');
+  margin-right: 8px;
+}
+
+.content {
+  padding-top: 64px;
+}
