@@ -18,7 +18,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let qso of qsos$ | async" class="qso-item">
+      <tr *ngFor="let qso of qsos$ | async" class="qso-item" (click)="openDialog(qso)">
         <td>{{qso.timeOn | date : "yyyy-MM-dd" : "UTC"}}</td>
         <td>{{qso.timeOn | date : "HH:mm" : "UTC"}}</td>
         <td class="callsign-column">{{qso.contactedCall}}</td>

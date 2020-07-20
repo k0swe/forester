@@ -1,7 +1,22 @@
-import {Qso as PbQso, Station} from "../generated/adif_pb";
-import {Timestamp} from "google-protobuf/google/protobuf/timestamp_pb";
+import {Qso as PbQso, Station} from '../generated/adif_pb';
+import {Timestamp} from 'google-protobuf/google/protobuf/timestamp_pb';
 
 export class Qso {
+  band: string;
+  contactedCall: string;
+  contactedCity: string;
+  contactedCountry: string;
+  contactedName: string;
+  contactedState: string;
+  loggingCall: string;
+  loggingName: string;
+  freq: number;
+  mode: string;
+  rstReceived: string;
+  rstSent: string;
+  timeOff: Date;
+  timeOn: Date;
+
   static fromObject(o: PbQso.AsObject): Qso {
     // See https://github.com/improbable-eng/ts-protoc-gen/issues/9
     const pbQso = new PbQso();
@@ -13,27 +28,18 @@ export class Qso {
     pbQso.setTimeOn(Timestamp.fromDate(new Date(o.timeOn)));
     pbQso.setTimeOff(Timestamp.fromDate(new Date(o.timeOff)));
     const contacted = new Station();
-    contacted.setOpCall(o.contactedStation.opCall)
-    contacted.setOpName(o.contactedStation.opName)
-    contacted.setCity(o.contactedStation.city)
-    contacted.setState(o.contactedStation.state)
-    contacted.setCountry(o.contactedStation.country)
-    pbQso.setContactedStation(contacted)
+    contacted.setOpCall(o.contactedStation.opCall);
+    contacted.setOpName(o.contactedStation.opName);
+    contacted.setCity(o.contactedStation.city);
+    contacted.setState(o.contactedStation.state);
+    contacted.setCountry(o.contactedStation.country);
+    pbQso.setContactedStation(contacted);
+    const logging = new Station();
+    logging.setStationCall(o.loggingStation.stationCall);
+    logging.setOpName(o.loggingStation.opName);
+    pbQso.setLoggingStation(logging);
     return new Qso(pbQso);
   }
-
-  band: string;
-  contactedCall: string;
-  contactedCity: string;
-  contactedCountry: string;
-  contactedName: string;
-  contactedState: string;
-  freq: number;
-  mode: string;
-  rstReceived: string;
-  rstSent: string;
-  timeOff: Date;
-  timeOn: Date;
 
   constructor(private qso: PbQso) {
     this.band = qso.getBand();
@@ -42,6 +48,8 @@ export class Qso {
     this.contactedCountry = qso.getContactedStation().getCountry();
     this.contactedName = qso.getContactedStation().getOpName();
     this.contactedState = qso.getContactedStation().getState();
+    this.loggingCall = qso.getLoggingStation().getStationCall();
+    this.loggingName = qso.getLoggingStation().getOpName();
     this.freq = qso.getFreq();
     this.mode = qso.getMode();
     this.rstReceived = qso.getRstReceived();
