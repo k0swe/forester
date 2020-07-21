@@ -1,4 +1,4 @@
-# K0S Logbook
+# KelLogbook
 
 An amateur radio logging application built by Chris Keller, K0SWE.
 
