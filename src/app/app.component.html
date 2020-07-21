@@ -1,11 +1,16 @@
 <mat-toolbar class="toolbar">
-  <button class="toolbar__menu-button" mat-icon-button>
+  <button class="toolbar__menu-button" mat-icon-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
   <h1>KelLog</h1>
   <div fxFlex></div>
   <k0s-agent></k0s-agent>
 </mat-toolbar>
-<div class="content">
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container class="page">
+  <mat-sidenav #sidenav>
+    Hello Sidenav
+  </mat-sidenav>
+  <mat-sidenav-container class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-container>
+</mat-sidenav-container>
