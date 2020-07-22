@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {QsoService} from '../shared/qso.service';
-import {Observable} from 'rxjs';
-import {Qso} from '../qso';
-import {QsoDetailComponent} from '../qso-detail/qso-detail.component';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import {MatPaginator} from "@angular/material/paginator";
+import {MatSort} from "@angular/material/sort";
+import {MatTableDataSource} from "@angular/material/table";
+import {QsoDetailComponent} from '../qso-detail/qso-detail.component';
+import {QsoService} from '../shared/qso.service';
+import {Qso} from '../qso';
 
 @Component({
   selector: 'k0s-qso-list',
@@ -11,17 +13,23 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./qso-list.component.scss']
 })
 export class QsoListComponent implements OnInit {
-  qsos$: Observable<Qso[]>;
+  dataSource = new MatTableDataSource<Qso>();
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   // TODO: customize per responsive size
-  columnsToDisplay = ['date', 'time', 'contactedCall', 'contactedName',
+  columnsToDisplay = ['timeOn', 'contactedCall', 'contactedName',
     'band', 'freq', 'mode', 'contactedCity', 'contactedState', 'contactedCountry'];
 
   constructor(private qsoService: QsoService, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
-    this.qsos$ = this.qsoService.getQsos();
+    this.qsoService.getQsos().subscribe(qsos => {
+      this.dataSource.data = qsos;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   openDialog(qso: Qso): void {

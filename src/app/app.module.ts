@@ -12,7 +12,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSortModule} from "@angular/material/sort";
 import {MatTableModule} from "@angular/material/table";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {QsoDetailComponent} from './qso-detail/qso-detail.component';
@@ -37,7 +39,9 @@ import {QsoService} from './shared/qso.service';
     MatCardModule,
     MatDialogModule,
     MatIconModule,
+    MatPaginatorModule,
     MatSidenavModule,
+    MatSortModule,
     MatTableModule,
     MatToolbarModule,
   ],

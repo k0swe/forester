@@ -1,16 +1,14 @@
 <mat-card>
   <mat-card-content>
-    <table mat-table [dataSource]="qsos$">
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef>Date</th>
-        <td mat-cell *matCellDef="let qso">{{qso.timeOn | date : "yyyy-MM-dd" : "UTC"}}</td>
-      </ng-container>
-      <ng-container matColumnDef="time">
-        <th mat-header-cell *matHeaderCellDef>Time</th>
-        <td mat-cell *matCellDef="let qso">{{qso.timeOn | date : "HH:mm" : "UTC"}}</td>
+    <table mat-table
+           matSort matSortActive="timeOn" matSortDirection="desc" matSortDisableClear
+           [dataSource]="dataSource">
+      <ng-container matColumnDef="timeOn">
+        <th mat-header-cell mat-sort-header start="desc" *matHeaderCellDef>Date/Time</th>
+        <td mat-cell *matCellDef="let qso">{{qso.timeOn | date : "yyyy-MM-dd HH:mm" : "UTC"}}</td>
       </ng-container>
       <ng-container matColumnDef="contactedCall">
-        <th mat-header-cell *matHeaderCellDef>Call</th>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>Call</th>
         <td mat-cell class="callsign-column" *matCellDef="let qso">{{qso.contactedCall}}</td>
       </ng-container>
       <mat-text-column name="contactedName" headerText="Name"></mat-text-column>
@@ -28,5 +26,6 @@
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
       <tr mat-row (click)="openDialog(qso)" *matRowDef="let qso; columns: columnsToDisplay"></tr>
     </table>
+    <mat-paginator></mat-paginator>
   </mat-card-content>
 </mat-card>
