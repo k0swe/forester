@@ -9,7 +9,7 @@ table {
   width: 100%;
 }
 
-.qso-item {
+.mat-row {
 
   &:hover {
     background-color: mat-color($k0s-background, 'hover');
@@ -19,4 +19,9 @@ table {
 .callsign-column {
   font-weight: bold;
   font-family: "Source Code Variable", "Source Code Pro", monospace;
+}
+
+.freq-column {
+  text-align: end;
+  padding-right: 4px;
 }

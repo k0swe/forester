@@ -13,6 +13,10 @@ import {MatDialog} from '@angular/material/dialog';
 export class QsoListComponent implements OnInit {
   qsos$: Observable<Qso[]>;
 
+  // TODO: customize per responsive size
+  columnsToDisplay = ['date', 'time', 'contactedCall', 'contactedName',
+    'band', 'freq', 'mode', 'contactedCity', 'contactedState', 'contactedCountry'];
+
   constructor(private qsoService: QsoService, private dialog: MatDialog) {
   }
 
