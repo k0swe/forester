@@ -15,6 +15,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from "@angular/material/list";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSelectModule} from "@angular/material/select";
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSortModule} from "@angular/material/sort";
 import {MatTableModule} from "@angular/material/table";
@@ -46,6 +47,7 @@ import {WasComponent} from './was/was.component';
     MatIconModule,
     MatListModule,
     MatPaginatorModule,
+    MatSelectModule,
     MatSidenavModule,
     MatSortModule,
     MatTableModule,

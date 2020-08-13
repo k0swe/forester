@@ -1,18 +1,27 @@
 <mat-card>
   <mat-card-title>ARRL Worked All States Progress</mat-card-title>
+  <mat-card-header>
+    <mat-form-field>
+      <mat-label>Award type</mat-label>
+      <mat-select [(value)]="awardType">
+        <mat-option value="mixed">Mixed</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-header>
   <mat-card-content>
     <google-map
       width="100%"
       [zoom]="zoom"
       [center]="center"
       [options]="options">
+
       <map-marker
         *ngFor="let marker of markers"
         [position]="marker.position"
         [label]="marker.label"
         [title]="marker.title"
-        [options]="marker.options"
-      >
+        [options]="marker.options">
+
       </map-marker>
     </google-map>
   </mat-card-content>
