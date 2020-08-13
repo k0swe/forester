@@ -12,6 +12,7 @@ export class WasComponent implements OnInit {
   options: google.maps.MapOptions = {
     minZoom: 2,
     maxZoom: 7,
+    streetViewControl: false,
   }
 
   states = [
