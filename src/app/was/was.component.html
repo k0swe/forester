@@ -1,6 +1,12 @@
 <mat-card>
   <mat-card-title>ARRL Worked All States Progress</mat-card-title>
   <mat-card-content>
-    Content
+    <google-map
+      width="100%"
+      [zoom]="zoom"
+      [center]="center"
+      [options]="options">
+
+    </google-map>
   </mat-card-content>
 </mat-card>

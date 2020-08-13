@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {GoogleMapsModule} from "@angular/google-maps";
 import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
@@ -37,6 +38,7 @@ import {WasComponent} from './was/was.component';
     BrowserAnimationsModule,
     BrowserModule,
     FlexLayoutModule,
+    GoogleMapsModule,
     HttpClientModule,
     MatButtonModule,
     MatCardModule,

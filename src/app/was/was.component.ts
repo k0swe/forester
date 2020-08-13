@@ -6,6 +6,12 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./was.component.scss']
 })
 export class WasComponent implements OnInit {
+  zoom = 3;
+  center: google.maps.LatLngLiteral = {lat: 40, lng: -105}
+  options: google.maps.MapOptions = {
+    minZoom: 2,
+    maxZoom: 7,
+  }
 
   constructor() {
   }
