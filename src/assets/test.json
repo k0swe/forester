@@ -1,6 +1,6 @@
 {
   "header": {
-    "createdTimestamp": "2020-07-31T19:59:33.068365Z",
+    "createdTimestamp": "2020-08-13T17:36:59.411292Z",
     "programId": "PbAdifDemo",
     "programVersion": "0.0.1"
   },
@@ -8195,7 +8195,9 @@
       },
       "eqsl": {},
       "lotw": {
-        "sentStatus": "Y"
+        "sentStatus": "Y",
+        "receivedDate": "2020-08-07T00:00:00Z",
+        "receivedStatus": "Y"
       },
       "card": {
         "sentStatus": "N",
@@ -9447,7 +9449,9 @@
         "state": "VA",
         "country": "United States",
         "dxcc": 291,
-        "continent": "NA"
+        "continent": "NA",
+        "cqZone": 5,
+        "ituZone": 8
       },
       "band": "40m",
       "bandRx": "40m",
@@ -14711,7 +14715,7 @@
       "eqsl": {},
       "lotw": {
         "sentStatus": "Y",
-        "receivedDate": "2020-05-17T00:00:00Z",
+        "receivedDate": "2020-07-31T00:00:00Z",
         "receivedStatus": "Y"
       },
       "card": {
@@ -16879,7 +16883,7 @@
       },
       "contactedStation": {
         "opCall": "WW6RY",
-        "opName": " AANTELOPE ACRES AMATEUR RADIO CLUB",
+        "opName": "AANTELOPE ACRES AMATEUR RADIO CLUB",
         "gridSquare": "DM04",
         "latitude": 34.7774,
         "longitude": -118.27831666666667,
@@ -17440,7 +17444,7 @@
       },
       "contactedStation": {
         "opCall": "W0UK",
-        "opName": " DOUGLAS COUNTY AMATEUR RADIO CLUB",
+        "opName": "DOUGLAS COUNTY AMATEUR RADIO CLUB",
         "gridSquare": "EM28",
         "latitude": 39.02238333333333,
         "longitude": -95.32536666666667,
@@ -17659,7 +17663,8 @@
       "lotw": {
         "sentDate": "2020-06-27T00:00:00Z",
         "sentStatus": "Y",
-        "receivedStatus": "N"
+        "receivedDate": "2020-08-08T00:00:00Z",
+        "receivedStatus": "Y"
       },
       "card": {
         "sentStatus": "N",
@@ -17867,7 +17872,7 @@
       },
       "contactedStation": {
         "opCall": "K8UU",
-        "opName": " DRAKE ARC CONTEST GROUP",
+        "opName": "DRAKE ARC CONTEST GROUP",
         "gridSquare": "EM79um",
         "latitude": 39.56568333333333,
         "longitude": -84.18466666666667,
@@ -18454,7 +18459,9 @@
       "eqsl": {},
       "lotw": {
         "sentDate": "2020-07-29T00:00:00Z",
-        "sentStatus": "Y"
+        "sentStatus": "Y",
+        "receivedDate": "2020-08-07T00:00:00Z",
+        "receivedStatus": "Y"
       },
       "card": {
         "sentStatus": "N",
@@ -18507,7 +18514,908 @@
       "eqsl": {},
       "lotw": {
         "sentDate": "2020-07-29T00:00:00Z",
-        "sentStatus": "Y"
+        "sentStatus": "Y",
+        "receivedDate": "2020-07-30T00:00:00Z",
+        "receivedStatus": "Y"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 100.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "WS6Y",
+        "opName": "William J Sandison",
+        "gridSquare": "DM35",
+        "latitude": 35.264183333333335,
+        "longitude": -113.97778333333333,
+        "qslVia": "Lotw eqsl qrz",
+        "city": "Kingman",
+        "county": "AZ, Mohave",
+        "state": "AZ",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "ws6y@arrl.net",
+        "cqZone": 3,
+        "ituZone": 7
+      },
+      "band": "40m",
+      "bandRx": "40m",
+      "freq": 7.0758,
+      "freqRx": 7.0758,
+      "mode": "FT8",
+      "distanceKm": 939,
+      "timeOn": "2020-08-11T04:31:00Z",
+      "timeOff": "2020-08-11T04:32:00Z",
+      "rstReceived": "-01",
+      "rstSent": "+07",
+      "qrzcom": {
+        "uploadDate": "2020-08-11T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-11T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedDate": "2020-08-11T00:00:00Z",
+        "receivedStatus": "Y"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 60.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "AC5Q",
+        "opName": "DENNIS H FARRIS, SR",
+        "gridSquare": "EM54",
+        "latitude": 34.302033333333334,
+        "longitude": -88.48253333333334,
+        "qslVia": "through qrz, eqsl and lotw",
+        "city": "MANTACHIE",
+        "county": "MS, Itawamba",
+        "state": "MS",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "dennisfarris@hotmail.com",
+        "cqZone": 4,
+        "ituZone": 8
+      },
+      "band": "20m",
+      "bandRx": "20m",
+      "freq": 14.0759,
+      "freqRx": 14.0759,
+      "mode": "FT8",
+      "distanceKm": 1593,
+      "timeOn": "2020-08-12T14:14:00Z",
+      "timeOff": "2020-08-12T14:15:00Z",
+      "rstReceived": "-14",
+      "rstSent": "-02",
+      "qrzcom": {
+        "uploadDate": "2020-08-12T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-12T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedDate": "2020-08-13T00:00:00Z",
+        "receivedStatus": "Y"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 100.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "K4JKB",
+        "opName": "JOSEPH K BALES",
+        "gridSquare": "FM17",
+        "latitude": 37.394083333333334,
+        "longitude": -77.65078333333334,
+        "city": "MIDLOTHIAN",
+        "county": "VA, Chesterfield",
+        "state": "VA",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "k4jkb@hotmail.com"
+      },
+      "band": "20m",
+      "bandRx": "20m",
+      "freq": 14.0759,
+      "freqRx": 14.0759,
+      "mode": "FT8",
+      "distanceKm": 2387,
+      "timeOn": "2020-08-12T14:20:00Z",
+      "timeOff": "2020-08-12T14:21:00Z",
+      "rstReceived": "-16",
+      "rstSent": "-07",
+      "qrzcom": {
+        "uploadDate": "2020-08-12T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-12T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedDate": "2020-08-12T00:00:00Z",
+        "receivedStatus": "Y"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 100.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "6E6E",
+        "opName": "Special Callsign",
+        "gridSquare": "EK09",
+        "latitude": 19.35333333333333,
+        "longitude": -99.21,
+        "qslVia": "LoTW only",
+        "city": "Mexico City",
+        "country": "Mexico",
+        "dxcc": 50,
+        "continent": "NA",
+        "email": "six.echo.six.echo@mm.st",
+        "cqZone": 6,
+        "ituZone": 10
+      },
+      "band": "20m",
+      "bandRx": "20m",
+      "freq": 14.076,
+      "freqRx": 14.076,
+      "mode": "FT8",
+      "distanceKm": 2353,
+      "timeOn": "2020-08-12T14:28:00Z",
+      "timeOff": "2020-08-12T14:29:00Z",
+      "rstReceived": "-02",
+      "rstSent": "-01",
+      "qrzcom": {
+        "uploadDate": "2020-08-12T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-12T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedDate": "2020-08-12T00:00:00Z",
+        "receivedStatus": "Y"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 80.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "K9RJO",
+        "opName": "RAYMOND P KASPRZAK",
+        "gridSquare": "EN52",
+        "latitude": 42.15443333333333,
+        "longitude": -88.5781,
+        "city": "HUNTLEY",
+        "county": "IL, Kane",
+        "state": "IL",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "raykasprzak@comcast.net",
+        "cqZone": 5,
+        "ituZone": 7
+      },
+      "band": "40m",
+      "bandRx": "40m",
+      "freq": 7.07615,
+      "freqRx": 7.07615,
+      "mode": "FT8",
+      "distanceKm": 1402,
+      "timeOn": "2020-08-13T02:05:00Z",
+      "timeOff": "2020-08-13T02:06:00Z",
+      "rstReceived": "-13",
+      "rstSent": "-02",
+      "qrzcom": {
+        "uploadDate": "2020-08-13T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedDate": "2020-08-13T00:00:00Z",
+        "receivedStatus": "Y"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 80.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "KE0OVX",
+        "opName": "ROBERT M ANDERSON",
+        "gridSquare": "DN98",
+        "latitude": 48.11423333333333,
+        "longitude": -101.13666666666667,
+        "city": "MINOT",
+        "county": "ND, Ward",
+        "state": "ND",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "KE0OVX@gmail.com",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "band": "40m",
+      "bandRx": "40m",
+      "freq": 7.07615,
+      "freqRx": 7.07615,
+      "mode": "FT8",
+      "distanceKm": 964,
+      "timeOn": "2020-08-13T02:08:00Z",
+      "timeOff": "2020-08-13T02:09:00Z",
+      "rstReceived": "-09",
+      "rstSent": "+01",
+      "qrzcom": {
+        "uploadDate": "2020-08-13T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedDate": "2020-08-13T00:00:00Z",
+        "receivedStatus": "Y"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 100.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "KF5WGB",
+        "opName": "Ralf V\u00f6pel",
+        "gridSquare": "EM23",
+        "latitude": 33.50338333333333,
+        "longitude": -94.61551666666666,
+        "city": "De Kalb",
+        "county": "TX, Bowie",
+        "state": "TX",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "ralfvoepel@gmail.com",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "band": "40m",
+      "bandRx": "40m",
+      "freq": 7.076,
+      "freqRx": 7.076,
+      "mode": "FT8",
+      "distanceKm": 1170,
+      "timeOn": "2020-08-13T02:41:00Z",
+      "timeOff": "2020-08-13T02:42:00Z",
+      "rstReceived": "-06",
+      "rstSent": "-09",
+      "qrzcom": {
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedStatus": "N"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 100.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "W6JCH",
+        "opName": "Jon C Hunter",
+        "gridSquare": "DM13",
+        "latitude": 33.676,
+        "longitude": -116.224,
+        "city": "Indio",
+        "county": "CA, Riverside",
+        "state": "CA",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "w6jch@arrl.net",
+        "cqZone": 3,
+        "ituZone": 6
+      },
+      "band": "40m",
+      "bandRx": "40m",
+      "freq": 7.076,
+      "freqRx": 7.076,
+      "mode": "FT8",
+      "distanceKm": 1210,
+      "timeOn": "2020-08-13T02:45:00Z",
+      "timeOff": "2020-08-13T02:46:00Z",
+      "rstReceived": "+01",
+      "rstSent": "-07",
+      "qrzcom": {
+        "uploadDate": "2020-08-13T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedDate": "2020-08-13T00:00:00Z",
+        "receivedStatus": "Y"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 100.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "K7KRR",
+        "opName": "ROBERT D ST ANDRE",
+        "gridSquare": "CN87",
+        "latitude": 47.114733333333334,
+        "longitude": -122.25281666666666,
+        "city": "Puyallup",
+        "county": "WA, Pierce",
+        "state": "WA",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA"
+      },
+      "band": "40m",
+      "bandRx": "40m",
+      "freq": 7.07585,
+      "freqRx": 7.07585,
+      "mode": "FT8",
+      "distanceKm": 1596,
+      "timeOn": "2020-08-13T03:08:00Z",
+      "timeOff": "2020-08-13T03:09:00Z",
+      "rstReceived": "-04",
+      "rstSent": "-17",
+      "qrzcom": {
+        "uploadDate": "2020-08-13T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedStatus": "N"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 100.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "W7VD",
+        "opName": "ROBERT H DICKERSON",
+        "gridSquare": "DM09",
+        "latitude": 39.402033333333335,
+        "longitude": -119.7283,
+        "qslVia": "lotw",
+        "city": "RENO",
+        "county": "NV, Washoe",
+        "state": "NV",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "cpibobd@charter.net",
+        "cqZone": 3,
+        "ituZone": 6
+      },
+      "band": "40m",
+      "bandRx": "40m",
+      "freq": 7.07585,
+      "freqRx": 7.07585,
+      "mode": "FT8",
+      "distanceKm": 1255,
+      "timeOn": "2020-08-13T03:11:00Z",
+      "timeOff": "2020-08-13T03:12:00Z",
+      "rstReceived": "-07",
+      "rstSent": "-12",
+      "qrzcom": {
+        "uploadDate": "2020-08-13T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedDate": "2020-08-13T00:00:00Z",
+        "receivedStatus": "Y"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 100.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "KJ6OMN",
+        "opName": "Stephen C Pollmann",
+        "gridSquare": "CN87",
+        "latitude": 47.6626,
+        "longitude": -122.02515,
+        "city": "Redmond",
+        "county": "WA, King",
+        "state": "WA",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "cqZone": 3,
+        "ituZone": 6
+      },
+      "band": "40m",
+      "bandRx": "40m",
+      "freq": 7.07587,
+      "freqRx": 7.07587,
+      "mode": "FT8",
+      "distanceKm": 1606,
+      "timeOn": "2020-08-13T03:13:00Z",
+      "timeOff": "2020-08-13T03:14:00Z",
+      "rstReceived": "-11",
+      "rstSent": "+08",
+      "qrzcom": {
+        "uploadDate": "2020-08-13T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedStatus": "N"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 100.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "KN6HIP",
+        "opName": "Andrew L Lorentzen",
+        "gridSquare": "CM97",
+        "latitude": 37.23526666666667,
+        "longitude": -121.80143333333334,
+        "city": "San Jose",
+        "county": "CA, Santa Clara",
+        "state": "CA",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "kn6hip@arrl.net",
+        "cqZone": 3,
+        "ituZone": 2
+      },
+      "band": "40m",
+      "bandRx": "40m",
+      "freq": 7.076,
+      "freqRx": 7.076,
+      "mode": "FT8",
+      "distanceKm": 1483,
+      "timeOn": "2020-08-13T03:25:00Z",
+      "timeOff": "2020-08-13T03:26:00Z",
+      "rstReceived": "-20",
+      "rstSent": "-23",
+      "qrzcom": {
+        "uploadDate": "2020-08-13T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedStatus": "N"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 100.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "K7VIC",
+        "opName": "JERALD L SLAMA",
+        "gridSquare": "DN28",
+        "latitude": 48.33331666666667,
+        "longitude": -114.26298333333334,
+        "qslVia": "DIRECT, BURO, EQSL, LOTW",
+        "city": "COLUMBIA FALLS",
+        "county": "MT, Flathead",
+        "state": "MT",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "k7vic@k7vic.com",
+        "cqZone": 4,
+        "ituZone": 6
+      },
+      "band": "40m",
+      "bandRx": "40m",
+      "freq": 7.07585,
+      "freqRx": 7.07585,
+      "mode": "FT8",
+      "distanceKm": 1188,
+      "timeOn": "2020-08-13T03:29:00Z",
+      "timeOff": "2020-08-13T03:30:00Z",
+      "rstReceived": "-06",
+      "rstSent": "+08",
+      "qrzcom": {
+        "uploadDate": "2020-08-13T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedDate": "2020-08-13T00:00:00Z",
+        "receivedStatus": "Y"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 100.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "XE2GRM",
+        "opName": "Gildardo Rosas Meza.",
+        "gridSquare": "DM11",
+        "latitude": 31.87165,
+        "longitude": -116.62813333333334,
+        "qslVia": "QSLS DIRECT NO BURO.",
+        "city": "Ensenada",
+        "state": "BC",
+        "country": "Mexico",
+        "dxcc": 50,
+        "continent": "NA",
+        "email": "xe2grm@hotmail.com",
+        "cqZone": 6,
+        "ituZone": 10
+      },
+      "band": "40m",
+      "bandRx": "40m",
+      "freq": 7.0757,
+      "freqRx": 7.0757,
+      "mode": "FT8",
+      "distanceKm": 1371,
+      "timeOn": "2020-08-13T03:32:00Z",
+      "timeOff": "2020-08-13T03:33:00Z",
+      "rstReceived": "-15",
+      "rstSent": "-09",
+      "qrzcom": {
+        "uploadDate": "2020-08-13T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedStatus": "N"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 80.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "KQ4KK",
+        "opName": "KENT V HUFFORD",
+        "gridSquare": "EM93",
+        "latitude": 33.54225,
+        "longitude": -81.83441666666667,
+        "city": "GRANITEVILLE",
+        "county": "SC, Aiken",
+        "state": "SC",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "khufford@ATLANTICBB.net"
+      },
+      "band": "20m",
+      "bandRx": "20m",
+      "freq": 14.0758,
+      "freqRx": 14.0758,
+      "mode": "FT8",
+      "distanceKm": 2180,
+      "timeOn": "2020-08-13T15:00:00Z",
+      "timeOff": "2020-08-13T15:01:00Z",
+      "rstReceived": "+05",
+      "rstSent": "-10",
+      "qrzcom": {
+        "uploadDate": "2020-08-13T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedStatus": "N"
+      },
+      "card": {
+        "sentStatus": "N",
+        "receivedStatus": "N"
+      }
+    },
+    {
+      "loggingStation": {
+        "opName": "Christopher C Keller",
+        "gridSquare": "DM79LV",
+        "latitude": 39.91025,
+        "longitude": -105.05693333333333,
+        "power": 80.0,
+        "stationCall": "K0SWE",
+        "city": "Westminster",
+        "county": "CO, Jefferson",
+        "state": "CO",
+        "country": "United States",
+        "cqZone": 4,
+        "ituZone": 7
+      },
+      "contactedStation": {
+        "opCall": "KD8WJB",
+        "opName": "Emmitt H Hempstead, Jr",
+        "gridSquare": "EM89",
+        "latitude": 39.44396666666667,
+        "longitude": -83.01208333333334,
+        "city": "Chillicothe",
+        "county": "OH, Ross",
+        "state": "OH",
+        "country": "United States",
+        "dxcc": 291,
+        "continent": "NA",
+        "email": "KD8WJB@GMAIL.COM",
+        "cqZone": 8,
+        "ituZone": 8
+      },
+      "band": "20m",
+      "bandRx": "20m",
+      "freq": 14.0758,
+      "freqRx": 14.0758,
+      "mode": "FT8",
+      "distanceKm": 1882,
+      "timeOn": "2020-08-13T15:04:00Z",
+      "timeOff": "2020-08-13T15:05:00Z",
+      "rstReceived": "-13",
+      "rstSent": "-13",
+      "qrzcom": {
+        "uploadDate": "2020-08-13T00:00:00Z",
+        "uploadStatus": "UPLOAD_COMPLETE"
+      },
+      "eqsl": {},
+      "lotw": {
+        "sentDate": "2020-08-13T00:00:00Z",
+        "sentStatus": "Y",
+        "receivedStatus": "N"
       },
       "card": {
         "sentStatus": "N",
