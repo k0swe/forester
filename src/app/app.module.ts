@@ -12,6 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from "@angular/material/list";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSortModule} from "@angular/material/sort";
@@ -20,6 +21,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {QsoDetailComponent} from './qso-detail/qso-detail.component';
 import {QsoListComponent} from './qso-list/qso-list.component';
 import {QsoService} from './shared/qso.service';
+import {WasComponent} from './was/was.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import {QsoService} from './shared/qso.service';
     HomeComponent,
     QsoListComponent,
     QsoDetailComponent,
+    WasComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -39,6 +42,7 @@ import {QsoService} from './shared/qso.service';
     MatCardModule,
     MatDialogModule,
     MatIconModule,
+    MatListModule,
     MatPaginatorModule,
     MatSidenavModule,
     MatSortModule,

@@ -8,7 +8,10 @@
 </mat-toolbar>
 <mat-sidenav-container class="page">
   <mat-sidenav #sidenav>
-    Hello Sidenav
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/'">QSO List</a>
+      <a mat-list-item [routerLink]="'/was'">WAS Progress</a>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-container class="content">
     <router-outlet></router-outlet>
