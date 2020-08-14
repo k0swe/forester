@@ -6,7 +6,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./was.component.scss']
 })
 export class WasComponent implements OnInit {
-  awardType = 'mixed';
+  mode = 'mixed';
+  band = 'mixed';
   zoom = 3;
   center: google.maps.LatLngLiteral = {lat: 40, lng: -105};
   options: google.maps.MapOptions = {
