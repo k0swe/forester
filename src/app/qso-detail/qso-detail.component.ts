@@ -7,7 +7,7 @@ export interface QsoDetailData {
 }
 
 @Component({
-  selector: 'k0s-qso-detail',
+  selector: 'kel-qso-detail',
   templateUrl: './qso-detail.component.html',
   styleUrls: ['./qso-detail.component.css']
 })

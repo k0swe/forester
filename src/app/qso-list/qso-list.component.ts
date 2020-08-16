@@ -8,7 +8,7 @@ import {QsoService} from '../shared/qso.service';
 import {Qso} from '../qso';
 
 @Component({
-  selector: 'k0s-qso-list',
+  selector: 'kel-qso-list',
   templateUrl: './qso-list.component.html',
   styleUrls: ['./qso-list.component.scss']
 })

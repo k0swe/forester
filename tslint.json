@@ -25,7 +25,7 @@
     "component-selector": [
       true,
       "element",
-      "k0s",
+      "kel",
       "kebab-case"
     ],
     "eofline": true,

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {webSocket} from "rxjs/webSocket";
 
 @Component({
-  selector: 'k0s-agent',
+  selector: 'kel-agent',
   templateUrl: './agent.component.html',
   styleUrls: ['./agent.component.scss']
 })

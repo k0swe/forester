@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'k0s-root',
+  selector: 'kel-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

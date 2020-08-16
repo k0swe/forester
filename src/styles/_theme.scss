@@ -1,15 +1,15 @@
 @import '~@angular/material/theming';
 
-$k0s-primary: mat-palette($mat-indigo);
-$k0s-accent:  mat-palette($mat-pink);
-$k0s-theme: mat-light-theme((
+$kel-primary: mat-palette($mat-indigo);
+$kel-accent: mat-palette($mat-pink);
+$kel-theme: mat-light-theme((
   color: (
-    primary: $k0s-primary,
-    accent: $k0s-accent,
+    primary: $kel-primary,
+    accent: $kel-accent,
   )
 ));
 
-$k0s-background: map-get($k0s-theme, background);
-$k0s-foreground: map-get($k0s-theme, foreground);
+$kel-background: map-get($kel-theme, background);
+$kel-foreground: map-get($kel-theme, foreground);
 
-$k0s-typography: mat-typography-config();
+$kel-typography: mat-typography-config();

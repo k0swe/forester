@@ -16,8 +16,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. 
 
-Run `docker build -t k0s-log .` for a production build. After building, run `docker run -d -p 
-8080:80 k0s-log` to try the image locally on `http://localhost:8080/`.
+Run `docker build -t kellog .` for a production build. After building, run `docker run -d -p 
+8080:80 kellog` to try the image locally on `http://localhost:8080/`.
 
 ## Running unit tests
 

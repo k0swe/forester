@@ -1,5 +1,5 @@
 {
-  "name": "k0s-log",
+  "name": "kellog",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,8 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "docker-build": "docker build -t k0s-log .",
-    "docker-run": "docker run -d --rm -p 8080:80 --name k0s-log k0s-log"
+    "docker-build": "docker build -t kellog .",
+    "docker-run": "docker run -d --rm -p 8080:80 --name kellog kellog"
   },
   "private": true,
   "dependencies": {

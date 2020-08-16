@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'k0s-log'`, () => {
+  it(`should have as title 'kellog'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('k0s-log');
+    expect(app.title).toEqual('kellog');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('k0s-log app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('kellog app is running!');
   });
 });
