@@ -1,1 +1,6 @@
-<div class="agent">Agent: {{connectedState}}</div>
+<div *ngIf="connectedState; else notConnected">
+  <mat-icon matTooltip="Agent connected">radio</mat-icon>
+</div>
+<ng-template #notConnected>
+  <div><mat-icon color="warn" matTooltip="Agent disconnected">radio</mat-icon></div>
+</ng-template>
