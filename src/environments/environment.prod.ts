@@ -1,13 +1,13 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "AIzaSyDEM2pCxCnfwUXY0b0WIpoS-cSfqEVnaFs",
-    authDomain: "fortune-207404.firebaseapp.com",
-    databaseURL: "https://fortune-207404.firebaseio.com",
-    projectId: "fortune-207404",
-    storageBucket: "fortune-207404.appspot.com",
-    messagingSenderId: "990239725999",
-    appId: "1:990239725999:web:c5e78bc4586cf74cbc375a",
-    measurementId: "G-CJFV671KTE"
+    apiKey: 'AIzaSyCaOdT7P0gex-Wb1ga5meShIX_cDL64WF8',
+    authDomain: 'k0swe-kellog.firebaseapp.com',
+    databaseURL: 'https://k0swe-kellog.firebaseio.com',
+    projectId: 'k0swe-kellog',
+    storageBucket: 'k0swe-kellog.appspot.com',
+    messagingSenderId: '1062132260085',
+    appId: '1:1062132260085:web:241eb522b9821edf0239bc',
+    measurementId: 'G-EYXSXWYN0P'
   }
 };

@@ -1,12 +1,12 @@
 {
   "projects": {
-    "default": "fortune-207404"
+    "default": "k0swe-kellog"
   },
   "targets": {
-    "fortune-207404": {
+    "k0swe-kellog": {
       "hosting": {
         "kellog": [
-          "fortune-207404"
+          "k0swe-kellog"
         ]
       }
     }
