@@ -5,6 +5,14 @@
   <h1>KelLog</h1>
   <div fxFlex></div>
   <kel-agent></kel-agent>
+  <div *ngIf="auth.user | async as user; else showLogin">
+    <h1>Hello {{ user.displayName }}!</h1>
+    <button (click)="logout()">Logout</button>
+  </div>
+  <ng-template #showLogin>
+    <p>Please login.</p>
+    <button (click)="login()">Login with Google</button>
+  </ng-template>
 </mat-toolbar>
 <mat-sidenav-container class="page">
   <mat-sidenav #sidenav>

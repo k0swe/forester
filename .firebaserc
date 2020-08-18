@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "fortune-207404"
+  },
+  "targets": {
+    "fortune-207404": {
+      "hosting": {
+        "kellog": [
+          "fortune-207404"
+        ]
+      }
+    }
   }
 }

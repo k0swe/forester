@@ -2,6 +2,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AgentComponent} from './agent/agent.component';
+import {AngularFireAuthModule} from "@angular/fire/auth";
+import {AngularFireModule} from "@angular/fire";
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -24,6 +26,7 @@ import {QsoDetailComponent} from './qso-detail/qso-detail.component';
 import {QsoListComponent} from './qso-list/qso-list.component';
 import {QsoService} from './shared/qso.service';
 import {WasComponent} from './was/was.component';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import {WasComponent} from './was/was.component';
     WasComponent,
   ],
   imports: [
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
