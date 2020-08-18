@@ -6,6 +6,8 @@ import {AngularFireAuthModule} from "@angular/fire/auth";
 import {AngularFireModule} from "@angular/fire";
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
+import {AuthService} from "./shared/auth.service";
+import {AvatarComponent} from './avatar/avatar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {GoogleMapsModule} from "@angular/google-maps";
@@ -32,9 +34,10 @@ import {environment} from '../environments/environment';
   declarations: [
     AgentComponent,
     AppComponent,
+    AvatarComponent,
     HomeComponent,
-    QsoListComponent,
     QsoDetailComponent,
+    QsoListComponent,
     WasComponent,
   ],
   imports: [
@@ -58,7 +61,10 @@ import {environment} from '../environments/environment';
     MatTableModule,
     MatToolbarModule,
   ],
-  providers: [QsoService],
+  providers: [
+    AuthService,
+    QsoService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
