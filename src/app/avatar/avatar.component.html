@@ -1,8 +1,16 @@
 <div *ngIf="authService.user() | async as user; else showLogin">
-  <h1>Hello {{ user.displayName }}!</h1>
-  <button (click)="authService.logout()">Logout</button>
+  <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+    <img [src]="user.photoURL" [alt]="user.displayName">
+  </button>
+  <mat-menu #accountMenu="matMenu">
+    <button mat-menu-item (click)="authService.logout()">Logout</button>
+  </mat-menu>
 </div>
 <ng-template #showLogin>
-  <p>Please login.</p>
-  <button (click)="authService.login()">Login with Google</button>
+  <button mat-icon-button [matMenuTriggerFor]="loginMenu">
+    <mat-icon color="accent">person</mat-icon>
+  </button>
+  <mat-menu #loginMenu="matMenu">
+    <button mat-menu-item (click)="authService.login()">Login with Google</button>
+  </mat-menu>
 </ng-template>
