@@ -1,5 +1,5 @@
+import {AuthService} from '../shared/auth.service';
 import {Component} from '@angular/core';
-import {AuthService} from "../shared/auth.service";
 
 @Component({
   selector: 'kel-avatar',

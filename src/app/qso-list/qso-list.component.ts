@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {MatPaginator} from "@angular/material/paginator";
-import {MatSort} from "@angular/material/sort";
-import {MatTableDataSource} from "@angular/material/table";
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 import {QsoDetailComponent} from '../qso-detail/qso-detail.component';
 import {QsoService} from '../shared/qso.service';
 import {Qso} from '../qso';
@@ -35,7 +35,7 @@ export class QsoListComponent implements OnInit {
   openDialog(qso: Qso): void {
     const dialogRef = this.dialog.open(QsoDetailComponent, {
       width: '250px',
-      data: {qso: qso}
+      data: {qso}
     });
 
     dialogRef.afterClosed().subscribe(result => {
