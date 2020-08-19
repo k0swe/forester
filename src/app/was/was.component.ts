@@ -1,4 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {QsoService} from '../shared/qso.service';
+import {Qso} from '../qso';
+import {Observable} from 'rxjs';
+import {GoogleMap} from '@angular/google-maps';
+
+interface State {
+  name: string;
+  abbrev: string;
+  lat: number;
+  lon: number;
+}
 
 @Component({
   selector: 'kel-was',
@@ -6,6 +17,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./was.component.scss']
 })
 export class WasComponent implements OnInit {
+  @ViewChild('map') map: GoogleMap;
   mode = 'mixed';
   band = 'mixed';
   zoom = 3;
@@ -16,7 +28,7 @@ export class WasComponent implements OnInit {
     streetViewControl: false,
   };
 
-  states = [
+  states: Array<State> = [
     {name: 'Alabama', abbrev: 'AL', lat: 32.601, lon: -86.6807},
     {name: 'Alaska', abbrev: 'AK', lat: 61.3025, lon: -152.775},
     {name: 'Arizona', abbrev: 'AZ', lat: 34.1682, lon: -111.9309},
@@ -70,21 +82,63 @@ export class WasComponent implements OnInit {
   ];
   markers = [];
 
-  constructor() {
+  private static makeQsoMarkerOptions(state: State, qso: Qso): google.maps.MarkerOptions {
+    let latitude = state.lat;
+    let longitude = state.lon;
+    if (qso.contactedLatitude != null) {
+      latitude = qso.contactedLatitude;
+    }
+    if (qso.contactedLongitude != null) {
+      longitude = qso.contactedLongitude;
+    }
+    return {
+      position: {
+        lat: latitude,
+        lng: longitude,
+      },
+      icon: 'http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png',
+      title: qso.contactedCall,
+    };
+  }
+
+  private static makeNoQsoMarkerOptions(state: State): google.maps.MarkerOptions {
+    return {
+      position: {
+        lat: state.lat,
+        lng: state.lon,
+      },
+      icon: 'http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png',
+      title: state.name,
+    };
+  }
+
+  constructor(private qsoService: QsoService) {
   }
 
   ngOnInit(): void {
     this.states.forEach(state => {
-      this.markers.push({
-        position: {
-          lat: state.lat,
-          lng: state.lon,
-        },
-        label: {
-          text: state.abbrev,
-        },
-        title: state.name,
+      this.findQsoForState(state.abbrev).subscribe(qso => {
+        let markerOpts: google.maps.MarkerOptions;
+        if (qso !== undefined) {
+          console.log('QSO for', state.abbrev, 'with', qso.contactedCall);
+          markerOpts = WasComponent.makeQsoMarkerOptions(state, qso);
+        } else {
+          console.log('No QSO for', state.abbrev);
+          markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
+        }
+        markerOpts.map = this.map.googleMap;
+        const newMarker = new google.maps.Marker(markerOpts);
       });
     });
+  }
+
+  private findQsoForState(abbrev: string): Observable<Qso | undefined> {
+    if (abbrev === 'AK') {
+      return this.qsoService.findEarliestQso({country: 'Alaska'});
+    }
+    if (abbrev === 'HI') {
+      return this.qsoService.findEarliestQso({country: 'Hawaii'});
+    }
+    return this.qsoService.findEarliestQso({country: 'United States', state: abbrev});
   }
 }

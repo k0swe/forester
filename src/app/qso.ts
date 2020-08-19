@@ -8,6 +8,8 @@ export class Qso {
   contactedCountry: string;
   contactedName: string;
   contactedState: string;
+  contactedLatitude?: number;
+  contactedLongitude?: number;
   loggingCall: string;
   loggingName: string;
   freq: number;
@@ -33,6 +35,8 @@ export class Qso {
     contacted.setCity(o.contactedStation.city);
     contacted.setState(o.contactedStation.state);
     contacted.setCountry(o.contactedStation.country);
+    contacted.setLatitude(o.contactedStation.latitude);
+    contacted.setLongitude(o.contactedStation.longitude);
     pbQso.setContactedStation(contacted);
     const logging = new Station();
     logging.setStationCall(o.loggingStation.stationCall);
@@ -48,6 +52,8 @@ export class Qso {
     this.contactedCountry = qso.getContactedStation().getCountry();
     this.contactedName = qso.getContactedStation().getOpName();
     this.contactedState = qso.getContactedStation().getState();
+    this.contactedLatitude = qso.getContactedStation().getLatitude();
+    this.contactedLongitude = qso.getContactedStation().getLongitude();
     this.loggingCall = qso.getLoggingStation().getStationCall();
     this.loggingName = qso.getLoggingStation().getOpName();
     this.freq = qso.getFreq();

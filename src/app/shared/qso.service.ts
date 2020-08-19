@@ -29,6 +29,23 @@ export class QsoService {
     return this.qsos$;
   }
 
+  findEarliestQso(criteria: { country: string; state?: string }): Observable<Qso | undefined> {
+    return this.getQsos().pipe(map(qsos =>
+      qsos.sort(((a, b) => a.timeOn.getTime() - b.timeOn.getTime()))
+        .find(qso => {
+          if (qso.contactedCountry === criteria.country) {
+            if (criteria.state == null) {
+              // For AK or HI
+              return true;
+            } else if (qso.contactedState === criteria.state) {
+              return true;
+            }
+            return false;
+          }
+        })
+    ));
+  }
+
   private unpackDocs(pbQsos: QsoPb.AsObject[]): Qso[] {
     return pbQsos.map(
       pbQso => Qso.fromObject(pbQso));
