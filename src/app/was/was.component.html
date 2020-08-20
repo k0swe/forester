@@ -3,7 +3,7 @@
   <mat-card-header>
     <mat-form-field>
       <mat-label>Mode</mat-label>
-      <mat-select [(value)]="mode">
+      <mat-select [(value)]="mode" (valueChange)="changeFilters()">
         <mat-option value="mixed">Mixed</mat-option>
         <mat-option value="phone">Phone</mat-option>
         <mat-option value="cw">CW</mat-option>
@@ -14,7 +14,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Band</mat-label>
-      <mat-select [(value)]="band">
+      <mat-select [(value)]="band" (valueChange)="changeFilters()">
         <mat-option value="mixed">Mixed</mat-option>
         <mat-option value="160m">160m</mat-option>
         <mat-option value="80m">80m</mat-option>

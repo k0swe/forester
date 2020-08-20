@@ -80,7 +80,7 @@ export class WasComponent implements OnInit {
     {name: 'Wisconsin', abbrev: 'WI', lat: 44.7863, lon: -89.8267},
     {name: 'Wyoming', abbrev: 'WY', lat: 43.0003, lon: -107.5546},
   ];
-  markers = [];
+  markers: Array<google.maps.Marker> = [];
 
   private static makeQsoMarkerOptions(state: State, qso: Qso): google.maps.MarkerOptions {
     let latitude = state.lat;
@@ -116,6 +116,10 @@ export class WasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.generateMarkers();
+  }
+
+  private generateMarkers(): void {
     this.states.forEach(state => {
       this.findQsoForState(state.abbrev).subscribe(qso => {
         let markerOpts: google.maps.MarkerOptions;
@@ -127,18 +131,31 @@ export class WasComponent implements OnInit {
           markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
         }
         markerOpts.map = this.map.googleMap;
-        const newMarker = new google.maps.Marker(markerOpts);
+        this.markers.push(new google.maps.Marker(markerOpts));
       });
     });
   }
 
   private findQsoForState(abbrev: string): Observable<Qso | undefined> {
     if (abbrev === 'AK') {
-      return this.qsoService.findEarliestQso({country: 'Alaska'});
+      return this.qsoService.findWASQso({country: 'Alaska', mode: this.mode, band: this.band});
     }
     if (abbrev === 'HI') {
-      return this.qsoService.findEarliestQso({country: 'Hawaii'});
+      return this.qsoService.findWASQso({country: 'Hawaii', mode: this.mode, band: this.band});
     }
-    return this.qsoService.findEarliestQso({country: 'United States', state: abbrev});
+    return this.qsoService.findWASQso({country: 'United States', state: abbrev, mode: this.mode, band: this.band});
+  }
+
+  changeFilters(): void {
+    this.clearMarkers();
+    this.generateMarkers();
+  }
+
+  private clearMarkers(): void {
+    // TODO: this is probably dumb and going to cause a memory leak. reuse the marker for each state?
+    this.markers.forEach(marker => {
+      marker.setMap(null);
+    });
+    this.markers = [];
   }
 }
