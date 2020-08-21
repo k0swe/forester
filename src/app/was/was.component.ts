@@ -3,6 +3,8 @@ import {QsoService} from '../shared/qso.service';
 import {Qso} from '../qso';
 import {Observable} from 'rxjs';
 import {GoogleMap} from '@angular/google-maps';
+// @ts-ignore
+import moment from 'moment';
 
 interface State {
   name: string;
@@ -81,6 +83,7 @@ export class WasComponent implements OnInit {
     {name: 'Wyoming', abbrev: 'WY', lat: 43.0003, lon: -107.5546},
   ];
   markers: Array<google.maps.Marker> = [];
+  infoWindow: google.maps.InfoWindow = new google.maps.InfoWindow();
 
   private static makeQsoMarkerOptions(state: State, qso: Qso): google.maps.MarkerOptions {
     let latitude = state.lat;
@@ -97,7 +100,14 @@ export class WasComponent implements OnInit {
         lng: longitude,
       },
       icon: 'http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png',
-      title: qso.contactedCall,
+      title: state.abbrev,
+    };
+  }
+
+  static makeQsoInfoWindowOptions(state: State, qso: Qso): google.maps.InfoWindowOptions {
+    const timeStr: string = moment(qso.timeOn).utc().format('YYYY-MM-DD HH:mm');
+    return {
+      content: `Contacted ${qso.contactedCall} in ${state.name}<br>on ${timeStr}<br>via ${qso.band} ${qso.mode}`
     };
   }
 
@@ -112,6 +122,12 @@ export class WasComponent implements OnInit {
     };
   }
 
+  static makeNoQsoInfoWindowOptions(state: State): google.maps.InfoWindowOptions {
+    return {
+      content: `${state.name} not contacted`
+    };
+  }
+
   constructor(private qsoService: QsoService) {
   }
 
@@ -123,15 +139,21 @@ export class WasComponent implements OnInit {
     this.states.forEach(state => {
       this.findQsoForState(state.abbrev).subscribe(qso => {
         let markerOpts: google.maps.MarkerOptions;
+        let iw: google.maps.InfoWindowOptions;
         if (qso !== undefined) {
-          console.log('QSO for', state.abbrev, 'with', qso.contactedCall);
           markerOpts = WasComponent.makeQsoMarkerOptions(state, qso);
+          iw = WasComponent.makeQsoInfoWindowOptions(state, qso);
         } else {
-          console.log('No QSO for', state.abbrev);
           markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
+          iw = WasComponent.makeNoQsoInfoWindowOptions(state);
         }
         markerOpts.map = this.map.googleMap;
-        this.markers.push(new google.maps.Marker(markerOpts));
+        const marker = new google.maps.Marker(markerOpts);
+        marker.addListener('click', e => {
+          this.infoWindow.setOptions(iw);
+          this.infoWindow.open(this.map.googleMap, marker);
+        });
+        this.markers.push(marker);
       });
     });
   }

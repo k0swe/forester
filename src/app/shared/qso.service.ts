@@ -39,7 +39,6 @@ export class QsoService {
           // if band is anything but 'mixed', it should match
           if (criteria.band !== 'mixed'
             && qso.band.toUpperCase() !== criteria.band.toUpperCase()) {
-            console.log('Rejecting based on band');
             return false;
           }
 
@@ -60,25 +59,21 @@ export class QsoService {
               simpleMode = 'cw';
             }
             if (simpleMode !== criteria.mode) {
-              console.log('Rejecting based on mode');
               return false;
             }
           }
 
           // if country is set (always should be), it should match
           if (qso.contactedCountry.toUpperCase() !== criteria.country.toUpperCase()) {
-            console.log('Rejecting based on country');
             return false;
           }
 
           // if state is set, it should match
           if (criteria.state != null && qso.contactedState.toUpperCase() !== criteria.state.toUpperCase()) {
-            console.log('Rejecting based on state');
             return false;
           }
 
           // everything matched
-          console.log('Matched');
           return true;
         })
     ));
