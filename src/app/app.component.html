@@ -12,6 +12,7 @@
     <mat-nav-list>
       <a mat-list-item [routerLink]="'/'">QSO List</a>
       <a mat-list-item [routerLink]="'/was'">WAS Progress</a>
+      <a mat-list-item (click)="importFromQrz()">Import QRZ.com</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-container class="content">
