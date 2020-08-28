@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './shared/auth.service';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'kel-root',
@@ -8,8 +9,8 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  qrzImportUrl: string;
-  qrzImportUrlBase = 'https://us-central1-k0swe-kellog.cloudfunctions.net/HelloHTTP';
+  qrzImportUrl = environment.functionsBase + 'HelloHTTP';
+  userToken: string;
 
   constructor(public authService: AuthService, private http: HttpClient) {
   }
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
       user => {
         if (user != null) {
           user.getIdToken(false).then(token =>
-            this.qrzImportUrl = this.qrzImportUrlBase + '?token=' + token
+            this.userToken = token
           );
         }
       }
@@ -27,8 +28,9 @@ export class AppComponent implements OnInit {
   }
 
   importFromQrz(): void {
-    this.http.get(this.qrzImportUrl).subscribe(response => {
-      console.log(response);
-    });
+    this.http.get(this.qrzImportUrl, {headers: {Authorization: this.userToken}})
+      .subscribe(response => {
+        console.log(response);
+      });
   }
 }

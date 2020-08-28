@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  functionsBase: 'http://localhost:8080/',
   firebase: {
     apiKey: 'AIzaSyCaOdT7P0gex-Wb1ga5meShIX_cDL64WF8',
     authDomain: 'k0swe-kellog.firebaseapp.com',
