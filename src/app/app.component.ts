@@ -9,7 +9,7 @@ import {environment} from '../environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  qrzImportUrl = environment.functionsBase + 'HelloHTTP';
+  qrzImportUrl = environment.functionsBase + 'ImportQrz';
   userToken: string;
 
   constructor(public authService: AuthService, private http: HttpClient) {
