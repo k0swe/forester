@@ -10,7 +10,7 @@ import {environment} from '../environments/environment';
 })
 export class AppComponent implements OnInit {
   qrzImportUrl = environment.functionsBase + 'ImportQrz';
-  userToken: string;
+  userJwt: string;
 
   constructor(public authService: AuthService, private http: HttpClient) {
   }
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
       user => {
         if (user != null) {
           user.getIdToken(false).then(token =>
-            this.userToken = token
+            this.userJwt = token
           );
         }
       }
@@ -28,9 +28,11 @@ export class AppComponent implements OnInit {
   }
 
   importFromQrz(): void {
-    this.http.get(this.qrzImportUrl, {headers: {Authorization: this.userToken}})
-      .subscribe(response => {
-        console.log(response);
-      });
+    this.http.get(
+      this.qrzImportUrl,
+      {headers: {Authorization: 'Bearer ' + this.userJwt}}
+    ).subscribe(response => {
+      console.log(response);
+    });
   }
 }
