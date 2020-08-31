@@ -30,7 +30,7 @@ export class Qso {
     pbQso.setTimeOn(Timestamp.fromDate(new Date(o.timeOn)));
     pbQso.setTimeOff(Timestamp.fromDate(new Date(o.timeOff)));
     const contacted = new Station();
-    contacted.setOpCall(o.contactedStation.opCall);
+    contacted.setStationCall(o.contactedStation.stationCall);
     contacted.setOpName(o.contactedStation.opName);
     contacted.setCity(o.contactedStation.city);
     contacted.setState(o.contactedStation.state);
@@ -47,7 +47,7 @@ export class Qso {
 
   constructor(private qso: PbQso) {
     this.band = qso.getBand();
-    this.contactedCall = qso.getContactedStation().getOpCall();
+    this.contactedCall = qso.getContactedStation().getStationCall();
     this.contactedCity = qso.getContactedStation().getCity();
     this.contactedCountry = qso.getContactedStation().getCountry();
     this.contactedName = qso.getContactedStation().getOpName();
