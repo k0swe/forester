@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
 import {AuthService} from './shared/auth.service';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {environment} from '../environments/environment';
 
 @Component({
@@ -12,7 +13,9 @@ export class AppComponent implements OnInit {
   qrzImportUrl = environment.functionsBase + 'ImportQrz';
   userJwt: string;
 
-  constructor(public authService: AuthService, private http: HttpClient) {
+  constructor(public authService: AuthService,
+              private http: HttpClient,
+              private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -28,11 +31,24 @@ export class AppComponent implements OnInit {
   }
 
   importFromQrz(): void {
-    this.http.get(
+    this.snackBar.open('Importing from QRZ.com...', null, {duration: 5000});
+    this.http.get<ImportResponse>(
       this.qrzImportUrl,
       {headers: {Authorization: 'Bearer ' + this.userJwt}}
-    ).subscribe(response => {
-      console.log(response);
-    });
+    ).subscribe(
+      response => {
+        const created: number = response.created;
+        this.snackBar.open(`Imported from QRZ.com: ${created} QSOs created`,
+          null, {duration: 5000});
+      },
+      error => {
+        this.snackBar.open('Error importing from QRZ.com', null, {duration: 5000});
+        console.warn('Error importing from QRZ.com:', error);
+      });
   }
+}
+
+interface ImportResponse {
+  created: number;
+  modified: number;
 }
