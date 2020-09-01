@@ -1,6 +1,14 @@
 <div>
-  QSO between {{data.qso.loggingCall}}
-  and {{data.qso.contactedCall}}
-  was at {{data.qso.timeOn | date : "yyyy-MM-dd HH:mm" : "UTC"}}
-  on {{data.qso.band}} {{data.qso.mode}}.
+  <mat-grid-list cols="8" rowHeight="50px">
+    <mat-grid-tile colspan="5">
+      Date: {{data.qso.timeOn | date : "yyyy-MM-dd HH:mm" : "UTC"}} UTC
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3">Callsign: {{data.qso.contactedCall}}</mat-grid-tile>
+    <mat-grid-tile colspan="3">Frequency: {{data.qso.freq}}</mat-grid-tile>
+    <mat-grid-tile colspan="2">Band: {{data.qso.band}}</mat-grid-tile>
+    <mat-grid-tile colspan="2">Mode: {{data.qso.mode}}</mat-grid-tile>
+    <mat-grid-tile colspan="2">Name: {{data.qso.contactedName}}</mat-grid-tile>
+    <mat-grid-tile colspan="2">RST Sent: {{data.qso.rstSent}}</mat-grid-tile>
+    <mat-grid-tile colspan="2">RST Rcvd: {{data.qso.rstReceived}}</mat-grid-tile>
+  </mat-grid-list>
 </div>

@@ -34,7 +34,7 @@ export class QsoListComponent implements OnInit {
 
   openDialog(qso: Qso): void {
     const dialogRef = this.dialog.open(QsoDetailComponent, {
-      width: '250px',
+      width: '800px',
       data: {qso}
     });
 
