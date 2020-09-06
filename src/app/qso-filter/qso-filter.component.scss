@@ -1,0 +1,14 @@
+@import '../../styles/theme';
+
+mat-card {
+  margin: 8px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+input.callsign {
+  // TODO: Theme for monospace fonts
+  font-family: "Source Code Variable", "Source Code Pro", monospace;
+}

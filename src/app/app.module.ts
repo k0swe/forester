@@ -18,6 +18,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -29,6 +30,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {QsoDetailComponent} from './qso-detail/qso-detail.component';
+import {QsoFilterComponent} from './qso-filter/qso-filter.component';
 import {QsoListComponent} from './qso-list/qso-list.component';
 import {QsoService} from './shared/qso.service';
 import {WasComponent} from './was/was.component';
@@ -41,6 +43,7 @@ import {environment} from '../environments/environment';
     AvatarComponent,
     HomeComponent,
     QsoDetailComponent,
+    QsoFilterComponent,
     QsoListComponent,
     WasComponent,
   ],
@@ -58,6 +61,7 @@ import {environment} from '../environments/environment';
     MatDialogModule,
     MatGridListModule,
     MatIconModule,
+    MatInputModule,
     MatListModule,
     MatMenuModule,
     MatPaginatorModule,
