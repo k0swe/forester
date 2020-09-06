@@ -10,7 +10,7 @@
       </ng-container>
       <ng-container matColumnDef="contactedCall">
         <th mat-header-cell mat-sort-header *matHeaderCellDef>Call</th>
-        <td mat-cell *matCellDef="let qso">{{qso.contactedCall}}</td>
+        <td mat-cell class="callsign" *matCellDef="let qso">{{qso.contactedCall}}</td>
       </ng-container>
       <ng-container matColumnDef="contactedName">
         <th mat-header-cell mat-sort-header *matHeaderCellDef>Name</th>

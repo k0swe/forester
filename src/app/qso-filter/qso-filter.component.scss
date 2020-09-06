@@ -9,6 +9,5 @@ mat-form-field {
 }
 
 input.callsign {
-  // TODO: Theme for monospace fonts
-  font-family: "Source Code Variable", "Source Code Pro", monospace;
+  font-family: mat-font-family($kel-mono-typography);
 }

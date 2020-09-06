@@ -13,3 +13,8 @@ $kel-background: map-get($kel-theme, background);
 $kel-foreground: map-get($kel-theme, foreground);
 
 $kel-typography: mat-typography-config();
+
+$kel-mono-typography: mat-typography-config(
+  $font-family: 'Roboto Mono, monospace',
+  $body-2: mat-typography-level(inherit, inherit, 600)
+);

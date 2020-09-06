@@ -11,13 +11,13 @@ table {
 .mat-row {
 
   &:hover {
-    background-color: mat-color($kel-background, 'hover');
+    background-color: mat-color($kel-background, hover);
   }
 }
 
-.mat-column-contactedCall {
-  font-weight: bold;
-  font-family: "Source Code Variable", "Source Code Pro", monospace;
+.callsign {
+  font-weight: mat-font-weight($kel-mono-typography, body-2);
+  font-family: mat-font-family($kel-mono-typography);
 }
 
 .mat-column-freq {
