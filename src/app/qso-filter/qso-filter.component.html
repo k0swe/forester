@@ -1,9 +1,12 @@
 <mat-card>
   <mat-card-title>Filter</mat-card-title>
   <mat-card-content>
-    <mat-form-field>
-      <mat-label>Call</mat-label>
-      <input matInput class="callsign">
-    </mat-form-field>
+    <form [formGroup]="filterForm" novalidate>
+      <mat-form-field>
+        <mat-label>Call</mat-label>
+        <input matInput class="callsign" formControlName="callsign" #callsign
+               [value]="callsign.value.toUpperCase()" (change)="changed()">
+      </mat-form-field>
+    </form>
   </mat-card-content>
 </mat-card>

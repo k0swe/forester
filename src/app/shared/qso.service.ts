@@ -1,7 +1,7 @@
 import {AngularFirestore} from '@angular/fire/firestore';
 import {AuthService} from './auth.service';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, combineLatest, Observable, ReplaySubject} from 'rxjs';
 import {Qso as QsoPb} from '../../generated/adif_pb';
 import {Qso} from '../qso';
 import {map, switchMap} from 'rxjs/operators';
@@ -10,29 +10,44 @@ import {map, switchMap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class QsoService {
-  qsos$: Observable<Qso[]>;
+  qsos$ = new ReplaySubject<Qso[]>();
+  filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
 
   constructor(
     private authService: AuthService,
     private firestore: AngularFirestore) {
     const uid$ = authService.user().pipe(map(user => user.uid));
-    this.qsos$ = uid$.pipe(switchMap(userId => {
-      const userDoc = firestore.doc('users/' + userId);
-      return userDoc
-        .collection<QsoPb.AsObject>('contacts')
-        .valueChanges()
-        .pipe(map(qsos => this.unpackDocs(qsos)));
-    }));
+    uid$.pipe(
+      switchMap(userId => {
+        const userDoc = firestore.doc('users/' + userId);
+        return userDoc
+          .collection<QsoPb.AsObject>('contacts')
+          .valueChanges()
+          .pipe(map(qsos => this.unpackDocs(qsos)));
+      })
+    ).subscribe(
+      qsos => this.qsos$.next(qsos)
+    );
   }
 
-  getQsos(): Observable<Qso[]> {
-    return this.qsos$;
+  getFilteredQsos(): Observable<Qso[]> {
+    return combineLatest([this.qsos$, this.filterCriteria$])
+      .pipe(map(([qsos, criteria]) =>
+        qsos.filter(qso => {
+            if (criteria.call && qso.contactedCall !== criteria.call) {
+              return false;
+            }
+            // TODO: more criteria
+            return true;
+          }
+        )
+      ));
   }
 
   // Find the earliest QSO which meets the given criteria, applying Worked All States rules
   // (e.g. mode 'digital' matches QSOs with FT8, JT65, etc.)
   findWASQso(criteria: WASQsoCriteria): Observable<Qso | undefined> {
-    return this.getQsos().pipe(map(qsos =>
+    return this.qsos$.pipe(map(qsos =>
       qsos.sort(((a, b) => a.timeOn.getTime() - b.timeOn.getTime()))
         .find(qso => {
 
@@ -83,6 +98,14 @@ export class QsoService {
     return pbQsos.map(
       pbQso => Qso.fromObject(pbQso));
   }
+
+  setFilter(newCriteria: FilterCriteria): void {
+    this.filterCriteria$.next(newCriteria);
+  }
+}
+
+export interface FilterCriteria {
+  call?: string;
 }
 
 interface WASQsoCriteria {

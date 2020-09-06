@@ -33,6 +33,7 @@ import {QsoDetailComponent} from './qso-detail/qso-detail.component';
 import {QsoFilterComponent} from './qso-filter/qso-filter.component';
 import {QsoListComponent} from './qso-list/qso-list.component';
 import {QsoService} from './shared/qso.service';
+import {ReactiveFormsModule} from '@angular/forms';
 import {WasComponent} from './was/was.component';
 import {environment} from '../environments/environment';
 
@@ -72,6 +73,7 @@ import {environment} from '../environments/environment';
     MatTableModule,
     MatToolbarModule,
     MatTooltipModule,
+    ReactiveFormsModule,
   ],
   providers: [
     AuthService,
