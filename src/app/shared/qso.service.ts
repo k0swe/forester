@@ -38,9 +38,20 @@ export class QsoService {
               return false;
             }
             if (criteria.state) {
-              if (criteria.stateOperator === CriteriaOperator.equal && qso.contactedState !== criteria.state) {
+              if (criteria.stateOperator === CriteriaOperator.equal
+                && qso.contactedState.toUpperCase() !== criteria.state.toUpperCase()) {
                 return false;
-              } else if (criteria.stateOperator === CriteriaOperator.not_equal && qso.contactedState === criteria.state) {
+              } else if (criteria.stateOperator === CriteriaOperator.not_equal
+                && qso.contactedState.toUpperCase() === criteria.state.toUpperCase()) {
+                return false;
+              }
+            }
+            if (criteria.country) {
+              if (criteria.countryOperator === CriteriaOperator.equal
+                && qso.contactedCountry.toUpperCase() !== criteria.country.toUpperCase()) {
+                return false;
+              } else if (criteria.countryOperator === CriteriaOperator.not_equal
+                && qso.contactedCountry.toUpperCase() === criteria.country.toUpperCase()) {
                 return false;
               }
             }
@@ -119,6 +130,8 @@ export interface FilterCriteria {
   call?: string;
   state?: string;
   stateOperator?: CriteriaOperator;
+  country?: string;
+  countryOperator?: CriteriaOperator;
 }
 
 interface WASQsoCriteria {

@@ -10,6 +10,8 @@ export class QsoFilterComponent {
   callsign = '';
   state = '';
   stateOp: string = CriteriaOperator.equal;
+  country = '';
+  countryOp: string = CriteriaOperator.equal;
 
   constructor(private qsoSerivce: QsoService) {
   }
@@ -20,6 +22,8 @@ export class QsoFilterComponent {
       call: this.callsign,
       state: this.state,
       stateOperator: CriteriaOperator[this.stateOp],
+      country: this.country,
+      countryOperator: CriteriaOperator[this.countryOp],
     });
   }
 }
