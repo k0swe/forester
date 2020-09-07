@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 import {AgentComponent} from './agent/agent.component';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AuthService} from './shared/auth.service';
@@ -51,6 +52,7 @@ import {environment} from '../environments/environment';
   imports: [
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule.enablePersistence(),
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
