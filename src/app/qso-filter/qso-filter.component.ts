@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {QsoService} from '../shared/qso.service';
+import {CriteriaOperator, QsoService} from '../shared/qso.service';
 
 @Component({
   selector: 'kel-qso-filter',
@@ -8,6 +8,8 @@ import {QsoService} from '../shared/qso.service';
 })
 export class QsoFilterComponent {
   callsign = '';
+  state = '';
+  stateOp: string = CriteriaOperator.equal;
 
   constructor(private qsoSerivce: QsoService) {
   }
@@ -16,6 +18,8 @@ export class QsoFilterComponent {
     this.callsign = this.callsign.toUpperCase();
     this.qsoSerivce.setFilter({
       call: this.callsign,
+      state: this.state,
+      stateOperator: CriteriaOperator[this.stateOp],
     });
   }
 }

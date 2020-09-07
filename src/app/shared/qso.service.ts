@@ -37,7 +37,13 @@ export class QsoService {
             if (criteria.call && qso.contactedCall.indexOf(criteria.call) === -1) {
               return false;
             }
-            // TODO: more criteria
+            if (criteria.state) {
+              if (criteria.stateOperator === CriteriaOperator.equal && qso.contactedState !== criteria.state) {
+                return false;
+              } else if (criteria.stateOperator === CriteriaOperator.not_equal && qso.contactedState === criteria.state) {
+                return false;
+              }
+            }
             return true;
           }
         )
@@ -104,8 +110,15 @@ export class QsoService {
   }
 }
 
+export enum CriteriaOperator {
+  equal = 'equal',
+  not_equal = 'not_equal',
+}
+
 export interface FilterCriteria {
   call?: string;
+  state?: string;
+  stateOperator?: CriteriaOperator;
 }
 
 interface WASQsoCriteria {

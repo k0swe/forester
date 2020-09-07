@@ -9,5 +9,20 @@
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
+    <div fxLayout="row">
+      <mat-form-field appearance="standard" fxFlex="20%" class="criteria">
+        <mat-select [(ngModel)]="stateOp" (ngModelChange)="changed()" aria-label="State operator">
+          <mat-option value="equal">=</mat-option>
+          <mat-option value="not_equal">≠</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="standard" fxFlex="80%">
+        <mat-label>State</mat-label>
+        <input matInput type="text" [(ngModel)]="state" (ngModelChange)="changed()">
+        <button mat-button *ngIf="state" matSuffix mat-icon-button aria-label="Clear" (click)="state=''; changed()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
   </mat-card-content>
 </mat-card>
