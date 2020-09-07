@@ -11,6 +11,7 @@ import {AuthService} from './shared/auth.service';
 import {AvatarComponent} from './avatar/avatar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {GoogleMapsModule} from '@angular/google-maps';
 import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -34,7 +35,6 @@ import {QsoDetailComponent} from './qso-detail/qso-detail.component';
 import {QsoFilterComponent} from './qso-filter/qso-filter.component';
 import {QsoListComponent} from './qso-list/qso-list.component';
 import {QsoService} from './shared/qso.service';
-import {ReactiveFormsModule} from '@angular/forms';
 import {WasComponent} from './was/was.component';
 import {environment} from '../environments/environment';
 
@@ -57,6 +57,7 @@ import {environment} from '../environments/environment';
     BrowserAnimationsModule,
     BrowserModule,
     FlexLayoutModule,
+    FormsModule,
     GoogleMapsModule,
     HttpClientModule,
     MatButtonModule,

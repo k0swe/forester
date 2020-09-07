@@ -1,27 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {QsoService} from '../shared/qso.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'kel-qso-filter',
   templateUrl: './qso-filter.component.html',
   styleUrls: ['./qso-filter.component.scss']
 })
-export class QsoFilterComponent implements OnInit {
-  filterForm: FormGroup;
+export class QsoFilterComponent {
+  callsign = '';
 
-  constructor(public fb: FormBuilder, private qsoSerivce: QsoService) {
-  }
-
-  ngOnInit(): void {
-    this.filterForm = this.fb.group({
-      callsign: [''],
-    });
+  constructor(private qsoSerivce: QsoService) {
   }
 
   changed(): void {
+    this.callsign = this.callsign.toUpperCase();
     this.qsoSerivce.setFilter({
-      call: this.filterForm.get('callsign').value.toUpperCase(),
+      call: this.callsign,
     });
   }
 }

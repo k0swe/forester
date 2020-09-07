@@ -34,7 +34,7 @@ export class QsoService {
     return combineLatest([this.qsos$, this.filterCriteria$])
       .pipe(map(([qsos, criteria]) =>
         qsos.filter(qso => {
-            if (criteria.call && qso.contactedCall !== criteria.call) {
+            if (criteria.call && qso.contactedCall.indexOf(criteria.call) === -1) {
               return false;
             }
             // TODO: more criteria
