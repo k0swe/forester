@@ -12,9 +12,11 @@ $kel-theme: mat-light-theme((
 $kel-background: map-get($kel-theme, background);
 $kel-foreground: map-get($kel-theme, foreground);
 
-$kel-typography: mat-typography-config();
+$kel-typography: mat-typography-config(
+  $font-family: 'Open Sans, Helvetica Neue, sans-serif',
+);
 
 $kel-mono-typography: mat-typography-config(
-  $font-family: 'Roboto Mono, monospace',
+  $font-family: 'DM Mono, monospace',
   $body-2: mat-typography-level(inherit, inherit, 600)
 );

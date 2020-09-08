@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 // Be sure that you only ever include this mixin once!
-@include mat-core();
+@include mat-core($kel-typography);
 @include angular-material-theme($kel-theme);
 
 // Global styles.
