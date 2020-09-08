@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
 
-$kel-primary: mat-palette($mat-green);
-$kel-accent: mat-palette($mat-red);
+$kel-primary: mat-palette($mat-green, 700, 300, 900);
+$kel-accent: mat-palette($mat-deep-purple);
 $kel-theme: mat-light-theme((
   color: (
     primary: $kel-primary,

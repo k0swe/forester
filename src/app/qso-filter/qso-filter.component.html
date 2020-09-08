@@ -5,7 +5,8 @@
       <mat-label>Call</mat-label>
       <input matInput class="callsign" type="text" [(ngModel)]="callsign" (ngModelChange)="changed()"
              [value]="callsign.toUpperCase()">
-      <button mat-button *ngIf="callsign" matSuffix mat-icon-button aria-label="Clear" (click)="callsign=''; changed()">
+      <button mat-button *ngIf="callsign" (click)="callsign=''; changed()"
+              matSuffix mat-icon-button aria-label="Clear" color="accent">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
@@ -19,7 +20,8 @@
       <mat-form-field appearance="standard" fxFlex="80%">
         <mat-label>State</mat-label>
         <input matInput type="text" [(ngModel)]="state" (ngModelChange)="changed()">
-        <button mat-button *ngIf="state" matSuffix mat-icon-button aria-label="Clear" (click)="state=''; changed()">
+        <button mat-button *ngIf="state" (click)="state=''; changed()"
+                matSuffix mat-icon-button aria-label="Clear" color="accent">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
@@ -34,7 +36,8 @@
       <mat-form-field appearance="standard" fxFlex="80%">
         <mat-label>Country</mat-label>
         <input matInput type="text" [(ngModel)]="country" (ngModelChange)="changed()">
-        <button mat-button *ngIf="country" matSuffix mat-icon-button aria-label="Clear" (click)="country=''; changed()">
+        <button mat-button *ngIf="country" (click)="country=''; changed()"
+                matSuffix mat-icon-button aria-label="Clear" color="accent">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
@@ -49,7 +52,8 @@
       <mat-form-field appearance="standard" fxFlex="80%">
         <mat-label>Mode</mat-label>
         <input matInput type="text" [(ngModel)]="mode" (ngModelChange)="changed()">
-        <button mat-button *ngIf="mode" matSuffix mat-icon-button aria-label="Clear" (click)="mode=''; changed()">
+        <button mat-button *ngIf="mode" (click)="mode=''; changed()"
+                matSuffix mat-icon-button aria-label="Clear" color="accent">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
