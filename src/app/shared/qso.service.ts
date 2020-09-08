@@ -55,6 +55,15 @@ export class QsoService {
                 return false;
               }
             }
+            if (criteria.mode) {
+              if (criteria.modeOperator === CriteriaOperator.equal
+                && qso.mode.toUpperCase() !== criteria.mode.toUpperCase()) {
+                return false;
+              } else if (criteria.modeOperator === CriteriaOperator.not_equal
+                && qso.mode.toUpperCase() === criteria.mode.toUpperCase()) {
+                return false;
+              }
+            }
             return true;
           }
         )
@@ -132,6 +141,8 @@ export interface FilterCriteria {
   stateOperator?: CriteriaOperator;
   country?: string;
   countryOperator?: CriteriaOperator;
+  mode?: string;
+  modeOperator?: CriteriaOperator;
 }
 
 interface WASQsoCriteria {

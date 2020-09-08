@@ -12,6 +12,8 @@ export class QsoFilterComponent {
   stateOp: string = CriteriaOperator.equal;
   country = '';
   countryOp: string = CriteriaOperator.equal;
+  mode = '';
+  modeOp: string = CriteriaOperator.equal;
 
   constructor(private qsoSerivce: QsoService) {
   }
@@ -24,6 +26,8 @@ export class QsoFilterComponent {
       stateOperator: CriteriaOperator[this.stateOp],
       country: this.country,
       countryOperator: CriteriaOperator[this.countryOp],
+      mode: this.mode,
+      modeOperator: CriteriaOperator[this.modeOp],
     });
   }
 }

@@ -39,5 +39,20 @@
         </button>
       </mat-form-field>
     </div>
+    <div fxLayout="row">
+      <mat-form-field appearance="standard" fxFlex="20%" class="criteria">
+        <mat-select [(ngModel)]="modeOp" (ngModelChange)="changed()" aria-label="Mode operator">
+          <mat-option value="equal">=</mat-option>
+          <mat-option value="not_equal">≠</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="standard" fxFlex="80%">
+        <mat-label>Mode</mat-label>
+        <input matInput type="text" [(ngModel)]="mode" (ngModelChange)="changed()">
+        <button mat-button *ngIf="mode" matSuffix mat-icon-button aria-label="Clear" (click)="mode=''; changed()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
   </mat-card-content>
 </mat-card>
