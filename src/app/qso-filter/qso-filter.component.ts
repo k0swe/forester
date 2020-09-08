@@ -30,4 +30,15 @@ export class QsoFilterComponent {
       modeOperator: CriteriaOperator[this.modeOp],
     });
   }
+
+  clearAll(): void {
+    this.callsign = '';
+    this.state = '';
+    this.stateOp = CriteriaOperator.equal;
+    this.country = '';
+    this.countryOp = CriteriaOperator.equal;
+    this.mode = '';
+    this.modeOp = CriteriaOperator.equal;
+    this.changed();
+  }
 }

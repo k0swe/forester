@@ -55,4 +55,11 @@
       </mat-form-field>
     </div>
   </mat-card-content>
+  <mat-card-actions fxLayout="row">
+    <div fxFlex="100%"></div>
+    <button mat-mini-fab color="primary" aria-label="Clear All Filters" title="Clear All Filters"
+            (click)="clearAll()">
+      <mat-icon>clear_all</mat-icon>
+    </button>
+  </mat-card-actions>
 </mat-card>
