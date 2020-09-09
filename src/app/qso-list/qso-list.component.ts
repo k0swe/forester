@@ -37,7 +37,8 @@ export class QsoListComponent implements OnInit {
   openDialog(qso: Qso): void {
     const dialogRef = this.dialog.open(QsoDetailComponent, {
       width: '800px',
-      data: {qso}
+      data: {qso},
+      panelClass: 'card-dialog-container',
     });
 
     dialogRef.afterClosed().subscribe(result => {

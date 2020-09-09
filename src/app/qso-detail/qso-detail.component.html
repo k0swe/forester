@@ -1,59 +1,62 @@
-<div>
-  <form [formGroup]="qsoDetailForm">
-    <div class="row">
-      <div class="col">
-        <mat-form-field class="full-width">
-          <label>Date/Time On</label>
-          <input matInput formControlName="timeOn">
-        </mat-form-field>
+<mat-card>
+  <mat-card-title>QSO Details</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="qsoDetailForm">
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label>Date/Time On</label>
+            <input matInput formControlName="timeOn">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label>Date/Time Off</label>
+            <input matInput formControlName="timeOff">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label>Callsign</label>
+            <input matInput class="callsign" formControlName="callsign">
+          </mat-form-field>
+        </div>
       </div>
-      <div class="col">
-        <mat-form-field class="full-width">
-          <label>Date/Time Off</label>
-          <input matInput formControlName="timeOff">
-        </mat-form-field>
-      </div>
-      <div class="col">
-        <mat-form-field class="full-width">
-          <label>Callsign</label>
-          <input matInput class="callsign" formControlName="callsign">
-        </mat-form-field>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <mat-form-field class="full-width">
-          <label>Band</label>
-          <input matInput formControlName="band">
-        </mat-form-field>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label>Band</label>
+            <input matInput formControlName="band">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label>Frequency</label>
+            <input matInput formControlName="freq" type="number">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label>Mode</label>
+            <input matInput formControlName="mode">
+          </mat-form-field>
+        </div>
       </div>
-      <div class="col">
-        <mat-form-field class="full-width">
-          <label>Frequency</label>
-          <input matInput formControlName="freq" type="number">
-        </mat-form-field>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label>RST Sent</label>
+            <input matInput formControlName="rstSent">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label>RST Received</label>
+            <input matInput formControlName="rstRcvd">
+          </mat-form-field>
+        </div>
       </div>
-      <div class="col">
-        <mat-form-field class="full-width">
-          <label>Mode</label>
-          <input matInput formControlName="mode">
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <mat-form-field class="full-width">
-          <label>RST Sent</label>
-          <input matInput formControlName="rstSent">
-        </mat-form-field>
-      </div>
-      <div class="col">
-        <mat-form-field class="full-width">
-          <label>RST Received</label>
-          <input matInput formControlName="rstRcvd">
-        </mat-form-field>
-      </div>
-    </div>
-  </form>
-</div>
+    </form>
+  </mat-card-content>
+</mat-card>
