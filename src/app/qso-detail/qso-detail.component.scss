@@ -1,16 +1,10 @@
 @import '../../styles/theme';
 
-.row {
-  display: flex;
-  flex-direction: row;
+.row div {
+  margin-right: 8px;
 }
 
-.col {
-  flex: 1;
-  margin-right: 20px;
-}
-
-.col:last-child {
+.row div:last-child {
   margin-right: 0;
 }
 
