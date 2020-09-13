@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>ARRL Worked All States Progress</mat-card-title>
   <mat-card-header>
-    <mat-form-field>
+    <mat-form-field color="accent" appearance="standard">
       <mat-label>Mode</mat-label>
       <mat-select [(value)]="mode" (valueChange)="changeFilters()">
         <mat-option value="mixed">Mixed</mat-option>
@@ -12,7 +12,7 @@
         <mat-option value="satellite">Satellite</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field color="accent" appearance="standard">
       <mat-label>Band</mat-label>
       <mat-select [(value)]="band" (valueChange)="changeFilters()">
         <mat-option value="mixed">Mixed</mat-option>
