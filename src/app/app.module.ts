@@ -34,6 +34,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {QsoDetailComponent} from './qso-detail/qso-detail.component';
 import {QsoFilterComponent} from './qso-filter/qso-filter.component';
 import {QsoListComponent} from './qso-list/qso-list.component';
+import {QsoSearchComponent} from './qso-search/qso-search.component';
 import {QsoService} from './shared/qso.service';
 import {WasComponent} from './was/was.component';
 import {environment} from '../environments/environment';
@@ -47,6 +48,7 @@ import {environment} from '../environments/environment';
     QsoDetailComponent,
     QsoFilterComponent,
     QsoListComponent,
+    QsoSearchComponent,
     WasComponent,
   ],
   imports: [

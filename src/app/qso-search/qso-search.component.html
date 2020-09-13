@@ -1,0 +1,6 @@
+<mat-form-field appearance="outline" color="accent">
+  <mat-icon matPrefix>search</mat-icon>
+  <mat-label>Search QSOs</mat-label>
+  <input matInput [(ngModel)]="search" (ngModelChange)="changed()">
+  <mat-hint>Callsign only for now</mat-hint>
+</mat-form-field>

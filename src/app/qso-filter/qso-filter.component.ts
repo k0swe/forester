@@ -15,12 +15,12 @@ export class QsoFilterComponent {
   mode = '';
   modeOp: string = CriteriaOperator.equal;
 
-  constructor(private qsoSerivce: QsoService) {
+  constructor(private qsoService: QsoService) {
   }
 
   changed(): void {
     this.callsign = this.callsign.toUpperCase();
-    this.qsoSerivce.setFilter({
+    this.qsoService.setFilter({
       call: this.callsign,
       state: this.state,
       stateOperator: CriteriaOperator[this.stateOp],
