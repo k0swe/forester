@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
@@ -17,7 +17,6 @@ export class QsoListComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  // TODO: customize per responsive size
   columnsToDisplay = ['timeOn', 'contactedCall', 'contactedName',
     'band', 'freq', 'mode', 'contactedCity', 'contactedState', 'contactedCountry'];
 
@@ -32,6 +31,23 @@ export class QsoListComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
+    this.chooseColumns(document.body.clientWidth);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event): void {
+    this.chooseColumns(event.target.innerWidth);
+  }
+
+  chooseColumns(width: number): void {
+    if (width > 768) {
+      this.columnsToDisplay = ['timeOn', 'contactedCall', 'contactedName',
+        'band', 'freq', 'mode', 'contactedCity', 'contactedState', 'contactedCountry'];
+    } else if (width > 576) {
+      this.columnsToDisplay = ['timeOn', 'contactedCall', 'band', 'mode', 'contactedState', 'contactedCountry'];
+    } else {
+      this.columnsToDisplay = ['timeOn', 'contactedCall', 'band', 'mode', 'contactedCountry'];
+    }
   }
 
   openDialog(qso: Qso): void {
