@@ -4,19 +4,19 @@
     <form [formGroup]="qsoDetailForm">
       <div fxLayout="row" class="row">
         <div fxFlex>
-          <mat-form-field class="full-width">
+          <mat-form-field>
             <mat-label>Date/Time On</mat-label>
             <input matInput formControlName="timeOn">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field class="full-width">
+          <mat-form-field>
             <mat-label>Date/Time Off</mat-label>
             <input matInput formControlName="timeOff">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field class="full-width">
+          <mat-form-field>
             <mat-label>Callsign</mat-label>
             <input matInput class="callsign" formControlName="callsign">
           </mat-form-field>
@@ -25,34 +25,32 @@
 
       <div fxLayout="row" class="row">
         <div fxFlex>
-          <mat-form-field class="full-width">
+          <mat-form-field>
             <mat-label>Band</mat-label>
             <input matInput formControlName="band">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field class="full-width">
+          <mat-form-field>
             <mat-label>Frequency</mat-label>
             <input matInput formControlName="freq" type="number">
+            <span matSuffix>MHz</span>
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field class="full-width">
+          <mat-form-field>
             <mat-label>Mode</mat-label>
             <input matInput formControlName="mode">
           </mat-form-field>
         </div>
-      </div>
-
-      <div fxLayout="row" class="row">
         <div fxFlex>
-          <mat-form-field class="full-width">
+          <mat-form-field>
             <mat-label>RST Sent</mat-label>
             <input matInput formControlName="rstSent">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field class="full-width">
+          <mat-form-field>
             <mat-label>RST Received</mat-label>
             <input matInput formControlName="rstRcvd">
           </mat-form-field>

@@ -8,8 +8,12 @@
   margin-right: 0;
 }
 
-.full-width {
+.mat-form-field {
   width: 100%;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+  width: auto !important;
 }
 
 input.callsign {
