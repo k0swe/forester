@@ -32,7 +32,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {QsoDetailComponent} from './qso-detail/qso-detail.component';
-import {QsoFilterComponent} from './qso-filter/qso-filter.component';
 import {QsoListComponent} from './qso-list/qso-list.component';
 import {QsoSearchComponent} from './qso-search/qso-search.component';
 import {QsoService} from './shared/qso.service';
@@ -46,7 +45,6 @@ import {environment} from '../environments/environment';
     AvatarComponent,
     HomeComponent,
     QsoDetailComponent,
-    QsoFilterComponent,
     QsoListComponent,
     QsoSearchComponent,
     WasComponent,
