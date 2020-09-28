@@ -1,24 +1,12 @@
 {
   "hosting": [
     {
+      "target": "kellog",
       "public": "dist/kellog",
       "ignore": [
         "firebase.json",
         "**/.*",
         "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
-      "target": "kellog",
-      "public": "dist/kellog",
-      "ignore": [
-        "**/.*"
       ],
       "headers": [
         {
