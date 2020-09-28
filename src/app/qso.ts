@@ -6,6 +6,7 @@ export class Qso {
   contactedCall: string;
   contactedCity: string;
   contactedCountry: string;
+  contactedContinent: string;
   contactedName: string;
   contactedState: string;
   contactedLatitude?: number;
@@ -35,6 +36,7 @@ export class Qso {
     contacted.setCity(o.contactedStation.city);
     contacted.setState(o.contactedStation.state);
     contacted.setCountry(o.contactedStation.country);
+    contacted.setContinent(o.contactedStation.continent);
     contacted.setLatitude(o.contactedStation.latitude);
     contacted.setLongitude(o.contactedStation.longitude);
     pbQso.setContactedStation(contacted);
@@ -50,6 +52,7 @@ export class Qso {
     this.contactedCall = qso.getContactedStation().getStationCall();
     this.contactedCity = qso.getContactedStation().getCity();
     this.contactedCountry = qso.getContactedStation().getCountry();
+    this.contactedContinent = qso.getContactedStation().getContinent();
     this.contactedName = qso.getContactedStation().getOpName();
     this.contactedState = qso.getContactedStation().getState();
     this.contactedLatitude = qso.getContactedStation().getLatitude();

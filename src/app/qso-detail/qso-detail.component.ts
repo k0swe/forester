@@ -29,6 +29,10 @@ export class QsoDetailComponent {
       mode: data.qso.mode,
       rstSent: data.qso.rstSent,
       rstRcvd: data.qso.rstReceived,
+      city: data.qso.contactedCity,
+      state: data.qso.contactedState,
+      country: data.qso.contactedCountry,
+      continent: data.qso.contactedContinent,
     });
   }
 }
