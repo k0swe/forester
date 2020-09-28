@@ -551,16 +551,17 @@ proto.adif.Qso.toObject = function(includeInstance, msg) {
     awardSubmittedList: jspb.Message.getRepeatedField(msg, 21),
     awardGrantedList: jspb.Message.getRepeatedField(msg, 22),
     creditSubmittedList: jspb.Message.toObjectList(msg.getCreditSubmittedList(),
-    proto.adif.Credit.toObject, includeInstance),
+      proto.adif.Credit.toObject, includeInstance),
     creditGrantedList: jspb.Message.toObjectList(msg.getCreditGrantedList(),
-    proto.adif.Credit.toObject, includeInstance),
+      proto.adif.Credit.toObject, includeInstance),
     publicKey: jspb.Message.getFieldWithDefault(msg, 25, ""),
     clublog: (f = msg.getClublog()) && proto.adif.Upload.toObject(includeInstance, f),
-    hdrlog: (f = msg.getHdrlog()) && proto.adif.Upload.toObject(includeInstance, f),
+    hrdlog: (f = msg.getHrdlog()) && proto.adif.Upload.toObject(includeInstance, f),
     qrzcom: (f = msg.getQrzcom()) && proto.adif.Upload.toObject(includeInstance, f),
     eqsl: (f = msg.getEqsl()) && proto.adif.Qsl.toObject(includeInstance, f),
     lotw: (f = msg.getLotw()) && proto.adif.Qsl.toObject(includeInstance, f),
-    card: (f = msg.getCard()) && proto.adif.Qsl.toObject(includeInstance, f)
+    card: (f = msg.getCard()) && proto.adif.Qsl.toObject(includeInstance, f),
+    appDefinedMap: (f = msg.getAppDefinedMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -705,39 +706,45 @@ proto.adif.Qso.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setPublicKey(value);
       break;
-    case 26:
-      var value = new proto.adif.Upload;
-      reader.readMessage(value,proto.adif.Upload.deserializeBinaryFromReader);
-      msg.setClublog(value);
-      break;
-    case 27:
-      var value = new proto.adif.Upload;
-      reader.readMessage(value,proto.adif.Upload.deserializeBinaryFromReader);
-      msg.setHdrlog(value);
-      break;
-    case 28:
-      var value = new proto.adif.Upload;
-      reader.readMessage(value,proto.adif.Upload.deserializeBinaryFromReader);
-      msg.setQrzcom(value);
-      break;
-    case 29:
-      var value = new proto.adif.Qsl;
-      reader.readMessage(value,proto.adif.Qsl.deserializeBinaryFromReader);
-      msg.setEqsl(value);
-      break;
-    case 30:
-      var value = new proto.adif.Qsl;
-      reader.readMessage(value,proto.adif.Qsl.deserializeBinaryFromReader);
-      msg.setLotw(value);
-      break;
-    case 31:
-      var value = new proto.adif.Qsl;
-      reader.readMessage(value,proto.adif.Qsl.deserializeBinaryFromReader);
-      msg.setCard(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 26:
+        var value = new proto.adif.Upload;
+        reader.readMessage(value, proto.adif.Upload.deserializeBinaryFromReader);
+        msg.setClublog(value);
+        break;
+      case 27:
+        var value = new proto.adif.Upload;
+        reader.readMessage(value, proto.adif.Upload.deserializeBinaryFromReader);
+        msg.setHrdlog(value);
+        break;
+      case 28:
+        var value = new proto.adif.Upload;
+        reader.readMessage(value, proto.adif.Upload.deserializeBinaryFromReader);
+        msg.setQrzcom(value);
+        break;
+      case 29:
+        var value = new proto.adif.Qsl;
+        reader.readMessage(value, proto.adif.Qsl.deserializeBinaryFromReader);
+        msg.setEqsl(value);
+        break;
+      case 30:
+        var value = new proto.adif.Qsl;
+        reader.readMessage(value, proto.adif.Qsl.deserializeBinaryFromReader);
+        msg.setLotw(value);
+        break;
+      case 31:
+        var value = new proto.adif.Qsl;
+        reader.readMessage(value, proto.adif.Qsl.deserializeBinaryFromReader);
+        msg.setCard(value);
+        break;
+      case 32:
+        var value = msg.getAppDefinedMap();
+        reader.readMessage(value, function (message, reader) {
+          jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
+        });
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
@@ -955,7 +962,7 @@ proto.adif.Qso.serializeBinaryToWriter = function(message, writer) {
       proto.adif.Upload.serializeBinaryToWriter
     );
   }
-  f = message.getHdrlog();
+  f = message.getHrdlog();
   if (f != null) {
     writer.writeMessage(
       27,
@@ -994,6 +1001,10 @@ proto.adif.Qso.serializeBinaryToWriter = function(message, writer) {
       f,
       proto.adif.Qsl.serializeBinaryToWriter
     );
+  }
+  f = message.getAppDefinedMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(32, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
 };
 
@@ -1558,23 +1569,23 @@ proto.adif.Qso.prototype.hasClublog = function() {
 
 
 /**
- * optional Upload hdrlog = 27;
+ * optional Upload hrdlog = 27;
  * @return {?proto.adif.Upload}
  */
-proto.adif.Qso.prototype.getHdrlog = function() {
+proto.adif.Qso.prototype.getHrdlog = function () {
   return /** @type{?proto.adif.Upload} */ (
     jspb.Message.getWrapperField(this, proto.adif.Upload, 27));
 };
 
 
 /** @param {?proto.adif.Upload|undefined} value */
-proto.adif.Qso.prototype.setHdrlog = function(value) {
+proto.adif.Qso.prototype.setHrdlog = function (value) {
   jspb.Message.setWrapperField(this, 27, value);
 };
 
 
-proto.adif.Qso.prototype.clearHdrlog = function() {
-  this.setHdrlog(undefined);
+proto.adif.Qso.prototype.clearHrdlog = function () {
+  this.setHrdlog(undefined);
 };
 
 
@@ -1582,7 +1593,7 @@ proto.adif.Qso.prototype.clearHdrlog = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.adif.Qso.prototype.hasHdrlog = function() {
+proto.adif.Qso.prototype.hasHrdlog = function () {
   return jspb.Message.getField(this, 27) != null;
 };
 
@@ -1702,10 +1713,27 @@ proto.adif.Qso.prototype.clearCard = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.adif.Qso.prototype.hasCard = function() {
+proto.adif.Qso.prototype.hasCard = function () {
   return jspb.Message.getField(this, 31) != null;
 };
 
+
+/**
+ * map<string, string> app_defined = 32;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.adif.Qso.prototype.getAppDefinedMap = function (opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+    jspb.Message.getMapField(this, 32, opt_noLazyCreate,
+      null));
+};
+
+
+proto.adif.Qso.prototype.clearAppDefinedMap = function () {
+  this.getAppDefinedMap().clear();
+};
 
 
 /**
