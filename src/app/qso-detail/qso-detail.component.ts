@@ -8,6 +8,8 @@ export interface QsoDetailData {
   qso: Qso;
 }
 
+const googleMapsSearchBase = 'https://www.google.com/maps/search/';
+
 @Component({
   selector: 'kel-qso-detail',
   templateUrl: './qso-detail.component.html',
@@ -16,6 +18,7 @@ export interface QsoDetailData {
 })
 export class QsoDetailComponent {
   qsoDetailForm: FormGroup;
+  mapLink: string;
 
   constructor(private fb: FormBuilder,
               @Inject(MAT_DIALOG_DATA) public data: QsoDetailData,
@@ -33,6 +36,33 @@ export class QsoDetailComponent {
       state: data.qso.contactedState,
       country: data.qso.contactedCountry,
       continent: data.qso.contactedContinent,
+      opName: data.qso.contactedName,
+      latitude: data.qso.contactedLatitude,
+      longitude: data.qso.contactedLongitude,
     });
+    this.qsoDetailForm.get('latitude').valueChanges.forEach(() => this.updateMapLink());
+    this.qsoDetailForm.get('longitude').valueChanges.forEach(() => this.updateMapLink());
+    this.qsoDetailForm.get('city').valueChanges.forEach(() => this.updateMapLink());
+    this.qsoDetailForm.get('state').valueChanges.forEach(() => this.updateMapLink());
+    this.qsoDetailForm.get('country').valueChanges.forEach(() => this.updateMapLink());
+    this.updateMapLink();
+  }
+
+  private updateMapLink(): void {
+    const latitude: number = this.qsoDetailForm.get('latitude').value;
+    const longitude: number = this.qsoDetailForm.get('longitude').value;
+    const city: string = this.qsoDetailForm.get('city').value;
+    const state: string = this.qsoDetailForm.get('state').value;
+    const country: string = this.qsoDetailForm.get('country').value;
+    if (latitude && longitude) {
+      this.mapLink = googleMapsSearchBase + latitude + ',' + longitude;
+    } else if (city || state || country) {
+      this.mapLink = googleMapsSearchBase
+        + encodeURIComponent(city) + '+'
+        + encodeURIComponent(state) + '+'
+        + encodeURIComponent(country);
+    } else {
+      this.mapLink = '';
+    }
   }
 }

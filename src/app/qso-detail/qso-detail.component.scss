@@ -22,12 +22,14 @@ input.callsign {
 
 /* Chrome, Safari, Edge, Opera */
 input.freq::-webkit-outer-spin-button,
-input.freq::-webkit-inner-spin-button {
+input.freq::-webkit-inner-spin-button,
+input.latlong::-webkit-outer-spin-button,
+input.latlong::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Firefox */
-input.freq {
+input.freq, input.latlong {
   -moz-appearance: textfield;
 }

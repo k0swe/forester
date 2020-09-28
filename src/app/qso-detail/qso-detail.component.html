@@ -59,6 +59,32 @@
       </div>
 
       <div fxLayout="row" class="row">
+        <div fxFlex="50%">
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="opName">
+          </mat-form-field>
+        </div>
+        <div fxFlex="20%">
+          <mat-form-field>
+            <mat-label>Latitude</mat-label>
+            <input matInput class="latlong" formControlName="latitude" type="number">
+            <mat-hint>+N/-S</mat-hint>
+          </mat-form-field>
+        </div>
+        <div fxFlex="20%">
+          <mat-form-field>
+            <mat-label>Longitude</mat-label>
+            <input matInput class="latlong" formControlName="longitude" type="number">
+            <mat-hint>+E/-W</mat-hint>
+          </mat-form-field>
+        </div>
+        <div fxFlex>
+          <a mat-stroked-button [href]="mapLink" [disabled]="mapLink == null" target="map" color="primary">Map</a>
+        </div>
+      </div>
+
+      <div fxLayout="row" class="row">
         <div fxFlex>
           <mat-form-field>
             <mat-label>City</mat-label>
