@@ -1,0 +1,12 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CI-Firebase-hosting
+        uses: Danushka96/actions@v1.0
