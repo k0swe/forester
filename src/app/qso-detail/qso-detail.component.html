@@ -106,7 +106,16 @@
         <div fxFlex>
           <mat-form-field>
             <mat-label>Continent</mat-label>
-            <input matInput formControlName="continent">
+            <mat-select formControlName="continent">
+              <mat-option value="">(not set)</mat-option>
+              <mat-option value="NA">North America</mat-option>
+              <mat-option value="SA">South America</mat-option>
+              <mat-option value="EU">Europe</mat-option>
+              <mat-option value="AF">Africa</mat-option>
+              <mat-option value="OC">Oceana</mat-option>
+              <mat-option value="AS">Asia</mat-option>
+              <mat-option value="AN">Antarctica</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
       </div>
