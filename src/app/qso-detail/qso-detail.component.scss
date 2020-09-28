@@ -1,9 +1,5 @@
 @import '../../styles/theme';
 
-.row {
-  margin-bottom: 8px;
-}
-
 .row div {
   margin-right: 8px;
 }
@@ -36,4 +32,8 @@ input.latlong::-webkit-inner-spin-button {
 /* Firefox */
 input.freq, input.latlong {
   -moz-appearance: textfield;
+}
+
+a.mat-stroked-button {
+  margin-top: 16px;
 }

@@ -1,3 +1,4 @@
+<!--suppress HtmlFormInputWithoutLabel -->
 <mat-card>
   <mat-card-title>QSO Details</mat-card-title>
   <mat-card-content>
@@ -5,19 +6,19 @@
 
       <div fxLayout="row" class="row">
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Date/Time On</mat-label>
             <input matInput formControlName="timeOn">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Date/Time Off</mat-label>
             <input matInput formControlName="timeOff">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Callsign</mat-label>
             <input matInput class="callsign" formControlName="callsign">
           </mat-form-field>
@@ -26,32 +27,32 @@
 
       <div fxLayout="row" class="row">
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Band</mat-label>
             <input matInput formControlName="band">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Frequency</mat-label>
             <input matInput class="freq" formControlName="freq" type="number">
             <span matSuffix>MHz</span>
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Mode</mat-label>
             <input matInput formControlName="mode">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>RST Sent</mat-label>
             <input matInput formControlName="rstSent">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>RST Received</mat-label>
             <input matInput formControlName="rstRcvd">
           </mat-form-field>
@@ -60,20 +61,20 @@
 
       <div fxLayout="row" class="row">
         <div fxFlex="50%">
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Name</mat-label>
             <input matInput formControlName="opName">
           </mat-form-field>
         </div>
         <div fxFlex="20%">
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Latitude</mat-label>
             <input matInput class="latlong" formControlName="latitude" type="number">
             <mat-hint>+N/-S</mat-hint>
           </mat-form-field>
         </div>
         <div fxFlex="20%">
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Longitude</mat-label>
             <input matInput class="latlong" formControlName="longitude" type="number">
             <mat-hint>+E/-W</mat-hint>
@@ -86,25 +87,25 @@
 
       <div fxLayout="row" class="row">
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>City</mat-label>
             <input matInput formControlName="city">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>State/Province</mat-label>
             <input matInput formControlName="state">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Country</mat-label>
             <input matInput formControlName="country">
           </mat-form-field>
         </div>
         <div fxFlex>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Continent</mat-label>
             <mat-select formControlName="continent">
               <mat-option value="">(not set)</mat-option>
