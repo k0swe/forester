@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Qso} from '../qso';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {DatePipe} from '@angular/common';
+import {Band} from '../band';
 
 export interface QsoDetailData {
   qso: Qso;
@@ -17,6 +18,7 @@ const googleMapsSearchBase = 'https://www.google.com/maps/search/';
   providers: [DatePipe],
 })
 export class QsoDetailComponent {
+  bands = Band.bands;
   qsoDetailForm: FormGroup;
   mapLink: string;
 

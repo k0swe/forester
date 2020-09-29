@@ -23,9 +23,9 @@ export class Qso {
   static fromObject(o: PbQso.AsObject): Qso {
     // See https://github.com/improbable-eng/ts-protoc-gen/issues/9
     const pbQso = new PbQso();
-    pbQso.setBand(o.band);
+    pbQso.setBand(o.band.toLowerCase());
     pbQso.setFreq(o.freq);
-    pbQso.setMode(o.mode);
+    pbQso.setMode(o.mode.toUpperCase());
     pbQso.setRstReceived(o.rstReceived);
     pbQso.setRstSent(o.rstSent);
     pbQso.setTimeOn(Timestamp.fromDate(new Date(o.timeOn)));

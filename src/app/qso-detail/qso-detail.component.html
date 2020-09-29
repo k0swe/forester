@@ -29,7 +29,9 @@
         <div fxFlex>
           <mat-form-field appearance="standard">
             <mat-label>Band</mat-label>
-            <input matInput formControlName="band">
+            <mat-select formControlName="band" value="10m">
+              <mat-option *ngFor="let band of bands" [value]="band">{{band}}</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div fxFlex>
