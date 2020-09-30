@@ -8,9 +8,7 @@
     "build-prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "docker-build": "docker build -t kellog .",
-    "docker-run": "docker run -d --rm -p 8080:80 --name kellog kellog"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
