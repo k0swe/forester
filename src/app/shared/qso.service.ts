@@ -10,16 +10,24 @@ import {map, switchMap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class QsoService {
+  started = false;
   qsos$ = new ReplaySubject<Qso[]>();
   filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
 
   constructor(
     private authService: AuthService,
     private firestore: AngularFirestore) {
-    const uid$ = authService.user().pipe(map(user => user.uid));
+  }
+
+  public init(): void {
+    if (this.started) {
+      return;
+    }
+    this.started = true;
+    const uid$ = this.authService.user().pipe(map(user => user.uid));
     uid$.pipe(
       switchMap(userId => {
-        const userDoc = firestore.doc('users/' + userId);
+        const userDoc = this.firestore.doc('users/' + userId);
         return userDoc
           .collection<QsoPb.AsObject>('contacts')
           .valueChanges()

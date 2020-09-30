@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {QsoService} from '../shared/qso.service';
 import {Qso} from '../qso';
 import {Observable} from 'rxjs';
@@ -18,7 +18,7 @@ interface State {
   templateUrl: './was.component.html',
   styleUrls: ['./was.component.scss']
 })
-export class WasComponent implements AfterViewInit {
+export class WasComponent implements OnInit, AfterViewInit {
   @ViewChild('map') map: GoogleMap;
   mode = 'mixed';
   band = 'mixed';
@@ -129,6 +129,10 @@ export class WasComponent implements AfterViewInit {
   }
 
   constructor(private qsoService: QsoService) {
+  }
+
+  ngOnInit(): void {
+    this.qsoService.init();
   }
 
   ngAfterViewInit(): void {

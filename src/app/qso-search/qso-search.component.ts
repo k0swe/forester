@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {QsoService} from '../shared/qso.service';
 
 @Component({
@@ -6,10 +6,14 @@ import {QsoService} from '../shared/qso.service';
   templateUrl: './qso-search.component.html',
   styleUrls: ['./qso-search.component.scss']
 })
-export class QsoSearchComponent {
+export class QsoSearchComponent implements OnInit {
   search = '';
 
   constructor(private qsoService: QsoService) {
+  }
+
+  ngOnInit(): void {
+    this.qsoService.init();
   }
 
   changed(): void {
