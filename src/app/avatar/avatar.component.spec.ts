@@ -1,14 +1,28 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-
+import {AuthService} from '../shared/auth.service';
 import {AvatarComponent} from './avatar.component';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {MatMenuModule} from '@angular/material/menu';
+import {of} from 'rxjs';
 
 describe('AvatarComponent', () => {
   let component: AvatarComponent;
   let fixture: ComponentFixture<AvatarComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AvatarComponent]
+      declarations: [AvatarComponent],
+      imports: [MatMenuModule],
+      providers: [
+        {
+          provide: AuthService, useValue: {
+            user: () => of({
+              displayName: 'Joe Schmoe',
+              email: 'joe@schmoe.net',
+              photoURL: 'http://example.com/image.png'
+            })
+          }
+        },
+      ],
     })
       .compileComponents();
   }));
