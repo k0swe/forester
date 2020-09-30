@@ -1,35 +1,45 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {AuthService} from './shared/auth.service';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {HttpClient} from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {RouterTestingModule} from '@angular/router/testing';
+import {of} from 'rxjs';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
+      declarations: [AppComponent],
+      imports: [RouterTestingModule, MatSnackBarModule],
+      providers: [
+        {
+          provide: AuthService, useValue: {
+            user: () => of({
+              displayName: 'Joe Schmoe',
+              email: 'joe@schmoe.net',
+              photoURL: 'http://example.com/image.png'
+            })
+          }
+        },
+        {
+          provide: HttpClient, useValue: {
+            get: null
+          }
+        },
       ],
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'kellog'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('kellog');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('kellog app is running!');
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
