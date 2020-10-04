@@ -16,10 +16,7 @@ export class AgentComponent implements OnInit {
     this.connectedState = true;
     myWebSocket.subscribe(
       msg => this.console += JSON.stringify(msg) + '\n',
-      err => {
-        this.connectedState = false;
-        console.log(err);
-      },
+      err => this.connectedState = false,
       () => this.connectedState = false
     );
   }
