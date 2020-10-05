@@ -1,6 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { QsoDetailComponent } from './qso-detail.component';
+import {QsoDetailComponent} from './qso-detail.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 describe('QsoDetailComponent', () => {
   let component: QsoDetailComponent;
@@ -8,9 +7,9 @@ describe('QsoDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QsoDetailComponent ]
+      declarations: [QsoDetailComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
