@@ -41,6 +41,8 @@ export class QsoDetailComponent {
       opName: data.qso.contactedName,
       latitude: data.qso.contactedLatitude,
       longitude: data.qso.contactedLongitude,
+      comments: data.qso.comment,
+      notes: data.qso.notes,
     });
     this.qsoDetailForm.get('latitude').valueChanges.forEach(() => this.updateMapLink());
     this.qsoDetailForm.get('longitude').valueChanges.forEach(() => this.updateMapLink());
