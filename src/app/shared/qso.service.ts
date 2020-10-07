@@ -1,4 +1,4 @@
-import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFirestore, DocumentChangeAction} from '@angular/fire/firestore';
 import {AuthService} from './auth.service';
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, combineLatest, Observable, ReplaySubject} from 'rxjs';
@@ -30,8 +30,8 @@ export class QsoService {
         const userDoc = this.firestore.doc('users/' + userId);
         return userDoc
           .collection<QsoPb.AsObject>('contacts')
-          .valueChanges()
-          .pipe(map(qsos => this.unpackDocs(qsos)));
+          .snapshotChanges()
+          .pipe(map(snapshots => this.unpackDocs(snapshots)));
       })
     ).subscribe(
       qsos => this.qsos$.next(qsos)
@@ -128,9 +128,10 @@ export class QsoService {
     ));
   }
 
-  private unpackDocs(pbQsos: QsoPb.AsObject[]): Qso[] {
-    return pbQsos.map(
-      pbQso => Qso.fromObject(pbQso));
+  private unpackDocs(snapshots: DocumentChangeAction<QsoPb.AsObject>[]): Qso[] {
+    return snapshots.map(snapshot => {
+      return Qso.fromObject(snapshot.payload.doc.data());
+    });
   }
 
   setFilter(newCriteria: FilterCriteria): void {
