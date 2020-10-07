@@ -25,7 +25,7 @@ export class QsoListComponent implements OnInit {
 
   ngOnInit(): void {
     this.qsoService.init();
-    this.paginator.pageSize = 10;
+    this.paginator.pageSize = 25;
     this.paginator.pageSizeOptions = [10, 25, 50, 100];
     this.qsoService.getFilteredQsos().subscribe(qsos => {
       this.dataSource.data = qsos;
