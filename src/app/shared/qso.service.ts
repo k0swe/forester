@@ -11,7 +11,7 @@ import {map, switchMap} from 'rxjs/operators';
 })
 export class QsoService {
   started = false;
-  qsos$ = new ReplaySubject<Qso[]>();
+  qsos$ = new ReplaySubject<Map<string, Qso>>();
   filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
 
   constructor(
@@ -41,7 +41,7 @@ export class QsoService {
   getFilteredQsos(): Observable<Qso[]> {
     return combineLatest([this.qsos$, this.filterCriteria$])
       .pipe(map(([qsos, criteria]) =>
-        qsos.filter(qso => {
+        Array.from(qsos.values()).filter(qso => {
             if (criteria.call && qso.contactedCall.indexOf(criteria.call) === -1) {
               return false;
             }
@@ -82,7 +82,8 @@ export class QsoService {
   // (e.g. mode 'digital' matches QSOs with FT8, JT65, etc.)
   findWASQso(criteria: WASQsoCriteria): Observable<Qso | undefined> {
     return this.qsos$.pipe(map(qsos =>
-      qsos.sort(((a, b) => a.timeOn.getTime() - b.timeOn.getTime()))
+      Array.from(qsos.values())
+        .sort(((a, b) => a.timeOn.getTime() - b.timeOn.getTime()))
         .find(qso => {
 
           // if band is anything but 'mixed', it should match
@@ -128,10 +129,10 @@ export class QsoService {
     ));
   }
 
-  private unpackDocs(snapshots: DocumentChangeAction<QsoPb.AsObject>[]): Qso[] {
-    return snapshots.map(snapshot => {
-      return Qso.fromObject(snapshot.payload.doc.data());
-    });
+  private unpackDocs(snapshots: DocumentChangeAction<QsoPb.AsObject>[]): Map<string, Qso> {
+    return new Map(snapshots.map(snapshot =>
+      [snapshot.payload.doc.id, Qso.fromObject(snapshot.payload.doc.data())]
+    ));
   }
 
   setFilter(newCriteria: FilterCriteria): void {
