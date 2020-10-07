@@ -33,7 +33,7 @@ export class QsoDetailComponent {
       freq: data.qso.freq,
       mode: data.qso.mode,
       rstSent: data.qso.rstSent,
-      rstRcvd: data.qso.rstReceived,
+      rstReceived: data.qso.rstReceived,
       city: data.qso.contactedCity,
       state: data.qso.contactedState,
       country: data.qso.contactedCountry,

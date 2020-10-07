@@ -58,7 +58,7 @@ export class QsoListComponent implements OnInit {
       panelClass: 'card-dialog-container',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       console.log('The dialog was closed');
     });
   }

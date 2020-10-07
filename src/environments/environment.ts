@@ -2,6 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// noinspection SpellCheckingInspection
 export const environment = {
   production: false,
   functionsBase: 'http://localhost:8080/',

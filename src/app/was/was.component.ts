@@ -153,7 +153,7 @@ export class WasComponent implements OnInit, AfterViewInit {
         }
         markerOpts.map = this.map.googleMap;
         const marker = new google.maps.Marker(markerOpts);
-        marker.addListener('click', e => {
+        marker.addListener('click', () => {
           this.infoWindow.setOptions(iw);
           this.infoWindow.open(this.map.googleMap, marker);
         });

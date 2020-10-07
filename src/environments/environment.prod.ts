@@ -1,3 +1,4 @@
+// noinspection SpellCheckingInspection
 export const environment = {
   production: true,
   functionsBase: 'https://us-central1-k0swe-kellog.cloudfunctions.net/',

@@ -39,14 +39,14 @@ export class Band {
   public static readonly bands = Object.keys(Band.bandMap);
 
   public static freqToBand(freq: number): (string | null) {
-    let retval = null;
+    let retVal = null;
     this.bands.forEach(band => {
       const lowerLimit = this.bandMap[band][0];
       const upperLimit = this.bandMap[band][1];
       if (lowerLimit <= freq && upperLimit > freq) {
-        retval = band;
+        retVal = band;
       }
     });
-    return retval;
+    return retVal;
   }
 }
