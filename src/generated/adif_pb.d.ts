@@ -6,34 +6,22 @@ import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/t
 
 export class Adif extends jspb.Message {
   hasHeader(): boolean;
-
   clearHeader(): void;
-
   getHeader(): Header | undefined;
-
   setHeader(value?: Header): void;
 
   clearQsosList(): void;
-
   getQsosList(): Array<Qso>;
-
   setQsosList(value: Array<Qso>): void;
-
   addQsos(value?: Qso, index?: number): Qso;
 
   serializeBinary(): Uint8Array;
-
   toObject(includeInstance?: boolean): Adif.AsObject;
-
   static toObject(includeInstance: boolean, msg: Adif): Adif.AsObject;
-
-  static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
-  static extensionsBinary: { [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message> };
-
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
   static serializeBinaryToWriter(message: Adif, writer: jspb.BinaryWriter): void;
-
   static deserializeBinary(bytes: Uint8Array): Adif;
-
   static deserializeBinaryFromReader(message: Adif, reader: jspb.BinaryReader): Adif;
 }
 
@@ -141,122 +129,78 @@ export class Qso extends jspb.Message {
   setComplete(value: string): void;
 
   getComment(): string;
-
   setComment(value: string): void;
 
   getNotes(): string;
-
   setNotes(value: string): void;
 
   hasContest(): boolean;
-
   clearContest(): void;
-
   getContest(): ContestData | undefined;
-
   setContest(value?: ContestData): void;
 
   clearAwardSubmittedList(): void;
-
   getAwardSubmittedList(): Array<string>;
-
   setAwardSubmittedList(value: Array<string>): void;
-
   addAwardSubmitted(value: string, index?: number): string;
 
   clearAwardGrantedList(): void;
-
   getAwardGrantedList(): Array<string>;
-
   setAwardGrantedList(value: Array<string>): void;
-
   addAwardGranted(value: string, index?: number): string;
 
   clearCreditSubmittedList(): void;
-
   getCreditSubmittedList(): Array<Credit>;
-
   setCreditSubmittedList(value: Array<Credit>): void;
-
   addCreditSubmitted(value?: Credit, index?: number): Credit;
 
   clearCreditGrantedList(): void;
-
   getCreditGrantedList(): Array<Credit>;
-
   setCreditGrantedList(value: Array<Credit>): void;
-
   addCreditGranted(value?: Credit, index?: number): Credit;
 
   getPublicKey(): string;
-
   setPublicKey(value: string): void;
 
   hasClublog(): boolean;
-
   clearClublog(): void;
-
   getClublog(): Upload | undefined;
-
   setClublog(value?: Upload): void;
 
   hasHrdlog(): boolean;
-
   clearHrdlog(): void;
-
   getHrdlog(): Upload | undefined;
-
   setHrdlog(value?: Upload): void;
 
   hasQrzcom(): boolean;
-
   clearQrzcom(): void;
-
   getQrzcom(): Upload | undefined;
-
   setQrzcom(value?: Upload): void;
 
   hasEqsl(): boolean;
-
   clearEqsl(): void;
-
   getEqsl(): Qsl | undefined;
-
   setEqsl(value?: Qsl): void;
 
   hasLotw(): boolean;
-
   clearLotw(): void;
-
   getLotw(): Qsl | undefined;
-
   setLotw(value?: Qsl): void;
 
   hasCard(): boolean;
-
   clearCard(): void;
-
   getCard(): Qsl | undefined;
-
   setCard(value?: Qsl): void;
 
   getAppDefinedMap(): jspb.Map<string, string>;
-
   clearAppDefinedMap(): void;
-
   serializeBinary(): Uint8Array;
-
   toObject(includeInstance?: boolean): Qso.AsObject;
-
   static toObject(includeInstance: boolean, msg: Qso): Qso.AsObject;
-
-  static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
-  static extensionsBinary: { [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message> };
-
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
   static serializeBinaryToWriter(message: Qso, writer: jspb.BinaryWriter): void;
-
   static deserializeBinary(bytes: Uint8Array): Qso;
-
   static deserializeBinaryFromReader(message: Qso, reader: jspb.BinaryReader): Qso;
 }
 
