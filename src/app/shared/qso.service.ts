@@ -38,43 +38,45 @@ export class QsoService {
     );
   }
 
-  getFilteredQsos(): Observable<Qso[]> {
+  getFilteredQsos(): Observable<Map<string, Qso>> {
     return combineLatest([this.qsos$, this.filterCriteria$])
-      .pipe(map(([qsos, criteria]) =>
-        Array.from(qsos.values()).filter(qso => {
+      .pipe(map(([qsos, criteria]) => {
+          const retMap = new Map<string, Qso>();
+          for (const [id, qso] of qsos) {
             if (criteria.call && qso.contactedCall.indexOf(criteria.call) === -1) {
-              return false;
+              continue;
             }
             if (criteria.state) {
               if (criteria.stateOperator === CriteriaOperator.equal
                 && qso.contactedState.toUpperCase() !== criteria.state.toUpperCase()) {
-                return false;
+                continue;
               } else if (criteria.stateOperator === CriteriaOperator.not_equal
                 && qso.contactedState.toUpperCase() === criteria.state.toUpperCase()) {
-                return false;
+                continue;
               }
             }
             if (criteria.country) {
               if (criteria.countryOperator === CriteriaOperator.equal
                 && qso.contactedCountry.toUpperCase() !== criteria.country.toUpperCase()) {
-                return false;
+                continue;
               } else if (criteria.countryOperator === CriteriaOperator.not_equal
                 && qso.contactedCountry.toUpperCase() === criteria.country.toUpperCase()) {
-                return false;
+                continue;
               }
             }
             if (criteria.mode) {
               if (criteria.modeOperator === CriteriaOperator.equal
                 && qso.mode.toUpperCase() !== criteria.mode.toUpperCase()) {
-                return false;
+                continue;
               } else if (criteria.modeOperator === CriteriaOperator.not_equal
                 && qso.mode.toUpperCase() === criteria.mode.toUpperCase()) {
-                return false;
+                continue;
               }
             }
-            return true;
+            retMap.set(id, qso);
           }
-        )
+          return retMap;
+        }
       ));
   }
 
