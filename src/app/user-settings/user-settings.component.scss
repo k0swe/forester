@@ -1,0 +1,17 @@
+@import '../../styles/theme';
+
+.row div {
+  margin-right: 8px;
+}
+
+.row div:last-child {
+  margin-right: 0;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.callsign {
+  font-family: mat-font-family($kel-mono-typography);
+}

@@ -1,5 +1,7 @@
 import {AuthService} from '../shared/auth.service';
 import {Component} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {UserSettingsComponent} from '../user-settings/user-settings.component';
 
 @Component({
   selector: 'kel-avatar',
@@ -8,6 +10,13 @@ import {Component} from '@angular/core';
 })
 export class AvatarComponent {
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, private dialog: MatDialog) {
+  }
+
+  settings(): void {
+    this.dialog.open(UserSettingsComponent, {
+      width: '500px',
+      panelClass: 'card-dialog-container',
+    });
   }
 }

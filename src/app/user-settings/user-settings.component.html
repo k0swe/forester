@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title>User Settings</mat-card-title>
+  <mat-card-content>
+    <div fxLayout="row" class="row">
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>My Callsign</mat-label>
+          <input matInput class="callsign" placeholder="N0CALL"
+                 [value]="(settingsService.settings() | async).callsign">
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>QRZ.com Logbook API Key</mat-label>
+          <input matInput placeholder="ABCD-1234-EFGH-5678"
+                 [value]="(settingsService.settings() | async).qrzLogbookApiKey">
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card-content>
+  <!--  <mat-card-actions fxLayout="row">-->
+  <!--    <div fxFlex></div>-->
+  <!--    <button mat-raised-button color="accent">Save</button>-->
+  <!--  </mat-card-actions>-->
+</mat-card>

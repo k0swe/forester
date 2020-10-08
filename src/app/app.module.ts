@@ -35,6 +35,8 @@ import {QsoDetailComponent} from './qso-detail/qso-detail.component';
 import {QsoListComponent} from './qso-list/qso-list.component';
 import {QsoSearchComponent} from './qso-search/qso-search.component';
 import {QsoService} from './shared/qso.service';
+import {UserSettingsComponent} from './user-settings/user-settings.component';
+import {UserSettingsService} from './shared/user-settings.service';
 import {WasComponent} from './was/was.component';
 import {environment} from '../environments/environment';
 
@@ -47,6 +49,7 @@ import {environment} from '../environments/environment';
     QsoDetailComponent,
     QsoListComponent,
     QsoSearchComponent,
+    UserSettingsComponent,
     WasComponent,
   ],
   imports: [
@@ -81,6 +84,7 @@ import {environment} from '../environments/environment';
   providers: [
     AuthService,
     QsoService,
+    UserSettingsService,
   ],
   bootstrap: [AppComponent]
 })
