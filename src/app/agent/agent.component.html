@@ -1,5 +1,5 @@
-<div *ngIf="connectedState; else notConnected">
-  <mat-icon [matTooltip]="'Connected to agent on ' + agentHost">radio</mat-icon>
+<div *ngIf="agentService.getConnectedState() | async; else notConnected">
+  <mat-icon [matTooltip]="'Connected to agent on ' + agentService.getHost()">radio</mat-icon>
 </div>
 <ng-template #notConnected>
   <div>

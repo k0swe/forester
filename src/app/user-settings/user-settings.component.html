@@ -18,12 +18,12 @@
     <mat-form-field fxFlex appearance="standard">
       <mat-label>Agent Host</mat-label>
       <input matInput placeholder="localhost"
-             [ngModel]="getAgentHost()" (ngModelChange)="setAgentHost($event)">
+             [ngModel]="agentService.getHost()" (ngModelChange)="agentService.setHost($event)">
     </mat-form-field>
     <mat-form-field fxFlex appearance="standard">
       <mat-label>Agent Port</mat-label>
       <input matInput placeholder="8081" type="number"
-             [ngModel]="getAgentPort()" (ngModelChange)="setAgentPort($event)">
+             [ngModel]="agentService.getPort()" (ngModelChange)="agentService.setPort($event)">
     </mat-form-field>
   </div>
 </mat-dialog-content>
