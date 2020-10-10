@@ -10,17 +10,23 @@ export class AgentComponent implements OnInit {
   connectedState = false;
   console = '';
 
-  readonly defaultAgentAddress = 'localhost:8081';
-  agentAddress: string;
+  readonly defaultAgentHost = 'localhost';
+  readonly defaultAgentPort = 8081;
+  agentHost: string;
+  agentPort: number;
 
   ngOnInit(): void {
     // TODO: move this logic into a service
-    this.agentAddress = localStorage.getItem('agent-address');
-    if (this.agentAddress === null) {
-      localStorage.setItem('agent-address', this.defaultAgentAddress);
-      this.agentAddress = this.defaultAgentAddress;
+    this.agentHost = localStorage.getItem('agent-host');
+    this.agentPort = parseInt(localStorage.getItem('agent-port'), 10);
+    if (this.agentHost === null || this.agentPort === 0) {
+      localStorage.setItem('agent-host', this.defaultAgentHost);
+      localStorage.setItem('agent-port', String(this.defaultAgentPort));
+      this.agentHost = this.defaultAgentHost;
+      this.agentPort = this.defaultAgentPort;
     }
-    const myWebSocket = webSocket('ws://' + this.agentAddress + '/websocket');
+    const protocol = this.agentHost === 'localhost' ? 'ws://' : 'wss://';
+    const myWebSocket = webSocket(protocol + this.agentHost + ':' + this.agentPort + '/websocket');
     this.connectedState = true;
     myWebSocket.subscribe(
       msg => this.console += JSON.stringify(msg) + '\n',

@@ -18,12 +18,22 @@ export class UserSettingsComponent implements OnInit {
   }
 
   // TODO: this belongs in AgentService
-  getAgentAddress(): string {
-    return localStorage.getItem('agent-address');
+  getAgentHost(): string {
+    return localStorage.getItem('agent-host');
   }
 
   // TODO: this belongs in AgentService
-  setAgentAddress(addr: string): void {
-    localStorage.setItem('agent-address', addr);
+  getAgentPort(): string {
+    return localStorage.getItem('agent-port');
+  }
+
+  // TODO: this belongs in AgentService
+  setAgentHost(host: string): void {
+    localStorage.setItem('agent-host', host);
+  }
+
+  // TODO: this belongs in AgentService
+  setAgentPort(port: string): void {
+    localStorage.setItem('agent-port', port);
   }
 }

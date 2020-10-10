@@ -1,10 +1,10 @@
 @import '../../styles/theme';
 
-.row div {
+.row mat-form-field {
   margin-right: 8px;
 }
 
-.row div:last-child {
+.row mat-form-field:last-child {
   margin-right: 0;
 }
 
