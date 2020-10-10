@@ -1,143 +1,146 @@
 <!--suppress HtmlFormInputWithoutLabel -->
-<mat-card>
-  <mat-card-title>QSO Details</mat-card-title>
-  <mat-card-content>
-    <form [formGroup]="qsoDetailForm">
+<h2 mat-dialog-title>QSO Details</h2>
+<mat-dialog-content>
+  <form [formGroup]="qsoDetailForm">
 
-      <div fxLayout="row" class="row">
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>Date/Time On</mat-label>
-            <input matInput formControlName="timeOn">
-          </mat-form-field>
-        </div>
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>Date/Time Off</mat-label>
-            <input matInput formControlName="timeOff">
-          </mat-form-field>
-        </div>
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>Callsign</mat-label>
-            <input matInput class="callsign" formControlName="callsign">
-          </mat-form-field>
-        </div>
+    <div fxLayout="row" class="row">
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>Date/Time On</mat-label>
+          <input matInput formControlName="timeOn">
+        </mat-form-field>
       </div>
-
-      <div fxLayout="row" class="row">
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>Band</mat-label>
-            <mat-select formControlName="band" value="10m">
-              <mat-option *ngFor="let band of bands" [value]="band">{{band}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>Frequency</mat-label>
-            <input matInput class="freq" formControlName="freq" type="number">
-            <span matSuffix>MHz</span>
-          </mat-form-field>
-        </div>
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>Mode</mat-label>
-            <input matInput formControlName="mode">
-          </mat-form-field>
-        </div>
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>RST Sent</mat-label>
-            <input matInput formControlName="rstSent">
-          </mat-form-field>
-        </div>
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>RST Received</mat-label>
-            <input matInput formControlName="rstReceived">
-          </mat-form-field>
-        </div>
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>Date/Time Off</mat-label>
+          <input matInput formControlName="timeOff">
+        </mat-form-field>
       </div>
-
-      <div fxLayout="row" class="row">
-        <div fxFlex="50%">
-          <mat-form-field appearance="standard">
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="opName">
-          </mat-form-field>
-        </div>
-        <div fxFlex="20%">
-          <mat-form-field appearance="standard">
-            <mat-label>Latitude</mat-label>
-            <input matInput class="latLong" formControlName="latitude" type="number">
-            <mat-hint>+N/-S</mat-hint>
-          </mat-form-field>
-        </div>
-        <div fxFlex="20%">
-          <mat-form-field appearance="standard">
-            <mat-label>Longitude</mat-label>
-            <input matInput class="latLong" formControlName="longitude" type="number">
-            <mat-hint>+E/-W</mat-hint>
-          </mat-form-field>
-        </div>
-        <div fxFlex>
-          <a mat-stroked-button [href]="mapLink" [disabled]="mapLink == null" target="map" color="primary">Map</a>
-        </div>
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>Callsign</mat-label>
+          <input matInput class="callsign" formControlName="callsign">
+        </mat-form-field>
       </div>
+    </div>
 
-      <div fxLayout="row" class="row">
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>City</mat-label>
-            <input matInput formControlName="city">
-          </mat-form-field>
-        </div>
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>State/Province</mat-label>
-            <input matInput formControlName="state">
-          </mat-form-field>
-        </div>
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>Country</mat-label>
-            <input matInput formControlName="country">
-          </mat-form-field>
-        </div>
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>Continent</mat-label>
-            <mat-select formControlName="continent">
-              <mat-option value="">(not set)</mat-option>
-              <mat-option value="NA">North America</mat-option>
-              <mat-option value="SA">South America</mat-option>
-              <mat-option value="EU">Europe</mat-option>
-              <mat-option value="AF">Africa</mat-option>
-              <mat-option value="OC">Oceana</mat-option>
-              <mat-option value="AS">Asia</mat-option>
-              <mat-option value="AN">Antarctica</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+    <div fxLayout="row" class="row">
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>Band</mat-label>
+          <mat-select formControlName="band" value="10m">
+            <mat-option *ngFor="let band of bands" [value]="band">{{band}}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
-
-      <div fxLayout="row" class="row">
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>Comment</mat-label>
-            <textarea matInput formControlName="comment"></textarea>
-          </mat-form-field>
-        </div>
-        <div fxFlex>
-          <mat-form-field appearance="standard">
-            <mat-label>Notes</mat-label>
-            <textarea matInput formControlName="notes"></textarea>
-          </mat-form-field>
-        </div>
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>Frequency</mat-label>
+          <input matInput class="freq" formControlName="freq" type="number">
+          <span matSuffix>MHz</span>
+        </mat-form-field>
       </div>
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>Mode</mat-label>
+          <input matInput formControlName="mode">
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>RST Sent</mat-label>
+          <input matInput formControlName="rstSent">
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>RST Received</mat-label>
+          <input matInput formControlName="rstReceived">
+        </mat-form-field>
+      </div>
+    </div>
 
-    </form>
-  </mat-card-content>
-</mat-card>
+    <div fxLayout="row" class="row">
+      <div fxFlex="50%">
+        <mat-form-field appearance="standard">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="opName">
+        </mat-form-field>
+      </div>
+      <div fxFlex="20%">
+        <mat-form-field appearance="standard">
+          <mat-label>Latitude</mat-label>
+          <input matInput class="latLong" formControlName="latitude" type="number">
+          <mat-hint>+N/-S</mat-hint>
+        </mat-form-field>
+      </div>
+      <div fxFlex="20%">
+        <mat-form-field appearance="standard">
+          <mat-label>Longitude</mat-label>
+          <input matInput class="latLong" formControlName="longitude" type="number">
+          <mat-hint>+E/-W</mat-hint>
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <a mat-stroked-button [href]="mapLink" [disabled]="mapLink == null" target="map" color="primary">Map</a>
+      </div>
+    </div>
+
+    <div fxLayout="row" class="row">
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>City</mat-label>
+          <input matInput formControlName="city">
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>State/Province</mat-label>
+          <input matInput formControlName="state">
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>Country</mat-label>
+          <input matInput formControlName="country">
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>Continent</mat-label>
+          <mat-select formControlName="continent">
+            <mat-option value="">(not set)</mat-option>
+            <mat-option value="NA">North America</mat-option>
+            <mat-option value="SA">South America</mat-option>
+            <mat-option value="EU">Europe</mat-option>
+            <mat-option value="AF">Africa</mat-option>
+            <mat-option value="OC">Oceana</mat-option>
+            <mat-option value="AS">Asia</mat-option>
+            <mat-option value="AN">Antarctica</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row" class="row">
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>Comment</mat-label>
+          <textarea matInput formControlName="comment"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <mat-form-field appearance="standard">
+          <mat-label>Notes</mat-label>
+          <textarea matInput formControlName="notes"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="accent" disabled>Save</button>
+</mat-dialog-actions>

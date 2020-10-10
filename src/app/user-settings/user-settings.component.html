@@ -1,25 +1,24 @@
-<mat-card>
-  <mat-card-title>User Settings</mat-card-title>
-  <mat-card-content>
-    <div fxLayout="row" class="row">
-      <div fxFlex>
-        <mat-form-field appearance="standard">
-          <mat-label>My Callsign</mat-label>
-          <input matInput class="callsign" placeholder="N0CALL"
-                 [value]="(settingsService.settings() | async).callsign">
-        </mat-form-field>
-      </div>
-      <div fxFlex>
-        <mat-form-field appearance="standard">
-          <mat-label>QRZ.com Logbook API Key</mat-label>
-          <input matInput placeholder="ABCD-1234-EFGH-5678"
-                 [value]="(settingsService.settings() | async).qrzLogbookApiKey">
-        </mat-form-field>
-      </div>
+<h2 mat-dialog-title>User Settings</h2>
+<mat-dialog-content>
+  <div fxLayout="row" class="row">
+    <div fxFlex>
+      <mat-form-field appearance="standard">
+        <mat-label>My Callsign</mat-label>
+        <input matInput class="callsign" placeholder="N0CALL"
+               [value]="(settingsService.settings() | async).callsign">
+      </mat-form-field>
     </div>
-  </mat-card-content>
-  <!--  <mat-card-actions fxLayout="row">-->
-  <!--    <div fxFlex></div>-->
-  <!--    <button mat-raised-button color="accent">Save</button>-->
-  <!--  </mat-card-actions>-->
-</mat-card>
+    <div fxFlex>
+      <mat-form-field appearance="standard">
+        <mat-label>QRZ.com Logbook API Key</mat-label>
+        <input matInput placeholder="ABCD-1234-EFGH-5678"
+               [value]="(settingsService.settings() | async).qrzLogbookApiKey">
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="accent" disabled>Save</button>
+</mat-dialog-actions>

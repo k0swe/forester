@@ -16,7 +16,6 @@ export class AvatarComponent {
   settings(): void {
     this.dialog.open(UserSettingsComponent, {
       width: '500px',
-      panelClass: 'card-dialog-container',
     });
   }
 }
