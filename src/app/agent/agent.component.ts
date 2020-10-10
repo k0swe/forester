@@ -10,9 +10,12 @@ export class AgentComponent implements OnInit {
   connectedState = false;
   console = '';
 
+  // TODO: user configurable
+  readonly agentAddress = 'localhost:8081';
+
   ngOnInit(): void {
     // TODO: move this logic into a service
-    const myWebSocket = webSocket('ws://localhost:8081/websocket');
+    const myWebSocket = webSocket('ws://' + this.agentAddress + '/websocket');
     this.connectedState = true;
     myWebSocket.subscribe(
       msg => this.console += JSON.stringify(msg) + '\n',
