@@ -10,11 +10,16 @@ export class AgentComponent implements OnInit {
   connectedState = false;
   console = '';
 
-  // TODO: user configurable
-  readonly agentAddress = 'localhost:8081';
+  readonly defaultAgentAddress = 'localhost:8081';
+  agentAddress: string;
 
   ngOnInit(): void {
     // TODO: move this logic into a service
+    this.agentAddress = localStorage.getItem('agent-address');
+    if (this.agentAddress === null) {
+      localStorage.setItem('agent-address', this.defaultAgentAddress);
+      this.agentAddress = this.defaultAgentAddress;
+    }
     const myWebSocket = webSocket('ws://' + this.agentAddress + '/websocket');
     this.connectedState = true;
     myWebSocket.subscribe(

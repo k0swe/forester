@@ -16,4 +16,14 @@ export class UserSettingsComponent implements OnInit {
   ngOnInit(): void {
     this.settingsService.init();
   }
+
+  // TODO: this belongs in AgentService
+  getAgentAddress(): string {
+    return localStorage.getItem('agent-address');
+  }
+
+  // TODO: this belongs in AgentService
+  setAgentAddress(addr: string): void {
+    localStorage.setItem('agent-address', addr);
+  }
 }
