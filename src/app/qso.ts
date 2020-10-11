@@ -1,4 +1,4 @@
-import {Qso as PbQso, Station} from '../generated/adif_pb';
+import {Qso as PbQso, Station} from 'adif-pb/adif_pb';
 import {Timestamp} from 'google-protobuf/google/protobuf/timestamp_pb';
 
 export class Qso {
@@ -36,8 +36,8 @@ export class Qso {
     pbQso.setNotes(o.notes);
     pbQso.setRstReceived(o.rstReceived);
     pbQso.setRstSent(o.rstSent);
-    pbQso.setTimeOff(Timestamp.fromDate(new Date(o.timeOff)));
-    pbQso.setTimeOn(Timestamp.fromDate(new Date(o.timeOn)));
+    pbQso.setTimeOff(Timestamp.fromDate(new Date(o.timeOff.seconds)));
+    pbQso.setTimeOn(Timestamp.fromDate(new Date(o.timeOn.seconds)));
     const contacted = new Station();
     contacted.setStationCall(o.contactedStation.stationCall);
     contacted.setOpName(o.contactedStation.opName);

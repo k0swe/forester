@@ -7,7 +7,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {QsoDetailComponent} from './qso-detail.component';
 import {Qso} from '../qso';
-import {Qso as PbQso} from '../../generated/adif_pb';
+import {Qso as PbQso} from 'adif-pb/adif_pb';
+import {Timestamp} from 'google-protobuf/google/protobuf/timestamp_pb';
 
 describe('QsoDetailComponent', () => {
   let component: QsoDetailComponent;
@@ -18,8 +19,8 @@ describe('QsoDetailComponent', () => {
     pbQso.setBand('20m');
     pbQso.setFreq(14.074);
     pbQso.setMode('FT8');
-    pbQso.setTimeOn(new Date());
-    pbQso.setTimeOff(new Date());
+    pbQso.setTimeOn(Timestamp.fromDate(new Date()));
+    pbQso.setTimeOff(Timestamp.fromDate(new Date()));
     TestBed.configureTestingModule({
       declarations: [QsoDetailComponent],
       imports: [

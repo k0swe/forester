@@ -2,7 +2,7 @@ import {AngularFirestore, DocumentChangeAction} from '@angular/fire/firestore';
 import {AuthService} from './auth.service';
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, combineLatest, Observable, ReplaySubject} from 'rxjs';
-import {Qso as QsoPb} from '../../generated/adif_pb';
+import {Qso as QsoPb} from 'adif-pb/adif_pb';
 import {Qso} from '../qso';
 import {map, switchMap} from 'rxjs/operators';
 
