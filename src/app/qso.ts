@@ -22,6 +22,10 @@ export class Qso {
   timeOff: Date;
   timeOn: Date;
 
+  static fromProto(p: PbQso): Qso {
+    return this.fromObject(p.toObject());
+  }
+
   static fromObject(o: PbQso.AsObject): Qso {
     // See https://github.com/improbable-eng/ts-protoc-gen/issues/9
     const pbQso = new PbQso();
