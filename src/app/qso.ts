@@ -36,8 +36,8 @@ export class Qso {
     pbQso.setNotes(o.notes);
     pbQso.setRstReceived(o.rstReceived);
     pbQso.setRstSent(o.rstSent);
-    pbQso.setTimeOff(Timestamp.fromDate(new Date(o.timeOff.seconds)));
-    pbQso.setTimeOn(Timestamp.fromDate(new Date(o.timeOn.seconds)));
+    pbQso.setTimeOff(new Timestamp().setSeconds(o.timeOff.seconds));
+    pbQso.setTimeOn(new Timestamp().setSeconds(o.timeOn.seconds));
     const contacted = new Station();
     contacted.setStationCall(o.contactedStation.stationCall);
     contacted.setOpName(o.contactedStation.opName);

@@ -19,8 +19,8 @@ describe('QsoDetailComponent', () => {
     pbQso.setBand('20m');
     pbQso.setFreq(14.074);
     pbQso.setMode('FT8');
-    pbQso.setTimeOn(Timestamp.fromDate(new Date()));
-    pbQso.setTimeOff(Timestamp.fromDate(new Date()));
+    pbQso.setTimeOn(new Timestamp().setSeconds(new Date().getTime() / 1000));
+    pbQso.setTimeOff(new Timestamp().setSeconds(new Date().getTime() / 1000));
     TestBed.configureTestingModule({
       declarations: [QsoDetailComponent],
       imports: [
