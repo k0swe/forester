@@ -226,10 +226,10 @@ export namespace Qso {
     comment?: string,
     notes?: string,
     contest?: ContestData.AsObject,
-    awardSubmittedList: Array<string>,
-    awardGrantedList: Array<string>,
-    creditSubmittedList: Array<Credit.AsObject>,
-    creditGrantedList: Array<Credit.AsObject>,
+    awardSubmittedList?: Array<string>,
+    awardGrantedList?: Array<string>,
+    creditSubmittedList?: Array<Credit.AsObject>,
+    creditGrantedList?: Array<Credit.AsObject>,
     publicKey?: string,
     clublog?: Upload.AsObject,
     hrdlog?: Upload.AsObject,
@@ -237,7 +237,7 @@ export namespace Qso {
     eqsl?: Qsl.AsObject,
     lotw?: Qsl.AsObject,
     card?: Qsl.AsObject,
-    appDefinedMap: Array<[string, string]>,
+    appDefinedMap?: Array<[string, string]>,
   }
 }
 

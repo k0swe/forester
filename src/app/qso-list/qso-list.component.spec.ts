@@ -1,11 +1,10 @@
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {QsoListComponent} from './qso-list.component';
 import {QsoService} from '../shared/qso.service';
 import {of} from 'rxjs';
-import {MatDialogModule} from '@angular/material/dialog';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatPaginatorModule} from '@angular/material/paginator';
 
 describe('QsosComponent', () => {
   let component: QsoListComponent;
@@ -22,6 +21,7 @@ describe('QsosComponent', () => {
       providers: [
         {
           provide: QsoService, useValue: {
+            init: () => null,
             getFilteredQsos: () => of({contactedCall: 'N0CALL'})
           }
         },

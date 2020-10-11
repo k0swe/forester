@@ -1,6 +1,7 @@
 import {AuthService} from '../shared/auth.service';
 import {AvatarComponent} from './avatar.component';
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {of} from 'rxjs';
 
@@ -11,7 +12,7 @@ describe('AvatarComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [AvatarComponent],
-      imports: [MatMenuModule],
+      imports: [MatMenuModule, MatDialogModule],
       providers: [
         {
           provide: AuthService, useValue: {
