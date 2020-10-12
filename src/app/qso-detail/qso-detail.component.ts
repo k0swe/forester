@@ -1,9 +1,10 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, ViewChild} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Qso} from '../qso';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {DatePipe} from '@angular/common';
 import {Band} from '../band';
+import {MatButton} from "@angular/material/button";
 
 export interface QsoDetailData {
   qso: Qso;
@@ -21,6 +22,8 @@ export class QsoDetailComponent {
   bands = Band.bands;
   qsoDetailForm: FormGroup;
   mapLink: string;
+
+  @ViewChild('saveButton') saveButton: MatButton;
 
   constructor(private fb: FormBuilder,
               @Inject(MAT_DIALOG_DATA) public data: QsoDetailData,
@@ -44,12 +47,13 @@ export class QsoDetailComponent {
       comment: data.qso.comment,
       notes: data.qso.notes,
     });
-    this.qsoDetailForm.get('latitude').valueChanges.forEach(() => this.updateMapLink());
-    this.qsoDetailForm.get('longitude').valueChanges.forEach(() => this.updateMapLink());
-    this.qsoDetailForm.get('city').valueChanges.forEach(() => this.updateMapLink());
-    this.qsoDetailForm.get('state').valueChanges.forEach(() => this.updateMapLink());
-    this.qsoDetailForm.get('country').valueChanges.forEach(() => this.updateMapLink());
+    this.qsoDetailForm.get('latitude').valueChanges.subscribe(() => this.updateMapLink());
+    this.qsoDetailForm.get('longitude').valueChanges.subscribe(() => this.updateMapLink());
+    this.qsoDetailForm.get('city').valueChanges.subscribe(() => this.updateMapLink());
+    this.qsoDetailForm.get('state').valueChanges.subscribe(() => this.updateMapLink());
+    this.qsoDetailForm.get('country').valueChanges.subscribe(() => this.updateMapLink());
     this.updateMapLink();
+    this.qsoDetailForm.valueChanges.subscribe(() => this.saveButton.disabled = false);
   }
 
   private updateMapLink(): void {
