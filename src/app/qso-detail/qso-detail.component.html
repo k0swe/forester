@@ -8,18 +8,20 @@
         <mat-form-field appearance="standard">
           <mat-label>Date/Time On</mat-label>
           <input matInput formControlName="timeOn">
+          <mat-hint>UTC</mat-hint>
         </mat-form-field>
       </div>
       <div fxFlex>
         <mat-form-field appearance="standard">
           <mat-label>Date/Time Off</mat-label>
           <input matInput formControlName="timeOff">
+          <mat-hint>UTC</mat-hint>
         </mat-form-field>
       </div>
       <div fxFlex>
         <mat-form-field appearance="standard">
           <mat-label>Callsign</mat-label>
-          <input matInput class="callsign" formControlName="callsign">
+          <input matInput class="callsign" formControlName="contactedCall">
         </mat-form-field>
       </div>
     </div>
@@ -64,20 +66,20 @@
       <div fxFlex="50%">
         <mat-form-field appearance="standard">
           <mat-label>Name</mat-label>
-          <input matInput formControlName="opName">
+          <input matInput formControlName="contactedName">
         </mat-form-field>
       </div>
       <div fxFlex="20%">
         <mat-form-field appearance="standard">
           <mat-label>Latitude</mat-label>
-          <input matInput class="latLong" formControlName="latitude" type="number">
+          <input matInput class="latLong" formControlName="contactedLatitude" type="number">
           <mat-hint>+N/-S</mat-hint>
         </mat-form-field>
       </div>
       <div fxFlex="20%">
         <mat-form-field appearance="standard">
           <mat-label>Longitude</mat-label>
-          <input matInput class="latLong" formControlName="longitude" type="number">
+          <input matInput class="latLong" formControlName="contactedLongitude" type="number">
           <mat-hint>+E/-W</mat-hint>
         </mat-form-field>
       </div>
@@ -90,25 +92,25 @@
       <div fxFlex>
         <mat-form-field appearance="standard">
           <mat-label>City</mat-label>
-          <input matInput formControlName="city">
+          <input matInput formControlName="contactedCity">
         </mat-form-field>
       </div>
       <div fxFlex>
         <mat-form-field appearance="standard">
           <mat-label>State/Province</mat-label>
-          <input matInput formControlName="state">
+          <input matInput formControlName="contactedState">
         </mat-form-field>
       </div>
       <div fxFlex>
         <mat-form-field appearance="standard">
           <mat-label>Country</mat-label>
-          <input matInput formControlName="country">
+          <input matInput formControlName="contactedCountry">
         </mat-form-field>
       </div>
       <div fxFlex>
         <mat-form-field appearance="standard">
           <mat-label>Continent</mat-label>
-          <mat-select formControlName="continent">
+          <mat-select formControlName="contactedContinent">
             <mat-option value="">(not set)</mat-option>
             <mat-option value="NA">North America</mat-option>
             <mat-option value="SA">South America</mat-option>
@@ -142,5 +144,7 @@
 
 <mat-dialog-actions align="end">
   <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="accent" #saveButton disabled>Save</button>
+  <button mat-raised-button color="accent" #saveButton disabled
+          [mat-dialog-close]="this.qsoDetailForm.value">Save
+  </button>
 </mat-dialog-actions>

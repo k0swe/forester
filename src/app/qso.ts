@@ -57,7 +57,7 @@ export class Qso {
     return new Qso(pbQso);
   }
 
-  constructor(private qso: PbQso) {
+  constructor(qso: PbQso) {
     this.band = qso.getBand();
     this.comment = qso.getComment();
     this.contactedCall = qso.getContactedStation().getStationCall();
@@ -75,7 +75,7 @@ export class Qso {
     this.notes = qso.getNotes();
     this.rstReceived = qso.getRstReceived();
     this.rstSent = qso.getRstSent();
-    this.timeOff = new Date(this.qso.getTimeOff().getSeconds() * 1000);
-    this.timeOn = new Date(this.qso.getTimeOn().getSeconds() * 1000);
+    this.timeOff = new Date(qso.getTimeOff().getSeconds() * 1000);
+    this.timeOn = new Date(qso.getTimeOn().getSeconds() * 1000);
   }
 }

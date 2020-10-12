@@ -1,10 +1,10 @@
-import {Component, Inject, ViewChild} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {Qso} from '../qso';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {DatePipe} from '@angular/common';
 import {Band} from '../band';
-import {MatButton} from "@angular/material/button";
+import {Component, Inject, ViewChild} from '@angular/core';
+import {DatePipe} from '@angular/common';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatButton} from '@angular/material/button';
+import {Qso} from '../qso';
 
 export interface QsoDetailData {
   qso: Qso;
@@ -29,39 +29,28 @@ export class QsoDetailComponent {
               @Inject(MAT_DIALOG_DATA) public data: QsoDetailData,
               private datePipe: DatePipe) {
     this.qsoDetailForm = fb.group({
-      timeOn: this.datePipe.transform(data.qso.timeOn, 'yyyy-MM-dd HH:mm', 'UTC'),
-      timeOff: this.datePipe.transform(data.qso.timeOff, 'yyyy-MM-dd HH:mm', 'UTC'),
-      callsign: data.qso.contactedCall,
-      band: data.qso.band,
-      freq: data.qso.freq,
-      mode: data.qso.mode,
-      rstSent: data.qso.rstSent,
-      rstReceived: data.qso.rstReceived,
-      city: data.qso.contactedCity,
-      state: data.qso.contactedState,
-      country: data.qso.contactedCountry,
-      continent: data.qso.contactedContinent,
-      opName: data.qso.contactedName,
-      latitude: data.qso.contactedLatitude,
-      longitude: data.qso.contactedLongitude,
-      comment: data.qso.comment,
-      notes: data.qso.notes,
+      ...data.qso, ...{
+        // Qso uses date objects; format them
+        timeOn: this.datePipe.transform(data.qso.timeOn, 'yyyy-MM-dd HH:mm', 'UTC'),
+        timeOff: this.datePipe.transform(data.qso.timeOff, 'yyyy-MM-dd HH:mm', 'UTC'),
+      }
     });
-    this.qsoDetailForm.get('latitude').valueChanges.subscribe(() => this.updateMapLink());
-    this.qsoDetailForm.get('longitude').valueChanges.subscribe(() => this.updateMapLink());
-    this.qsoDetailForm.get('city').valueChanges.subscribe(() => this.updateMapLink());
-    this.qsoDetailForm.get('state').valueChanges.subscribe(() => this.updateMapLink());
-    this.qsoDetailForm.get('country').valueChanges.subscribe(() => this.updateMapLink());
+
+    this.qsoDetailForm.get('contactedLatitude').valueChanges.subscribe(() => this.updateMapLink());
+    this.qsoDetailForm.get('contactedLongitude').valueChanges.subscribe(() => this.updateMapLink());
+    this.qsoDetailForm.get('contactedCity').valueChanges.subscribe(() => this.updateMapLink());
+    this.qsoDetailForm.get('contactedState').valueChanges.subscribe(() => this.updateMapLink());
+    this.qsoDetailForm.get('contactedCountry').valueChanges.subscribe(() => this.updateMapLink());
     this.updateMapLink();
     this.qsoDetailForm.valueChanges.subscribe(() => this.saveButton.disabled = false);
   }
 
   private updateMapLink(): void {
-    const latitude: number = this.qsoDetailForm.get('latitude').value;
-    const longitude: number = this.qsoDetailForm.get('longitude').value;
-    const city: string = this.qsoDetailForm.get('city').value;
-    const state: string = this.qsoDetailForm.get('state').value;
-    const country: string = this.qsoDetailForm.get('country').value;
+    const latitude: number = this.qsoDetailForm.get('contactedLatitude').value;
+    const longitude: number = this.qsoDetailForm.get('contactedLongitude').value;
+    const city: string = this.qsoDetailForm.get('contactedCity').value;
+    const state: string = this.qsoDetailForm.get('contactedState').value;
+    const country: string = this.qsoDetailForm.get('contactedCountry').value;
     if (latitude && longitude) {
       this.mapLink = googleMapsSearchBase + latitude + ',' + longitude;
     } else if (city || state || country) {

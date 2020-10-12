@@ -57,8 +57,12 @@ export class QsoListComponent implements OnInit {
       data: {qso},
     });
 
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
+    dialogRef.afterClosed().subscribe(formValue => {
+      // form uses string dates; fix those
+      formValue.timeOn = new Date(formValue.timeOn + 'Z');
+      formValue.timeOff = new Date(formValue.timeOff + 'Z');
+      const newQso = formValue as Qso;
+      console.log('The dialog was closed, value:', newQso);
     });
   }
 }
