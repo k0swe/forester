@@ -25,7 +25,7 @@ export class AgentService {
     if (this.agentHost === null) {
       this.setHost(this.defaultAgentHost);
     }
-    if (this.agentPort === 0) {
+    if (this.agentPort === null) {
       this.setPort(this.defaultAgentPort);
     }
     this.connect();
