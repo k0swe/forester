@@ -1,17 +1,19 @@
 import {AngularFirestore, DocumentChangeAction} from '@angular/fire/firestore';
 import {AuthService} from './auth.service';
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, combineLatest, Observable, ReplaySubject} from 'rxjs';
+import {BehaviorSubject, combineLatest, Observable, of, ReplaySubject} from 'rxjs';
 import {Qso as QsoPb} from 'adif-pb/adif_pb';
 import {Qso} from '../qso';
-import {map, switchMap} from 'rxjs/operators';
+import {map, mergeMap} from 'rxjs/operators';
+import {User} from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QsoService {
   started = false;
-  qsos$ = new ReplaySubject<Qso[]>();
+  user$ = new ReplaySubject<User>(1);
+  qsos$ = new BehaviorSubject<Qso[]>([]);
   filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
 
   constructor(
@@ -24,18 +26,11 @@ export class QsoService {
       return;
     }
     this.started = true;
-    const uid$ = this.authService.user().pipe(map(user => user.uid));
-    uid$.pipe(
-      switchMap(userId => {
-        const userDoc = this.firestore.doc('users/' + userId);
-        return userDoc
-          .collection<QsoPb.AsObject>('contacts')
-          .snapshotChanges()
-          .pipe(map(snapshots => this.unpackDocs(snapshots)));
-      })
-    ).subscribe(
-      qsos => this.qsos$.next(qsos)
-    );
+    this.authService.user().subscribe(user => this.user$.next(user));
+    const contactSnapshots = this.user$.pipe(mergeMap((u: User) =>
+      this.firestore.collection<QsoPb.AsObject>('users/' + u.uid + '/contacts').snapshotChanges()));
+    const contacts = contactSnapshots.pipe(map(snapshots => this.unpackDocs(snapshots)));
+    contacts.subscribe(qsos => this.qsos$.next(qsos));
   }
 
   getFilteredQsos(): Observable<Qso[]> {
@@ -137,6 +132,24 @@ export class QsoService {
 
   setFilter(newCriteria: FilterCriteria): void {
     this.filterCriteria$.next(newCriteria);
+  }
+
+  public addOrUpdate(newQso: Qso): Observable<any> {
+    const firebaseId = newQso.firebaseId;
+    const qsoObj = newQso.toProto().toObject();
+    return this.user$.pipe(mergeMap(u => {
+      console.log('Saving firebase ID', firebaseId, qsoObj);
+      // TODO: fix this
+      // if (firebaseId == null) {
+      //   const contactsCollection = this.firestore.collection<QsoPb.AsObject>('users/' + u.uid + '/contacts');
+      //   return fromPromise(contactsCollection.add(qsoObj));
+      // } else {
+      //   const contactDoc = this.firestore.doc<QsoPb.AsObject>('users/' + u.uid + '/contacts/' + firebaseId);
+      //   return fromPromise(contactDoc.update(qsoObj));
+      // }
+      alert('Saving is currently disabled, try again later');
+      return of(null);
+    }));
   }
 }
 

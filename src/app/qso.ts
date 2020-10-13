@@ -58,7 +58,10 @@ export class Qso {
     return new Qso(pbQso, firebaseId);
   }
 
-  constructor(qso: PbQso, firebaseId?: string) {
+  constructor(qso?: PbQso, firebaseId?: string) {
+    if (!qso) {
+      return;
+    }
     this.firebaseId = firebaseId;
     this.band = qso.getBand();
     this.comment = qso.getComment();
@@ -79,5 +82,40 @@ export class Qso {
     this.rstSent = qso.getRstSent();
     this.timeOff = new Date(qso.getTimeOff().getSeconds() * 1000);
     this.timeOn = new Date(qso.getTimeOn().getSeconds() * 1000);
+  }
+
+  public toProto(): PbQso {
+    const pbQso = new PbQso();
+    pbQso.setBand(this.band);
+    pbQso.setComment(this.comment);
+    pbQso.setFreq(this.freq);
+    pbQso.setMode(this.mode);
+    pbQso.setNotes(this.notes);
+    pbQso.setRstReceived(this.rstReceived);
+    pbQso.setRstSent(this.rstSent);
+    const timeOn = new Timestamp();
+    timeOn.fromDate(this.timeOn);
+    pbQso.setTimeOn(timeOn);
+    const timeOff = new Timestamp();
+    timeOff.fromDate(this.timeOff);
+    pbQso.setTimeOff(timeOff);
+
+    const contacted = new Station();
+    contacted.setStationCall(this.contactedCall);
+    contacted.setCity(this.contactedCity);
+    contacted.setContinent(this.contactedContinent);
+    contacted.setCountry(this.contactedCountry);
+    contacted.setLatitude(this.contactedLatitude);
+    contacted.setLongitude(this.contactedLongitude);
+    contacted.setOpName(this.contactedName);
+    contacted.setState(this.contactedState);
+    pbQso.setContactedStation(contacted);
+
+    const logging = new Station();
+    logging.setStationCall(this.loggingCall);
+    logging.setOpName(this.loggingName);
+    pbQso.setLoggingStation(logging);
+
+    return pbQso;
   }
 }

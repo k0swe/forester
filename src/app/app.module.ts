@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AgentComponent} from './agent/agent.component';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireModule} from '@angular/fire';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFirestoreModule, SETTINGS as FIRESTORE_SETTINGS} from '@angular/fire/firestore';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AuthService} from './shared/auth.service';
@@ -85,6 +85,12 @@ import {environment} from '../environments/environment';
     AuthService,
     QsoService,
     UserSettingsService,
+    {
+      provide: FIRESTORE_SETTINGS,
+      useValue: {
+        ignoreUndefinedProperties: true,
+      },
+    },
   ],
   bootstrap: [AppComponent]
 })
