@@ -58,6 +58,9 @@ export class QsoListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(formValue => {
+      if (formValue == null) {
+        return;
+      }
       // form uses string dates; fix those
       formValue.timeOn = new Date(formValue.timeOn + 'Z');
       formValue.timeOff = new Date(formValue.timeOff + 'Z');
