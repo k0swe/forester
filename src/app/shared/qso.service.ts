@@ -11,7 +11,7 @@ import {map, switchMap} from 'rxjs/operators';
 })
 export class QsoService {
   started = false;
-  qsos$ = new ReplaySubject<Map<string, Qso>>();
+  qsos$ = new ReplaySubject<Qso[]>();
   filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
 
   constructor(
@@ -38,49 +38,48 @@ export class QsoService {
     );
   }
 
-  getFilteredQsos(): Observable<Map<string, Qso>> {
+  getFilteredQsos(): Observable<Qso[]> {
     return combineLatest([this.qsos$, this.filterCriteria$])
-      .pipe(map(([qsos, criteria]) => {
-          const retMap = new Map<string, Qso>();
-          for (const [id, qso] of qsos) {
-            if (criteria.call && qso.contactedCall.indexOf(criteria.call) === -1) {
-              continue;
-            }
-            if (criteria.state) {
-              if (criteria.stateOperator === CriteriaOperator.equal
-                && qso.contactedState.toUpperCase() !== criteria.state.toUpperCase()) {
-                continue;
-              } else if (criteria.stateOperator === CriteriaOperator.not_equal
-                && qso.contactedState.toUpperCase() === criteria.state.toUpperCase()) {
-                continue;
-              }
-            }
-            if (criteria.country) {
-              if (criteria.countryOperator === CriteriaOperator.equal
-                && qso.contactedCountry.toUpperCase() !== criteria.country.toUpperCase()) {
-                continue;
-              } else if (criteria.countryOperator === CriteriaOperator.not_equal
-                && qso.contactedCountry.toUpperCase() === criteria.country.toUpperCase()) {
-                continue;
-              }
-            }
-            if (criteria.mode) {
-              if (criteria.modeOperator === CriteriaOperator.equal
-                && qso.mode.toUpperCase() !== criteria.mode.toUpperCase()) {
-                continue;
-              } else if (criteria.modeOperator === CriteriaOperator.not_equal
-                && qso.mode.toUpperCase() === criteria.mode.toUpperCase()) {
-                continue;
-              }
-            }
-            retMap.set(id, qso);
-          }
-          return retMap;
-        }
-      ));
+      .pipe(map(([qsos, criteria]) => this.filterQsos(qsos, criteria)));
   }
 
-  // Find the earliest QSO which meets the given criteria, applying Worked All States rules
+  private filterQsos(qsos: Qso[], criteria: FilterCriteria): Qso[] {
+    return qsos.filter(qso => {
+      if (criteria.call && qso.contactedCall.indexOf(criteria.call) === -1) {
+        return false;
+      }
+      if (criteria.state) {
+        if (criteria.stateOperator === CriteriaOperator.equal
+          && qso.contactedState.toUpperCase() !== criteria.state.toUpperCase()) {
+          return false;
+        } else if (criteria.stateOperator === CriteriaOperator.not_equal
+          && qso.contactedState.toUpperCase() === criteria.state.toUpperCase()) {
+          return false;
+        }
+      }
+      if (criteria.country) {
+        if (criteria.countryOperator === CriteriaOperator.equal
+          && qso.contactedCountry.toUpperCase() !== criteria.country.toUpperCase()) {
+          return false;
+        } else if (criteria.countryOperator === CriteriaOperator.not_equal
+          && qso.contactedCountry.toUpperCase() === criteria.country.toUpperCase()) {
+          return false;
+        }
+      }
+      if (criteria.mode) {
+        if (criteria.modeOperator === CriteriaOperator.equal
+          && qso.mode.toUpperCase() !== criteria.mode.toUpperCase()) {
+          return false;
+        } else if (criteria.modeOperator === CriteriaOperator.not_equal
+          && qso.mode.toUpperCase() === criteria.mode.toUpperCase()) {
+          return false;
+        }
+      }
+      return true;
+    });
+  }
+
+// Find the earliest QSO which meets the given criteria, applying Worked All States rules
   // (e.g. mode 'digital' matches QSOs with FT8, JT65, etc.)
   findWASQso(criteria: WASQsoCriteria): Observable<Qso | undefined> {
     return this.qsos$.pipe(map(qsos =>
@@ -131,10 +130,9 @@ export class QsoService {
     ));
   }
 
-  private unpackDocs(snapshots: DocumentChangeAction<QsoPb.AsObject>[]): Map<string, Qso> {
-    return new Map(snapshots.map(snapshot =>
-      [snapshot.payload.doc.id, Qso.fromObject(snapshot.payload.doc.data())]
-    ));
+  private unpackDocs(snapshots: DocumentChangeAction<QsoPb.AsObject>[]): Qso[] {
+    return snapshots.map(snapshot =>
+      Qso.fromObject(snapshot.payload.doc.data(), snapshot.payload.doc.id));
   }
 
   setFilter(newCriteria: FilterCriteria): void {

@@ -28,7 +28,7 @@ export class QsoListComponent implements OnInit {
     this.paginator.pageSize = 25;
     this.paginator.pageSizeOptions = [10, 25, 50, 100];
     this.qsoService.getFilteredQsos().subscribe(qsos => {
-      this.dataSource.data = Array.from(qsos.values());
+      this.dataSource.data = qsos;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });

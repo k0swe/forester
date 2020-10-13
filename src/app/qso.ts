@@ -2,6 +2,7 @@ import {Qso as PbQso, Station} from 'adif-pb/adif_pb';
 import {Timestamp} from 'google-protobuf/google/protobuf/timestamp_pb';
 
 export class Qso {
+  firebaseId: string;
   band: string;
   comment: string;
   contactedCall: string;
@@ -22,11 +23,11 @@ export class Qso {
   timeOff: Date;
   timeOn: Date;
 
-  static fromProto(p: PbQso): Qso {
-    return this.fromObject(p.toObject());
+  static fromProto(p: PbQso, firebaseId?: string): Qso {
+    return this.fromObject(p.toObject(), firebaseId);
   }
 
-  static fromObject(o: PbQso.AsObject): Qso {
+  static fromObject(o: PbQso.AsObject, firebaseId?: string): Qso {
     // See https://github.com/improbable-eng/ts-protoc-gen/issues/9
     const pbQso = new PbQso();
     pbQso.setBand(o.band.toLowerCase());
@@ -54,10 +55,11 @@ export class Qso {
     logging.setStationCall(o.loggingStation.stationCall);
     logging.setOpName(o.loggingStation.opName);
     pbQso.setLoggingStation(logging);
-    return new Qso(pbQso);
+    return new Qso(pbQso, firebaseId);
   }
 
-  constructor(qso: PbQso) {
+  constructor(qso: PbQso, firebaseId?: string) {
+    this.firebaseId = firebaseId;
     this.band = qso.getBand();
     this.comment = qso.getComment();
     this.contactedCall = qso.getContactedStation().getStationCall();
