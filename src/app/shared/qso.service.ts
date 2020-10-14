@@ -1,11 +1,12 @@
 import {AngularFirestore, DocumentChangeAction} from '@angular/fire/firestore';
 import {AuthService} from './auth.service';
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, combineLatest, Observable, of, ReplaySubject} from 'rxjs';
+import {BehaviorSubject, combineLatest, Observable, ReplaySubject} from 'rxjs';
 import {Qso as QsoPb} from 'adif-pb/adif_pb';
 import {Qso} from '../qso';
 import {map, mergeMap} from 'rxjs/operators';
 import {User} from 'firebase';
+import {fromPromise} from "rxjs/internal-compatibility";
 
 @Injectable({
   providedIn: 'root'
@@ -136,19 +137,19 @@ export class QsoService {
 
   public addOrUpdate(newQso: Qso): Observable<any> {
     const firebaseId = newQso.firebaseId;
-    const qsoObj = newQso.toProto().toObject();
+    const qsoObj = newQso.toFirebaseObject();
     return this.user$.pipe(mergeMap(u => {
       console.log('Saving firebase ID', firebaseId, qsoObj);
       // TODO: fix this
-      // if (firebaseId == null) {
-      //   const contactsCollection = this.firestore.collection<QsoPb.AsObject>('users/' + u.uid + '/contacts');
-      //   return fromPromise(contactsCollection.add(qsoObj));
-      // } else {
-      //   const contactDoc = this.firestore.doc<QsoPb.AsObject>('users/' + u.uid + '/contacts/' + firebaseId);
-      //   return fromPromise(contactDoc.update(qsoObj));
-      // }
-      alert('Saving is currently disabled, try again later');
-      return of(null);
+      if (firebaseId == null) {
+        const contactsCollection = this.firestore.collection('users/' + u.uid + '/contacts');
+        return fromPromise(contactsCollection.add(qsoObj));
+      } else {
+        const contactDoc = this.firestore.doc('users/' + u.uid + '/contacts/' + firebaseId);
+        return fromPromise(contactDoc.update(qsoObj));
+      }
+      // alert('Saving is currently disabled, try again later');
+      // return of(null);
     }));
   }
 }

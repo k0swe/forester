@@ -27,8 +27,10 @@ export class Qso {
     return this.fromObject(p.toObject(), firebaseId);
   }
 
+  // Bug: protoc doesn't generate fromObject
+  // https://github.com/protocolbuffers/protobuf/issues/1591
+  // https://github.com/improbable-eng/ts-protoc-gen/issues/9
   static fromObject(o: PbQso.AsObject, firebaseId?: string): Qso {
-    // See https://github.com/improbable-eng/ts-protoc-gen/issues/9
     const pbQso = new PbQso();
     pbQso.setBand(o.band.toLowerCase());
     pbQso.setComment(o.comment);
@@ -117,5 +119,38 @@ export class Qso {
     pbQso.setLoggingStation(logging);
 
     return pbQso;
+  }
+
+  toFirebaseObject(): object {
+    const qsoObj = this.toProto().toObject() as object;
+    this.removeDefaultFields(qsoObj);
+
+    // Bug: well-known types are not serialized to proto3 JSON
+    // https://github.com/protocolbuffers/protobuf/issues/1904
+    if (this.timeOn) {
+      // @ts-ignore
+      qsoObj.timeOn = this.timeOn.toISOString();
+    }
+    if (this.timeOff) {
+      // @ts-ignore
+      qsoObj.timeOff = this.timeOff.toISOString();
+    }
+
+    return qsoObj;
+  }
+
+  // TODO: this will prevent fields from ever being cleared
+  private removeDefaultFields(obj: object): void {
+    const propNames = Object.getOwnPropertyNames(obj);
+    for (const name of propNames) {
+      if (obj[name] instanceof Array && obj[name].length === 0) {
+        delete obj[name];
+      } else if (obj[name] instanceof Object) {
+        this.removeDefaultFields(obj[name]);
+      } else if (obj[name] === null || obj[name] === undefined
+        || obj[name] === '' || obj[name] === 0 || obj[name] === false) {
+        delete obj[name];
+      }
+    }
   }
 }
