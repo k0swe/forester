@@ -51,13 +51,15 @@ export class QsoDetailComponent {
               private qsoService: QsoService,
               private dialog: MatDialogRef<any>) {
     this.firebaseId = data.id;
-    this.formatDates(data.qso);
-    this.formatDates(this.template);
-    this.qsoDetailForm = fb.group({
+    const model = {
       ...this.template, ...data.qso, ...{
-        contactedStation: fb.group({
-          ...this.template.contactedStation, ...data.qso.contactedStation
-        }),
+        ...this.template.contactedStation, ...data.qso.contactedStation
+      }
+    };
+    this.formatDates(model);
+    this.qsoDetailForm = fb.group({
+      ...model, ...{
+        contactedStation: fb.group(model.contactedStation),
       }
     });
 
