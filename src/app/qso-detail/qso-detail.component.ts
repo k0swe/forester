@@ -52,7 +52,8 @@ export class QsoDetailComponent {
               private dialog: MatDialogRef<any>) {
     this.firebaseId = data.id;
     const model = {
-      ...this.template, ...data.qso, ...{
+      ...this.template, ...data.qso,
+      contactedStation: {
         ...this.template.contactedStation, ...data.qso.contactedStation
       }
     };
