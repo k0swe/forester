@@ -16,7 +16,7 @@
   width: auto !important;
 }
 
-.ng-dirty:not(form) {
+mat-form-field.ng-dirty {
   color: mat-color($kel-accent, 900);
 }
 

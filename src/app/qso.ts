@@ -1,156 +1,157 @@
-import {Qso as PbQso, Station} from 'adif-pb/adif_pb';
-import {Timestamp} from 'google-protobuf/google/protobuf/timestamp_pb';
+// These types are copied from https://github.com/k0swe/adif-json-protobuf,
+// and then the AsObject's are converted to interfaces with nullable fields.
+// See https://github.com/k0swe/kellog/issues/7 for why this is done.
 
-export class Qso {
-  firebaseId: string;
-  band: string;
-  comment: string;
-  contactedCall: string;
-  contactedCity: string;
-  contactedContinent: string;
-  contactedCountry: string;
-  contactedLatitude?: number;
-  contactedLongitude?: number;
-  contactedName: string;
-  contactedState: string;
-  freq: number;
-  loggingCall: string;
-  loggingName: string;
-  mode: string;
-  notes: any;
-  rstReceived: string;
-  rstSent: string;
-  timeOff: Date;
-  timeOn: Date;
 
-  static fromProto(p: PbQso, firebaseId?: string): Qso {
-    return this.fromObject(p.toObject(), firebaseId);
-  }
+// Amateur Radio Data Interchange Format
+export interface Adif {
+  header?: Header;
+  qsosList?: Array<Qso>;
+}
 
-  // Bug: protoc doesn't generate fromObject
-  // https://github.com/protocolbuffers/protobuf/issues/1591
-  // https://github.com/improbable-eng/ts-protoc-gen/issues/9
-  static fromObject(o: PbQso.AsObject, firebaseId?: string): Qso {
-    const pbQso = new PbQso();
-    pbQso.setBand(o.band.toLowerCase());
-    pbQso.setComment(o.comment);
-    pbQso.setFreq(o.freq);
-    pbQso.setMode(o.mode.toUpperCase());
-    pbQso.setNotes(o.notes);
-    pbQso.setRstReceived(o.rstReceived);
-    pbQso.setRstSent(o.rstSent);
-    pbQso.setTimeOff(new Timestamp().setSeconds(
-      new Date(o.timeOff as unknown as string).getTime() / 1000));
-    pbQso.setTimeOn(new Timestamp().setSeconds(
-      new Date(o.timeOn as unknown as string).getTime() / 1000));
-    const contacted = new Station();
-    contacted.setStationCall(o.contactedStation.stationCall);
-    contacted.setOpName(o.contactedStation.opName);
-    contacted.setCity(o.contactedStation.city);
-    contacted.setState(o.contactedStation.state);
-    contacted.setCountry(o.contactedStation.country);
-    contacted.setContinent(o.contactedStation.continent);
-    contacted.setLatitude(o.contactedStation.latitude);
-    contacted.setLongitude(o.contactedStation.longitude);
-    pbQso.setContactedStation(contacted);
-    const logging = new Station();
-    logging.setStationCall(o.loggingStation.stationCall);
-    logging.setOpName(o.loggingStation.opName);
-    pbQso.setLoggingStation(logging);
-    return new Qso(pbQso, firebaseId);
-  }
+// ADIF header metadata
+export interface Header {
+  adifVersion?: string;
+  createdTimestamp?: Date;
+  programId?: string;
+  programVersion?: string;
+}
 
-  constructor(qso?: PbQso, firebaseId?: string) {
-    if (!qso) {
-      return;
-    }
-    this.firebaseId = firebaseId;
-    this.band = qso.getBand();
-    this.comment = qso.getComment();
-    this.contactedCall = qso.getContactedStation().getStationCall();
-    this.contactedCity = qso.getContactedStation().getCity();
-    this.contactedContinent = qso.getContactedStation().getContinent();
-    this.contactedCountry = qso.getContactedStation().getCountry();
-    this.contactedLatitude = qso.getContactedStation().getLatitude();
-    this.contactedLongitude = qso.getContactedStation().getLongitude();
-    this.contactedName = qso.getContactedStation().getOpName();
-    this.contactedState = qso.getContactedStation().getState();
-    this.freq = qso.getFreq();
-    this.loggingCall = qso.getLoggingStation().getStationCall();
-    this.loggingName = qso.getLoggingStation().getOpName();
-    this.mode = qso.getMode();
-    this.notes = qso.getNotes();
-    this.rstReceived = qso.getRstReceived();
-    this.rstSent = qso.getRstSent();
-    this.timeOff = new Date(qso.getTimeOff().getSeconds() * 1000);
-    this.timeOn = new Date(qso.getTimeOn().getSeconds() * 1000);
-  }
+// Field representing one radio contact, or QSO.
+export interface Qso {
+  loggingStation?: Station;
+  contactedStation?: Station;
+  propagation?: Propagation;
+  band?: string;
+  bandRx?: string;
+  freq?: number;
+  freqRx?: number;
+  mode?: string;
+  submode?: string;
+  distanceKm?: number;
+  timeOn?: Date;
+  timeOff?: Date;
+  random?: boolean;
+  rstReceived?: string;
+  rstSent?: string;
+  swl?: boolean;
+  complete?: string;
+  comment?: string;
+  notes?: string;
+  contest?: ContestData;
+  awardSubmittedList?: Array<string>;
+  awardGrantedList?: Array<string>;
+  creditSubmittedList?: Array<Credit>;
+  creditGrantedList?: Array<Credit>;
+  publicKey?: string;
+  clublog?: Upload;
+  hrdlog?: Upload;
+  qrzcom?: Upload;
+  eqsl?: Qsl;
+  lotw?: Qsl;
+  card?: Qsl;
+  appDefinedMap?: Array<[string, string]>;
+}
 
-  public toProto(): PbQso {
-    const pbQso = new PbQso();
-    pbQso.setBand(this.band);
-    pbQso.setComment(this.comment);
-    pbQso.setFreq(this.freq);
-    pbQso.setMode(this.mode);
-    pbQso.setNotes(this.notes);
-    pbQso.setRstReceived(this.rstReceived);
-    pbQso.setRstSent(this.rstSent);
-    const timeOn = new Timestamp();
-    timeOn.fromDate(this.timeOn);
-    pbQso.setTimeOn(timeOn);
-    const timeOff = new Timestamp();
-    timeOff.fromDate(this.timeOff);
-    pbQso.setTimeOff(timeOff);
+// Fields pertaining to one of the radio stations in a QSO.
+export interface Station {
+  opCall?: string;
+  opName?: string;
+  gridSquare?: string;
+  latitude?: number;
+  longitude?: number;
+  power?: number;
+  rig?: string;
+  antenna?: string;
+  antennaAzimuth?: number;
+  antennaElevation?: number;
+  ownerCall?: string;
+  stationCall?: string;
+  age?: number;
+  silentKey?: boolean;
+  qslVia?: string;
+  address?: string;
+  street?: string;
+  city?: string;
+  postalCode?: string;
+  county?: string;
+  state?: string;
+  country?: string;
+  dxcc?: number;
+  continent?: string;
+  email?: string;
+  web?: string;
+  cqZone?: number;
+  ituZone?: number;
+  darcDok?: string;
+  fists?: number;
+  fistsCc?: number;
+  iota?: string;
+  iotaIslandId?: number;
+  pfx?: string;
+  region?: string;
+  skcc?: string;
+  sig?: string;
+  sigInfo?: string;
+  sotaRef?: string;
+  tenTen?: number;
+  usacaCounties?: string;
+  uksmg?: number;
+  vuccGrids?: string;
+}
 
-    const contacted = new Station();
-    contacted.setStationCall(this.contactedCall);
-    contacted.setCity(this.contactedCity);
-    contacted.setContinent(this.contactedContinent);
-    contacted.setCountry(this.contactedCountry);
-    contacted.setLatitude(this.contactedLatitude);
-    contacted.setLongitude(this.contactedLongitude);
-    contacted.setOpName(this.contactedName);
-    contacted.setState(this.contactedState);
-    pbQso.setContactedStation(contacted);
+// Propagation details.
+export interface Propagation {
+  propagationMode?: string;
+  aIndex?: number;
+  kIndex?: number;
+  solarFluxIndex?: number;
+  antPath?: string;
+  forceInit?: boolean;
+  maxBursts?: number;
+  meteorShowerName?: string;
+  nrBursts?: number;
+  nrPings?: number;
+  satMode?: string;
+  satName?: string;
+}
 
-    const logging = new Station();
-    logging.setStationCall(this.loggingCall);
-    logging.setOpName(this.loggingName);
-    pbQso.setLoggingStation(logging);
+export interface ContestData {
+  contestId?: string;
+  serialSent?: string;
+  serialReceived?: string;
+  arrlSection?: string;
+  stationClass?: string;
+  check?: string;
+  precedence?: string;
+}
 
-    return pbQso;
-  }
+// Credit information for amateur radio awards.
+export interface Credit {
+  credit?: string;
+  qslMedium?: string;
+}
 
-  toFirebaseObject(): object {
-    const qsoObj = this.toProto().toObject() as object;
-    this.removeDefaultFields(qsoObj);
+// Upload metadata for online logbook services.
+export interface Upload {
+  uploadDate?: Date;
+  uploadStatus?: UploadStatusMap;
+}
 
-    // Bug: well-known types are not serialized to proto3 JSON
-    // https://github.com/protocolbuffers/protobuf/issues/1904
-    if (this.timeOn) {
-      // @ts-ignore
-      qsoObj.timeOn = this.timeOn.toISOString();
-    }
-    if (this.timeOff) {
-      // @ts-ignore
-      qsoObj.timeOff = this.timeOff.toISOString();
-    }
+export enum UploadStatusMap {
+  UNKNOWN = 0,
+  UPLOAD_COMPLETE = 1,
+  DO_NOT_UPLOAD = 2,
+  MODIFIED_AFTER_UPLOAD = 3,
+}
 
-    return qsoObj;
-  }
-
-  // TODO: this will prevent fields from ever being cleared
-  private removeDefaultFields(obj: object): void {
-    const propNames = Object.getOwnPropertyNames(obj);
-    for (const name of propNames) {
-      if (obj[name] instanceof Array && obj[name].length === 0) {
-        delete obj[name];
-      } else if (obj[name] instanceof Object) {
-        this.removeDefaultFields(obj[name]);
-      } else if (obj[name] === null || obj[name] === undefined
-        || obj[name] === '' || obj[name] === 0 || obj[name] === false) {
-        delete obj[name];
-      }
-    }
-  }
+// Information to confirm (QSL) a radio contact.
+export interface Qsl {
+  sentDate?: Date;
+  sentStatus?: string;
+  sentVia?: string;
+  receivedDate?: Date;
+  receivedStatus?: string;
+  receivedVia?: string;
+  receivedMessage?: string;
 }

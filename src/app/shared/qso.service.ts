@@ -1,25 +1,45 @@
 import {AngularFirestore, DocumentChangeAction} from '@angular/fire/firestore';
 import {AuthService} from './auth.service';
-import {Injectable} from '@angular/core';
 import {BehaviorSubject, combineLatest, Observable, ReplaySubject} from 'rxjs';
-import {Qso as QsoPb} from 'adif-pb/adif_pb';
+import {Injectable} from '@angular/core';
 import {Qso} from '../qso';
-import {map, mergeMap} from 'rxjs/operators';
 import {User} from 'firebase';
-import {fromPromise} from "rxjs/internal-compatibility";
+import {fromPromise} from 'rxjs/internal-compatibility';
+import {map, mergeMap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QsoService {
-  started = false;
-  user$ = new ReplaySubject<User>(1);
-  qsos$ = new BehaviorSubject<Qso[]>([]);
-  filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
 
   constructor(
     private authService: AuthService,
     private firestore: AngularFirestore) {
+  }
+
+  started = false;
+  user$ = new ReplaySubject<User>(1);
+  qsos$ = new BehaviorSubject<FirebaseQso[]>([]);
+  filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
+
+  private static unmarshalDates(qso: Qso): void {
+    if (qso.timeOn != null) {
+      qso.timeOn = new Date(qso.timeOn);
+    }
+    if (qso.timeOff != null) {
+      qso.timeOff = new Date(qso.timeOff);
+    }
+  }
+
+  private static marshalDates(qso: Qso): void {
+    if (qso.timeOn != null) {
+      // @ts-ignore
+      qso.timeOn = qso.timeOn.toISOString();
+    }
+    if (qso.timeOff != null) {
+      // @ts-ignore
+      qso.timeOff = qso.timeOff.toISOString();
+    }
   }
 
   public init(): void {
@@ -29,45 +49,53 @@ export class QsoService {
     this.started = true;
     this.authService.user().subscribe(user => this.user$.next(user));
     const contactSnapshots = this.user$.pipe(mergeMap((u: User) =>
-      this.firestore.collection<QsoPb.AsObject>('users/' + u.uid + '/contacts').snapshotChanges()));
+      this.firestore.collection<Qso>('users/' + u.uid + '/contacts').snapshotChanges()));
     const contacts = contactSnapshots.pipe(map(snapshots => this.unpackDocs(snapshots)));
     contacts.subscribe(qsos => this.qsos$.next(qsos));
   }
 
-  getFilteredQsos(): Observable<Qso[]> {
+  private unpackDocs(snapshots: DocumentChangeAction<Qso>[]): FirebaseQso[] {
+    return snapshots.map(snapshot => {
+      const qso = snapshot.payload.doc.data();
+      QsoService.unmarshalDates(qso);
+      return {id: snapshot.payload.doc.id, qso};
+    });
+  }
+
+  getFilteredQsos(): Observable<FirebaseQso[]> {
     return combineLatest([this.qsos$, this.filterCriteria$])
       .pipe(map(([qsos, criteria]) => this.filterQsos(qsos, criteria)));
   }
 
-  private filterQsos(qsos: Qso[], criteria: FilterCriteria): Qso[] {
-    return qsos.filter(qso => {
-      if (criteria.call && qso.contactedCall.indexOf(criteria.call) === -1) {
+  private filterQsos(fbq: FirebaseQso[], criteria: FilterCriteria): FirebaseQso[] {
+    return fbq.filter(q => {
+      if (criteria.call && q.qso.contactedStation.stationCall.indexOf(criteria.call) === -1) {
         return false;
       }
       if (criteria.state) {
         if (criteria.stateOperator === CriteriaOperator.equal
-          && qso.contactedState.toUpperCase() !== criteria.state.toUpperCase()) {
+          && q.qso.contactedStation.state.toUpperCase() !== criteria.state.toUpperCase()) {
           return false;
         } else if (criteria.stateOperator === CriteriaOperator.not_equal
-          && qso.contactedState.toUpperCase() === criteria.state.toUpperCase()) {
+          && q.qso.contactedStation.state.toUpperCase() === criteria.state.toUpperCase()) {
           return false;
         }
       }
       if (criteria.country) {
         if (criteria.countryOperator === CriteriaOperator.equal
-          && qso.contactedCountry.toUpperCase() !== criteria.country.toUpperCase()) {
+          && q.qso.contactedStation.country.toUpperCase() !== criteria.country.toUpperCase()) {
           return false;
         } else if (criteria.countryOperator === CriteriaOperator.not_equal
-          && qso.contactedCountry.toUpperCase() === criteria.country.toUpperCase()) {
+          && q.qso.contactedStation.country.toUpperCase() === criteria.country.toUpperCase()) {
           return false;
         }
       }
       if (criteria.mode) {
         if (criteria.modeOperator === CriteriaOperator.equal
-          && qso.mode.toUpperCase() !== criteria.mode.toUpperCase()) {
+          && q.qso.mode.toUpperCase() !== criteria.mode.toUpperCase()) {
           return false;
         } else if (criteria.modeOperator === CriteriaOperator.not_equal
-          && qso.mode.toUpperCase() === criteria.mode.toUpperCase()) {
+          && q.qso.mode.toUpperCase() === criteria.mode.toUpperCase()) {
           return false;
         }
       }
@@ -75,24 +103,24 @@ export class QsoService {
     });
   }
 
-// Find the earliest QSO which meets the given criteria, applying Worked All States rules
+  // Find the earliest QSO which meets the given criteria, applying Worked All States rules
   // (e.g. mode 'digital' matches QSOs with FT8, JT65, etc.)
-  findWASQso(criteria: WASQsoCriteria): Observable<Qso | undefined> {
+  findWASQso(criteria: WASQsoCriteria): Observable<FirebaseQso | undefined> {
     return this.qsos$.pipe(map(qsos =>
       Array.from(qsos.values())
-        .sort(((a, b) => a.timeOn.getTime() - b.timeOn.getTime()))
-        .find(qso => {
+        .sort(((a, b) => a.qso.timeOn.getTime() - b.qso.timeOn.getTime()))
+        .find(q => {
 
           // if band is anything but 'mixed', it should match
           if (criteria.band !== 'mixed'
-            && qso.band.toUpperCase() !== criteria.band.toUpperCase()) {
+            && q.qso.band.toUpperCase() !== criteria.band.toUpperCase()) {
             return false;
           }
 
           // if mode is anything but 'mixed', it should match (with categories)
           if (criteria.mode !== 'mixed') {
             let simpleMode;
-            const mode = qso.mode.toUpperCase();
+            const mode = q.qso.mode.toUpperCase();
             if (mode === 'SSB' || mode === 'USB' || mode === 'LSB') {
               simpleMode = 'phone';
             }
@@ -111,12 +139,12 @@ export class QsoService {
           }
 
           // if country is set (always should be), it should match
-          if (qso.contactedCountry.toUpperCase() !== criteria.country.toUpperCase()) {
+          if (q.qso.contactedStation.country.toUpperCase() !== criteria.country.toUpperCase()) {
             return false;
           }
 
           // if state is set, it should match
-          if (criteria.state != null && qso.contactedState.toUpperCase() !== criteria.state.toUpperCase()) {
+          if (criteria.state != null && q.qso.contactedStation.state.toUpperCase() !== criteria.state.toUpperCase()) {
             return false;
           }
 
@@ -126,32 +154,28 @@ export class QsoService {
     ));
   }
 
-  private unpackDocs(snapshots: DocumentChangeAction<QsoPb.AsObject>[]): Qso[] {
-    return snapshots.map(snapshot =>
-      Qso.fromObject(snapshot.payload.doc.data(), snapshot.payload.doc.id));
-  }
-
   setFilter(newCriteria: FilterCriteria): void {
     this.filterCriteria$.next(newCriteria);
   }
 
-  public addOrUpdate(newQso: Qso): Observable<any> {
-    const firebaseId = newQso.firebaseId;
-    const qsoObj = newQso.toFirebaseObject();
+  public addOrUpdate(fbq: FirebaseQso): Observable<any> {
+    QsoService.marshalDates(fbq.qso);
     return this.user$.pipe(mergeMap(u => {
-      console.log('Saving firebase ID', firebaseId, qsoObj);
-      // TODO: fix this
-      if (firebaseId == null) {
+      console.log('Saving firebase ID', fbq.id, fbq.qso);
+      if (fbq.id == null) {
         const contactsCollection = this.firestore.collection('users/' + u.uid + '/contacts');
-        return fromPromise(contactsCollection.add(qsoObj));
+        return fromPromise(contactsCollection.add(fbq.qso));
       } else {
-        const contactDoc = this.firestore.doc('users/' + u.uid + '/contacts/' + firebaseId);
-        return fromPromise(contactDoc.update(qsoObj));
+        const contactDoc = this.firestore.doc('users/' + u.uid + '/contacts/' + fbq.id);
+        return fromPromise(contactDoc.update(fbq.qso));
       }
-      // alert('Saving is currently disabled, try again later');
-      // return of(null);
     }));
   }
+}
+
+export interface FirebaseQso {
+  id?: string;
+  qso?: Qso;
 }
 
 export enum CriteriaOperator {

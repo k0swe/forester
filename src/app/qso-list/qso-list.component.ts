@@ -1,11 +1,11 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {FirebaseQso, QsoService} from '../shared/qso.service';
 import {MatDialog} from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {Observable} from 'rxjs';
 import {QsoDetailComponent} from '../qso-detail/qso-detail.component';
-import {QsoService} from '../shared/qso.service';
-import {Qso} from '../qso';
 
 @Component({
   selector: 'kel-qso-list',
@@ -13,7 +13,7 @@ import {Qso} from '../qso';
   styleUrls: ['./qso-list.component.scss']
 })
 export class QsoListComponent implements OnInit {
-  dataSource = new MatTableDataSource<Qso>();
+  dataSource = new MatTableDataSource<FirebaseQso>();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -32,6 +32,30 @@ export class QsoListComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
+    this.dataSource.sortingDataAccessor = (fbq, property) => {
+      switch (property) {
+        case 'timeOn':
+          return fbq.qso.timeOn.getTime();
+        case 'contactedCall':
+          return fbq.qso.contactedStation.stationCall;
+        case 'contactedName':
+          return fbq.qso.contactedStation.opName;
+        case 'band':
+          return fbq.qso.band;
+        case 'freq':
+          return fbq.qso.freq;
+        case 'mode':
+          return fbq.qso.mode;
+        case 'contactedCity':
+          return fbq.qso.contactedStation.city;
+        case 'contactedState':
+          return fbq.qso.contactedStation.state;
+        case 'contactedCountry':
+          return fbq.qso.contactedStation.country;
+        default:
+          return 0;
+      }
+    };
     this.chooseColumns(document.body.clientWidth);
   }
 
@@ -51,21 +75,16 @@ export class QsoListComponent implements OnInit {
     }
   }
 
-  openDialog(qso: Qso): void {
+  openDialog(qso: FirebaseQso): void {
     const dialogRef = this.dialog.open(QsoDetailComponent, {
       width: '800px',
-      data: {qso},
+      data: qso,
     });
 
-    dialogRef.afterClosed().subscribe((formValue: any) => {
-      if (formValue == null) {
-        return;
+    dialogRef.afterClosed().subscribe(dialogReturn => {
+      if (dialogReturn instanceof Observable) {
+        (dialogReturn as Observable<void>).subscribe();
       }
-      // form uses string dates; fix those
-      formValue.timeOn = new Date(formValue.timeOn + 'Z');
-      formValue.timeOff = new Date(formValue.timeOff + 'Z');
-      const newQso = Object.assign(new Qso(), formValue);
-      this.qsoService.addOrUpdate(newQso).subscribe();
     });
   }
 }

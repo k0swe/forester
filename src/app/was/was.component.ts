@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {QsoService} from '../shared/qso.service';
+import {FirebaseQso, QsoService} from '../shared/qso.service';
 import {Qso} from '../qso';
 import {Observable} from 'rxjs';
 import {GoogleMap} from '@angular/google-maps';
@@ -88,11 +88,11 @@ export class WasComponent implements OnInit, AfterViewInit {
   private static makeQsoMarkerOptions(state: State, qso: Qso): google.maps.MarkerOptions {
     let latitude = state.lat;
     let longitude = state.lon;
-    if (qso.contactedLatitude != null) {
-      latitude = qso.contactedLatitude;
+    if (qso.contactedStation.latitude != null) {
+      latitude = qso.contactedStation.latitude;
     }
-    if (qso.contactedLongitude != null) {
-      longitude = qso.contactedLongitude;
+    if (qso.contactedStation.longitude != null) {
+      longitude = qso.contactedStation.longitude;
     }
     return {
       position: {
@@ -107,7 +107,8 @@ export class WasComponent implements OnInit, AfterViewInit {
   static makeQsoInfoWindowOptions(state: State, qso: Qso): google.maps.InfoWindowOptions {
     const timeStr: string = moment(qso.timeOn).utc().format('YYYY-MM-DD HH:mm');
     return {
-      content: `Contacted ${qso.contactedCall} in ${state.name}<br>on ${timeStr}<br>via ${qso.band} ${qso.mode}`
+      content: `Contacted ${qso.contactedStation.stationCall} in ${state.name}
+                <br>on ${timeStr}<br>via ${qso.band} ${qso.mode}`
     };
   }
 
@@ -141,12 +142,12 @@ export class WasComponent implements OnInit, AfterViewInit {
 
   private generateMarkers(): void {
     this.states.forEach(state => {
-      this.findQsoForState(state.abbrev).subscribe(qso => {
+      this.findQsoForState(state.abbrev).subscribe(fbq => {
         let markerOpts: google.maps.MarkerOptions;
         let iw: google.maps.InfoWindowOptions;
-        if (qso !== undefined) {
-          markerOpts = WasComponent.makeQsoMarkerOptions(state, qso);
-          iw = WasComponent.makeQsoInfoWindowOptions(state, qso);
+        if (fbq !== undefined) {
+          markerOpts = WasComponent.makeQsoMarkerOptions(state, fbq.qso);
+          iw = WasComponent.makeQsoInfoWindowOptions(state, fbq.qso);
         } else {
           markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
           iw = WasComponent.makeNoQsoInfoWindowOptions(state);
@@ -162,7 +163,7 @@ export class WasComponent implements OnInit, AfterViewInit {
     });
   }
 
-  private findQsoForState(abbrev: string): Observable<Qso | undefined> {
+  private findQsoForState(abbrev: string): Observable<FirebaseQso | undefined> {
     if (abbrev === 'AK') {
       return this.qsoService.findWASQso({country: 'Alaska', mode: this.mode, band: this.band});
     }
