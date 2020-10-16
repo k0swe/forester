@@ -161,7 +161,6 @@ export class QsoService {
   public addOrUpdate(fbq: FirebaseQso): Observable<any> {
     QsoService.marshalDates(fbq.qso);
     return this.user$.pipe(mergeMap(u => {
-      console.log('Saving firebase ID', fbq.id, fbq.qso);
       if (fbq.id == null) {
         const contactsCollection = this.firestore.collection('users/' + u.uid + '/contacts');
         return fromPromise(contactsCollection.add(fbq.qso));

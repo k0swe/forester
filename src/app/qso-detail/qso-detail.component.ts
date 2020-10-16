@@ -16,6 +16,28 @@ const googleMapsSearchBase = 'https://www.google.com/maps/search/';
   providers: [DatePipe],
 })
 export class QsoDetailComponent {
+  // empty values for each field in the form to prevent error "Cannot find control with name"
+  private readonly template: Qso = {
+    timeOn: new Date(),
+    timeOff: new Date(),
+    band: '',
+    mode: '',
+    freq: 0,
+    comment: '',
+    notes: '',
+    rstSent: '',
+    rstReceived: '',
+    contactedStation: {
+      stationCall: '',
+      opName: '',
+      latitude: 0,
+      longitude: 0,
+      city: '',
+      state: '',
+      country: '',
+      continent: '',
+    }
+  };
   private readonly firebaseId;
   bands = Band.bands;
   qsoDetailForm: FormGroup;
@@ -30,9 +52,12 @@ export class QsoDetailComponent {
               private dialog: MatDialogRef<any>) {
     this.firebaseId = data.id;
     this.formatDates(data.qso);
+    this.formatDates(this.template);
     this.qsoDetailForm = fb.group({
-      ...data.qso, ...{
-        contactedStation: fb.group(data.qso.contactedStation),
+      ...this.template, ...data.qso, ...{
+        contactedStation: fb.group({
+          ...this.template.contactedStation, ...data.qso.contactedStation
+        }),
       }
     });
 
