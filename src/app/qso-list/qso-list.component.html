@@ -17,7 +17,7 @@
       </ng-container>
       <ng-container matColumnDef="contactedName">
         <th mat-header-cell mat-sort-header *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let fbq">{{fbq.qso.contactedStation.opName | titlecase}}</td>
+        <td mat-cell *matCellDef="let fbq">{{fbq.qso.contactedStation.opName}}</td>
       </ng-container>
       <ng-container matColumnDef="band">
         <th mat-header-cell *matHeaderCellDef>Band</th>
@@ -41,7 +41,7 @@
       </ng-container>
       <ng-container matColumnDef="contactedCity">
         <th mat-header-cell mat-sort-header *matHeaderCellDef>City</th>
-        <td mat-cell *matCellDef="let fbq">{{fbq.qso.contactedStation.city | titlecase}}</td>
+        <td mat-cell *matCellDef="let fbq">{{fbq.qso.contactedStation.city}}</td>
       </ng-container>
       <ng-container matColumnDef="contactedState">
         <th mat-header-cell mat-sort-header *matHeaderCellDef>State</th>
@@ -49,7 +49,7 @@
       </ng-container>
       <ng-container matColumnDef="contactedCountry">
         <th mat-header-cell mat-sort-header *matHeaderCellDef>Country</th>
-        <td mat-cell *matCellDef="let fbq">{{fbq.qso.contactedStation.country | titlecase}}</td>
+        <td mat-cell *matCellDef="let fbq">{{fbq.qso.contactedStation.country}}</td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
       <tr mat-row (click)="openDialog(fbq)" *matRowDef="let fbq; columns: columnsToDisplay"></tr>
