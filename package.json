@@ -28,7 +28,7 @@
     "@angular/router": "~10.1.6",
     "@types/long": "^4.0.1",
     "adif-pb": "0.0.1",
-    "firebase": "^7.23.0",
+    "firebase": "^7.24.0",
     "google-protobuf": "^3.13.0",
     "moment": "^2.29.1",
     "rxjs": "~6.6.3",
