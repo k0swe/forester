@@ -5,7 +5,6 @@
     ":ignoreUnstable",
     ":prImmediately",
     ":semanticPrefixFixDepsChoreOthers",
-    ":updateNotScheduled",
     ":automergeDisabled",
     ":ignoreModulesAndTests",
     ":autodetectPinVersions",
