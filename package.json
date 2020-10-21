@@ -42,7 +42,7 @@
     "@angular/compiler-cli": "10.2.0",
     "@types/jasmine": "3.5.14",
     "@types/jasminewd2": "2.0.8",
-    "@types/node": "14.14.1",
+    "@types/node": "14.14.2",
     "codelyzer": "6.0.1",
     "firebase-tools": "8.13.1",
     "fuzzy": "0.1.3",
