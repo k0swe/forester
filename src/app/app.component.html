@@ -20,9 +20,18 @@
         mat-list-item
         [disabled]="qrzImportUrl == null"
         (click)="importFromQrz()"
-        >Import QRZ.com</a
       >
+        Import QRZ.com
+      </a>
+      <a mat-list-item (click)="chooser.click()">Import ADIF file</a>
     </mat-nav-list>
+    <input
+      #chooser
+      hidden
+      type="file"
+      accept=".adi,.adif"
+      (change)="importAdi($event)"
+    />
   </mat-sidenav>
   <mat-sidenav-container class="content">
     <router-outlet></router-outlet>

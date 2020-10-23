@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../environments/environment';
+import { ImportExportService } from './shared/import-export.service';
 
 @Component({
   selector: 'kel-root',
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private http: HttpClient,
+    private importExportService: ImportExportService,
     private snackBar: MatSnackBar
   ) {}
 
@@ -49,6 +51,11 @@ export class AppComponent implements OnInit {
           console.warn('Error importing from QRZ.com:', error);
         }
       );
+  }
+
+  importAdi($event: any): void {
+    const file = $event.target.files[0] as File;
+    this.importExportService.importAdi(file);
   }
 }
 

@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ImportExportService } from './shared/import-export.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -86,6 +87,7 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     AuthService,
+    ImportExportService,
     QsoService,
     UserSettingsService,
     {
