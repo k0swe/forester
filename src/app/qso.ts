@@ -2,7 +2,6 @@
 // and then the AsObject's are converted to interfaces with nullable fields.
 // See https://github.com/k0swe/kellog/issues/7 for why this is done.
 
-
 // Amateur Radio Data Interchange Format
 export interface Adif {
   header?: Header;

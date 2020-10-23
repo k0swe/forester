@@ -2,12 +2,14 @@
 
 $kel-primary: mat-palette($mat-green, 700, 300, 900);
 $kel-accent: mat-palette($mat-deep-purple);
-$kel-theme: mat-light-theme((
-  color: (
-    primary: $kel-primary,
-    accent: $kel-accent,
+$kel-theme: mat-light-theme(
+  (
+    color: (
+      primary: $kel-primary,
+      accent: $kel-accent,
+    ),
   )
-));
+);
 
 $kel-background: map-get($kel-theme, background);
 $kel-foreground: map-get($kel-theme, foreground);
@@ -18,5 +20,5 @@ $kel-typography: mat-typography-config(
 
 $kel-mono-typography: mat-typography-config(
   $font-family: 'DM Mono, monospace',
-  $body-2: mat-typography-level(inherit, inherit, 600)
+  $body-2: mat-typography-level(inherit, inherit, 600),
 );

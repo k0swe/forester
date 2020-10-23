@@ -1,33 +1,32 @@
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {QsoListComponent} from './qso-list.component';
-import {QsoService} from '../shared/qso.service';
-import {of} from 'rxjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { QsoListComponent } from './qso-list.component';
+import { QsoService } from '../shared/qso.service';
+import { of } from 'rxjs';
 
 describe('QsosComponent', () => {
   let component: QsoListComponent;
   let fixture: ComponentFixture<QsoListComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [QsoListComponent],
-      imports: [
-        MatDialogModule,
-        MatPaginatorModule,
-        BrowserAnimationsModule
-      ],
-      providers: [
-        {
-          provide: QsoService, useValue: {
-            init: () => null,
-            getFilteredQsos: () => of({contactedCall: 'N0CALL'})
-          }
-        },
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [QsoListComponent],
+        imports: [MatDialogModule, MatPaginatorModule, BrowserAnimationsModule],
+        providers: [
+          {
+            provide: QsoService,
+            useValue: {
+              init: () => null,
+              getFilteredQsos: () => of({ contactedCall: 'N0CALL' }),
+            },
+          },
+        ],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(QsoListComponent);

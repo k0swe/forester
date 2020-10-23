@@ -1,10 +1,7 @@
 var google = {
   maps: {
-    OverlayView: function () {
-    },
-    Marker: function () {
-    },
-    InfoWindow: function () {
-    }
-  }
+    OverlayView: function () {},
+    Marker: function () {},
+    InfoWindow: function () {},
+  },
 };

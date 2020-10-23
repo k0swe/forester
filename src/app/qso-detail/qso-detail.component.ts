@@ -1,11 +1,11 @@
-import {Band} from '../band';
-import {Component, Inject, ViewChild} from '@angular/core';
-import {DatePipe} from '@angular/common';
-import {FirebaseQso, QsoService} from '../shared/qso.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {MatButton} from '@angular/material/button';
-import {Qso} from '../qso';
+import { Band } from '../band';
+import { Component, Inject, ViewChild } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { FirebaseQso, QsoService } from '../shared/qso.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatButton } from '@angular/material/button';
+import { Qso } from '../qso';
 
 const googleMapsSearchBase = 'https://www.google.com/maps/search/';
 
@@ -36,7 +36,7 @@ export class QsoDetailComponent {
       state: '',
       country: '',
       continent: '',
-    }
+    },
   };
   private readonly firebaseId;
   bands = Band.bands;
@@ -45,43 +45,59 @@ export class QsoDetailComponent {
 
   @ViewChild('saveButton') saveButton: MatButton;
 
-  constructor(private fb: FormBuilder,
-              @Inject(MAT_DIALOG_DATA) public data: FirebaseQso,
-              private datePipe: DatePipe,
-              private qsoService: QsoService,
-              private dialog: MatDialogRef<any>) {
+  constructor(
+    private fb: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public data: FirebaseQso,
+    private datePipe: DatePipe,
+    private qsoService: QsoService,
+    private dialog: MatDialogRef<any>
+  ) {
     this.firebaseId = data.id;
     const model = {
-      ...this.template, ...data.qso,
+      ...this.template,
+      ...data.qso,
       contactedStation: {
-        ...this.template.contactedStation, ...data.qso.contactedStation
-      }
+        ...this.template.contactedStation,
+        ...data.qso.contactedStation,
+      },
     };
     this.formatDates(model);
     this.qsoDetailForm = fb.group({
-      ...model, ...{
+      ...model,
+      ...{
         contactedStation: fb.group(model.contactedStation),
-      }
+      },
     });
 
-    this.qsoDetailForm.get('contactedStation').valueChanges.subscribe(() => this.updateMapLink());
+    this.qsoDetailForm
+      .get('contactedStation')
+      .valueChanges.subscribe(() => this.updateMapLink());
     this.updateMapLink();
-    this.qsoDetailForm.valueChanges.subscribe(() => this.saveButton.disabled = false);
+    this.qsoDetailForm.valueChanges.subscribe(
+      () => (this.saveButton.disabled = false)
+    );
   }
 
   private updateMapLink(): void {
-    const latitude: number = this.qsoDetailForm.get('contactedStation').value.latitude;
-    const longitude: number = this.qsoDetailForm.get('contactedStation').value.longitude;
+    const latitude: number = this.qsoDetailForm.get('contactedStation').value
+      .latitude;
+    const longitude: number = this.qsoDetailForm.get('contactedStation').value
+      .longitude;
     const city: string = this.qsoDetailForm.get('contactedStation').value.city;
-    const state: string = this.qsoDetailForm.get('contactedStation').value.state;
-    const country: string = this.qsoDetailForm.get('contactedStation').value.country;
+    const state: string = this.qsoDetailForm.get('contactedStation').value
+      .state;
+    const country: string = this.qsoDetailForm.get('contactedStation').value
+      .country;
     if (latitude && longitude) {
       this.mapLink = googleMapsSearchBase + latitude + ',' + longitude;
     } else if (city || state || country) {
-      this.mapLink = googleMapsSearchBase
-        + encodeURIComponent(city) + '+'
-        + encodeURIComponent(state) + '+'
-        + encodeURIComponent(country);
+      this.mapLink =
+        googleMapsSearchBase +
+        encodeURIComponent(city) +
+        '+' +
+        encodeURIComponent(state) +
+        '+' +
+        encodeURIComponent(country);
     } else {
       this.mapLink = '';
     }
@@ -90,7 +106,7 @@ export class QsoDetailComponent {
   save(): void {
     const formValue = this.qsoDetailForm.value;
     this.parseDates(formValue);
-    const newQso: FirebaseQso = {id: this.firebaseId, qso: formValue as Qso};
+    const newQso: FirebaseQso = { id: this.firebaseId, qso: formValue as Qso };
     this.dialog.close(this.qsoService.addOrUpdate(newQso));
   }
 
@@ -99,7 +115,11 @@ export class QsoDetailComponent {
     // @ts-ignore
     qso.timeOn = this.datePipe.transform(qso.timeOn, 'yyyy-MM-dd HH:mm', 'UTC');
     // @ts-ignore
-    qso.timeOff = this.datePipe.transform(qso.timeOff, 'yyyy-MM-dd HH:mm', 'UTC');
+    qso.timeOff = this.datePipe.transform(
+      qso.timeOff,
+      'yyyy-MM-dd HH:mm',
+      'UTC'
+    );
   }
 
   private parseDates(qso: Qso): void {

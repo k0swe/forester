@@ -1,5 +1,9 @@
 <mat-toolbar class="toolbar">
-  <button class="toolbar__menu-button" mat-icon-button (click)="sidenav.toggle()">
+  <button
+    class="toolbar__menu-button"
+    mat-icon-button
+    (click)="sidenav.toggle()"
+  >
     <mat-icon>menu</mat-icon>
   </button>
   <h1>KelLog</h1>
@@ -12,7 +16,12 @@
     <mat-nav-list>
       <a mat-list-item [routerLink]="'/'">QSO List</a>
       <a mat-list-item [routerLink]="'/was'">WAS Progress</a>
-      <a mat-list-item [disabled]="qrzImportUrl==null" (click)="importFromQrz()">Import QRZ.com</a>
+      <a
+        mat-list-item
+        [disabled]="qrzImportUrl == null"
+        (click)="importFromQrz()"
+        >Import QRZ.com</a
+      >
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-container class="content">

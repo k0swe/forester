@@ -10,6 +10,6 @@ export const environment = {
     storageBucket: 'k0swe-kellog.appspot.com',
     messagingSenderId: '1062132260085',
     appId: '1:1062132260085:web:241eb522b9821edf0239bc',
-    measurementId: 'G-EYXSXWYN0P'
-  }
+    measurementId: 'G-EYXSXWYN0P',
+  },
 };

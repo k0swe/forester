@@ -1,16 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {QsoService} from '../shared/qso.service';
+import { Component, OnInit } from '@angular/core';
+import { QsoService } from '../shared/qso.service';
 
 @Component({
   selector: 'kel-qso-search',
   templateUrl: './qso-search.component.html',
-  styleUrls: ['./qso-search.component.scss']
+  styleUrls: ['./qso-search.component.scss'],
 })
 export class QsoSearchComponent implements OnInit {
   search = '';
 
-  constructor(private qsoService: QsoService) {
-  }
+  constructor(private qsoService: QsoService) {}
 
   ngOnInit(): void {
     this.qsoService.init();
@@ -22,5 +21,4 @@ export class QsoSearchComponent implements OnInit {
       call: callsign,
     });
   }
-
 }

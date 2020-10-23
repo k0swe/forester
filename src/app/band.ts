@@ -1,10 +1,9 @@
 export class Band {
-
   // map of amateur band name to frequency range in megahertz
   private static readonly bandMap: object = {
-    '2190m': [.1357, .1378],
-    '630m': [.472, .479],
-    '560m': [.501, .504],
+    '2190m': [0.1357, 0.1378],
+    '630m': [0.472, 0.479],
+    '560m': [0.501, 0.504],
     '160m': [1.8, 2.0],
     '80m': [3.5, 4.0],
     '60m': [5.06, 5.45],
@@ -13,7 +12,7 @@ export class Band {
     '20m': [14.0, 14.35],
     '17m': [18.068, 18.168],
     '15m': [21.0, 21.45],
-    '12m': [24.890, 24.99],
+    '12m': [24.89, 24.99],
     '10m': [28.0, 29.7],
     '8m': [40, 45],
     '6m': [50, 54],
@@ -38,9 +37,9 @@ export class Band {
 
   public static readonly bands = Object.keys(Band.bandMap);
 
-  public static freqToBand(freq: number): (string | null) {
+  public static freqToBand(freq: number): string | null {
     let retVal = null;
-    this.bands.forEach(band => {
+    this.bands.forEach((band) => {
       const lowerLimit = this.bandMap[band][0];
       const upperLimit = this.bandMap[band][1];
       if (lowerLimit <= freq && upperLimit > freq) {

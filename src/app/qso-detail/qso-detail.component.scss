@@ -34,7 +34,8 @@ input.latLong::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input.freq, input.latLong {
+input.freq,
+input.latLong {
   -moz-appearance: textfield;
 }
 

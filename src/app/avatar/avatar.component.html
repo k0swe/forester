@@ -1,9 +1,9 @@
 <div *ngIf="authService.user() | async as user; else showLogin">
   <button mat-icon-button [matMenuTriggerFor]="accountMenu">
-    <img class="avatar" [src]="user.photoURL" [alt]="user.displayName">
+    <img class="avatar" [src]="user.photoURL" [alt]="user.displayName" />
   </button>
   <mat-menu #accountMenu="matMenu">
-    <button mat-menu-item disabled>{{user.email}}</button>
+    <button mat-menu-item disabled>{{ user.email }}</button>
     <button mat-menu-item (click)="settings()">Settings</button>
     <button mat-menu-item (click)="authService.logout()">Logout</button>
   </mat-menu>
@@ -14,8 +14,10 @@
   </button>
   <mat-menu #loginMenu="matMenu">
     <button mat-menu-item (click)="authService.login()">
-      <img src="https://developers.google.com/identity/images/btn_google_signin_light_normal_web.png"
-           alt="Sign in with Google">
+      <img
+        src="https://developers.google.com/identity/images/btn_google_signin_light_normal_web.png"
+        alt="Sign in with Google"
+      />
     </button>
   </mat-menu>
 </ng-template>

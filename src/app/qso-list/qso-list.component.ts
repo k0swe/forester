@@ -1,33 +1,41 @@
-import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
-import {FirebaseQso, QsoService} from '../shared/qso.service';
-import {MatDialog} from '@angular/material/dialog';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
-import {Observable} from 'rxjs';
-import {QsoDetailComponent} from '../qso-detail/qso-detail.component';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { FirebaseQso, QsoService } from '../shared/qso.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Observable } from 'rxjs';
+import { QsoDetailComponent } from '../qso-detail/qso-detail.component';
 
 @Component({
   selector: 'kel-qso-list',
   templateUrl: './qso-list.component.html',
-  styleUrls: ['./qso-list.component.scss']
+  styleUrls: ['./qso-list.component.scss'],
 })
 export class QsoListComponent implements OnInit {
   dataSource = new MatTableDataSource<FirebaseQso>();
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  columnsToDisplay = ['timeOn', 'contactedCall', 'contactedName',
-    'band', 'freq', 'mode', 'contactedCity', 'contactedState', 'contactedCountry'];
+  columnsToDisplay = [
+    'timeOn',
+    'contactedCall',
+    'contactedName',
+    'band',
+    'freq',
+    'mode',
+    'contactedCity',
+    'contactedState',
+    'contactedCountry',
+  ];
 
-  constructor(private qsoService: QsoService, private dialog: MatDialog) {
-  }
+  constructor(private qsoService: QsoService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.qsoService.init();
     this.paginator.pageSize = 25;
     this.paginator.pageSizeOptions = [10, 25, 50, 100];
-    this.qsoService.getFilteredQsos().subscribe(qsos => {
+    this.qsoService.getFilteredQsos().subscribe((qsos) => {
       this.dataSource.data = qsos;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -66,12 +74,34 @@ export class QsoListComponent implements OnInit {
 
   chooseColumns(width: number): void {
     if (width > 768) {
-      this.columnsToDisplay = ['timeOn', 'contactedCall', 'contactedName',
-        'band', 'freq', 'mode', 'contactedCity', 'contactedState', 'contactedCountry'];
+      this.columnsToDisplay = [
+        'timeOn',
+        'contactedCall',
+        'contactedName',
+        'band',
+        'freq',
+        'mode',
+        'contactedCity',
+        'contactedState',
+        'contactedCountry',
+      ];
     } else if (width > 576) {
-      this.columnsToDisplay = ['timeOn', 'contactedCall', 'band', 'mode', 'contactedState', 'contactedCountry'];
+      this.columnsToDisplay = [
+        'timeOn',
+        'contactedCall',
+        'band',
+        'mode',
+        'contactedState',
+        'contactedCountry',
+      ];
     } else {
-      this.columnsToDisplay = ['timeOn', 'contactedCall', 'band', 'mode', 'contactedCountry'];
+      this.columnsToDisplay = [
+        'timeOn',
+        'contactedCall',
+        'band',
+        'mode',
+        'contactedCountry',
+      ];
     }
   }
 
@@ -81,7 +111,7 @@ export class QsoListComponent implements OnInit {
       data: qso,
     });
 
-    dialogRef.afterClosed().subscribe(dialogReturn => {
+    dialogRef.afterClosed().subscribe((dialogReturn) => {
       if (dialogReturn instanceof Observable) {
         (dialogReturn as Observable<void>).subscribe();
       }

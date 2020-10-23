@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {webSocket} from 'rxjs/webSocket';
-import {BehaviorSubject, ReplaySubject} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { webSocket } from 'rxjs/webSocket';
+import { BehaviorSubject, ReplaySubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AgentService {
   connectedState$ = new BehaviorSubject<boolean>(false);
@@ -16,8 +16,7 @@ export class AgentService {
   private agentHost: string;
   private agentPort: number;
 
-  constructor() {
-  }
+  constructor() {}
 
   public init(): void {
     this.agentHost = this.getHost();
@@ -35,10 +34,12 @@ export class AgentService {
     this.agentHost = this.getHost();
     this.agentPort = this.getPort();
     const protocol = this.agentHost === 'localhost' ? 'ws://' : 'wss://';
-    const myWebSocket = webSocket(protocol + this.agentHost + ':' + this.agentPort + '/websocket');
+    const myWebSocket = webSocket(
+      protocol + this.agentHost + ':' + this.agentPort + '/websocket'
+    );
     this.connectedState$.next(true);
     myWebSocket.subscribe(
-      msg => this.handleMessage(msg),
+      (msg) => this.handleMessage(msg),
       () => this.connectedState$.next(false),
       () => this.connectedState$.next(false)
     );

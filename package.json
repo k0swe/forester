@@ -70,7 +70,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,json,html,css,scss,md}": "prettier --write"
+    "*.{js,ts,json,html,css,scss,md,yml,yaml}": "prettier --write"
   },
   "prettier": {
     "singleQuote": true
