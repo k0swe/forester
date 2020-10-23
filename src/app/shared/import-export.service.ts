@@ -35,13 +35,13 @@ export class ImportExportService {
     qso: Qso,
     record: { [p: string]: string }
   ): void {
-    qso.band = record.band ? record.band.toLowerCase() : undefined;
-    qso.bandRx = record.band_rx ? record.band_rx.toLowerCase() : undefined;
+    qso.band = this.getLowerCase(record.band);
+    qso.bandRx = this.getLowerCase(record.band_rx);
     qso.comment = record.comment;
     qso.distanceKm = Number(record.distance);
     qso.freq = Number(record.freq);
     qso.freqRx = Number(record.freq_rx);
-    qso.mode = record.mode ? record.mode.toUpperCase() : undefined;
+    qso.mode = this.getUpperCase(record.mode);
     qso.notes = record.notes;
     qso.publicKey = record.public_key;
     qso.complete = record.qso_complete;
@@ -50,7 +50,7 @@ export class ImportExportService {
     qso.random = this.getBool(record.qso_random);
     qso.rstReceived = record.rst_rcvd;
     qso.rstSent = record.rst_sent;
-    qso.submode = record.submode ? record.submode.toUpperCase() : undefined;
+    qso.submode = this.getUpperCase(record.submode);
     qso.swl = this.getBool(record.swl);
   }
 
@@ -67,7 +67,7 @@ export class ImportExportService {
     loggingStation.cqZone = this.getNumber(record.my_cq_zone);
     loggingStation.dxcc = this.getNumber(record.my_dxcc);
     loggingStation.fists = this.getNumber(record.my_fists);
-    loggingStation.gridSquare = record.my_gridsquare;
+    loggingStation.gridSquare = this.getUpperCase(record.my_gridsquare);
     loggingStation.iota = record.my_iota;
     loggingStation.iotaIslandId = this.getNumber(record.my_iota_island_id);
     loggingStation.ituZone = this.getNumber(record.my_itu_zone);
@@ -79,13 +79,13 @@ export class ImportExportService {
     loggingStation.sig = record.my_sig;
     loggingStation.sigInfo = record.my_sig_info;
     loggingStation.sotaRef = record.my_sota_ref;
-    loggingStation.state = record.my_state;
+    loggingStation.state = this.getUpperCase(record.my_state);
     loggingStation.street = record.my_street;
     loggingStation.usacaCounties = record.my_usaca_counties;
     loggingStation.vuccGrids = record.my_vucc_grids;
-    loggingStation.opCall = record.operator;
-    loggingStation.ownerCall = record.owner_callsign;
-    loggingStation.stationCall = record.station_callsign;
+    loggingStation.opCall = this.getUpperCase(record.operator);
+    loggingStation.ownerCall = this.getUpperCase(record.owner_callsign);
+    loggingStation.stationCall = this.getUpperCase(record.station_callsign);
     loggingStation.power = this.getNumber(record.tx_pwr);
     return loggingStation;
   }
@@ -96,19 +96,19 @@ export class ImportExportService {
     const contactedStation: Station = {};
     contactedStation.address = record.address;
     contactedStation.age = this.getNumber(record.age);
-    contactedStation.stationCall = record.call;
+    contactedStation.stationCall = this.getUpperCase(record.call);
     contactedStation.county = record.cnty;
-    contactedStation.continent = record.cont;
-    contactedStation.opCall = record.contacted_op;
+    contactedStation.continent = this.getUpperCase(record.cont);
+    contactedStation.opCall = this.getUpperCase(record.contacted_op);
     contactedStation.country = this.getTitleCase(record.country);
     contactedStation.cqZone = this.getNumber(record.cqz);
     contactedStation.darcDok = record.darc_dok;
     contactedStation.dxcc = this.getNumber(record.dxcc);
     contactedStation.email = record.email;
-    contactedStation.ownerCall = record.eq_call;
+    contactedStation.ownerCall = this.getUpperCase(record.eq_call);
     contactedStation.fists = this.getNumber(record.fists);
     contactedStation.fistsCc = this.getNumber(record.fists_cc);
-    contactedStation.gridSquare = record.gridsquare;
+    contactedStation.gridSquare = this.getUpperCase(record.gridsquare);
     contactedStation.iota = record.iota;
     contactedStation.iotaIslandId = this.getNumber(record.iota_island_id);
     contactedStation.ituZone = this.getNumber(record.ituz);
@@ -126,27 +126,13 @@ export class ImportExportService {
     contactedStation.silentKey = this.getBool(record.silent_key);
     contactedStation.skcc = record.skcc;
     contactedStation.sotaRef = record.sota_ref;
-    contactedStation.state = record.state;
+    contactedStation.state = this.getUpperCase(record.state);
     contactedStation.tenTen = this.getNumber(record.ten_ten);
     contactedStation.uksmg = this.getNumber(record.uksmg);
     contactedStation.usacaCounties = record.usaca_counties;
     contactedStation.vuccGrids = record.vucc_grids;
     contactedStation.web = record.web;
     return contactedStation;
-  }
-
-  private static getTitleCase(str: string): string | undefined {
-    if (!str) {
-      return undefined;
-    }
-    return str.replace(
-      /\w\S*/g,
-      (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-    );
-  }
-
-  private static getNumber(str: string): number | undefined {
-    return str ? Number(str) : undefined;
   }
 
   private static translateContest(record: {
@@ -156,7 +142,7 @@ export class ImportExportService {
       return undefined;
     }
     const contest: ContestData = {};
-    contest.contestId = record.contest_id.toUpperCase();
+    contest.contestId = this.getUpperCase(record.contest_id);
     contest.arrlSection = record.arrl_sect;
     contest.stationClass = record.class;
     contest.check = record.check;
@@ -170,6 +156,28 @@ export class ImportExportService {
       contest.serialSent = record.stx_string;
     }
     return contest;
+  }
+
+  private static getTitleCase(str: string): string | undefined {
+    if (!str) {
+      return undefined;
+    }
+    return str.replace(
+      /\w\S*/g,
+      (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    );
+  }
+
+  private static getUpperCase(str: string): string | undefined {
+    return str ? str.toUpperCase() : undefined;
+  }
+
+  private static getLowerCase(str: string): string | undefined {
+    return str ? str.toLowerCase() : undefined;
+  }
+
+  private static getNumber(str: string): number | undefined {
+    return str ? Number(str) : undefined;
   }
 
   private static getBool(boolField: string): boolean | undefined {
