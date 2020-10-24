@@ -49,7 +49,7 @@ export interface Qso {
   eqsl?: Qsl;
   lotw?: Qsl;
   card?: Qsl;
-  appDefinedMap?: { [key: string]: string };
+  appDefined?: { [key: string]: string };
 }
 
 // Fields pertaining to one of the radio stations in a QSO.

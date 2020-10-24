@@ -17,7 +17,7 @@ export class Adif2Proto {
   private static translateQso(record: { [p: string]: string }): Qso {
     const qso: Qso = {};
     this.translateTopLevel(qso, record);
-    qso.appDefinedMap = this.translateAppDefined(record);
+    qso.appDefined = this.translateAppDefined(record);
     qso.loggingStation = this.translateLoggingStation(record);
     qso.contactedStation = this.translateContactedStation(record);
     qso.contest = this.translateContest(record);
