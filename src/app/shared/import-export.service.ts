@@ -3,6 +3,8 @@ import { AdifParser, ParseResult } from 'adif-parser-ts';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { QsoService } from './qso.service';
+import { forkJoin } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -26,9 +28,8 @@ export class ImportExportService {
     qso.loggingStation = this.translateLoggingStation(record);
     qso.contactedStation = this.translateContactedStation(record);
     qso.contest = this.translateContest(record);
-
-    // clean undefined
-    return JSON.parse(JSON.stringify(qso));
+    // TODO: more fields
+    return qso;
   }
 
   private static translateTopLevel(
@@ -232,7 +233,7 @@ export class ImportExportService {
       try {
         const adiObj = AdifParser.parseAdi(content);
         const adi = ImportExportService.translateAdi(adiObj);
-        this.addQsos(adi);
+        this.addQsos(adi.qsosList);
       } catch (e) {
         this.snackBar.open(
           'There was a problem importing the ADIF file',
@@ -245,8 +246,15 @@ export class ImportExportService {
     fileReader.readAsText(file);
   }
 
-  private addQsos(adi: Adif): void {
-    console.log(adi);
+  private addQsos(qsos: Qso[]): void {
+    // TODO: dedupe/merge
+    this.snackBar.open(`Adding ${qsos.length} QSOs`, null, { duration: 10000 });
+    const upsertObservables = qsos.map((qso) =>
+      this.qsoService.addOrUpdate({ qso }).pipe(take(1))
+    );
+    forkJoin(upsertObservables).subscribe(() =>
+      this.snackBar.open('Done', null, { duration: 5000 })
+    );
   }
 
   public exportAdi(): void {

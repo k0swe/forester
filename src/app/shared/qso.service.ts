@@ -6,13 +6,13 @@ import { AuthService } from './auth.service';
 import {
   BehaviorSubject,
   combineLatest,
+  from,
   Observable,
   ReplaySubject,
 } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Qso } from '../qso';
 import { User } from 'firebase';
-import { fromPromise } from 'rxjs/internal-compatibility';
 import { map, mergeMap } from 'rxjs/operators';
 
 @Injectable({
@@ -213,12 +213,12 @@ export class QsoService {
           const contactsCollection = this.firestore.collection(
             'users/' + u.uid + '/contacts'
           );
-          return fromPromise(contactsCollection.add(fbq.qso));
+          return from(contactsCollection.add(fbq.qso));
         } else {
           const contactDoc = this.firestore.doc(
             'users/' + u.uid + '/contacts/' + fbq.id
           );
-          return fromPromise(contactDoc.update(fbq.qso));
+          return from(contactDoc.update(fbq.qso));
         }
       })
     );
