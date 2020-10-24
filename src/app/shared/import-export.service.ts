@@ -16,7 +16,6 @@ export class ImportExportService {
   public importAdi(file: File): void {
     const fileReader = new FileReader();
     fileReader.onload = () => {
-      console.log('Imported', file.name, file.type, file.size);
       const content = fileReader.result as string;
       try {
         const adiObj = AdifParser.parseAdi(content);
