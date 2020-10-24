@@ -1,10 +1,10 @@
-import { Adif, ContestData, Qso, Station } from '../qso';
-import { AdifParser, ParseResult } from 'adif-parser-ts';
-import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { QsoService } from './qso.service';
-import { forkJoin } from 'rxjs';
-import { take } from 'rxjs/operators';
+import {Adif, ContestData, Credit, Propagation, Qso, Station} from '../qso';
+import {AdifParser, ParseResult} from 'adif-parser-ts';
+import {Injectable} from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {QsoService} from './qso.service';
+import {forkJoin} from 'rxjs';
+import {take} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class ImportExportService {
    * Translate a log from AdifParser's relatively flat objects to KelLog's internal format.
    */
   private static translateAdi(adiObj: ParseResult): Adif {
-    const adif: Adif = { qsosList: [] };
+    const adif: Adif = {qsosList: []};
     for (const qsoObj of adiObj.records) {
       const qso = this.translateQso(qsoObj);
       adif.qsosList.push(qso);
@@ -25,10 +25,14 @@ export class ImportExportService {
   private static translateQso(record: { [p: string]: string }): Qso {
     const qso: Qso = {};
     this.translateTopLevel(qso, record);
+    qso.appDefinedMap = this.translateAppDefined(record);
     qso.loggingStation = this.translateLoggingStation(record);
     qso.contactedStation = this.translateContactedStation(record);
     qso.contest = this.translateContest(record);
-    // TODO: more fields
+    qso.propagation = this.translatePropagation(record);
+    this.translateCreditAndAwards(qso, record);
+    this.translateUploads(qso, record);
+    this.translateQsls(qso, record);
     return qso;
   }
 
@@ -53,6 +57,19 @@ export class ImportExportService {
     qso.rstSent = record.rst_sent;
     qso.submode = this.getUpperCase(record.submode);
     qso.swl = this.getBool(record.swl);
+  }
+
+  private static translateAppDefined(record: { [p: string]: string }): [string, string][] {
+    const retval: [string, string][] = [];
+    for (const field in record) {
+      if (field.startsWith('app_')) {
+        retval.push([field, record[field]]);
+      }
+    }
+    if (retval.length > 0) {
+      return retval;
+    }
+    return undefined;
   }
 
   private static translateLoggingStation(record: {
@@ -159,6 +176,66 @@ export class ImportExportService {
     return contest;
   }
 
+  private static translatePropagation(record: { [p: string]: string }): Propagation {
+    const prop: Propagation = {};
+    prop.aIndex = this.getNumber(record.a_index);
+    prop.antPath = record.ant_path;
+    prop.forceInit = this.getBool(record.force_init);
+    prop.kIndex = this.getNumber(record.k_index);
+    prop.maxBursts = this.getNumber(record.max_bursts);
+    prop.meteorShowerName = record.ms_shower;
+    prop.nrBursts = this.getNumber(record.nr_bursts);
+    prop.nrPings = this.getNumber(record.nr_pings);
+    prop.propagationMode = record.prop_mode;
+    prop.satMode = record.sat_mode;
+    prop.satName = record.sat_name;
+    prop.solarFluxIndex = this.getNumber(record.sfi);
+    if (Object.keys(prop).length > 0) {
+      return prop;
+    }
+    return undefined;
+  }
+
+  private static translateCreditAndAwards(qso: Qso, record: { [p: string]: string }): void {
+    qso.awardSubmittedList = this.translateAwards(record.award_submitted);
+    qso.awardGrantedList = this.translateAwards(record.award_granted);
+    qso.creditSubmittedList = this.translateCredit(record.credit_submitted);
+    qso.creditGrantedList = this.translateCredit(record.credit_granted);
+  }
+
+  private static translateAwards(fieldValue: string): string[] {
+    if (!fieldValue) {
+      return undefined;
+    }
+    return fieldValue.split(',');
+  }
+
+  private static translateCredit(fieldValue: string): Credit[] {
+    if (!fieldValue) {
+      return undefined;
+    }
+    const credits = fieldValue.split(',');
+    const retval: Credit[] = [];
+    for (const c of credits) {
+      const credit: Credit = {};
+      const split = c.split(':');
+      credit.credit = split[0];
+      if (split.length > 1) {
+        credit.qslMedium = split[1];
+      }
+      retval.push(credit);
+    }
+    return retval;
+  }
+
+  private static translateUploads(qso: Qso, record: { [p: string]: string }): void {
+// TODO
+  }
+
+  private static translateQsls(qso: Qso, record: { [p: string]: string }): void {
+// TODO
+  }
+
   private static getTitleCase(str: string): string | undefined {
     if (!str) {
       return undefined;
@@ -223,7 +300,8 @@ export class ImportExportService {
     return new Date(`${year}-${month}-${day} ${hour}:${minute}Z`);
   }
 
-  constructor(private qsoService: QsoService, private snackBar: MatSnackBar) {}
+  constructor(private qsoService: QsoService, private snackBar: MatSnackBar) {
+  }
 
   public importAdi(file: File): void {
     const fileReader = new FileReader();
@@ -238,7 +316,7 @@ export class ImportExportService {
         this.snackBar.open(
           'There was a problem importing the ADIF file',
           null,
-          { duration: 10000 }
+          {duration: 10000}
         );
         console.log('There was a problem importing the ADIF file\n', e);
       }
@@ -248,12 +326,12 @@ export class ImportExportService {
 
   private addQsos(qsos: Qso[]): void {
     // TODO: dedupe/merge
-    this.snackBar.open(`Adding ${qsos.length} QSOs`, null, { duration: 10000 });
+    this.snackBar.open(`Adding ${qsos.length} QSOs`, null, {duration: 10000});
     const upsertObservables = qsos.map((qso) =>
-      this.qsoService.addOrUpdate({ qso }).pipe(take(1))
+      this.qsoService.addOrUpdate({qso}).pipe(take(1))
     );
     forkJoin(upsertObservables).subscribe(() =>
-      this.snackBar.open('Done', null, { duration: 5000 })
+      this.snackBar.open('Done', null, {duration: 5000})
     );
   }
 
