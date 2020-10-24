@@ -34,14 +34,33 @@ export class ImportExportService {
   }
 
   private addQsos(qsos: Qso[]): void {
-    // TODO: dedupe/merge
-    this.snackBar.open(`Adding ${qsos.length} QSOs`, null, { duration: 10000 });
-    const upsertObservables = qsos.map((qso) =>
+    const toSave: Qso[] = this.deduplicate(qsos);
+    if (toSave.length === 0) {
+      this.snackBar.open(`All QSOs already present; nothing to do`, null, {
+        duration: 5000,
+      });
+    } else {
+      this.snackBar.open(`Adding ${toSave.length} QSOs`, null, {
+        duration: 10000,
+      });
+    }
+    const upsertObservables = toSave.map((qso) =>
       this.qsoService.addOrUpdate({ qso }).pipe(take(1))
     );
     forkJoin(upsertObservables).subscribe(() =>
-      this.snackBar.open('Done', null, { duration: 5000 })
+      this.snackBar.open('Finished import', null, { duration: 5000 })
     );
+  }
+
+  private deduplicate(qsos: Qso[]): Qso[] {
+    // TODO: merge existing QSO details
+    const toSave: Qso[] = [];
+    for (const qso of qsos) {
+      if (!this.qsoService.findMatch(qso)) {
+        toSave.push(qso);
+      }
+    }
+    return toSave;
   }
 
   public exportAdi(): void {

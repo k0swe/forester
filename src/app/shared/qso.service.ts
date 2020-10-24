@@ -223,6 +223,22 @@ export class QsoService {
       })
     );
   }
+
+  /**
+   * Attempt to find a QSO in our internal storage that matches the given one.
+   */
+  public findMatch(qso: Qso): boolean {
+    const match = this.qsos$
+      .getValue()
+      .find(
+        (fbq) =>
+          fbq.qso.timeOn.getTime() === qso.timeOn.getTime() &&
+          fbq.qso.contactedStation.stationCall ===
+            qso.contactedStation.stationCall &&
+          fbq.qso.loggingStation.stationCall === qso.loggingStation.stationCall
+      );
+    return match !== undefined;
+  }
 }
 
 export interface FirebaseQso {
