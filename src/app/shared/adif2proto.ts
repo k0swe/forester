@@ -53,14 +53,14 @@ export class Adif2Proto {
 
   private static translateAppDefined(record: {
     [p: string]: string;
-  }): [string, string][] {
-    const retval: [string, string][] = [];
+  }): { [key: string]: string } {
+    const retval: { [key: string]: string } = {};
     for (const field in record) {
       if (field.startsWith('app_')) {
-        retval.push([field, record[field]]);
+        retval[field] = record[field];
       }
     }
-    if (retval.length > 0) {
+    if (Object.keys(retval).length > 0) {
       return retval;
     }
     return undefined;
