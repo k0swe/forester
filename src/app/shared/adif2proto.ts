@@ -1,12 +1,22 @@
-import {ParseResult} from 'adif-parser-ts';
-import {Adif, ContestData, Credit, Propagation, Qsl, Qso, Station, Upload, UploadStatus} from '../qso';
+import { ParseResult } from 'adif-parser-ts';
+import {
+  Adif,
+  ContestData,
+  Credit,
+  Propagation,
+  Qsl,
+  Qso,
+  Station,
+  Upload,
+  UploadStatus,
+} from '../qso';
 
 export class Adif2Proto {
   /**
    * Translate a log from AdifParser's relatively flat objects to KelLog's internal format.
    */
   public static translateAdi(adiObj: ParseResult): Adif {
-    const adif: Adif = {qsos: []};
+    const adif: Adif = { qsos: [] };
     for (const qsoObj of adiObj.records) {
       const qso = this.translateQso(qsoObj);
       adif.qsos.push(qso);
@@ -236,13 +246,18 @@ export class Adif2Proto {
     qso.clublog = this.translateUpload(record, 'clublog');
   }
 
-  private static translateUpload(record: { [p: string]: string }, uploadProvider: string): Upload {
+  private static translateUpload(
+    record: { [p: string]: string },
+    uploadProvider: string
+  ): Upload {
     if (!record[uploadProvider + '_qso_upload_status']) {
       return undefined;
     }
     return {
-      uploadStatus: this.getUploadStatus(record[uploadProvider + '_qso_upload_status']),
-      uploadDate: this.getDate(record[uploadProvider + '_qso_upload_date'])
+      uploadStatus: this.getUploadStatus(
+        record[uploadProvider + '_qso_upload_status']
+      ),
+      uploadDate: this.getDate(record[uploadProvider + '_qso_upload_date']),
     };
   }
 
@@ -279,11 +294,14 @@ export class Adif2Proto {
     return qsl;
   }
 
-  private static translateQsl(record: { [p: string]: string }, qslProvider: string): Qsl {
+  private static translateQsl(
+    record: { [p: string]: string },
+    qslProvider: string
+  ): Qsl {
     const sent = record[qslProvider + 'qsl_sent'];
     const received = record[qslProvider + 'qsl_rcvd'];
-    const noQsl = (sent === '' || sent === 'N') &&
-      (received === '' || received === 'N');
+    const noQsl =
+      (sent === '' || sent === 'N') && (received === '' || received === 'N');
     if (noQsl) {
       return undefined;
     }
@@ -352,11 +370,15 @@ export class Adif2Proto {
     const time = record[timeField];
     let hour = '00';
     let minute = '00';
+    let second = '00';
     if (time) {
       hour = time.substr(0, 2);
       minute = time.substr(2, 2);
+      if (time.length > 4) {
+        second = time.substr(4, 2);
+      }
     }
-    return new Date(`${year}-${month}-${day} ${hour}:${minute}Z`);
+    return new Date(`${year}-${month}-${day} ${hour}:${minute}:${second}Z`);
   }
 
   private static getDate(date: string): Date {
@@ -369,6 +391,5 @@ export class Adif2Proto {
     return new Date(`${year}-${month}-${day} 00:00Z`);
   }
 
-  private constructor() {
-  }
+  private constructor() {}
 }

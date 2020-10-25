@@ -112,14 +112,11 @@ export class QsoDetailComponent {
 
   private formatDates(qso: Qso): void {
     // Qso uses date objects; format them
+    const timeFormat = 'yyyy-MM-dd HH:mm:ss';
     // @ts-ignore
-    qso.timeOn = this.datePipe.transform(qso.timeOn, 'yyyy-MM-dd HH:mm', 'UTC');
+    qso.timeOn = this.datePipe.transform(qso.timeOn, timeFormat, 'UTC');
     // @ts-ignore
-    qso.timeOff = this.datePipe.transform(
-      qso.timeOff,
-      'yyyy-MM-dd HH:mm',
-      'UTC'
-    );
+    qso.timeOff = this.datePipe.transform(qso.timeOff, timeFormat, 'UTC');
   }
 
   private parseDates(qso: Qso): void {
