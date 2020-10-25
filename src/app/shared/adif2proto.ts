@@ -1,12 +1,12 @@
-import { ParseResult } from 'adif-parser-ts';
-import { Adif, ContestData, Credit, Propagation, Qso, Station } from '../qso';
+import {ParseResult} from 'adif-parser-ts';
+import {Adif, ContestData, Credit, Propagation, Qsl, Qso, Station, Upload, UploadStatus} from '../qso';
 
 export class Adif2Proto {
   /**
    * Translate a log from AdifParser's relatively flat objects to KelLog's internal format.
    */
   public static translateAdi(adiObj: ParseResult): Adif {
-    const adif: Adif = { qsos: [] };
+    const adif: Adif = {qsos: []};
     for (const qsoObj of adiObj.records) {
       const qso = this.translateQso(qsoObj);
       adif.qsos.push(qso);
@@ -231,14 +231,68 @@ export class Adif2Proto {
     qso: Qso,
     record: { [p: string]: string }
   ): void {
-    // TODO
+    qso.qrzcom = this.translateUpload(record, 'qrzcom');
+    qso.hrdlog = this.translateUpload(record, 'hrdlog');
+    qso.clublog = this.translateUpload(record, 'clublog');
+  }
+
+  private static translateUpload(record: { [p: string]: string }, uploadProvider: string): Upload {
+    if (!record[uploadProvider + '_qso_upload_status']) {
+      return undefined;
+    }
+    return {
+      uploadStatus: this.getUploadStatus(record[uploadProvider + '_qso_upload_status']),
+      uploadDate: this.getDate(record[uploadProvider + '_qso_upload_date'])
+    };
+  }
+
+  private static getUploadStatus(statusStr: string): UploadStatus {
+    switch (statusStr) {
+      case 'Y':
+        return UploadStatus.UPLOAD_COMPLETE;
+      case 'N':
+        return UploadStatus.DO_NOT_UPLOAD;
+      case 'M':
+        return UploadStatus.MODIFIED_AFTER_UPLOAD;
+      default:
+        return UploadStatus.UNKNOWN;
+    }
   }
 
   private static translateQsls(
     qso: Qso,
     record: { [p: string]: string }
   ): void {
-    // TODO
+    qso.card = this.translateCardQsl(record);
+    qso.eqsl = this.translateQsl(record, 'eqsl_');
+    qso.lotw = this.translateQsl(record, 'lotw_');
+  }
+
+  private static translateCardQsl(record: { [p: string]: string }): Qsl {
+    const qsl = this.translateQsl(record, '');
+    if (qsl == null) {
+      return undefined;
+    }
+    qsl.sentVia = record.qsl_sent_via;
+    qsl.receivedVia = record.qsl_rcvd_via;
+    qsl.receivedMessage = record.qslmsg;
+    return qsl;
+  }
+
+  private static translateQsl(record: { [p: string]: string }, qslProvider: string): Qsl {
+    const sent = record[qslProvider + 'qsl_sent'];
+    const received = record[qslProvider + 'qsl_rcvd'];
+    const noQsl = (sent === '' || sent === 'N') &&
+      (received === '' || received === 'N');
+    if (noQsl) {
+      return undefined;
+    }
+    return {
+      sentStatus: sent,
+      sentDate: this.getDate(record[qslProvider + 'qslsdate']),
+      receivedStatus: received,
+      receivedDate: this.getDate(record[qslProvider + 'qslrdate']),
+    };
   }
 
   private static getTitleCase(str: string): string | undefined {
@@ -305,5 +359,16 @@ export class Adif2Proto {
     return new Date(`${year}-${month}-${day} ${hour}:${minute}Z`);
   }
 
-  private constructor() {}
+  private static getDate(date: string): Date {
+    if (!date) {
+      return undefined;
+    }
+    const year = date.substr(0, 4);
+    const month = date.substr(4, 2);
+    const day = date.substr(6, 2);
+    return new Date(`${year}-${month}-${day} 00:00Z`);
+  }
+
+  private constructor() {
+  }
 }
