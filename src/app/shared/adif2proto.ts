@@ -45,9 +45,9 @@ export class Adif2Proto {
     qso.band = this.getLowerCase(record.band);
     qso.bandRx = this.getLowerCase(record.band_rx);
     qso.comment = record.comment;
-    qso.distanceKm = Number(record.distance);
-    qso.freq = Number(record.freq);
-    qso.freqRx = Number(record.freq_rx);
+    qso.distanceKm = this.getNumber(record.distance);
+    qso.freq = this.getNumber(record.freq);
+    qso.freqRx = this.getNumber(record.freq_rx);
     qso.mode = this.getUpperCase(record.mode);
     qso.notes = record.notes;
     qso.publicKey = record.public_key;
@@ -341,7 +341,7 @@ export class Adif2Proto {
 
   private static getLatLon(coord: string): number {
     if (!coord) {
-      return 0;
+      return undefined;
     }
     const groups = coord.match(/([NESW])(\d+) ([\d.]+)/);
     const cardinal = groups[1];
