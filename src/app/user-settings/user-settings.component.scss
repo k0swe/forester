@@ -12,6 +12,10 @@
   width: 100%;
 }
 
+mat-form-field.ng-dirty {
+  color: mat-color($kel-accent, 900);
+}
+
 .callsign {
   font-family: mat-font-family($kel-mono-typography);
 }

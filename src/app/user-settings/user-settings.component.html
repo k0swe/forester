@@ -1,50 +1,54 @@
 <h2 mat-dialog-title>User Settings</h2>
 <mat-dialog-content>
-  <div>
-    <mat-form-field appearance="standard">
-      <mat-label>My Callsign</mat-label>
-      <input
-        matInput
-        class="callsign"
-        placeholder="N0CALL"
-        [ngModel]="(settingsService.settings() | async).callsign"
-      />
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field appearance="standard">
-      <mat-label>QRZ.com Logbook API Key</mat-label>
-      <input
-        matInput
-        placeholder="ABCD-1234-EFGH-5678"
-        [ngModel]="(settingsService.settings() | async).qrzLogbookApiKey"
-      />
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" class="row">
-    <mat-form-field fxFlex appearance="standard">
-      <mat-label>Agent Host</mat-label>
-      <input
-        matInput
-        placeholder="localhost"
-        [ngModel]="agentService.getHost()"
-        (ngModelChange)="agentService.setHost($event)"
-      />
-    </mat-form-field>
-    <mat-form-field fxFlex appearance="standard">
-      <mat-label>Agent Port</mat-label>
-      <input
-        matInput
-        placeholder="8081"
-        type="number"
-        [ngModel]="agentService.getPort()"
-        (ngModelChange)="agentService.setPort($event)"
-      />
-    </mat-form-field>
-  </div>
+  <form [formGroup]="userSettingsForm">
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>My Callsign</mat-label>
+        <input
+          matInput
+          class="callsign"
+          placeholder="N0CALL"
+          formControlName="callsign"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>QRZ.com Logbook API Key</mat-label>
+        <input
+          matInput
+          placeholder="ABCD-1234-EFGH-5678"
+          formControlName="qrzLogbookApiKey"
+        />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" class="row">
+      <mat-form-field fxFlex appearance="standard">
+        <mat-label>Agent Host</mat-label>
+        <input matInput placeholder="localhost" formControlName="agentHost" />
+      </mat-form-field>
+      <mat-form-field fxFlex appearance="standard">
+        <mat-label>Agent Port</mat-label>
+        <input
+          matInput
+          placeholder="8081"
+          type="number"
+          formControlName="agentPort"
+        />
+      </mat-form-field>
+    </div>
+  </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="accent" disabled>Save</button>
+  <button
+    mat-raised-button
+    color="accent"
+    disabled
+    #saveButton
+    (click)="save()"
+  >
+    Save
+  </button>
 </mat-dialog-actions>

@@ -34,6 +34,20 @@ export class UserSettingsService {
   public settings(): Observable<UserSettings> {
     return this.settings$;
   }
+
+  set(values: {
+    callsign?: string;
+    qrzLogbookApiKey?: string;
+  }): Observable<void> {
+    const uid$ = this.authService.user().pipe(map((user) => user.uid));
+    return uid$.pipe(
+      switchMap((userId) => {
+        return this.firestore
+          .doc<UserSettings>('users/' + userId)
+          .update(values);
+      })
+    );
+  }
 }
 
 interface UserSettings {
