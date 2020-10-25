@@ -83,6 +83,7 @@ export class AgentService {
   }
 
   private saveWsjtxQso(qsoLogged: WsjtxQsoLogged): void {
+    // TODO: do something with "exchanged sent/received"
     const qso: Qso = {
       band: Band.freqToBand(qsoLogged.TxFrequency / 1000000),
       comment: qsoLogged.Comments,
