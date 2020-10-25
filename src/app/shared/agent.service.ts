@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
-import { webSocket } from 'rxjs/webSocket';
+import { Band } from '../band';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { QsoService } from './qso.service';
+import { Qso } from '../qso';
+import { webSocket } from 'rxjs/webSocket';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +19,7 @@ export class AgentService {
   private agentHost: string;
   private agentPort: number;
 
-  constructor() {}
+  constructor(private qsoService: QsoService) {}
 
   public init(): void {
     this.agentHost = this.getHost();
@@ -28,6 +31,15 @@ export class AgentService {
       this.setPort(this.defaultAgentPort);
     }
     this.connect();
+    this.wsjtxMessage$.subscribe((msg) => {
+      if (msg.type === 'QsoLoggedMessage') {
+        const qsoLogged = msg.payload as WsjtxQsoLogged;
+        // Dates come across as strings; convert to objects
+        qsoLogged.DateTimeOn = new Date(qsoLogged.DateTimeOn);
+        qsoLogged.DateTimeOff = new Date(qsoLogged.DateTimeOff);
+        this.saveWsjtxQso(qsoLogged);
+      }
+    });
   }
 
   private connect(): void {
@@ -69,4 +81,49 @@ export class AgentService {
     localStorage.setItem('agent-port', String(port));
     this.connect();
   }
+
+  private saveWsjtxQso(qsoLogged: WsjtxQsoLogged): void {
+    const qso: Qso = {
+      band: Band.freqToBand(qsoLogged.TxFrequency / 1000000),
+      comment: qsoLogged.Comments,
+      timeOn: qsoLogged.DateTimeOn,
+      timeOff: qsoLogged.DateTimeOff,
+      contactedStation: {
+        stationCall: qsoLogged.DxCall,
+        gridSquare: qsoLogged.DxGrid,
+        opCall: qsoLogged.OperatorCall,
+        opName: qsoLogged.Name,
+      },
+      loggingStation: {
+        stationCall: qsoLogged.MyCall,
+        gridSquare: qsoLogged.MyGrid,
+        power: Number(qsoLogged.TxPower),
+      },
+      freq: qsoLogged.TxFrequency / 1000000,
+      mode: qsoLogged.Mode,
+      rstReceived: qsoLogged.ReportReceived,
+      rstSent: qsoLogged.ReportSent,
+    };
+    this.qsoService.addOrUpdate({ qso }).subscribe();
+  }
+}
+
+interface WsjtxQsoLogged {
+  Comments: string;
+  DateTimeOff: Date;
+  DateTimeOn: Date;
+  DxCall: string;
+  DxGrid: string;
+  ExchangeReceived: string;
+  ExchangeSent: string;
+  Mode: string;
+  MyCall: string;
+  MyGrid: string;
+  Name: string;
+  OperatorCall: string;
+  ReportReceived: string;
+  ReportSent: string;
+  TxFrequency: number;
+  TxPower: string;
+  id: string;
 }
