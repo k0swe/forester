@@ -6,10 +6,10 @@ export class Adif2Proto {
    * Translate a log from AdifParser's relatively flat objects to KelLog's internal format.
    */
   public static translateAdi(adiObj: ParseResult): Adif {
-    const adif: Adif = { qsosList: [] };
+    const adif: Adif = { qsos: [] };
     for (const qsoObj of adiObj.records) {
       const qso = this.translateQso(qsoObj);
-      adif.qsosList.push(qso);
+      adif.qsos.push(qso);
     }
     return adif;
   }
@@ -196,10 +196,10 @@ export class Adif2Proto {
     qso: Qso,
     record: { [p: string]: string }
   ): void {
-    qso.awardSubmittedList = this.translateAwards(record.award_submitted);
-    qso.awardGrantedList = this.translateAwards(record.award_granted);
-    qso.creditSubmittedList = this.translateCredit(record.credit_submitted);
-    qso.creditGrantedList = this.translateCredit(record.credit_granted);
+    qso.awardSubmitted = this.translateAwards(record.award_submitted);
+    qso.awardGranted = this.translateAwards(record.award_granted);
+    qso.creditSubmitted = this.translateCredit(record.credit_submitted);
+    qso.creditGranted = this.translateCredit(record.credit_granted);
   }
 
   private static translateAwards(fieldValue: string): string[] {

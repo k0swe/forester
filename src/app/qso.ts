@@ -5,7 +5,7 @@
 // Amateur Radio Data Interchange Format
 export interface Adif {
   header?: Header;
-  qsosList?: Array<Qso>;
+  qsos?: Array<Qso>;
 }
 
 // ADIF header metadata
@@ -38,10 +38,10 @@ export interface Qso {
   comment?: string;
   notes?: string;
   contest?: ContestData;
-  awardSubmittedList?: Array<string>;
-  awardGrantedList?: Array<string>;
-  creditSubmittedList?: Array<Credit>;
-  creditGrantedList?: Array<Credit>;
+  awardSubmitted?: Array<string>;
+  awardGranted?: Array<string>;
+  creditSubmitted?: Array<Credit>;
+  creditGranted?: Array<Credit>;
   publicKey?: string;
   clublog?: Upload;
   hrdlog?: Upload;
@@ -134,10 +134,10 @@ export interface Credit {
 // Upload metadata for online logbook services.
 export interface Upload {
   uploadDate?: Date;
-  uploadStatus?: UploadStatusMap;
+  uploadStatus?: UploadStatus;
 }
 
-export enum UploadStatusMap {
+export enum UploadStatus {
   UNKNOWN = 0,
   UPLOAD_COMPLETE = 1,
   DO_NOT_UPLOAD = 2,

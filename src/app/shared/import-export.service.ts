@@ -20,7 +20,7 @@ export class ImportExportService {
       try {
         const adiObj = AdifParser.parseAdi(content);
         const adi = Adif2Proto.translateAdi(adiObj);
-        this.addQsos(adi.qsosList);
+        this.addQsos(adi.qsos);
       } catch (e) {
         this.snackBar.open(
           'There was a problem importing the ADIF file',
