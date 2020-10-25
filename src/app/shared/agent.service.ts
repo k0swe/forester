@@ -21,10 +21,10 @@ export class AgentService {
   public init(): void {
     this.agentHost = this.getHost();
     this.agentPort = this.getPort();
-    if (this.agentHost === null) {
+    if (this.agentHost == null) {
       this.setHost(this.defaultAgentHost);
     }
-    if (this.agentPort === null) {
+    if (isNaN(this.agentPort)) {
       this.setPort(this.defaultAgentPort);
     }
     this.connect();
