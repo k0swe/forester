@@ -37,10 +37,7 @@ export class UserSettingsService {
     return this.settings$;
   }
 
-  set(values: {
-    callsign?: string;
-    qrzLogbookApiKey?: string;
-  }): Observable<void> {
+  set(values: UserSettings): Observable<void> {
     const uid$ = this.authService.user().pipe(map((user) => user.uid));
     return uid$.pipe(
       switchMap((userId) => {
