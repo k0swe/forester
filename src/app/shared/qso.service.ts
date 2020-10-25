@@ -24,10 +24,10 @@ export class QsoService {
     private firestore: AngularFirestore
   ) {}
 
-  started = false;
-  user$ = new ReplaySubject<User>(1);
-  qsos$ = new BehaviorSubject<FirebaseQso[]>([]);
-  filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
+  private started = false;
+  private user$ = new ReplaySubject<User>(1);
+  private qsos$ = new BehaviorSubject<FirebaseQso[]>([]);
+  private filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
 
   private static unmarshalDates(qso: Qso): void {
     if (qso.timeOn != null) {
@@ -140,8 +140,10 @@ export class QsoService {
     });
   }
 
-  // Find the earliest QSO which meets the given criteria, applying Worked All States rules
-  // (e.g. mode 'digital' matches QSOs with FT8, JT65, etc.)
+  /**
+   * Find the earliest QSO which meets the given criteria, applying Worked All States rules
+   * (e.g. mode 'digital' matches QSOs with FT8, JT65, etc.)
+   */
   findWASQso(criteria: WASQsoCriteria): Observable<FirebaseQso | undefined> {
     return this.qsos$.pipe(
       map((qsos) =>
@@ -205,6 +207,9 @@ export class QsoService {
     this.filterCriteria$.next(newCriteria);
   }
 
+  /**
+   * Insert or update the given QSO into the datastore. If `fbq.id` is null, insert; otherwise, update.
+   */
   public addOrUpdate(fbq: FirebaseQso): Observable<any> {
     QsoService.marshalDates(fbq.qso);
     return this.user$.pipe(
