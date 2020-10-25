@@ -25,10 +25,12 @@ export class UserSettingsService {
     uid$
       .pipe(
         switchMap((userId) => {
-          return this.firestore.doc<UserSettings>('users/' + userId).get();
+          return this.firestore
+            .doc<UserSettings>('users/' + userId)
+            .valueChanges();
         })
       )
-      .subscribe((snapshot) => this.settings$.next(snapshot.data()));
+      .subscribe((settings) => this.settings$.next(settings));
   }
 
   public settings(): Observable<UserSettings> {
