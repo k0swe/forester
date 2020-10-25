@@ -36,6 +36,7 @@ export class QsoDetailComponent {
       state: undefined,
       country: undefined,
       continent: undefined,
+      gridSquare: undefined,
     },
   };
   private readonly firebaseId;

@@ -64,7 +64,7 @@
     </div>
 
     <div fxLayout="row" class="row" formGroupName="contactedStation">
-      <div fxFlex="50%">
+      <div fxFlex="40%">
         <mat-form-field appearance="standard">
           <mat-label>Name</mat-label>
           <input matInput formControlName="opName" />
@@ -92,6 +92,12 @@
             type="number"
           />
           <mat-hint>+E/-W</mat-hint>
+        </mat-form-field>
+      </div>
+      <div fxFlex="10%">
+        <mat-form-field appearance="standard">
+          <mat-label>Grid</mat-label>
+          <input matInput formControlName="gridSquare" />
         </mat-form-field>
       </div>
       <div fxFlex>
