@@ -37,9 +37,12 @@ export class AppComponent implements OnInit {
       })
       .subscribe(
         (response) => {
-          const created: number = response.created;
+          const created = response.created;
+          const modified = response.modified;
+          const noDiff = response.noDiff;
           this.snackBar.open(
-            `Imported from QRZ.com: ${created} QSOs created`,
+            `Finished QRZ.com import: ` +
+              `${created} QSOs created, ${modified} modified and ${noDiff} with no difference`,
             null,
             { duration: 5000 }
           );
@@ -62,4 +65,5 @@ export class AppComponent implements OnInit {
 interface ImportResponse {
   created: number;
   modified: number;
+  noDiff: number;
 }
