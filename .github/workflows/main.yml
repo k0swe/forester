@@ -11,12 +11,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
+        name: Checkout
       - uses: actions/setup-node@master
+        name: Setup node
         with:
           node-version: '10.x'
       - run: npm install
+        name: Install deps
       - run: npm run build-prod
+        name: Compile
       - uses: w9jds/firebase-action@master
+        name: Deploy to Firebase Hosting
         with:
           args: deploy --only hosting
         env:
