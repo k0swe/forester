@@ -84,6 +84,7 @@ export class QsoListComponent implements OnInit {
         'contactedCity',
         'contactedState',
         'contactedCountry',
+        'qsl',
       ];
     } else if (width > 576) {
       this.columnsToDisplay = [
@@ -93,6 +94,7 @@ export class QsoListComponent implements OnInit {
         'mode',
         'contactedState',
         'contactedCountry',
+        'qsl',
       ];
     } else {
       this.columnsToDisplay = [
