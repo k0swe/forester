@@ -9,7 +9,7 @@ import {
   Upload,
   UploadStatus,
 } from '../qso';
-import { SimpleAdif } from 'adif-parser-ts/dist/types/simple-adif';
+import { SimpleAdif } from 'adif-parser-ts';
 
 export class Adif2Proto {
   /**

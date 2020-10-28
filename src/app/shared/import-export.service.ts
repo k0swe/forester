@@ -1,11 +1,12 @@
 import { Adif2Proto } from './adif2proto';
-import { AdifParser } from 'adif-parser-ts';
+import { AdifFormatter, AdifParser } from 'adif-parser-ts';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { QsoService } from './qso.service';
+import { Proto2Adif } from './proto2adif';
 import { Qso } from '../qso';
-import { forkJoin } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { QsoService } from './qso.service';
+import { forkJoin, Observable } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -63,7 +64,16 @@ export class ImportExportService {
     return toSave;
   }
 
-  public exportAdi(): void {
-    alert('Exporting ADIF files is not yet implemented');
+  public exportAdi(): Observable<Blob> {
+    this.snackBar.open('Exporting ADIF...', null, { duration: 5000 });
+    return this.qsoService.getFilteredQsos().pipe(
+      take(1),
+      map((fbqs) => {
+        const qsos = fbqs.map((fbq) => fbq.qso);
+        const simpleAdif = Proto2Adif.translateAdi(qsos);
+        const fileContent = AdifFormatter.formatAdi(simpleAdif);
+        return new Blob([fileContent], { type: 'text/plain' });
+      })
+    );
   }
 }

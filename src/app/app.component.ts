@@ -1,9 +1,9 @@
 import { AuthService } from './shared/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ImportExportService } from './shared/import-export.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../environments/environment';
-import { ImportExportService } from './shared/import-export.service';
 
 @Component({
   selector: 'kel-root',
@@ -13,6 +13,7 @@ import { ImportExportService } from './shared/import-export.service';
 export class AppComponent implements OnInit {
   qrzImportUrl = environment.functionsBase + 'ImportQrz';
   userJwt: string;
+  @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
 
   constructor(
     public authService: AuthService,
@@ -59,6 +60,15 @@ export class AppComponent implements OnInit {
   importAdi($event: any): void {
     const file = $event.target.files[0] as File;
     this.importExportService.importAdi(file);
+  }
+
+  exportAdi(): void {
+    this.importExportService.exportAdi().subscribe((blob) => {
+      const objectURL = (window.URL || window.webkitURL).createObjectURL(blob);
+      this.download.nativeElement.setAttribute('href', objectURL);
+      this.download.nativeElement.setAttribute('download', 'kellog.adif');
+      this.download.nativeElement.click();
+    });
   }
 }
 

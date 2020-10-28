@@ -8,7 +8,7 @@ import {
   Upload,
   UploadStatus,
 } from '../qso';
-import { SimpleAdif } from 'adif-parser-ts/dist/types/simple-adif';
+import { SimpleAdif } from 'adif-parser-ts';
 
 export class Proto2Adif {
   /**
@@ -24,15 +24,17 @@ export class Proto2Adif {
         text: `Log for ${myCall}`,
         adif_ver: '3.1.1',
         programid: 'KelLog',
-        programversion: `${new Date()}`,
+        programversion: `${new Date().toISOString()}`,
       },
       records: [],
     };
+    qsos = qsos.sort((a, b) => a.timeOn.getTime() - b.timeOn.getTime());
     for (const qsoObj of qsos) {
       const qso = this.translateQso(qsoObj);
       adif.records.push(qso);
     }
-    return adif;
+    // get rid of `undefined`s
+    return JSON.parse(JSON.stringify(adif));
   }
 
   private static translateQso(qso: Qso): { [p: string]: string } {
@@ -174,7 +176,6 @@ export class Proto2Adif {
     record.class = contest.stationClass;
     record.check = contest.check;
     record.precedence = contest.precedence;
-    record.srx = contest.serialReceived;
     record.srx_string = contest.serialReceived;
     record.stx_string = contest.serialSent;
   }
@@ -211,10 +212,17 @@ export class Proto2Adif {
   }
 
   private static translateAwards(awards: Array<string>): string {
+    if (!awards) {
+      return undefined;
+    }
     return awards.join(',');
   }
 
   private static translateCredit(credits: Credit[]): string {
+    if (!credits) {
+      return undefined;
+    }
+
     return credits
       .map((c) => {
         if (c.qslMedium) {
@@ -295,6 +303,9 @@ export class Proto2Adif {
   }
 
   private static getNumber(num: number): string | undefined {
+    if (!num) {
+      return undefined;
+    }
     return num.toString(10);
   }
 
@@ -323,13 +334,19 @@ export class Proto2Adif {
         cardinal = 'W';
       }
     }
-    const degrees = Math.floor(coord);
-    const minutes = (coord - degrees) * 60;
+    const myCoord = Math.abs(coord);
+    const degrees = Math.floor(myCoord);
+    const minutes = ((myCoord - degrees) * 60).toFixed(3);
     return `${cardinal}${degrees} ${minutes}`;
   }
 
   private static getDate(date: Date): string {
     if (!date) {
+      return undefined;
+    }
+    if (!(date instanceof Date)) {
+      // TODO: fix this
+      console.log('Theres a problem exporting a date');
       return undefined;
     }
     const year = date.getUTCFullYear().toString();

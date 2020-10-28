@@ -24,6 +24,7 @@
         Import QRZ.com
       </a>
       <a mat-list-item (click)="chooser.click()">Import ADIF file</a>
+      <a mat-list-item (click)="exportAdi()">Export ADIF file</a>
     </mat-nav-list>
     <input
       #chooser
@@ -32,6 +33,7 @@
       accept=".adi,.adif"
       (change)="importAdi($event)"
     />
+    <a #download hidden></a>
   </mat-sidenav>
   <mat-sidenav-container class="content">
     <router-outlet></router-outlet>
