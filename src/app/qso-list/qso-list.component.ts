@@ -98,7 +98,7 @@ export class QsoListComponent implements OnInit {
       ];
     } else {
       this.columnsToDisplay = [
-        'timeOn',
+        'shortTimeOn',
         'contactedCall',
         'band',
         'mode',
