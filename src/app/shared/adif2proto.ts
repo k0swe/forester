@@ -1,4 +1,3 @@
-import { ParseResult } from 'adif-parser-ts';
 import {
   Adif,
   ContestData,
@@ -10,12 +9,13 @@ import {
   Upload,
   UploadStatus,
 } from '../qso';
+import { SimpleAdif } from 'adif-parser-ts/dist/types/simple-adif';
 
 export class Adif2Proto {
   /**
    * Translate a log from AdifParser's relatively flat objects to KelLog's internal format.
    */
-  public static translateAdi(adiObj: ParseResult): Adif {
+  public static translateAdi(adiObj: SimpleAdif): Adif {
     const adif: Adif = { qsos: [] };
     for (const qsoObj of adiObj.records) {
       const qso = this.translateQso(qsoObj);
