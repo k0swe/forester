@@ -341,8 +341,9 @@ export class Proto2Adif {
     }
     const myCoord = Math.abs(coord);
     const degrees = Math.floor(myCoord);
-    const minutes = ((myCoord - degrees) * 60).toFixed(3);
-    return `${cardinal}${degrees} ${minutes}`;
+    const degStr = degrees.toString().padStart(3, '0');
+    const minutes = ((myCoord - degrees) * 60).toFixed(3).padStart(6, '0');
+    return `${cardinal}${degStr} ${minutes}`;
   }
 
   private static getDate(date: Date): string {
