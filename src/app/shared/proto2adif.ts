@@ -80,6 +80,9 @@ export class Proto2Adif {
     qso: Qso,
     record: { [p: string]: string }
   ): void {
+    if (!qso.appDefined) {
+      return;
+    }
     for (const key of Object.keys(qso.appDefined)) {
       record[key] = qso.appDefined[key];
     }
