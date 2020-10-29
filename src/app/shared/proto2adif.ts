@@ -57,12 +57,12 @@ export class Proto2Adif {
   ): void {
     record.band = qso.band;
     record.band_rx = qso.bandRx;
-    record.comment = qso.comment;
+    record.comment = qso.comment ? qso.comment : undefined;
     record.distance = this.getNumber(qso.distanceKm);
     record.freq = this.getNumber(qso.freq);
     record.freq_rx = this.getNumber(qso.freqRx);
     record.mode = qso.mode;
-    record.notes = qso.notes;
+    record.notes = qso.notes ? qso.notes : undefined;
     record.public_key = qso.publicKey;
     record.qso_complete = qso.complete;
     record.qso_date = this.getDate(qso.timeOn);
