@@ -13,14 +13,14 @@ export class AgentService {
   public readonly connectedState$ = new BehaviorSubject<boolean>(false);
   /** Whether we're getting any messages from WSJT-X. */
   public readonly wsjtxState$ = new BehaviorSubject<boolean>(false);
-  /** Subject for listening to WSJT-X "Status" messages. */
-  public readonly wsjtxStatus$ = new Subject<WsjtxStatus>();
-  /** Subject for listening to WSJT-X "QsoLogged" messages. */
-  public readonly wsjtxQsoLogged$ = new Subject<WsjtxQsoLogged>();
-  /** Subject for listening to WSJT-X "Decode" messages. */
-  public readonly wsjtxDecode$ = new Subject<WsjtxDecode>();
   /** Subject for listening to WSJT-X "Heartbeat" messages. */
   public readonly wsjtxHeartbeat$ = new Subject<WsjtxHeartbeat>();
+  /** Subject for listening to WSJT-X "Status" messages. */
+  public readonly wsjtxStatus$ = new Subject<WsjtxStatus>();
+  /** Subject for listening to WSJT-X "Decode" messages. */
+  public readonly wsjtxDecode$ = new Subject<WsjtxDecode>();
+  /** Subject for listening to WSJT-X "QsoLogged" messages. */
+  public readonly wsjtxQsoLogged$ = new Subject<WsjtxQsoLogged>();
 
   private readonly defaultAgentHost = 'localhost';
   private readonly defaultAgentPort = 8081;
@@ -66,17 +66,17 @@ export class AgentService {
   private handleMessage(msg: any): void {
     if (msg.wsjtx !== null) {
       this.wsjtxState$.next(true);
+      if (msg.wsjtx.type === 'HeartbeatMessage') {
+        this.wsjtxHeartbeat$.next(msg.wsjtx.payload as WsjtxHeartbeat);
+      }
       if (msg.wsjtx.type === 'StatusMessage') {
         this.wsjtxStatus$.next(msg.wsjtx.payload as WsjtxStatus);
-      }
-      if (msg.wsjtx.type === 'QsoLoggedMessage') {
-        this.wsjtxQsoLogged$.next(msg.wsjtx.payload as WsjtxQsoLogged);
       }
       if (msg.wsjtx.type === 'DecodeMessage') {
         this.wsjtxDecode$.next(msg.wsjtx.payload as WsjtxDecode);
       }
-      if (msg.wsjtx.type === 'HeartbeatMessage') {
-        this.wsjtxHeartbeat$.next(msg.wsjtx.payload as WsjtxHeartbeat);
+      if (msg.wsjtx.type === 'QsoLoggedMessage') {
+        this.wsjtxQsoLogged$.next(msg.wsjtx.payload as WsjtxQsoLogged);
       }
     }
   }
@@ -126,26 +126,32 @@ export class AgentService {
   }
 }
 
-export interface WsjtxQsoLogged {
-  Comments: string;
-  DateTimeOff: Date;
-  DateTimeOn: Date;
-  DxCall: string;
-  DxGrid: string;
-  ExchangeReceived: string;
-  ExchangeSent: string;
-  Mode: string;
-  MyCall: string;
-  MyGrid: string;
-  Name: string;
-  OperatorCall: string;
-  ReportReceived: string;
-  ReportSent: string;
-  TxFrequency: number;
-  TxPower: string;
+/**
+ * The heartbeat  message shall be  sent on a periodic  basis every
+ *    15   seconds.  This
+ *    message is intended to be used by servers to detect the presence
+ *    of a  client and also  the unexpected disappearance of  a client
+ *    and  by clients  to learn  the schema  negotiated by  the server
+ *    after it receives  the initial heartbeat message  from a client.
+ *
+ * See
+ * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l110).
+ */
+export interface WsjtxHeartbeat {
   id: string;
+  maxSchemaVersion: number;
+  revision: string;
+  version: string;
 }
 
+/**
+ * WSJT-X  sends this  status message  when various  internal state
+ * changes to allow the server to  track the relevant state of each
+ * client without the need for  polling commands.
+ *
+ * See
+ * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l141).
+ */
 export interface WsjtxStatus {
   configName: string;
   deCall: string;
@@ -170,13 +176,16 @@ export interface WsjtxStatus {
   txWatchdog: boolean;
 }
 
-export interface WsjtxHeartbeat {
-  id: string;
-  maxSchemaVersion: number;
-  revision: string;
-  version: string;
-}
-
+/**
+ * The decode message is sent when  a new decode is completed, in
+ * this case the 'New' field is true. It is also used in response
+ * to  a "Replay"  message where  each  old decode  in the  "Band
+ * activity" window, that  has not been erased, is  sent in order
+ * as a one of these messages  with the 'New' field set to false.
+ *
+ * See
+ * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l206).
+ */
 export interface WsjtxDecode {
   deltaFrequency: number;
   deltaTime: number;
@@ -188,4 +197,31 @@ export interface WsjtxDecode {
   offAir: boolean;
   snr: number;
   time: number;
+}
+
+/**
+ * The QSO logged message is sent when the WSJT-X user accepts the "Log  QSO" dialog by clicking
+ * the "OK" button.
+ *
+ * See
+ * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l293).
+ */
+export interface WsjtxQsoLogged {
+  Comments: string;
+  DateTimeOff: Date;
+  DateTimeOn: Date;
+  DxCall: string;
+  DxGrid: string;
+  ExchangeReceived: string;
+  ExchangeSent: string;
+  Mode: string;
+  MyCall: string;
+  MyGrid: string;
+  Name: string;
+  OperatorCall: string;
+  ReportReceived: string;
+  ReportSent: string;
+  TxFrequency: number;
+  TxPower: string;
+  id: string;
 }
