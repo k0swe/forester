@@ -325,7 +325,7 @@ export class Proto2Adif {
   }
 
   private static getLatLon(coord: number, isLat: boolean): string {
-    if (coord === 0) {
+    if (!coord || coord === 0) {
       return undefined;
     }
     let cardinal;
