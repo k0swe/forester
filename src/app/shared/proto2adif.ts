@@ -250,7 +250,12 @@ export class Proto2Adif {
     if (!upload) {
       return;
     }
-    switch (upload.uploadStatus) {
+    let status: any = upload.uploadStatus;
+    if (typeof status === 'string') {
+      // This should probably happen in QsoService.unmarshal somewhere...
+      status = UploadStatus[`${status}`];
+    }
+    switch (status) {
       case UploadStatus.UPLOAD_COMPLETE:
         record[uploadProvider + '_qso_upload_status'] = 'Y';
         break;
