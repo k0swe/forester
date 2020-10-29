@@ -1,5 +1,5 @@
 import { Band } from '../band';
-import { BehaviorSubject, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { QsoService } from './qso.service';
 import { Qso } from '../qso';
@@ -11,7 +11,8 @@ import { webSocket } from 'rxjs/webSocket';
 export class AgentService {
   connectedState$ = new BehaviorSubject<boolean>(false);
   wsjtxState$ = new BehaviorSubject<boolean>(false);
-  wsjtxMessage$ = new ReplaySubject<any>();
+  wsjtxStatus$ = new Subject<WsjtxStatus>();
+  wsjtxQsoLogged$ = new Subject<WsjtxQsoLogged>();
 
   private readonly defaultAgentHost = 'localhost';
   private readonly defaultAgentPort = 8081;
@@ -31,14 +32,11 @@ export class AgentService {
       this.setPort(this.defaultAgentPort);
     }
     this.connect();
-    this.wsjtxMessage$.subscribe((msg) => {
-      if (msg.type === 'QsoLoggedMessage') {
-        const qsoLogged = msg.payload as WsjtxQsoLogged;
-        // Dates come across as strings; convert to objects
-        qsoLogged.DateTimeOn = new Date(qsoLogged.DateTimeOn);
-        qsoLogged.DateTimeOff = new Date(qsoLogged.DateTimeOff);
-        this.saveWsjtxQso(qsoLogged);
-      }
+    this.wsjtxQsoLogged$.subscribe((qsoLogged) => {
+      // Dates come across as strings; convert to objects
+      qsoLogged.DateTimeOn = new Date(qsoLogged.DateTimeOn);
+      qsoLogged.DateTimeOff = new Date(qsoLogged.DateTimeOff);
+      this.saveWsjtxQso(qsoLogged);
     });
   }
 
@@ -60,7 +58,12 @@ export class AgentService {
   private handleMessage(msg: any): void {
     if (msg.wsjtx !== null) {
       this.wsjtxState$.next(true);
-      this.wsjtxMessage$.next(msg.wsjtx);
+      if (msg.wsjtx.type === 'StatusMessage') {
+        this.wsjtxStatus$.next(msg.wsjtx.payload as WsjtxStatus);
+      }
+      if (msg.wsjtx.type === 'QsoLoggedMessage') {
+        this.wsjtxQsoLogged$.next(msg.wsjtx.payload as WsjtxQsoLogged);
+      }
     }
   }
 
@@ -109,7 +112,7 @@ export class AgentService {
   }
 }
 
-interface WsjtxQsoLogged {
+export interface WsjtxQsoLogged {
   Comments: string;
   DateTimeOff: Date;
   DateTimeOn: Date;

@@ -1,4 +1,4 @@
-import { AgentService, WsjtxStatus } from '../shared/agent.service';
+import { AgentService } from '../shared/agent.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { Observable, Subscription } from 'rxjs';
@@ -34,13 +34,9 @@ export class QsoSearchComponent implements OnInit {
 
   toggleSync($event: MatSlideToggleChange): void {
     if ($event.checked) {
-      this.wsjtxSub = this.agentService.wsjtxMessage$.subscribe((msg) => {
-        // TODO: do this in the service instead of making clients figure this out
-        if (msg.type === 'StatusMessage') {
-          const status = msg.payload as WsjtxStatus;
-          this.search = status.dxCall;
-          this.changed();
-        }
+      this.wsjtxSub = this.agentService.wsjtxStatus$.subscribe((status) => {
+        this.search = status.dxCall;
+        this.changed();
       });
     } else {
       this.wsjtxSub.unsubscribe();
