@@ -9,12 +9,18 @@ import { webSocket } from 'rxjs/webSocket';
   providedIn: 'root',
 })
 export class AgentService {
-  connectedState$ = new BehaviorSubject<boolean>(false);
-  wsjtxState$ = new BehaviorSubject<boolean>(false);
-  wsjtxStatus$ = new Subject<WsjtxStatus>();
-  wsjtxQsoLogged$ = new Subject<WsjtxQsoLogged>();
-  wsjtxDecode$ = new Subject<WsjtxDecode>();
-  wsjtxHeartbeat$ = new Subject<WsjtxHeartbeat>();
+  /** Whether we're connected to the agent. */
+  public readonly connectedState$ = new BehaviorSubject<boolean>(false);
+  /** Whether we're getting any messages from WSJT-X. */
+  public readonly wsjtxState$ = new BehaviorSubject<boolean>(false);
+  /** Subject for listening to WSJT-X "Status" messages. */
+  public readonly wsjtxStatus$ = new Subject<WsjtxStatus>();
+  /** Subject for listening to WSJT-X "QsoLogged" messages. */
+  public readonly wsjtxQsoLogged$ = new Subject<WsjtxQsoLogged>();
+  /** Subject for listening to WSJT-X "Decode" messages. */
+  public readonly wsjtxDecode$ = new Subject<WsjtxDecode>();
+  /** Subject for listening to WSJT-X "Heartbeat" messages. */
+  public readonly wsjtxHeartbeat$ = new Subject<WsjtxHeartbeat>();
 
   private readonly defaultAgentHost = 'localhost';
   private readonly defaultAgentPort = 8081;
