@@ -12,3 +12,10 @@
   </button>
   <mat-hint>Callsign only for now</mat-hint>
 </mat-form-field>
+
+<mat-slide-toggle
+  [disabled]="!(wsjtxConnected$ | async)"
+  (change)="toggleSync($event)"
+>
+  Sync with WSJT-X
+</mat-slide-toggle>

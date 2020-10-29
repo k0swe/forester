@@ -128,3 +128,27 @@ interface WsjtxQsoLogged {
   TxPower: string;
   id: string;
 }
+
+export interface WsjtxStatus {
+  configName: string;
+  deCall: string;
+  deGrid: string;
+  decoding: boolean;
+  dialFrequency: number;
+  dxCall: string;
+  dxGrid: string;
+  fastMode: boolean;
+  frequencyTolerance: number;
+  id: string;
+  mode: string;
+  report: string;
+  rxDeltaFreq: number;
+  specialMode: number;
+  submode: string;
+  transmitting: boolean;
+  txDeltaFreq: string;
+  txEnabled: boolean;
+  txMode: string;
+  txRxPeriod: number;
+  txWatchdog: boolean;
+}
