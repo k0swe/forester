@@ -345,12 +345,12 @@ export class Proto2Adif {
       return undefined;
     }
     if (!(date instanceof Date)) {
-      // TODO: fix this
-      console.log('Theres a problem exporting a date');
-      return undefined;
+      // This is kind of a band-aid. Really, dates should be fixed in
+      // QsoService.unmarshalDates()
+      date = new Date(date);
     }
     const year = date.getUTCFullYear().toString();
-    const month = date.getUTCMonth().toString().padStart(2, '0');
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
     const day = date.getUTCDate().toString().padStart(2, '0');
     return `${year}${month}${day}`;
   }
