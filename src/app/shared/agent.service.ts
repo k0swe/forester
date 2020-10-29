@@ -13,6 +13,8 @@ export class AgentService {
   wsjtxState$ = new BehaviorSubject<boolean>(false);
   wsjtxStatus$ = new Subject<WsjtxStatus>();
   wsjtxQsoLogged$ = new Subject<WsjtxQsoLogged>();
+  wsjtxDecode$ = new Subject<WsjtxDecode>();
+  wsjtxHeartbeat$ = new Subject<WsjtxHeartbeat>();
 
   private readonly defaultAgentHost = 'localhost';
   private readonly defaultAgentPort = 8081;
@@ -63,6 +65,12 @@ export class AgentService {
       }
       if (msg.wsjtx.type === 'QsoLoggedMessage') {
         this.wsjtxQsoLogged$.next(msg.wsjtx.payload as WsjtxQsoLogged);
+      }
+      if (msg.wsjtx.type === 'DecodeMessage') {
+        this.wsjtxDecode$.next(msg.wsjtx.payload as WsjtxDecode);
+      }
+      if (msg.wsjtx.type === 'HeartbeatMessage') {
+        this.wsjtxHeartbeat$.next(msg.wsjtx.payload as WsjtxHeartbeat);
       }
     }
   }
@@ -154,4 +162,24 @@ export interface WsjtxStatus {
   txMode: string;
   txRxPeriod: number;
   txWatchdog: boolean;
+}
+
+export interface WsjtxHeartbeat {
+  id: string;
+  maxSchemaVersion: number;
+  revision: string;
+  version: string;
+}
+
+export interface WsjtxDecode {
+  deltaFrequency: number;
+  deltaTime: number;
+  id: string;
+  lowConfidence: boolean;
+  message: string;
+  mode: string;
+  new: boolean;
+  offAir: boolean;
+  snr: number;
+  time: number;
 }
