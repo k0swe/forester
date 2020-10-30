@@ -227,6 +227,14 @@ export interface WsjtxDecode {
   time: number;
 }
 
+/**
+ * This message is  send when all prior "Decode"  messages in the
+ * "Band Activity"  window have been discarded  and therefore are
+ * no long available for actioning  with a "Reply" message.
+ *
+ * See
+ * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l232).
+ */
 export interface WsjtxClear {
   id: string;
 }
@@ -258,10 +266,24 @@ export interface WsjtxQsoLogged {
   id: string;
 }
 
+/**
+ * Close is  sent by  a client immediately  prior to  it shutting
+ * down gracefully.
+ *
+ * See
+ * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l318).
+ */
 export interface WsjtxClose {
   id: string;
 }
 
+/**
+ * The decode message is sent when  a new decode is completed, in
+ * this case the 'New' field is true.
+ *
+ * See
+ * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l381).
+ */
 export interface WsjtxWsprDecode {
   id: string;
   new: boolean;
@@ -276,6 +298,14 @@ export interface WsjtxWsprDecode {
   offAir: boolean;
 }
 
+/**
+ * The  logged ADIF  message is  sent to  the server(s)  when the
+ * WSJT-X user accepts the "Log  QSO" dialog by clicking the "OK"
+ * button.
+ *
+ * See
+ * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l421).
+ */
 export interface WsjtxLoggedAdif {
   id: string;
   adif: string;
