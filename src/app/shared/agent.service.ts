@@ -48,8 +48,8 @@ export class AgentService {
     this.connect();
     this.wsjtxQsoLogged$.subscribe((qsoLogged) => {
       // Dates come across as strings; convert to objects
-      qsoLogged.DateTimeOn = new Date(qsoLogged.DateTimeOn);
-      qsoLogged.DateTimeOff = new Date(qsoLogged.DateTimeOff);
+      qsoLogged.dateTimeOn = new Date(qsoLogged.dateTimeOn);
+      qsoLogged.dateTimeOff = new Date(qsoLogged.dateTimeOff);
       this.saveWsjtxQso(qsoLogged);
     });
   }
@@ -108,25 +108,25 @@ export class AgentService {
   private saveWsjtxQso(qsoLogged: WsjtxQsoLogged): void {
     // TODO: do something with "exchanged sent/received"
     const qso: Qso = {
-      band: Band.freqToBand(qsoLogged.TxFrequency / 1000000),
-      comment: qsoLogged.Comments,
-      timeOn: qsoLogged.DateTimeOn,
-      timeOff: qsoLogged.DateTimeOff,
+      band: Band.freqToBand(qsoLogged.txFrequency / 1000000),
+      comment: qsoLogged.comments,
+      timeOn: qsoLogged.dateTimeOn,
+      timeOff: qsoLogged.dateTimeOff,
       contactedStation: {
-        stationCall: qsoLogged.DxCall,
-        gridSquare: qsoLogged.DxGrid,
-        opCall: qsoLogged.OperatorCall,
-        opName: qsoLogged.Name,
+        stationCall: qsoLogged.dxCall,
+        gridSquare: qsoLogged.dxGrid,
+        opCall: qsoLogged.operatorCall,
+        opName: qsoLogged.name,
       },
       loggingStation: {
-        stationCall: qsoLogged.MyCall,
-        gridSquare: qsoLogged.MyGrid,
-        power: Number(qsoLogged.TxPower),
+        stationCall: qsoLogged.myCall,
+        gridSquare: qsoLogged.myGrid,
+        power: Number(qsoLogged.txPower),
       },
-      freq: qsoLogged.TxFrequency / 1000000,
-      mode: qsoLogged.Mode,
-      rstReceived: qsoLogged.ReportReceived,
-      rstSent: qsoLogged.ReportSent,
+      freq: qsoLogged.txFrequency / 1000000,
+      mode: qsoLogged.mode,
+      rstReceived: qsoLogged.reportReceived,
+      rstSent: qsoLogged.reportSent,
     };
     this.qsoService.addOrUpdate({ qso }).subscribe();
   }
@@ -213,21 +213,21 @@ export interface WsjtxDecode {
  * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l293).
  */
 export interface WsjtxQsoLogged {
-  Comments: string;
-  DateTimeOff: Date;
-  DateTimeOn: Date;
-  DxCall: string;
-  DxGrid: string;
-  ExchangeReceived: string;
-  ExchangeSent: string;
-  Mode: string;
-  MyCall: string;
-  MyGrid: string;
-  Name: string;
-  OperatorCall: string;
-  ReportReceived: string;
-  ReportSent: string;
-  TxFrequency: number;
-  TxPower: string;
+  comments: string;
+  dateTimeOff: Date;
+  dateTimeOn: Date;
+  dxCall: string;
+  dxGrid: string;
+  exchangeReceived: string;
+  exchangeSent: string;
+  mode: string;
+  myCall: string;
+  myGrid: string;
+  name: string;
+  operatorCall: string;
+  reportReceived: string;
+  reportSent: string;
+  txFrequency: number;
+  txPower: string;
   id: string;
 }
