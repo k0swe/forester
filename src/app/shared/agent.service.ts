@@ -20,8 +20,16 @@ export class AgentService {
   public readonly wsjtxStatus$ = new Subject<WsjtxStatus>();
   /** Subject for listening to WSJT-X "Decode" messages. */
   public readonly wsjtxDecode$ = new Subject<WsjtxDecode>();
+  /** Subject for listening to WSJT-X "Clear" messages. */
+  public readonly wsjtxClear$ = new Subject<WsjtxClear>();
   /** Subject for listening to WSJT-X "QsoLogged" messages. */
   public readonly wsjtxQsoLogged$ = new Subject<WsjtxQsoLogged>();
+  /** Subject for listening to WSJT-X "Close" messages. */
+  public readonly wsjtxClose$ = new Subject<WsjtxClose>();
+  /** Subject for listening to WSJT-X "WsprDecode" messages. */
+  public readonly wsjtxWsprDecode$ = new Subject<WsjtxWsprDecode>();
+  /** Subject for listening to WSJT-X "LoggedAdif" messages. */
+  public readonly wsjtxLoggedAdif$ = new Subject<WsjtxLoggedAdif>();
 
   private readonly defaultAgentHost = 'localhost';
   private readonly defaultAgentPort = 8081;
@@ -72,17 +80,31 @@ export class AgentService {
   private handleMessage(msg: any): void {
     if (msg.wsjtx !== null) {
       this.wsjtxState$.next(true);
-      if (msg.wsjtx.type === 'HeartbeatMessage') {
-        this.wsjtxHeartbeat$.next(msg.wsjtx.payload as WsjtxHeartbeat);
-      }
-      if (msg.wsjtx.type === 'StatusMessage') {
-        this.wsjtxStatus$.next(msg.wsjtx.payload as WsjtxStatus);
-      }
-      if (msg.wsjtx.type === 'DecodeMessage') {
-        this.wsjtxDecode$.next(msg.wsjtx.payload as WsjtxDecode);
-      }
-      if (msg.wsjtx.type === 'QsoLoggedMessage') {
-        this.wsjtxQsoLogged$.next(msg.wsjtx.payload as WsjtxQsoLogged);
+      switch (msg.wsjtx.type) {
+        case 'HeartbeatMessage':
+          this.wsjtxHeartbeat$.next(msg.wsjtx.payload as WsjtxHeartbeat);
+          return;
+        case 'StatusMessage':
+          this.wsjtxStatus$.next(msg.wsjtx.payload as WsjtxStatus);
+          return;
+        case 'DecodeMessage':
+          this.wsjtxDecode$.next(msg.wsjtx.payload as WsjtxDecode);
+          return;
+        case 'ClearMessage':
+          this.wsjtxClear$.next(msg.wsjtx.payload as WsjtxClear);
+          return;
+        case 'QsoLoggedMessage':
+          this.wsjtxQsoLogged$.next(msg.wsjtx.payload as WsjtxQsoLogged);
+          return;
+        case 'CloseMessage':
+          this.wsjtxClose$.next(msg.wsjtx.payload as WsjtxClose);
+          return;
+        case 'WSPRDecodeMessage':
+          this.wsjtxWsprDecode$.next(msg.wsjtx.payload as WsjtxWsprDecode);
+          return;
+        case 'LoggedAdifMessage':
+          this.wsjtxLoggedAdif$.next(msg.wsjtx.payload as WsjtxLoggedAdif);
+          return;
       }
     }
   }
@@ -205,6 +227,10 @@ export interface WsjtxDecode {
   time: number;
 }
 
+export interface WsjtxClear {
+  id: string;
+}
+
 /**
  * The QSO logged message is sent when the WSJT-X user accepts the "Log  QSO" dialog by clicking
  * the "OK" button.
@@ -230,4 +256,27 @@ export interface WsjtxQsoLogged {
   txFrequency: number;
   txPower: string;
   id: string;
+}
+
+export interface WsjtxClose {
+  id: string;
+}
+
+export interface WsjtxWsprDecode {
+  id: string;
+  new: boolean;
+  time: number;
+  snr: number;
+  deltaTime: number;
+  frequency: number;
+  drift: number;
+  callsign: string;
+  grid: string;
+  power: number;
+  offAir: boolean;
+}
+
+export interface WsjtxLoggedAdif {
+  id: string;
+  adif: string;
 }
