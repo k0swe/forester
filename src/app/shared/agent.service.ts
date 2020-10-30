@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { QsoService } from './qso.service';
 import { Qso } from '../qso';
 import { webSocket } from 'rxjs/webSocket';
+import { debounceTime } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +29,12 @@ export class AgentService {
   private agentHost: string;
   private agentPort: number;
 
-  constructor(private qsoService: QsoService) {}
+  constructor(private qsoService: QsoService) {
+    // if we haven't heard from WSJT-X in 15 seconds, consider it down
+    this.wsjtxState$
+      .pipe(debounceTime(15000))
+      .subscribe(() => this.wsjtxState$.next(false));
+  }
 
   public init(): void {
     this.agentHost = this.getHost();
