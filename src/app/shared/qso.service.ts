@@ -1,3 +1,5 @@
+import User = firebase.User;
+import firebase from 'firebase';
 import {
   AngularFirestore,
   DocumentChangeAction,
@@ -12,7 +14,6 @@ import {
 } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Qso } from '../qso';
-import { User } from 'firebase';
 import { map, mergeMap } from 'rxjs/operators';
 
 @Injectable({
