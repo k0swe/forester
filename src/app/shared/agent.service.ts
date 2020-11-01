@@ -1,5 +1,5 @@
 import { Band } from '../band';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { QsoService } from './qso.service';
 import { Qso } from '../qso';
@@ -15,9 +15,9 @@ export class AgentService {
   /** Whether we're getting any messages from WSJT-X. */
   public readonly wsjtxState$ = new BehaviorSubject<boolean>(false);
   /** Subject for listening to WSJT-X "Heartbeat" messages. */
-  public readonly wsjtxHeartbeat$ = new Subject<WsjtxHeartbeat>();
+  public readonly wsjtxHeartbeat$ = new ReplaySubject<WsjtxHeartbeat>(1);
   /** Subject for listening to WSJT-X "Status" messages. */
-  public readonly wsjtxStatus$ = new Subject<WsjtxStatus>();
+  public readonly wsjtxStatus$ = new ReplaySubject<WsjtxStatus>(1);
   /** Subject for listening to WSJT-X "Decode" messages. */
   public readonly wsjtxDecode$ = new Subject<WsjtxDecode>();
   /** Subject for listening to WSJT-X "Clear" messages. */
@@ -59,6 +59,11 @@ export class AgentService {
       qsoLogged.dateTimeOn = new Date(qsoLogged.dateTimeOn);
       qsoLogged.dateTimeOff = new Date(qsoLogged.dateTimeOff);
       this.saveWsjtxQso(qsoLogged);
+    });
+    this.wsjtxClose$.subscribe(() => {
+      this.wsjtxState$.next(false);
+      this.wsjtxHeartbeat$.next(null);
+      this.wsjtxStatus$.next(null);
     });
   }
 
@@ -128,9 +133,10 @@ export class AgentService {
   }
 
   private saveWsjtxQso(qsoLogged: WsjtxQsoLogged): void {
-    // TODO: do something with "exchanged sent/received"
+    // TODO: do something with "exchange sent/received"; contest fields?
+    const freqMhz = qsoLogged.txFrequency / 1000000;
     const qso: Qso = {
-      band: Band.freqToBand(qsoLogged.txFrequency / 1000000),
+      band: Band.freqToBand(freqMhz),
       comment: qsoLogged.comments,
       timeOn: qsoLogged.dateTimeOn,
       timeOff: qsoLogged.dateTimeOff,
@@ -145,7 +151,7 @@ export class AgentService {
         gridSquare: qsoLogged.myGrid,
         power: Number(qsoLogged.txPower),
       },
-      freq: qsoLogged.txFrequency / 1000000,
+      freq: freqMhz,
       mode: qsoLogged.mode,
       rstReceived: qsoLogged.reportReceived,
       rstSent: qsoLogged.reportSent,
@@ -166,9 +172,13 @@ export class AgentService {
  * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l110).
  */
 export interface WsjtxHeartbeat {
+  // WSJT-X client name
   id: string;
+  // WSJT-X client's supported schema version
   maxSchemaVersion: number;
+  // WSJT-X client's commit hash
   revision: string;
+  // WSJT-X client's semantic version
   version: string;
 }
 
@@ -182,22 +192,33 @@ export interface WsjtxHeartbeat {
  */
 export interface WsjtxStatus {
   configName: string;
+  // logging station's callsign
   deCall: string;
+  // logging station's Maidenhead grid
   deGrid: string;
+  // Whether WSJT-X is currently decoding
   decoding: boolean;
   dialFrequency: number;
+  // callsign the logging station is attempting to contact
   dxCall: string;
+  // Maidenhead grid the logging station is attempting to contact
   dxGrid: string;
   fastMode: boolean;
   frequencyTolerance: number;
+  // WSJT-X client name
   id: string;
   mode: string;
   report: string;
+  // The listening frequency in hertz above the dial frequency
   rxDeltaFreq: number;
+  // If non-zero, WSJT-X is in a special mode like Fox/Hound or Field Day
   specialMode: number;
   submode: string;
+  // Whether WSJT-X is transmitting
   transmitting: boolean;
+  // The transmit frequency in hertz above the dial frequency
   txDeltaFreq: string;
+  // Whether WSJT-X is allowed to transmit during the next window
   txEnabled: boolean;
   txMode: string;
   txRxPeriod: number;
@@ -215,15 +236,21 @@ export interface WsjtxStatus {
  * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l206).
  */
 export interface WsjtxDecode {
+  // the decode's frequency in hertz above the dial frequency
   deltaFrequency: number;
   deltaTime: number;
+  // WSJT-X client name
   id: string;
   lowConfidence: boolean;
   message: string;
   mode: string;
+  // whether the decode is new or replayed
   new: boolean;
+  // whether the decode came from playback of a recording
   offAir: boolean;
+  // signal to noise ratio
   snr: number;
+  // time in milliseconds since midnight
   time: number;
 }
 
@@ -236,6 +263,7 @@ export interface WsjtxDecode {
  * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l232).
  */
 export interface WsjtxClear {
+  // WSJT-X client name
   id: string;
 }
 
@@ -250,19 +278,32 @@ export interface WsjtxQsoLogged {
   comments: string;
   dateTimeOff: Date;
   dateTimeOn: Date;
+  // contacted station's callsign
   dxCall: string;
+  // contacted station's Maidenhead grid
   dxGrid: string;
+  // contest exchange received
   exchangeReceived: string;
+  // contest exchange sent
   exchangeSent: string;
   mode: string;
+  // logging station's callsign
   myCall: string;
+  // logging station's Maidenhead grid
   myGrid: string;
+  // contacted station's operator's name
   name: string;
+  // contacted station's operator's name (if different from station)
   operatorCall: string;
+  // signal report received
   reportReceived: string;
+  // signal report sent
   reportSent: string;
+  // frequency in hertz
   txFrequency: number;
+  // power in watts
   txPower: string;
+  // WSJT-X client name
   id: string;
 }
 
@@ -274,6 +315,7 @@ export interface WsjtxQsoLogged {
  * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l318).
  */
 export interface WsjtxClose {
+  // WSJT-X client name
   id: string;
 }
 
@@ -285,16 +327,24 @@ export interface WsjtxClose {
  * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l381).
  */
 export interface WsjtxWsprDecode {
+  // WSJT-X client name
   id: string;
+  // whether the decode is new or replayed
   new: boolean;
+  // time in milliseconds since midnight
   time: number;
+  // signal to noise ratio
   snr: number;
   deltaTime: number;
   frequency: number;
   drift: number;
+  // remote station's callsign
   callsign: string;
+  // remote station's Maidenhead grid
   grid: string;
+  // power in dBm
   power: number;
+  // whether the decode came from playback of a recording
   offAir: boolean;
 }
 
@@ -307,6 +357,8 @@ export interface WsjtxWsprDecode {
  * [WSJT-X source](https://sourceforge.net/p/wsjt/wsjtx/ci/8f99fcceffc76c986413e22ed25b93ef3fc66f1e/tree/Network/NetworkMessage.hpp#l421).
  */
 export interface WsjtxLoggedAdif {
+  // WSJT-X client name
   id: string;
+  // ADIF encoded QSO data
   adif: string;
 }

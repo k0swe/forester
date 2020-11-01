@@ -1,12 +1,8 @@
 <div *ngIf="agentService.connectedState$ | async; else notConnected">
-  <mat-icon
-    [matTooltip]="
-      'Connected to agent on ' +
-      agentService.getHost() +
-      ';\nWSJT-X: ' +
-      (agentService.wsjtxState$ | async)
-    "
+  <span *ngIf="agentService.wsjtxHeartbeat$ | async as heartbeat"
+    >{{ heartbeat.id }} {{ heartbeat.version }}</span
   >
+  <mat-icon [matTooltip]="'Connected to agent on ' + agentService.getHost()">
     radio
   </mat-icon>
 </div>
