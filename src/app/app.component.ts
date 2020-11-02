@@ -31,9 +31,15 @@ export class AppComponent implements OnInit {
   }
 
   importFromQrz(): void {
-    this.snackBar.open('Importing from QRZ.com...', null, { duration: 5000 });
+    this.importWithCloudFun('QRZ.com', this.qrzImportUrl);
+  }
+
+  private importWithCloudFun(provider: string, importUrl: string): void {
+    this.snackBar.open(`Importing from ${provider}...`, null, {
+      duration: 5000,
+    });
     this.http
-      .get<ImportResponse>(this.qrzImportUrl, {
+      .get<ImportResponse>(importUrl, {
         headers: { Authorization: 'Bearer ' + this.userJwt },
       })
       .subscribe(
@@ -42,17 +48,17 @@ export class AppComponent implements OnInit {
           const modified = response.modified;
           const noDiff = response.noDiff;
           this.snackBar.open(
-            `Finished QRZ.com import: ` +
+            `Finished ${provider} import: ` +
               `${created} QSOs created, ${modified} modified and ${noDiff} with no difference`,
             null,
             { duration: 5000 }
           );
         },
         (error) => {
-          this.snackBar.open('Error importing from QRZ.com', null, {
+          this.snackBar.open(`Error importing from ${provider}`, null, {
             duration: 5000,
           });
-          console.warn('Error importing from QRZ.com:', error);
+          console.warn(`Error importing from ${provider}:`, error);
         }
       );
   }
