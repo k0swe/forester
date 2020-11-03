@@ -23,6 +23,13 @@
       >
         Import QRZ.com
       </a>
+      <a
+        mat-list-item
+        [disabled]="lotwImportUrl == null"
+        (click)="importFromLotw()"
+      >
+        Import Logbook of the World
+      </a>
       <a mat-list-item (click)="chooser.click()">Import ADIF file</a>
       <a mat-list-item (click)="exportAdi()">Export ADIF file</a>
     </mat-nav-list>

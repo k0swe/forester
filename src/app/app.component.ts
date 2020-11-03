@@ -12,6 +12,7 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent implements OnInit {
   qrzImportUrl = environment.functionsBase + 'ImportQrz';
+  lotwImportUrl = environment.functionsBase + 'ImportLotw';
   userJwt: string;
   @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
 
@@ -31,10 +32,14 @@ export class AppComponent implements OnInit {
   }
 
   importFromQrz(): void {
-    this.importWithCloudFun('QRZ.com', this.qrzImportUrl);
+    this.importWithCloudFunc('QRZ.com', this.qrzImportUrl);
   }
 
-  private importWithCloudFun(provider: string, importUrl: string): void {
+  importFromLotw(): void {
+    this.importWithCloudFunc('LotW', this.lotwImportUrl);
+  }
+
+  private importWithCloudFunc(provider: string, importUrl: string): void {
     this.snackBar.open(`Importing from ${provider}...`, null, {
       duration: 5000,
     });
