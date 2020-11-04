@@ -1,3 +1,5 @@
+![CI](https://github.com/k0swe/kellog/workflows/CI/badge.svg?branch=main)
+
 # KelLog
 
 An amateur radio logging application built by Chris Keller, K0SWE.
