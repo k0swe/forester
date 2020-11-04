@@ -1,4 +1,4 @@
-![CI](https://github.com/k0swe/kellog/workflows/CI/badge.svg?branch=main)
+![Deploy](https://github.com/k0swe/kellog/workflows/Deploy/badge.svg?branch=main)
 
 # KelLog
 

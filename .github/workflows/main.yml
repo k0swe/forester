@@ -1,4 +1,4 @@
-name: CI
+name: Deploy
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
 
 jobs:
   firebase-deploy:
+    name: Deploy to Firebase Hosting
     runs-on: ubuntu-latest
 
     steps:
