@@ -1,9 +1,10 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { UserSettingsService } from '../shared/user-settings.service';
 import { AgentService } from '../shared/agent.service';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
+import { UserSettingsService } from '../shared/user-settings.service';
+import { forkJoin } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -27,6 +28,8 @@ export class UserSettingsComponent implements OnInit {
       qrzLogbookApiKey: '',
       agentHost: agentService.getHost(),
       agentPort: agentService.getPort(),
+      lotwUser: '',
+      lotwPass: '',
     });
     settingsService.settings().subscribe((settings) => {
       this.userSettingsForm.get('callsign').setValue(settings.callsign);
@@ -47,12 +50,18 @@ export class UserSettingsComponent implements OnInit {
     const formValue = this.userSettingsForm.value;
     this.agentService.setHost(formValue.agentHost);
     this.agentService.setPort(formValue.agentPort);
+    const secretsObs = this.settingsService.setSecrets(
+      new Map([
+        ['lotw_username', formValue.lotwUser],
+        ['lotw_password', formValue.lotwPass],
+      ])
+    );
     const updateObs = this.settingsService
       .set({
         callsign: formValue.callsign,
         qrzLogbookApiKey: formValue.qrzLogbookApiKey,
       })
       .pipe(take(1));
-    this.dialog.close(updateObs);
+    this.dialog.close(forkJoin([secretsObs, updateObs]));
   }
 }

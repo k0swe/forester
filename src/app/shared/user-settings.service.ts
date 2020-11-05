@@ -1,19 +1,24 @@
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 import { map, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserSettingsService {
+  readonly updateSecretsUrl = environment.functionsBase + 'UpdateSecrets';
   settings$ = new BehaviorSubject<UserSettings>({});
   started = false;
+  private userJwt: string;
 
   constructor(
     private authService: AuthService,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private http: HttpClient
   ) {}
 
   public init(): void {
@@ -21,7 +26,12 @@ export class UserSettingsService {
       return;
     }
     this.started = true;
-    const uid$ = this.authService.user().pipe(map((user) => user.uid));
+    const uid$ = this.authService.user().pipe(
+      map((user) => {
+        user.getIdToken(false).then((token) => (this.userJwt = token));
+        return user.uid;
+      })
+    );
     uid$
       .pipe(
         switchMap((userId) => {
@@ -46,6 +56,25 @@ export class UserSettingsService {
           .update(values);
       })
     );
+  }
+
+  setSecrets(secrets: Map<string, string>): Observable<any> {
+    let dataToSend = false;
+    const formData = new FormData();
+    for (const entry of secrets) {
+      if (entry[1]) {
+        formData.append(entry[0], entry[1]);
+        dataToSend = true;
+      }
+    }
+    if (!dataToSend) {
+      return of(null);
+    }
+    return this.http.post(this.updateSecretsUrl, formData, {
+      headers: {
+        Authorization: 'Bearer ' + this.userJwt,
+      },
+    });
   }
 }
 
