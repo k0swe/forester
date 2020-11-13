@@ -61,6 +61,13 @@
           <input matInput formControlName="rstReceived" />
         </mat-form-field>
       </div>
+      <div fxFlex formGroupName="loggingStation">
+        <mat-form-field appearance="standard">
+          <mat-label>TX Power</mat-label>
+          <input matInput formControlName="power" type="number" />
+          <span matSuffix>W</span>
+        </mat-form-field>
+      </div>
     </div>
 
     <div fxLayout="row" class="row" formGroupName="contactedStation">

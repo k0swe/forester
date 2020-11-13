@@ -38,6 +38,9 @@ export class QsoDetailComponent {
       continent: undefined,
       gridSquare: undefined,
     },
+    loggingStation: {
+      power: undefined,
+    },
   };
   private readonly firebaseId;
   bands = Band.bands;
@@ -61,12 +64,17 @@ export class QsoDetailComponent {
         ...this.template.contactedStation,
         ...data.qso.contactedStation,
       },
+      loggingStation: {
+        ...this.template.loggingStation,
+        ...data.qso.loggingStation,
+      },
     };
     this.formatDates(model);
     this.qsoDetailForm = fb.group({
       ...model,
       ...{
         contactedStation: fb.group(model.contactedStation),
+        loggingStation: fb.group(model.loggingStation),
       },
     });
 
