@@ -6,12 +6,13 @@
     [(ngModel)]="search"
     (ngModelChange)="changed()"
     [disabled]="sync.checked"
+    [ngClass]="{ accent: sync.checked }"
   />
   <button
     mat-icon-button
     matSuffix
     (click)="search = ''; changed()"
-    *ngIf="search != ''"
+    *ngIf="search != '' && !sync.checked"
   >
     <mat-icon color="accent">clear</mat-icon>
   </button>
