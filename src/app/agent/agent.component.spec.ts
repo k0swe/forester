@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AgentComponent } from './agent.component';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 describe('AgentComponent', () => {
   let component: AgentComponent;
@@ -10,6 +12,20 @@ describe('AgentComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [AgentComponent],
+        providers: [
+          {
+            provide: AngularFireAuth,
+            useValue: {
+              signInWithPopup: () => null,
+            },
+          },
+          {
+            provide: AngularFirestore,
+            useValue: {
+              doc: () => null,
+            },
+          },
+        ],
       }).compileComponents();
     })
   );
