@@ -1,7 +1,9 @@
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
 import { AuthService } from './shared/auth.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
@@ -14,7 +16,11 @@ describe('AppComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [AppComponent],
-        imports: [RouterTestingModule, MatSnackBarModule],
+        imports: [
+          RouterTestingModule,
+          MatSnackBarModule,
+          HttpClientTestingModule,
+        ],
         providers: [
           {
             provide: AuthService,
@@ -24,13 +30,20 @@ describe('AppComponent', () => {
                   displayName: 'Joe Schmoe',
                   email: 'joe@schmoe.net',
                   photoURL: 'http://example.com/image.png',
+                  getIdToken: () => Promise.resolve('abcd1234'),
                 }),
             },
           },
           {
-            provide: HttpClient,
+            provide: AngularFireAuth,
             useValue: {
-              get: null,
+              signInWithPopup: () => null,
+            },
+          },
+          {
+            provide: AngularFirestore,
+            useValue: {
+              doc: () => null,
             },
           },
         ],
