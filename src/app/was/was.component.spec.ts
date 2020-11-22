@@ -18,7 +18,8 @@ describe('WasComponent', () => {
             provide: QsoService,
             useValue: {
               init: () => null,
-              findWASQso: () => of({ contactedCall: 'N0CALL' }),
+              findWASQso: () =>
+                of({ qso: { contactedStation: { contactedCall: 'N0CALL' } } }),
             },
           },
         ],
