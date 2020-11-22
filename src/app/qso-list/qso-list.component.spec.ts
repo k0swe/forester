@@ -6,7 +6,7 @@ import { QsoListComponent } from './qso-list.component';
 import { QsoService } from '../shared/qso.service';
 import { of } from 'rxjs';
 
-describe('QsosComponent', () => {
+describe('QsoListComponent', () => {
   let component: QsoListComponent;
   let fixture: ComponentFixture<QsoListComponent>;
 
@@ -20,7 +20,10 @@ describe('QsosComponent', () => {
             provide: QsoService,
             useValue: {
               init: () => null,
-              getFilteredQsos: () => of({ contactedCall: 'N0CALL' }),
+              getFilteredQsos: () =>
+                of([
+                  { qso: { contactedStation: { contactedCall: 'N0CALL' } } },
+                ]),
             },
           },
         ],
