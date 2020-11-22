@@ -1,6 +1,12 @@
-name: Test PR
+name: Test
 
-on: [pull_request]
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   firebase-deploy:
