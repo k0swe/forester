@@ -1,7 +1,13 @@
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -35,6 +41,19 @@ describe('QsoDetailComponent', () => {
                 timeOn: new Date(),
                 timeOff: new Date(),
               },
+            },
+          },
+          { provide: MatDialogRef, useValue: {} },
+          {
+            provide: AngularFireAuth,
+            useValue: {
+              signInWithPopup: () => null,
+            },
+          },
+          {
+            provide: AngularFirestore,
+            useValue: {
+              doc: () => null,
             },
           },
         ],
