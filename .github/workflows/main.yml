@@ -11,18 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
-        name: Checkout
-      - uses: actions/setup-node@master
-        name: Setup node
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Setup node
+        uses: actions/setup-node@master
         with:
           node-version: '10.x'
-      - run: npm install
-        name: Install deps
-      - run: npm run build-prod
-        name: Compile
-      - uses: w9jds/firebase-action@master
-        name: Deploy to Firebase Hosting
+
+      - name: Install deps
+        run: npm install
+
+      - name: Test
+        run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+      - name: Compile
+        run: npm run build-prod
+
+      - name: Deploy to Firebase Hosting
+        uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
