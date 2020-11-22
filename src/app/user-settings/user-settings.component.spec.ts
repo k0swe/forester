@@ -1,9 +1,10 @@
 import { AgentService } from '../shared/agent.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UserSettingsComponent } from './user-settings.component';
 import { UserSettingsService } from '../shared/user-settings.service';
 import { of } from 'rxjs';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('UserSettingsComponent', () => {
   let component: UserSettingsComponent;
@@ -13,11 +14,13 @@ describe('UserSettingsComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [UserSettingsComponent],
+        imports: [ReactiveFormsModule],
         providers: [
           {
             provide: MAT_DIALOG_DATA,
             useValue: null,
           },
+          { provide: MatDialogRef, useValue: {} },
           {
             provide: AgentService,
             useValue: {

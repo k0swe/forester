@@ -1,8 +1,8 @@
 import { AgentService } from '../shared/agent.service';
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
+import { MatDialogRef } from '@angular/material/dialog';
 import { UserSettingsService } from '../shared/user-settings.service';
 import { forkJoin } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -17,7 +17,6 @@ export class UserSettingsComponent implements OnInit {
   @ViewChild('saveButton') saveButton: MatButton;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
     public agentService: AgentService,
     private dialog: MatDialogRef<any>,
     private fb: FormBuilder,
