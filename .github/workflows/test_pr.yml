@@ -1,0 +1,26 @@
+name: Test PR
+
+on: [pull_request]
+
+jobs:
+  firebase-deploy:
+    name: Deploy to Firebase Hosting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Setup node
+        uses: actions/setup-node@master
+        with:
+          node-version: '10.x'
+
+      - name: Install deps
+        run: npm install
+
+      - name: Test
+        run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+      - name: Compile
+        run: npm run build-prod
