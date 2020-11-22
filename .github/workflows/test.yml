@@ -10,7 +10,7 @@ on:
 
 jobs:
   firebase-deploy:
-    name: Deploy to Firebase Hosting
+    name: Test and Compile
     runs-on: ubuntu-latest
 
     steps:
