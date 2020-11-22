@@ -3,6 +3,7 @@ import { AvatarComponent } from './avatar.component';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { of } from 'rxjs';
 
 describe('AvatarComponent', () => {
@@ -13,7 +14,7 @@ describe('AvatarComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [AvatarComponent],
-        imports: [MatMenuModule, MatDialogModule],
+        imports: [MatMenuModule, MatDialogModule, MatSnackBarModule],
         providers: [
           {
             provide: AuthService,
