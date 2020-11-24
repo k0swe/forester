@@ -14,8 +14,12 @@
 <mat-sidenav-container class="page">
   <mat-sidenav #sidenav>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="'/'">QSO List</a>
-      <a mat-list-item [routerLink]="'/was'">WAS Progress</a>
+      <a mat-list-item [routerLink]="(logbookId$ | async) + '/qsos'"
+        >QSO List</a
+      >
+      <a mat-list-item [routerLink]="(logbookId$ | async) + '/was'"
+        >WAS Progress</a
+      >
       <a
         mat-list-item
         [disabled]="qrzImportUrl == null"

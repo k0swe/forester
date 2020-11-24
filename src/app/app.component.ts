@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { ImportExportService } from './shared/import-export.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../environments/environment';
+import { UserSettingsService } from './shared/user-settings.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'kel-root',
@@ -13,22 +15,28 @@ import { environment } from '../environments/environment';
 export class AppComponent implements OnInit {
   qrzImportUrl = environment.functionsBase + 'ImportQrz';
   lotwImportUrl = environment.functionsBase + 'ImportLotw';
-  userJwt: string;
+  logbookId$ = new BehaviorSubject<string>('N0CALL');
+  userJwt$ = new BehaviorSubject<string>('N0CALL');
   @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
 
   constructor(
     public authService: AuthService,
     private http: HttpClient,
     private importExportService: ImportExportService,
+    private userSettingsService: UserSettingsService,
     private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
     this.authService.user().subscribe((user) => {
       if (user != null) {
-        user.getIdToken(false).then((token) => (this.userJwt = token));
+        user.getIdToken(false).then((token) => this.userJwt$.next(token));
       }
     });
+    this.userSettingsService.init();
+    this.userSettingsService
+      .settings()
+      .subscribe((settings) => this.logbookId$.next(settings.callsign));
   }
 
   importFromQrz(): void {
@@ -45,7 +53,7 @@ export class AppComponent implements OnInit {
     });
     this.http
       .get<ImportResponse>(importUrl, {
-        headers: { Authorization: 'Bearer ' + this.userJwt },
+        headers: { Authorization: 'Bearer ' + this.userJwt$.getValue() },
       })
       .subscribe(
         (response) => {
