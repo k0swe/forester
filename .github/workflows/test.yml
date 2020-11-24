@@ -2,8 +2,8 @@ name: Test
 
 on:
   push:
-    branches:
-      - '**'
+    branches-ignore:
+      - 'renovate/**'
     tags-ignore:
       - deploy
   pull_request:
