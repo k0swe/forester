@@ -1,11 +1,14 @@
 import { Band } from '../band';
-import { Component, Inject, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FirebaseQso, QsoService } from '../shared/qso.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
+import { Modes } from '../mode';
 import { Qso } from '../qso';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const googleMapsSearchBase = 'https://www.google.com/maps/search/';
 
@@ -15,7 +18,7 @@ const googleMapsSearchBase = 'https://www.google.com/maps/search/';
   styleUrls: ['./qso-detail.component.scss'],
   providers: [DatePipe],
 })
-export class QsoDetailComponent {
+export class QsoDetailComponent implements OnInit {
   // empty values for each field in the form to prevent error "Cannot find control with name"
   private readonly template: Qso = {
     timeOn: new Date(),
@@ -71,7 +74,33 @@ export class QsoDetailComponent {
         loggingStation: fb.group(model.loggingStation),
       },
     });
+  }
 
+  private readonly firebaseId;
+  bands = Band.bands;
+  qsoDetailForm: FormGroup;
+  mapLink: string;
+  startDelete = false;
+  modeNames = Modes.modeNames;
+  filteredModes$: Observable<string[]>;
+
+  @ViewChild('saveButton') saveButton: MatButton;
+
+  private static parseDates(qso: Qso): void {
+    // form uses strings; turn them back into dates
+    qso.timeOn = new Date(qso.timeOn + 'Z');
+    qso.timeOff = new Date(qso.timeOff + 'Z');
+  }
+
+  ngOnInit(): void {
+    const displayMode = this.data.qso.submode
+      ? this.data.qso.submode
+      : this.data.qso.mode;
+    const modeField = this.qsoDetailForm.get('mode');
+    modeField.setValue(displayMode);
+    this.filteredModes$ = modeField.valueChanges.pipe(
+      map((modeInput) => this.filterModes(modeInput))
+    );
     this.qsoDetailForm
       .get('contactedStation')
       .valueChanges.subscribe(() => this.updateMapLink());
@@ -81,18 +110,11 @@ export class QsoDetailComponent {
     );
   }
 
-  private readonly firebaseId;
-  bands = Band.bands;
-  qsoDetailForm: FormGroup;
-  mapLink: string;
-  startDelete = false;
-
-  @ViewChild('saveButton') saveButton: MatButton;
-
-  private static parseDates(qso: Qso): void {
-    // form uses strings; turn them back into dates
-    qso.timeOn = new Date(qso.timeOn + 'Z');
-    qso.timeOff = new Date(qso.timeOff + 'Z');
+  private filterModes(modeInput: string): string[] {
+    const filterValue = modeInput.toUpperCase();
+    return this.modeNames.filter((option) =>
+      option.toUpperCase().includes(filterValue)
+    );
   }
 
   private updateMapLink(): void {
@@ -123,6 +145,12 @@ export class QsoDetailComponent {
   save(): void {
     const formValue = this.qsoDetailForm.value;
     QsoDetailComponent.parseDates(formValue);
+    const realMode = Modes.findMode(formValue.mode);
+    if (realMode) {
+      // Prefer ADIF-specified modes, but fall back on user input for new modes
+      formValue.mode = realMode.mode;
+      formValue.submode = realMode.submode;
+    }
     const newQso: FirebaseQso = { id: this.firebaseId, qso: formValue as Qso };
     this.dialog.close(this.qsoService.addOrUpdate(newQso));
   }

@@ -162,6 +162,10 @@ export class Modes {
     { mode: 'WSPR' },
   ];
 
+  public static readonly modeNames: Array<string> = Modes.modeList
+    .map((m) => (m.submode ? m.submode : m.mode))
+    .sort();
+
   public static findMode(name: string): Mode | null {
     for (const m of Modes.modeList) {
       if (m.submode && m.submode === name) {

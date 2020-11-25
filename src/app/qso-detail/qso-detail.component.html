@@ -46,7 +46,12 @@
       <div fxFlex>
         <mat-form-field appearance="standard">
           <mat-label>Mode</mat-label>
-          <input matInput formControlName="mode" />
+          <input matInput formControlName="mode" [matAutocomplete]="modeAutocomplete" />
+          <mat-autocomplete #modeAutocomplete="matAutocomplete">
+            <mat-option *ngFor="let m of filteredModes$ | async" [value]="m">
+              {{m}}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
       </div>
       <div fxFlex>
