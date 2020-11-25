@@ -7,6 +7,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
+import { UserSettingsService } from './shared/user-settings.service';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -44,6 +45,14 @@ describe('AppComponent', () => {
             provide: AngularFirestore,
             useValue: {
               doc: () => null,
+            },
+          },
+          {
+            provide: UserSettingsService,
+            useValue: {
+              init: () => null,
+              settings: () =>
+                of({ callsign: 'N0CALL', qrzLogbookApiKey: 'ABCD-1234' }),
             },
           },
         ],
