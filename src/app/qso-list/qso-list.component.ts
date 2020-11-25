@@ -53,7 +53,7 @@ export class QsoListComponent implements OnInit {
         case 'freq':
           return fbq.qso.freq;
         case 'mode':
-          return fbq.qso.mode;
+          return fbq.qso.submode ? fbq.qso.submode : fbq.qso.mode;
         case 'contactedCity':
           return fbq.qso.contactedStation.city;
         case 'contactedState':

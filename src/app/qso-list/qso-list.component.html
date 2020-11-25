@@ -52,7 +52,9 @@
       </ng-container>
       <ng-container matColumnDef="mode">
         <th mat-header-cell *matHeaderCellDef>Mode</th>
-        <td mat-cell *matCellDef="let fbq">{{ fbq.qso.mode }}</td>
+        <td mat-cell *matCellDef="let fbq">
+          {{ fbq.qso.submode ? fbq.qso.submode : fbq.qso.mode }}
+        </td>
       </ng-container>
       <ng-container matColumnDef="rstSent">
         <th mat-header-cell *matHeaderCellDef>RST S</th>
