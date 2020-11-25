@@ -6,8 +6,8 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterTestingModule } from '@angular/router/testing';
-import { of } from 'rxjs';
 import { UserSettingsService } from './shared/user-settings.service';
+import { of } from 'rxjs';
 
 describe('AppComponent', () => {
   let component: AppComponent;

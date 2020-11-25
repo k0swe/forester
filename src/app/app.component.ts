@@ -1,11 +1,11 @@
 import { AuthService } from './shared/auth.service';
+import { BehaviorSubject } from 'rxjs';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ImportExportService } from './shared/import-export.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { environment } from '../environments/environment';
 import { UserSettingsService } from './shared/user-settings.service';
-import { BehaviorSubject } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'kel-root',
