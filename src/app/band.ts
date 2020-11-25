@@ -1,5 +1,10 @@
+/**
+ * All of the legal amateur radio bands and their frequency ranges as defined in
+ * ADIF 3.1.1 section "III.B.4 Band Enumeration".
+ */
 export class Band {
   // map of amateur band name to frequency range in megahertz
+  // (lower freq inclusive, upper freq exclusive)
   private static readonly bandMap: object = {
     '2190m': [0.1357, 0.1378],
     '630m': [0.472, 0.479],
@@ -37,6 +42,10 @@ export class Band {
 
   public static readonly bands = Object.keys(Band.bandMap);
 
+  /**
+   * Given a frequency in megahertz, find the name of the amateur radio band
+   * that contains that frequency, or null if it's not in an amateur band.
+   */
   public static freqToBand(freq: number): string | null {
     let retVal = null;
     this.bands.forEach((band) => {
