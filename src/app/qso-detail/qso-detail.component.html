@@ -172,7 +172,17 @@
   </form>
 </mat-dialog-content>
 
-<mat-dialog-actions align="end">
+<mat-dialog-actions fxLayout="row">
+  <div [hidden]="startDelete">
+    <button mat-raised-button (click)="startDelete = true">Delete</button>
+  </div>
+  <div [hidden]="!startDelete">
+    <button mat-raised-button color="primary" (click)="startDelete = false">
+      Cancel
+    </button>
+    <button mat-raised-button color="warn" (click)="delete()">Delete</button>
+  </div>
+  <div fxFlex></div>
   <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
   <button
     mat-raised-button

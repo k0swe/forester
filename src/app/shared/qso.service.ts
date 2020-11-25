@@ -245,6 +245,17 @@ export class QsoService {
       );
     return match !== undefined;
   }
+
+  delete(firebaseId: string): Observable<any> {
+    return this.user$.pipe(
+      mergeMap((u) => {
+        const contactDoc = this.firestore.doc(
+          'users/' + u.uid + '/contacts/' + firebaseId
+        );
+        return from(contactDoc.delete());
+      })
+    );
+  }
 }
 
 export interface FirebaseQso {

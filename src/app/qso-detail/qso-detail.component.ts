@@ -42,12 +42,6 @@ export class QsoDetailComponent {
       power: undefined,
     },
   };
-  private readonly firebaseId;
-  bands = Band.bands;
-  qsoDetailForm: FormGroup;
-  mapLink: string;
-
-  @ViewChild('saveButton') saveButton: MatButton;
 
   constructor(
     private fb: FormBuilder,
@@ -87,6 +81,20 @@ export class QsoDetailComponent {
     );
   }
 
+  private readonly firebaseId;
+  bands = Band.bands;
+  qsoDetailForm: FormGroup;
+  mapLink: string;
+  startDelete = false;
+
+  @ViewChild('saveButton') saveButton: MatButton;
+
+  private static parseDates(qso: Qso): void {
+    // form uses strings; turn them back into dates
+    qso.timeOn = new Date(qso.timeOn + 'Z');
+    qso.timeOff = new Date(qso.timeOff + 'Z');
+  }
+
   private updateMapLink(): void {
     const latitude: number = this.qsoDetailForm.get('contactedStation').value
       .latitude;
@@ -114,7 +122,7 @@ export class QsoDetailComponent {
 
   save(): void {
     const formValue = this.qsoDetailForm.value;
-    this.parseDates(formValue);
+    QsoDetailComponent.parseDates(formValue);
     const newQso: FirebaseQso = { id: this.firebaseId, qso: formValue as Qso };
     this.dialog.close(this.qsoService.addOrUpdate(newQso));
   }
@@ -128,9 +136,7 @@ export class QsoDetailComponent {
     qso.timeOff = this.datePipe.transform(qso.timeOff, timeFormat, 'UTC');
   }
 
-  private parseDates(qso: Qso): void {
-    // form uses strings; turn them back into dates
-    qso.timeOn = new Date(qso.timeOn + 'Z');
-    qso.timeOff = new Date(qso.timeOff + 'Z');
+  delete(): void {
+    this.dialog.close(this.qsoService.delete(this.firebaseId));
   }
 }
