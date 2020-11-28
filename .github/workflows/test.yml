@@ -19,6 +19,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
+      - name: Cache emulator
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-firebase-emulator
+        with:
+          path: /home/runner/.cache/firebase/emulators
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/*.jar') }}
+
       - name: Setup node
         uses: actions/setup-node@master
         with:
