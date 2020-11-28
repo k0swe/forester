@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "build-prod": "ng build --prod",
-    "test": "ng test",
+    "test": "firebase emulators:exec 'ng test'",
+    "test-ci": "firebase emulators:exec 'ng test --no-watch --no-progress --browsers=ChromeHeadlessCI'",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
