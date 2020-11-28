@@ -40,6 +40,23 @@ describe('Firestore rules', () => {
     expect().nothing();
   });
 
+  it('should allow a user to read their own collection', async () => {
+    const db = getFirestore(MY_AUTH);
+    const contacts = db.collection('users').doc(MY_UID).collection('contacts');
+    await assertSucceeds(contacts.get());
+    expect().nothing();
+  });
+
+  // TODO: for some reason, this causes firestore emulator to time out
+  xit('should allow a user to write to their own collection', async () => {
+    const db = getFirestore(MY_AUTH);
+    const myDoc = db.collection('users').doc(MY_UID);
+    await myDoc.set({ callsign: 'K0SWE' });
+    const contacts = myDoc.collection('contacts');
+    await assertSucceeds(contacts.add({ contactedStation: 'KE0OG' }));
+    expect().nothing();
+  });
+
   it('should deny a user from reading a different user document', async () => {
     const db = getFirestore(THEIR_AUTH);
     const myDoc = db.collection('users').doc(MY_UID);
