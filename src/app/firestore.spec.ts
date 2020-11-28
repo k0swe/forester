@@ -2,6 +2,7 @@ import {
   assertFails,
   assertSucceeds,
   clearFirestoreData,
+  initializeAdminApp,
   initializeTestApp,
 } from '@firebase/testing';
 import firebase from 'firebase';
@@ -24,6 +25,11 @@ describe('Firestore rules', () => {
   function getFirestore(auth?: object): firebase.firestore.Firestore {
     // @ts-ignore
     return initializeTestApp({ projectId: PROJECT_ID, auth }).firestore();
+  }
+
+  function getAdminFirestore(): firebase.firestore.Firestore {
+    // @ts-ignore
+    return initializeAdminApp({ projectId: PROJECT_ID }).firestore();
   }
 
   it('should allow a user to read their own document', async () => {
@@ -82,6 +88,27 @@ describe('Firestore rules', () => {
     const db = getFirestore(ANONYMOUS);
     const myDoc = db.collection('users').doc(MY_UID);
     await assertFails(myDoc.set({ callsign: 'nobody' }));
+    expect().nothing();
+  });
+
+  // TODO: for some reason, this causes firestore emulator to time out
+  xit('should allow a user to create a logbook', async () => {
+    const db = getFirestore(MY_AUTH);
+    const myDoc = db.collection('logbooks').doc('K0SWE');
+    await assertSucceeds(myDoc.set({ editors: [MY_UID] }));
+    expect().nothing();
+  });
+
+  // TODO: for some reason, this causes firestore emulator to time out
+  xit('should allow an editor to read a logbook', async () => {
+    await getAdminFirestore()
+      .collection('logbooks')
+      .doc('K0SWE')
+      .set({ editors: [MY_UID] });
+
+    const db = getFirestore(MY_AUTH);
+    const myDoc = db.collection('logbooks').doc('K0SWE');
+    await assertSucceeds(myDoc.get());
     expect().nothing();
   });
 });
