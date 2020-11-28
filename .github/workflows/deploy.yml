@@ -14,20 +14,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
+      - name: Setup node
+        uses: actions/setup-node@master
+        with:
+          node-version: '10.x'
+
+      - name: Cache node deps
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-deps
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
       - name: Cache emulator
         uses: actions/cache@v2
         env:
           cache-name: cache-firebase-emulator
         with:
           path: /home/runner/.cache/firebase/emulators
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/*.jar') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
 
-      - name: Setup node
-        uses: actions/setup-node@master
-        with:
-          node-version: '10.x'
-
-      - name: Install deps
+      - name: Install npm deps
         run: npm install
 
       - name: Test
@@ -36,9 +44,9 @@ jobs:
       - name: Compile
         run: npm run build-prod
 
-      - name: Deploy to Firebase Hosting
+      - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting
+          args: deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
