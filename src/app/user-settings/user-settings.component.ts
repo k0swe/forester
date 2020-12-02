@@ -32,9 +32,6 @@ export class UserSettingsComponent implements OnInit {
     });
     settingsService.settings().subscribe((settings) => {
       this.userSettingsForm.get('callsign').setValue(settings.callsign);
-      this.userSettingsForm
-        .get('qrzLogbookApiKey')
-        .setValue(settings.qrzLogbookApiKey);
     });
     this.userSettingsForm.valueChanges.subscribe(
       () => (this.saveButton.disabled = false)
@@ -53,12 +50,12 @@ export class UserSettingsComponent implements OnInit {
       new Map([
         ['lotw_username', formValue.lotwUser],
         ['lotw_password', formValue.lotwPass],
+        ['qrz_logbook_api_key', formValue.qrzLogbookApiKey],
       ])
     );
     const updateObs = this.settingsService
       .set({
         callsign: formValue.callsign,
-        qrzLogbookApiKey: formValue.qrzLogbookApiKey,
       })
       .pipe(take(1));
     this.dialog.close(forkJoin([secretsObs, updateObs]));

@@ -80,5 +80,4 @@ export class UserSettingsService {
 
 interface UserSettings {
   callsign?: string;
-  qrzLogbookApiKey?: string;
 }
