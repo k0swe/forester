@@ -10,7 +10,7 @@ import { map, switchMap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class UserSettingsService {
-  readonly updateSecretsUrl = environment.functionsBase + 'UpdateSecrets';
+  readonly updateSecretsUrl = environment.functionsBase + 'UpdateSecret';
   settings$ = new BehaviorSubject<UserSettings>({});
   started = false;
   private userJwt: string;
