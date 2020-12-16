@@ -40,7 +40,7 @@
     "google-protobuf": "3.14.0",
     "moment": "2.29.1",
     "rxjs": "6.6.3",
-    "ts-protoc-gen": "0.13.0",
+    "ts-protoc-gen": "0.14.0",
     "tslib": "2.0.3",
     "zone.js": "0.11.3"
   },
