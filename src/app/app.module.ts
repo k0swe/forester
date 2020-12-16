@@ -19,6 +19,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImportExportService } from './shared/import-export.service';
+import { LoginComponent } from './login/login.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -53,6 +54,7 @@ import { environment } from '../environments/environment';
     AppComponent,
     AvatarComponent,
     HomeComponent,
+    LoginComponent,
     QsoDetailComponent,
     QsoListComponent,
     QsoSearchComponent,

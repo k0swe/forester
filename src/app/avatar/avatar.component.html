@@ -15,9 +15,11 @@
   <mat-menu #loginMenu="matMenu">
     <button mat-menu-item (click)="authService.login()">
       <img
-        src="https://developers.google.com/identity/images/btn_google_signin_light_normal_web.png"
+        class="vertical-middle"
+        src="/assets/btn_google_light_normal_ios.svg"
         alt="Sign in with Google"
       />
+      <span class="vertical-middle">Sign in with Google</span>
     </button>
   </mat-menu>
 </ng-template>
