@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserSettingsService } from '../shared/user-settings.service';
 
 @Component({
   selector: 'kel-login',
@@ -7,5 +9,22 @@ import { AuthService } from '../shared/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(public authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private settingsService: UserSettingsService,
+    private router: Router
+  ) {}
+
+  login(): void {
+    this.authService.login().subscribe((user) => {
+      if (user == null) {
+        return;
+      }
+      this.settingsService.init();
+      this.settingsService.settings$.subscribe((settings) => {
+        const url = `${settings.callsign}/qsos`;
+        this.router.navigate([url]);
+      });
+    });
+  }
 }

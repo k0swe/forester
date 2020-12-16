@@ -1,5 +1,6 @@
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login.guard';
 import { NgModule } from '@angular/core';
 import { QsoListComponent } from './qso-list/qso-list.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,10 +18,12 @@ const routes: Routes = [
   {
     path: ':callsign/qsos',
     component: QsoListComponent,
+    canActivate: [LoginGuard],
   },
   {
     path: ':callsign/was',
     component: WasComponent,
+    canActivate: [LoginGuard],
   },
 ];
 

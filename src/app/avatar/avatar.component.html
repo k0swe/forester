@@ -1,4 +1,4 @@
-<div *ngIf="authService.user() | async as user; else showLogin">
+<div *ngIf="user$ | async as user; else showLogin">
   <button mat-icon-button [matMenuTriggerFor]="accountMenu">
     <img class="avatar" [src]="user.photoURL" [alt]="user.displayName" />
   </button>

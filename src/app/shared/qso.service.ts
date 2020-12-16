@@ -1,17 +1,10 @@
-import User = firebase.User;
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import {
   AngularFirestore,
   DocumentChangeAction,
 } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
-import {
-  BehaviorSubject,
-  combineLatest,
-  from,
-  Observable,
-  ReplaySubject,
-} from 'rxjs';
+import { BehaviorSubject, combineLatest, from, Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Qso } from '../qso';
 import { map, mergeMap } from 'rxjs/operators';
@@ -26,7 +19,7 @@ export class QsoService {
   ) {}
 
   private started = false;
-  private user$ = new ReplaySubject<User>(1);
+  private user$ = new BehaviorSubject<firebase.User | null>(null);
   private qsos$ = new BehaviorSubject<FirebaseQso[]>([]);
   private filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
 
@@ -55,13 +48,16 @@ export class QsoService {
       return;
     }
     this.started = true;
-    this.authService.user().subscribe((user) => this.user$.next(user));
+    this.user$ = this.authService.user$;
     const contactSnapshots = this.user$.pipe(
-      mergeMap((u: User) =>
-        this.firestore
+      mergeMap((u: firebase.User) => {
+        if (u == null) {
+          return of([]);
+        }
+        return this.firestore
           .collection<Qso>('users/' + u.uid + '/contacts')
-          .snapshotChanges()
-      )
+          .snapshotChanges();
+      })
     );
     const contacts = contactSnapshots.pipe(
       map((snapshots) => this.unpackDocs(snapshots))
@@ -215,6 +211,9 @@ export class QsoService {
     QsoService.marshalDates(fbq.qso);
     return this.user$.pipe(
       mergeMap((u) => {
+        if (u == null) {
+          return of(null);
+        }
         if (fbq.id == null) {
           const contactsCollection = this.firestore.collection(
             'users/' + u.uid + '/contacts'
@@ -249,6 +248,9 @@ export class QsoService {
   delete(firebaseId: string): Observable<any> {
     return this.user$.pipe(
       mergeMap((u) => {
+        if (u == null) {
+          return of(null);
+        }
         const contactDoc = this.firestore.doc(
           'users/' + u.uid + '/contacts/' + firebaseId
         );

@@ -28,6 +28,9 @@ export class UserSettingsService {
     this.started = true;
     const uid$ = this.authService.user().pipe(
       map((user) => {
+        if (user == null) {
+          return null;
+        }
         user.getIdToken(false).then((token) => (this.userJwt = token));
         return user.uid;
       })
@@ -35,6 +38,9 @@ export class UserSettingsService {
     uid$
       .pipe(
         switchMap((userId) => {
+          if (userId == null) {
+            return of({});
+          }
           return this.firestore
             .doc<UserSettings>('users/' + userId)
             .valueChanges();
@@ -48,9 +54,19 @@ export class UserSettingsService {
   }
 
   set(values: UserSettings): Observable<void> {
-    const uid$ = this.authService.user().pipe(map((user) => user.uid));
+    const uid$ = this.authService.user$.pipe(
+      map((user) => {
+        if (user == null) {
+          return null;
+        }
+        return user.uid;
+      })
+    );
     return uid$.pipe(
       switchMap((userId) => {
+        if (userId == null) {
+          return of(null);
+        }
         return this.firestore
           .doc<UserSettings>('users/' + userId)
           .update(values);

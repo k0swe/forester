@@ -1,9 +1,12 @@
+import firebase from 'firebase/app';
 import { AuthService } from '../shared/auth.service';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { UserSettingsComponent } from '../user-settings/user-settings.component';
-import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { UserSettingsComponent } from '../user-settings/user-settings.component';
+import { UserSettingsService } from '../shared/user-settings.service';
 
 @Component({
   selector: 'kel-avatar',
@@ -11,11 +14,30 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./avatar.component.scss'],
 })
 export class AvatarComponent {
+  user$: Observable<firebase.User>;
+
   constructor(
-    public authService: AuthService,
+    private authService: AuthService,
     private dialog: MatDialog,
+    private settingsService: UserSettingsService,
+    private router: Router,
     private snackBar: MatSnackBar
-  ) {}
+  ) {
+    this.user$ = this.authService.user$;
+  }
+
+  login(): void {
+    this.authService.login().subscribe((user) => {
+      if (user == null) {
+        return;
+      }
+      this.settingsService.init();
+      this.settingsService.settings$.subscribe((settings) => {
+        const url = `${settings.callsign}/qsos`;
+        this.router.navigate([url]);
+      });
+    });
+  }
 
   settings(): void {
     const dialogRef = this.dialog.open(UserSettingsComponent, {
