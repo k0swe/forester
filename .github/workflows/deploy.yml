@@ -38,8 +38,8 @@ jobs:
       - name: Install npm deps
         run: npm install
 
-      - name: Test
-        run: npm run test-ci
+      # - name: Test
+      #   run: npm run test-ci
 
       - name: Compile
         run: npm run build-prod
