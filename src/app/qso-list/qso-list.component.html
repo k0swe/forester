@@ -1,6 +1,10 @@
 <mat-card>
   <mat-card-title>QSO List</mat-card-title>
-  <mat-card-header fxLayout="row" fxLayoutAlign="center center">
+  <mat-card-header
+    fxLayout="row"
+    fxLayout.lt-md="column"
+    fxLayoutAlign="center center"
+  >
     <kel-qso-search></kel-qso-search>
     <div fxFlex></div>
     <button mat-raised-button color="accent" (click)="newQso()">New QSO</button>
