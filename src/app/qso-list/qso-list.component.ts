@@ -119,4 +119,8 @@ export class QsoListComponent implements OnInit {
       }
     });
   }
+
+  newQso(): void {
+    this.openDialog({ qso: { contactedStation: {}, loggingStation: {} } });
+  }
 }

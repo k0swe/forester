@@ -2,7 +2,7 @@ import { Band } from '../band';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FirebaseQso, QsoService } from '../shared/qso.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
 import { Modes } from '../mode';
@@ -70,7 +70,16 @@ export class QsoDetailComponent implements OnInit {
     this.qsoDetailForm = fb.group({
       ...model,
       ...{
-        contactedStation: fb.group(model.contactedStation),
+        timeOn: [model.timeOn, Validators.required],
+        contactedStation: fb.group({
+          ...model.contactedStation,
+          ...{
+            stationCall: [
+              model.contactedStation.stationCall,
+              Validators.required,
+            ],
+          },
+        }),
         loggingStation: fb.group(model.loggingStation),
       },
     });
@@ -106,7 +115,7 @@ export class QsoDetailComponent implements OnInit {
       .valueChanges.subscribe(() => this.updateMapLink());
     this.updateMapLink();
     this.qsoDetailForm.valueChanges.subscribe(
-      () => (this.saveButton.disabled = false)
+      () => (this.saveButton.disabled = !this.qsoDetailForm.valid)
     );
   }
 
