@@ -48,9 +48,7 @@ export class AppComponent implements OnInit {
   }
 
   private importWithCloudFunc(provider: string, importUrl: string): void {
-    this.snackBar.open(`Importing from ${provider}...`, null, {
-      duration: 5000,
-    });
+    this.snackBar.open(`Importing from ${provider}...`, null);
     this.http
       .get<ImportResponse>(importUrl, {
         headers: { Authorization: 'Bearer ' + this.userJwt$.getValue() },
