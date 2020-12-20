@@ -83,7 +83,7 @@ export class AppComponent implements OnInit {
     this.importExportService.exportAdi().subscribe((blob) => {
       const objectURL = (window.URL || window.webkitURL).createObjectURL(blob);
       this.download.nativeElement.setAttribute('href', objectURL);
-      this.download.nativeElement.setAttribute('download', 'kellog.adif');
+      this.download.nativeElement.setAttribute('download', 'kellog.adi');
       this.download.nativeElement.click();
     });
   }
