@@ -71,12 +71,14 @@ export class AgentService {
     this.agentHost = this.getHost();
     this.agentPort = this.getPort();
     const protocol = this.agentHost === 'localhost' ? 'ws://' : 'wss://';
-    const myWebSocket = webSocket(
-      protocol + this.agentHost + ':' + this.agentPort + '/websocket'
-    );
+    const myWebSocket = webSocket<Array<object>>({
+      url: protocol + this.agentHost + ':' + this.agentPort + '/websocket',
+      // For issue #138, support multiple JSON docs per message
+      deserializer: (e) => e.data.split('\n').map((m) => JSON.parse(m)),
+    });
     this.connectedState$.next(true);
     myWebSocket.subscribe(
-      (msg) => this.handleMessage(msg),
+      (msgs) => msgs.map((msg) => this.handleMessage(msg)),
       (error) => {
         console.error('Agent died. ' + error);
         this.connectedState$.next(false);
