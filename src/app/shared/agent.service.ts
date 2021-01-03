@@ -77,7 +77,10 @@ export class AgentService {
     this.connectedState$.next(true);
     myWebSocket.subscribe(
       (msg) => this.handleMessage(msg),
-      () => this.connectedState$.next(false),
+      (error) => {
+        console.error('Agent died. ' + error);
+        this.connectedState$.next(false);
+      },
       () => this.connectedState$.next(false)
     );
   }
@@ -156,7 +159,12 @@ export class AgentService {
       rstReceived: qsoLogged.reportReceived,
       rstSent: qsoLogged.reportSent,
     };
-    this.qsoService.addOrUpdate({ qso }).subscribe();
+    this.qsoService.addOrUpdate({ qso }).subscribe(
+      () => {},
+      (error) => {
+        console.error('Failed saving WSJT-X QSO. ' + error);
+      }
+    );
   }
 }
 
