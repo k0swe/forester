@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './shared/auth.service';
 import { AvatarComponent } from './avatar/avatar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreditsComponent } from './credits/credits.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
@@ -53,6 +54,7 @@ import { environment } from '../environments/environment';
     AgentComponent,
     AppComponent,
     AvatarComponent,
+    CreditsComponent,
     HomeComponent,
     LoginComponent,
     QsoDetailComponent,

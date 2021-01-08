@@ -1,3 +1,4 @@
+import { CreditsComponent } from './credits/credits.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
@@ -10,6 +11,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'credits',
+    component: CreditsComponent,
   },
   {
     path: 'login',

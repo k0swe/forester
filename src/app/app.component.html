@@ -23,6 +23,7 @@
       <a mat-list-item [routerLink]="(logbookId$ | async) + '/was'"
         >WAS Progress</a
       >
+      <mat-divider></mat-divider>
       <a
         mat-list-item
         [disabled]="qrzImportUrl == null"
@@ -39,6 +40,8 @@
       </a>
       <a mat-list-item (click)="chooser.click()">Import ADIF file</a>
       <a mat-list-item (click)="exportAdi()">Export ADIF file</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="'/credits'">Credits</a>
     </mat-nav-list>
     <input
       #chooser
