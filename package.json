@@ -37,7 +37,7 @@
     "@angular/router": "11.0.6",
     "@types/long": "4.0.1",
     "adif-parser-ts": "0.3.12",
-    "firebase": "8.2.1",
+    "firebase": "8.2.2",
     "google-protobuf": "3.14.0",
     "moment": "2.29.1",
     "rxjs": "6.6.3",
