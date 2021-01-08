@@ -1,6 +1,6 @@
 // These types are copied from https://github.com/k0swe/adif-json-protobuf,
 // and then the AsObject's are converted to interfaces with nullable fields.
-// See https://github.com/k0swe/kellog/issues/7 for why this is done.
+// See https://github.com/k0swe/forester/issues/7 for why this is done.
 
 // Amateur Radio Data Interchange Format
 export interface Adif {

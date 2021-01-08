@@ -5,7 +5,7 @@
   "targets": {
     "k0swe-kellog": {
       "hosting": {
-        "kellog": [
+        "forester": [
           "k0swe-kellog"
         ]
       }

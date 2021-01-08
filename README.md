@@ -1,6 +1,6 @@
-![Deploy](https://github.com/k0swe/kellog/workflows/Deploy/badge.svg?branch=main)
+![Deploy](https://github.com/k0swe/forester/workflows/Deploy/badge.svg?branch=main)
 
-# KelLog
+# Forester
 
 An amateur radio logging application built by Chris Keller, K0SWE.
 

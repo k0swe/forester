@@ -12,7 +12,7 @@ import { SimpleAdif } from 'adif-parser-ts';
 
 export class Proto2Adif {
   /**
-   * Translate QSOs from KelLog's internal format to AdifParser's SimpleAdif.
+   * Translate QSOs from Forester's internal format to AdifParser's SimpleAdif.
    */
   public static translateAdi(qsos: Qso[]): SimpleAdif {
     let myCall = 'N0CALL';
@@ -23,7 +23,7 @@ export class Proto2Adif {
       header: {
         text: `Log for ${myCall}`,
         adif_ver: '3.1.1',
-        programid: 'KelLog',
+        programid: 'Forester',
         programversion: `${new Date().toISOString()}`,
       },
       records: [],

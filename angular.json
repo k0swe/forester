@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kellog": {
+    "forester": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/kellog",
+            "outputPath": "dist/forester",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -60,18 +60,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "kellog:build"
+            "browserTarget": "forester:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "kellog:build:production"
+              "browserTarget": "forester:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kellog:build"
+            "browserTarget": "forester:build"
           }
         },
         "test": {
@@ -101,11 +101,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "kellog:serve"
+            "devServerTarget": "forester:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "kellog:serve:production"
+              "devServerTarget": "forester:serve:production"
             }
           }
         },
@@ -116,7 +116,7 @@
       }
     }
   },
-  "defaultProject": "kellog",
+  "defaultProject": "forester",
   "cli": {
     "analytics": "2ea778db-68f3-497a-9d7e-4b743f954806"
   }

@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "kellog",
-      "public": "dist/kellog",
+      "target": "forester",
+      "public": "dist/forester",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "headers": [
         {

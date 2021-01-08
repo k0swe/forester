@@ -13,7 +13,7 @@ import { SimpleAdif } from 'adif-parser-ts';
 
 export class Adif2Proto {
   /**
-   * Translate a log from AdifParser's relatively flat objects to KelLog's internal format.
+   * Translate a log from AdifParser's relatively flat objects to Forester's internal format.
    */
   public static translateAdi(adiObj: SimpleAdif): Adif {
     const adif: Adif = { qsos: [] };
