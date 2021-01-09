@@ -28,7 +28,8 @@
 }
 
 .app-subtitle {
-  margin: 0 0 0 16px;
+  font-size: mat-font-size($kel-typography, body-1);
+  margin: 16px 0 0 16px;
 }
 
 .toolbar__menu-button {
