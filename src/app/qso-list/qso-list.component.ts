@@ -102,7 +102,8 @@ export class QsoListComponent implements OnInit {
         'contactedCall',
         'band',
         'mode',
-        'contactedCountry',
+        'contactedState',
+        'shortContactedCountry',
       ];
     }
   }
@@ -122,5 +123,29 @@ export class QsoListComponent implements OnInit {
 
   newQso(): void {
     this.openDialog({ qso: { contactedStation: {}, loggingStation: {} } });
+  }
+
+  flagFor(dxcc: number): string {
+    // TODO: make a generalized reference for this
+    switch (dxcc) {
+      case 291:
+        return '🇺🇸';
+      case 1:
+        return '🇨🇦';
+      case 70:
+        return '🇨🇺';
+      case 281:
+        return '🇪🇸';
+      case 148:
+        return '🇻🇪';
+      case 50:
+        return '🇲🇽';
+      case 202:
+        return '🇵🇷';
+      case 110:
+        return '🇺🇸';
+      case 97:
+        return '🇱🇨';
+    }
   }
 }
