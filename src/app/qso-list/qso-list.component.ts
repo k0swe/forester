@@ -146,6 +146,10 @@ export class QsoListComponent implements OnInit {
         return '🇺🇸';
       case 97:
         return '🇱🇨';
+      case 266:
+        return '🇳🇴';
+      case 72:
+        return '🇩🇴';
     }
   }
 }
