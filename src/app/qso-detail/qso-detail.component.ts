@@ -1,11 +1,11 @@
-import { Band } from '../band';
+import { Band } from '../reference/band';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FirebaseQso, QsoService } from '../shared/qso.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
-import { Modes } from '../mode';
+import { Modes } from '../reference/mode';
 import { Qso } from '../qso';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';

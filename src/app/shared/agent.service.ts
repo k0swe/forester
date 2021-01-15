@@ -1,4 +1,4 @@
-import { Band } from '../band';
+import { Band } from '../reference/band';
 import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { QsoService } from './qso.service';
