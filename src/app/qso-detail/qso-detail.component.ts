@@ -1,13 +1,14 @@
 import { Band } from '../reference/band';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { DxccRef } from '../reference/dxcc';
 import { FirebaseQso, QsoService } from '../shared/qso.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
 import { Modes } from '../reference/mode';
-import { Qso } from '../qso';
 import { Observable } from 'rxjs';
+import { Qso } from '../qso';
 import { map } from 'rxjs/operators';
 
 const googleMapsSearchBase = 'https://www.google.com/maps/search/';
@@ -19,33 +20,6 @@ const googleMapsSearchBase = 'https://www.google.com/maps/search/';
   providers: [DatePipe],
 })
 export class QsoDetailComponent implements OnInit {
-  // empty values for each field in the form to prevent error "Cannot find control with name"
-  private readonly template: Qso = {
-    timeOn: new Date(),
-    timeOff: new Date(),
-    band: undefined,
-    mode: undefined,
-    freq: undefined,
-    comment: undefined,
-    notes: undefined,
-    rstSent: undefined,
-    rstReceived: undefined,
-    contactedStation: {
-      stationCall: undefined,
-      opName: undefined,
-      latitude: undefined,
-      longitude: undefined,
-      city: undefined,
-      state: undefined,
-      country: undefined,
-      continent: undefined,
-      gridSquare: undefined,
-    },
-    loggingStation: {
-      power: undefined,
-    },
-  };
-
   constructor(
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: FirebaseQso,
@@ -85,6 +59,33 @@ export class QsoDetailComponent implements OnInit {
     });
   }
 
+  // empty values for each field in the form to prevent error "Cannot find control with name"
+  private readonly template: Qso = {
+    timeOn: new Date(),
+    timeOff: new Date(),
+    band: undefined,
+    mode: undefined,
+    freq: undefined,
+    comment: undefined,
+    notes: undefined,
+    rstSent: undefined,
+    rstReceived: undefined,
+    contactedStation: {
+      stationCall: undefined,
+      opName: undefined,
+      latitude: undefined,
+      longitude: undefined,
+      city: undefined,
+      state: undefined,
+      country: undefined,
+      continent: undefined,
+      gridSquare: undefined,
+    },
+    loggingStation: {
+      power: undefined,
+    },
+  };
+
   private readonly firebaseId;
   bands = Band.bands;
   qsoDetailForm: FormGroup;
@@ -92,6 +93,8 @@ export class QsoDetailComponent implements OnInit {
   startDelete = false;
   modeNames = Modes.modeNames;
   filteredModes$: Observable<string[]>;
+  countries = DxccRef.getNames();
+  filteredCountries$: Observable<string[]>;
 
   @ViewChild('saveButton') saveButton: MatButton;
 
@@ -101,15 +104,27 @@ export class QsoDetailComponent implements OnInit {
     qso.timeOff = new Date(qso.timeOff + 'Z');
   }
 
+  static saveMode(formValue): void {
+    const realMode = Modes.findMode(formValue.mode);
+    if (realMode) {
+      // Prefer ADIF-specified modes, but fall back on user input for new modes
+      formValue.mode = realMode.mode;
+      formValue.submode = realMode.submode;
+    }
+  }
+
+  static saveCountry(formValue): void {
+    const country = formValue.contactedStation.country;
+    const entity = DxccRef.getByName(country);
+    if (entity != null) {
+      formValue.contactedStation.dxcc = entity.id;
+    }
+  }
+
   ngOnInit(): void {
-    const displayMode = this.data.qso.submode
-      ? this.data.qso.submode
-      : this.data.qso.mode;
-    const modeField = this.qsoDetailForm.get('mode');
-    modeField.setValue(displayMode);
-    this.filteredModes$ = modeField.valueChanges.pipe(
-      map((modeInput) => this.filterModes(modeInput))
-    );
+    this.setupModeAutocomplete();
+    this.setupCountryAutocomplete();
+    this.setupAutoContinentFromCountry();
     this.qsoDetailForm
       .get('contactedStation')
       .valueChanges.subscribe(() => this.updateMapLink());
@@ -119,11 +134,51 @@ export class QsoDetailComponent implements OnInit {
     );
   }
 
+  private setupModeAutocomplete(): void {
+    const displayMode = this.data.qso.submode
+      ? this.data.qso.submode
+      : this.data.qso.mode;
+    const modeField = this.qsoDetailForm.get('mode');
+    modeField.setValue(displayMode);
+    this.filteredModes$ = modeField.valueChanges.pipe(
+      map((modeInput) => this.filterModes(modeInput))
+    );
+  }
+
   private filterModes(modeInput: string): string[] {
     const filterValue = modeInput.toUpperCase();
     return this.modeNames.filter((option) =>
       option.toUpperCase().includes(filterValue)
     );
+  }
+
+  private setupCountryAutocomplete(): void {
+    const countryField = this.qsoDetailForm.get('contactedStation.country');
+    this.filteredCountries$ = countryField.valueChanges.pipe(
+      map((countryInput) => {
+        console.log('Filtering countries for', countryInput);
+        return this.filterCountries(countryInput);
+      })
+    );
+  }
+
+  private filterCountries(countryInput: string): string[] {
+    const filterValue = countryInput.toUpperCase();
+    return this.countries.filter((option) =>
+      option.toUpperCase().includes(filterValue)
+    );
+  }
+
+  private setupAutoContinentFromCountry(): void {
+    const countryField = this.qsoDetailForm.get('contactedStation.country');
+    countryField.valueChanges.subscribe((countryInput) => {
+      const entity = DxccRef.getByName(countryInput);
+      if (entity != null) {
+        this.qsoDetailForm
+          .get('contactedStation.continent')
+          .setValue(entity.continent);
+      }
+    });
   }
 
   private updateMapLink(): void {
@@ -154,12 +209,8 @@ export class QsoDetailComponent implements OnInit {
   save(): void {
     const formValue = this.qsoDetailForm.value;
     QsoDetailComponent.parseDates(formValue);
-    const realMode = Modes.findMode(formValue.mode);
-    if (realMode) {
-      // Prefer ADIF-specified modes, but fall back on user input for new modes
-      formValue.mode = realMode.mode;
-      formValue.submode = realMode.submode;
-    }
+    QsoDetailComponent.saveMode(formValue);
+    QsoDetailComponent.saveCountry(formValue);
     const newQso: FirebaseQso = { id: this.firebaseId, qso: formValue as Qso };
     this.dialog.close(this.qsoService.addOrUpdate(newQso));
   }

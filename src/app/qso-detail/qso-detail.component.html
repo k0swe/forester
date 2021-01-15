@@ -46,10 +46,14 @@
       <div fxFlex>
         <mat-form-field appearance="standard">
           <mat-label>Mode</mat-label>
-          <input matInput formControlName="mode" [matAutocomplete]="modeAutocomplete" />
+          <input
+            matInput
+            formControlName="mode"
+            [matAutocomplete]="modeAutocomplete"
+          />
           <mat-autocomplete #modeAutocomplete="matAutocomplete">
             <mat-option *ngFor="let m of filteredModes$ | async" [value]="m">
-              {{m}}
+              {{ m }}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
@@ -140,7 +144,19 @@
       <div fxFlex>
         <mat-form-field appearance="standard">
           <mat-label>Country</mat-label>
-          <input matInput formControlName="country" />
+          <input
+            matInput
+            formControlName="country"
+            [matAutocomplete]="countryAutocomplete"
+          />
+          <mat-autocomplete #countryAutocomplete="matAutocomplete">
+            <mat-option
+              *ngFor="let c of filteredCountries$ | async"
+              [value]="c"
+            >
+              {{ c }}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
       </div>
       <div fxFlex>
