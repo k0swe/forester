@@ -7,7 +7,8 @@ import {
 } from '@angular/router';
 import { AuthService } from './shared/auth.service';
 import { Injectable } from '@angular/core';
-import { from, Observable } from 'rxjs';
+import { interval, Observable, of } from 'rxjs';
+import { mapTo } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -23,10 +24,11 @@ export class LoginGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const loggedIn = this.authService.user$.getValue() != null;
-    if (!loggedIn) {
-      return from(this.router.navigate(['/login']));
-    }
-    return loggedIn;
+    return this.authService.user$.pipe((u) => {
+      if (u != null) {
+        return of(true);
+      }
+      return interval(1000).pipe(mapTo(false));
+    });
   }
 }
