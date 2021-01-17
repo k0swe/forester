@@ -127,6 +127,10 @@ export class QsoListComponent implements OnInit {
   }
 
   flagFor(dxcc: number): string {
-    return DxccRef.getById(dxcc).flag;
+    const entity = DxccRef.getById(dxcc);
+    if (entity == null) {
+      return '';
+    }
+    return entity.flag;
   }
 }
