@@ -12,4 +12,8 @@ export class AgentComponent implements OnInit {
   ngOnInit(): void {
     this.agentService.init();
   }
+
+  reconnect(): void {
+    this.agentService.connect();
+  }
 }

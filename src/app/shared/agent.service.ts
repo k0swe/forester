@@ -1,5 +1,5 @@
 import { Band } from '../reference/band';
-import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
+import { BehaviorSubject, interval, ReplaySubject, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { QsoService } from './qso.service';
 import { Qso } from '../qso';
@@ -53,7 +53,6 @@ export class AgentService {
     if (isNaN(this.agentPort)) {
       this.setPort(this.defaultAgentPort);
     }
-    this.connect();
     this.wsjtxQsoLogged$.subscribe((qsoLogged) => {
       // Dates come across as strings; convert to objects
       qsoLogged.dateTimeOn = new Date(qsoLogged.dateTimeOn);
@@ -65,9 +64,15 @@ export class AgentService {
       this.wsjtxHeartbeat$.next(null);
       this.wsjtxStatus$.next(null);
     });
+    this.connectedState$.subscribe((connected) => {
+      if (!connected) {
+        interval(60000).subscribe(() => this.connect());
+      }
+    });
+    this.connect();
   }
 
-  private connect(): void {
+  public connect(): void {
     this.agentHost = this.getHost();
     this.agentPort = this.getPort();
     const protocol = this.agentHost === 'localhost' ? 'ws://' : 'wss://';

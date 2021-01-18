@@ -8,6 +8,8 @@
 </div>
 <ng-template #notConnected>
   <div>
-    <mat-icon matTooltip="Agent disconnected">signal_cellular_off</mat-icon>
+    <mat-icon matTooltip="Agent disconnected" (click)="reconnect()"
+      >signal_cellular_off</mat-icon
+    >
   </div>
 </ng-template>
