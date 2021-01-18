@@ -102,7 +102,7 @@ export class WasComponent implements OnInit, AfterViewInit {
         lat: latitude,
         lng: longitude,
       },
-      icon: 'https://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png',
+      icon: '/assets/green-pin.png',
       title: state.abbrev,
     };
   }
@@ -126,7 +126,7 @@ export class WasComponent implements OnInit, AfterViewInit {
         lat: state.lat,
         lng: state.lon,
       },
-      icon: 'https://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png',
+      icon: '/assets/red-pin.png',
       title: state.name,
     };
   }
