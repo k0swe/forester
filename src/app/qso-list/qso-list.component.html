@@ -7,16 +7,21 @@
   >
     <kel-qso-search></kel-qso-search>
     <div fxFlex></div>
-    <button
-      mat-raised-button
-      color="warn"
-      #deleteButton
-      disabled
-      (click)="deleteSelected()"
-    >
-      Delete
-    </button>
-    <button mat-raised-button color="accent" (click)="newQso()">New QSO</button>
+    <div fxLayout="row">
+      <button
+        mat-raised-button
+        color="warn"
+        #deleteButton
+        disabled
+        fxHide.xs
+        (click)="deleteSelected()"
+      >
+        Delete
+      </button>
+      <button mat-raised-button color="accent" (click)="newQso()">
+        New QSO
+      </button>
+    </div>
   </mat-card-header>
   <mat-card-content>
     <table
