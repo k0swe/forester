@@ -4,8 +4,16 @@ mat-card {
   margin: 8px;
 }
 
+button {
+  margin-left: 16px;
+}
+
 table {
   width: 100%;
+}
+
+.mat-column-select {
+  overflow: initial;
 }
 
 .mat-row {

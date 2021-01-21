@@ -8,6 +8,7 @@ import { BehaviorSubject, combineLatest, from, Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Qso } from '../qso';
 import { map, mergeMap } from 'rxjs/operators';
+import { fromPromise } from 'rxjs/internal-compatibility';
 
 @Injectable({
   providedIn: 'root',
@@ -209,24 +210,21 @@ export class QsoService {
    */
   public addOrUpdate(fbq: FirebaseQso): Observable<any> {
     QsoService.marshalDates(fbq.qso);
-    return this.user$.pipe(
-      mergeMap((u) => {
-        if (u == null) {
-          return of(null);
-        }
-        if (fbq.id == null) {
-          const contactsCollection = this.firestore.collection(
-            'users/' + u.uid + '/contacts'
-          );
-          return from(contactsCollection.add(fbq.qso));
-        } else {
-          const contactDoc = this.firestore.doc(
-            'users/' + u.uid + '/contacts/' + fbq.id
-          );
-          return from(contactDoc.update(fbq.qso));
-        }
-      })
-    );
+    const u = this.user$.getValue();
+    if (u == null) {
+      return of(null);
+    }
+    if (fbq.id == null) {
+      const contactsCollection = this.firestore.collection(
+        'users/' + u.uid + '/contacts'
+      );
+      return fromPromise(contactsCollection.add(fbq.qso));
+    } else {
+      const contactDoc = this.firestore.doc(
+        'users/' + u.uid + '/contacts/' + fbq.id
+      );
+      return fromPromise(contactDoc.update(fbq.qso));
+    }
   }
 
   /**
@@ -246,17 +244,14 @@ export class QsoService {
   }
 
   delete(firebaseId: string): Observable<any> {
-    return this.user$.pipe(
-      mergeMap((u) => {
-        if (u == null) {
-          return of(null);
-        }
-        const contactDoc = this.firestore.doc(
-          'users/' + u.uid + '/contacts/' + firebaseId
-        );
-        return from(contactDoc.delete());
-      })
+    const u = this.user$.getValue();
+    if (u == null) {
+      return of(null);
+    }
+    const contactDoc = this.firestore.doc(
+      'users/' + u.uid + '/contacts/' + firebaseId
     );
+    return fromPromise(contactDoc.delete());
   }
 }
 

@@ -7,6 +7,15 @@
   >
     <kel-qso-search></kel-qso-search>
     <div fxFlex></div>
+    <button
+      mat-raised-button
+      color="warn"
+      #deleteButton
+      disabled
+      (click)="deleteSelected()"
+    >
+      Delete
+    </button>
     <button mat-raised-button color="accent" (click)="newQso()">New QSO</button>
   </mat-card-header>
   <mat-card-content>
@@ -18,6 +27,25 @@
       matSortDisableClear
       [dataSource]="dataSource"
     >
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+            (change)="$event ? mainToggle($event) : null"
+            [checked]="selection.hasValue() && isEntirePageSelected()"
+            [indeterminate]="selection.hasValue() && !isEntirePageSelected()"
+            [aria-label]="checkboxLabel(null)"
+          ></mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)"
+            [aria-label]="checkboxLabel(row)"
+          >
+          </mat-checkbox>
+        </td>
+      </ng-container>
       <ng-container matColumnDef="timeOn">
         <th mat-header-cell mat-sort-header start="desc" *matHeaderCellDef>
           Date/Time
