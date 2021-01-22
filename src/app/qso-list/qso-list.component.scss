@@ -27,6 +27,81 @@ table {
   font-family: mat-font-family($kel-mono-typography);
 }
 
+.band-2200m {
+  background-color: #ff4500;
+  color: black;
+}
+
+.band-600m {
+  background-color: #1e90ff;
+  color: black;
+}
+
+.band-160m {
+  background-color: #7cfc00;
+  color: black;
+}
+
+.band-80m {
+  background-color: #e550e5;
+  color: black;
+}
+
+.band-60m {
+  background-color: #00008b;
+  color: white;
+}
+
+.band-40m {
+  background-color: #5959ff;
+  color: white;
+}
+
+.band-30m {
+  background-color: #62d962;
+  color: black;
+}
+
+.band-20m {
+  background-color: #f2c40c;
+  color: black;
+}
+
+.band-17m {
+  background-color: #f2f261;
+  color: black;
+}
+
+.band-15m {
+  background-color: #cca166;
+  color: black;
+}
+
+.band-12m {
+  background-color: #b22222;
+  color: white;
+}
+
+.band-10m {
+  background-color: #ff69b4;
+  color: black;
+}
+
+.band-6m {
+  background-color: #ff0000;
+  color: black;
+}
+
+.band-2m {
+  background-color: #ff1493;
+  color: black;
+}
+
+.band-70cm {
+  background-color: #999900;
+  color: white;
+}
+
 .mat-column-freq {
   text-align: end;
   padding-right: 8px;
