@@ -1,0 +1,44 @@
+@import 'src/styles/theme';
+
+.row div {
+  margin-right: 8px;
+}
+
+.row div:last-child {
+  margin-right: 0;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+  width: auto !important;
+}
+
+mat-form-field.ng-dirty {
+  color: mat-color($kel-accent, 900);
+}
+
+input.callsign {
+  font-family: mat-font-family($kel-mono-typography);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input.freq::-webkit-outer-spin-button,
+input.freq::-webkit-inner-spin-button,
+input.latLong::-webkit-outer-spin-button,
+input.latLong::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input.freq,
+input.latLong {
+  -moz-appearance: textfield;
+}
+
+a.mat-stroked-button {
+  margin-top: 16px;
+}

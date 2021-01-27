@@ -1,12 +1,12 @@
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
-import { AuthService } from './shared/auth.service';
+import { AuthService } from './shared/auth/auth.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterTestingModule } from '@angular/router/testing';
-import { UserSettingsService } from './shared/user-settings.service';
+import { UserSettingsService } from './shared/user-settings/user-settings.service';
 import { of } from 'rxjs';
 
 describe('AppComponent', () => {

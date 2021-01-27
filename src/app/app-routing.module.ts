@@ -1,11 +1,11 @@
-import { CreditsComponent } from './credits/credits.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { CreditsComponent } from './pages/credits/credits.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './shared/login/login.component';
 import { LoginGuard } from './login.guard';
 import { NgModule } from '@angular/core';
-import { QsoListComponent } from './qso-list/qso-list.component';
+import { QsoListComponent } from './pages/qso-list/qso-list.component';
 import { RouterModule, Routes } from '@angular/router';
-import { WasComponent } from './was/was.component';
+import { WasComponent } from './pages/was/was.component';
 
 const routes: Routes = [
   {

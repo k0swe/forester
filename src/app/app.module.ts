@@ -1,7 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AgentComponent } from './agent/agent.component';
+import { AgentComponent } from './shared/agent/agent.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import {
@@ -10,17 +7,18 @@ import {
 } from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthService } from './shared/auth.service';
-import { AvatarComponent } from './avatar/avatar.component';
+import { AuthService } from './shared/auth/auth.service';
+import { AvatarComponent } from './shared/avatar/avatar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreditsComponent } from './credits/credits.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { CreditsComponent } from './pages/credits/credits.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ImportExportService } from './shared/import-export.service';
-import { LoginComponent } from './login/login.component';
+import { ImportExportService } from './shared/import-export/import-export.service';
+import { LoginComponent } from './shared/login/login.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -42,13 +40,14 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { QsoDetailComponent } from './qso-detail/qso-detail.component';
-import { QsoListComponent } from './qso-list/qso-list.component';
-import { QsoSearchComponent } from './qso-search/qso-search.component';
-import { QsoService } from './shared/qso.service';
-import { UserSettingsComponent } from './user-settings/user-settings.component';
-import { UserSettingsService } from './shared/user-settings.service';
-import { WasComponent } from './was/was.component';
+import { NgModule } from '@angular/core';
+import { QsoDetailComponent } from './shared/qso-detail/qso-detail.component';
+import { QsoListComponent } from './pages/qso-list/qso-list.component';
+import { QsoSearchComponent } from './shared/qso-search/qso-search.component';
+import { QsoService } from './shared/qso/qso.service';
+import { UserSettingsComponent } from './shared/user-settings/user-settings.component';
+import { UserSettingsService } from './shared/user-settings/user-settings.service';
+import { WasComponent } from './pages/was/was.component';
 import { environment } from '../environments/environment';
 
 @NgModule({

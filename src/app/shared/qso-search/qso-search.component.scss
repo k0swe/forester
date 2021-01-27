@@ -1,0 +1,15 @@
+@import 'src/styles/theme';
+
+:host {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+  max-width: 800px;
+  margin-right: 16px;
+}
+
+.accent {
+  color: mat-color($kel-accent, 800);
+}
