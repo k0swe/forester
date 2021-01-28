@@ -13,6 +13,7 @@ import { QsoDetailComponent } from '../../shared/qso-detail/qso-detail.component
 import { SelectionModel } from '@angular/cdk/collections';
 import { fromArray } from 'rxjs/internal/observable/fromArray';
 import { map, mergeAll } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'kel-qso-list',
@@ -40,13 +41,16 @@ export class QsoListComponent implements OnInit {
   ];
 
   constructor(
-    private qsoService: QsoService,
     private dialog: MatDialog,
+    private qsoService: QsoService,
+    private route: ActivatedRoute,
     private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
-    this.qsoService.init();
+    this.route.params.subscribe((params) =>
+      this.qsoService.init(params.callsign)
+    );
     this.paginator.pageSize = 25;
     this.paginator.pageSizeOptions = [10, 25, 50, 100];
     this.selection.changed.subscribe((sel) => {

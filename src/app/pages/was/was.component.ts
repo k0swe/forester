@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Qso } from '../../qso';
 // @ts-ignore
 import moment from 'moment';
+import { ActivatedRoute } from '@angular/router';
 
 interface State {
   name: string;
@@ -139,10 +140,12 @@ export class WasComponent implements OnInit, AfterViewInit {
     };
   }
 
-  constructor(private qsoService: QsoService) {}
+  constructor(private qsoService: QsoService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.qsoService.init();
+    this.route.params.subscribe((params) =>
+      this.qsoService.init(params.callsign)
+    );
   }
 
   ngAfterViewInit(): void {

@@ -19,7 +19,7 @@ export class QsoService {
     private firestore: AngularFirestore
   ) {}
 
-  private started = false;
+  private currentBook = '';
   private user$ = new BehaviorSubject<firebase.User | null>(null);
   private qsos$ = new BehaviorSubject<FirebaseQso[]>([]);
   private filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
@@ -44,11 +44,11 @@ export class QsoService {
     }
   }
 
-  public init(): void {
-    if (this.started) {
+  public init(bookCall: string): void {
+    if (this.currentBook === bookCall) {
       return;
     }
-    this.started = true;
+    this.currentBook = bookCall;
     this.user$ = this.authService.user$;
     const contactSnapshots = this.user$.pipe(
       mergeMap((u: firebase.User) => {
@@ -56,7 +56,7 @@ export class QsoService {
           return of([]);
         }
         return this.firestore
-          .collection<Qso>('users/' + u.uid + '/contacts')
+          .collection<Qso>(this.contactsPath())
           .snapshotChanges();
       })
     );
@@ -64,6 +64,13 @@ export class QsoService {
       map((snapshots) => this.unpackDocs(snapshots))
     );
     contacts.subscribe((qsos) => this.qsos$.next(qsos));
+  }
+
+  private contactsPath(): string {
+    const path = 'logbooks/' + this.currentBook + '/contacts';
+    // tslint:disable-next-line:no-console
+    console.debug('path is ' + path);
+    return path;
   }
 
   private unpackDocs(snapshots: DocumentChangeAction<Qso>[]): FirebaseQso[] {
@@ -215,14 +222,10 @@ export class QsoService {
       return of(null);
     }
     if (fbq.id == null) {
-      const contactsCollection = this.firestore.collection(
-        'users/' + u.uid + '/contacts'
-      );
+      const contactsCollection = this.firestore.collection(this.contactsPath());
       return fromPromise(contactsCollection.add(fbq.qso));
     } else {
-      const contactDoc = this.firestore.doc(
-        'users/' + u.uid + '/contacts/' + fbq.id
-      );
+      const contactDoc = this.firestore.doc(this.contactsPath() + '/' + fbq.id);
       return fromPromise(contactDoc.update(fbq.qso));
     }
   }
@@ -249,7 +252,7 @@ export class QsoService {
       return of(null);
     }
     const contactDoc = this.firestore.doc(
-      'users/' + u.uid + '/contacts/' + firebaseId
+      this.contactsPath() + '/' + firebaseId
     );
     return fromPromise(contactDoc.delete());
   }
