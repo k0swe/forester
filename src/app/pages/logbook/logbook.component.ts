@@ -1,0 +1,104 @@
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { LogbookService } from './logbook.service';
+import { environment } from '../../../environments/environment';
+import { BehaviorSubject } from 'rxjs';
+import { AuthService } from '../../shared/auth/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { ImportExportService } from '../../shared/import-export/import-export.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+@Component({
+  selector: 'kel-logbook',
+  templateUrl: './logbook.component.html',
+  styleUrls: ['./logbook.component.scss'],
+})
+export class LogbookComponent implements OnInit {
+  links = [
+    { name: 'QSO List', path: 'qsos' },
+    { name: 'Awards', path: 'was' },
+  ];
+
+  qrzImportUrl = environment.functionsBase + 'ImportQrz';
+  lotwImportUrl = environment.functionsBase + 'ImportLotw';
+  logbookId$ = new BehaviorSubject<string>('N0CALL');
+  userJwt$ = new BehaviorSubject<string>('N0CALL');
+  @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
+
+  constructor(
+    public authService: AuthService,
+    private http: HttpClient,
+    private importExportService: ImportExportService,
+    private snackBar: MatSnackBar,
+    public logbookService: LogbookService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe((params) =>
+      this.logbookService.logbookId$.next(params.callsign)
+    );
+    this.authService.user().subscribe((user) => {
+      if (user != null) {
+        user.getIdToken(false).then((token) => this.userJwt$.next(token));
+      }
+    });
+  }
+
+  importFromQrz(): void {
+    const url = this.qrzImportUrl + '?logbookId=' + this.logbookId$.getValue();
+    this.importWithCloudFunc('QRZ.com', url.toString());
+  }
+
+  importFromLotw(): void {
+    const url = this.lotwImportUrl + '?logbookId=' + this.logbookId$.getValue();
+    this.importWithCloudFunc('LotW', url);
+  }
+
+  private importWithCloudFunc(provider: string, importUrl: string): void {
+    this.snackBar.open(`Importing from ${provider}...`, null);
+    this.http
+      .get<ImportResponse>(importUrl, {
+        headers: { Authorization: 'Bearer ' + this.userJwt$.getValue() },
+      })
+      .subscribe(
+        (response) => {
+          const created = response.created;
+          const modified = response.modified;
+          const noDiff = response.noDiff;
+          this.snackBar.open(
+            `Finished ${provider} import: ` +
+              `${created} QSOs created, ${modified} modified and ${noDiff} with no difference`,
+            null,
+            { duration: 5000 }
+          );
+        },
+        (error) => {
+          this.snackBar.open(`Error importing from ${provider}`, null, {
+            duration: 5000,
+          });
+          console.warn(`Error importing from ${provider}:`, error);
+        }
+      );
+  }
+
+  importAdi($event: any): void {
+    const file = $event.target.files[0] as File;
+    this.importExportService.importAdi(file);
+  }
+
+  exportAdi(): void {
+    this.importExportService.exportAdi().subscribe((blob) => {
+      const objectURL = (window.URL || window.webkitURL).createObjectURL(blob);
+      this.download.nativeElement.setAttribute('href', objectURL);
+      this.download.nativeElement.setAttribute('download', 'forester.adi');
+      this.download.nativeElement.click();
+    });
+  }
+}
+
+interface ImportResponse {
+  created: number;
+  modified: number;
+  noDiff: number;
+}

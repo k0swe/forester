@@ -155,10 +155,7 @@ export class QsoDetailComponent implements OnInit {
   private setupCountryAutocomplete(): void {
     const countryField = this.qsoDetailForm.get('contactedStation.country');
     this.filteredCountries$ = countryField.valueChanges.pipe(
-      map((countryInput) => {
-        console.log('Filtering countries for', countryInput);
-        return this.filterCountries(countryInput);
-      })
+      map((countryInput) => this.filterCountries(countryInput))
     );
   }
 

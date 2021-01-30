@@ -18,52 +18,15 @@
 <mat-sidenav-container class="page">
   <mat-sidenav #sidenav>
     <mat-nav-list>
-      <a
-        mat-list-item
-        [routerLink]="(logbookId$ | async) + '/qsos'"
-        (click)="sidenav.close()"
-        >QSO List</a
-      >
-      <a
-        mat-list-item
-        [routerLink]="(logbookId$ | async) + '/was'"
-        (click)="sidenav.close()"
-        >WAS Progress</a
-      >
-      <mat-divider></mat-divider>
-      <a
-        mat-list-item
-        [disabled]="qrzImportUrl == null"
-        (click)="importFromQrz(); sidenav.close()"
-      >
-        Import QRZ.com
-      </a>
-      <a
-        mat-list-item
-        [disabled]="lotwImportUrl == null"
-        (click)="importFromLotw(); sidenav.close()"
-      >
-        Import Logbook of the World
-      </a>
-      <a mat-list-item (click)="chooser.click(); sidenav.close()"
-        >Import ADIF file</a
-      >
-      <a mat-list-item (click)="exportAdi(); sidenav.close()"
-        >Export ADIF file</a
+      <mat-list-item disabled>Logbooks</mat-list-item>
+      <a mat-list-item [routerLink]="'/K0SWE/qsos'" (click)="sidenav.close()"
+        >K0SWE</a
       >
       <mat-divider></mat-divider>
       <a mat-list-item [routerLink]="'/credits'" (click)="sidenav.close()"
         >Credits</a
       >
     </mat-nav-list>
-    <input
-      #chooser
-      hidden
-      type="file"
-      accept=".adi,.adif"
-      (change)="importAdi($event)"
-    />
-    <a #download hidden></a>
   </mat-sidenav>
   <mat-sidenav-container class="content">
     <router-outlet></router-outlet>

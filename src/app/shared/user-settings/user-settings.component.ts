@@ -39,7 +39,8 @@ export class UserSettingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.settingsService.init();
+    // TODO: DO NOT SUBMIT
+    this.settingsService.init('K0SWE');
   }
 
   save(): void {

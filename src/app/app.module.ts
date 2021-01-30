@@ -18,6 +18,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImportExportService } from './shared/import-export/import-export.service';
+import { LogbookComponent } from './pages/logbook/logbook.component';
 import { LoginComponent } from './shared/login/login.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -38,6 +39,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgModule } from '@angular/core';
@@ -57,6 +59,7 @@ import { environment } from '../environments/environment';
     AvatarComponent,
     CreditsComponent,
     HomeComponent,
+    LogbookComponent,
     LoginComponent,
     QsoDetailComponent,
     QsoListComponent,
@@ -94,6 +97,7 @@ import { environment } from '../environments/environment';
     MatSnackBarModule,
     MatSortModule,
     MatTableModule,
+    MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
     ReactiveFormsModule,

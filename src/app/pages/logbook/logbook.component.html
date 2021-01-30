@@ -1,0 +1,28 @@
+<div class="logbook-header" fxLayout="row">
+  <h1>{{ logbookService.logbookId$ | async }} Logbook</h1>
+  <nav mat-tab-nav-bar backgroundColor="accent">
+    <a
+      mat-tab-link
+      *ngFor="let link of links"
+      [routerLink]="link.path"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [active]="rla.isActive"
+    >
+      {{ link.name }}
+    </a>
+  </nav>
+  <div fxFlex></div>
+  <button mat-icon-button color="accent" title="Logbook Settings">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</div>
+<input
+  #chooser
+  hidden
+  type="file"
+  accept=".adi,.adif"
+  (change)="importAdi($event)"
+/>
+<a #download hidden></a>
+<router-outlet></router-outlet>

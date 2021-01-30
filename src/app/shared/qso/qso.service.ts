@@ -55,9 +55,10 @@ export class QsoService {
         if (u == null) {
           return of([]);
         }
-        return this.firestore
-          .collection<Qso>(this.contactsPath())
-          .snapshotChanges();
+        const contactsCollection = this.firestore.collection<Qso>(
+          this.contactsPath()
+        );
+        return contactsCollection.snapshotChanges();
       })
     );
     const contacts = contactSnapshots.pipe(
@@ -68,8 +69,6 @@ export class QsoService {
 
   private contactsPath(): string {
     const path = 'logbooks/' + this.currentBook + '/contacts';
-    // tslint:disable-next-line:no-console
-    console.debug('path is ' + path);
     return path;
   }
 

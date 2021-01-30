@@ -1,0 +1,15 @@
+@import 'src/styles/theme';
+
+.logbook-header {
+  background-color: mat-color($kel-accent, 'default');
+}
+
+h1 {
+  color: mat-color($kel-primary, 'default-contrast');
+  padding: 8px 24px;
+  margin: 0;
+}
+
+mat-icon {
+  color: mat-color($kel-primary, 'default-contrast');
+}

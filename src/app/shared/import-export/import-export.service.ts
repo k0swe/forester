@@ -28,7 +28,7 @@ export class ImportExportService {
           null,
           { duration: 10000 }
         );
-        console.log('There was a problem importing the ADIF file\n', e);
+        console.log('There was a problem importing the ADIF file. ', e);
       }
     };
     fileReader.readAsText(file);

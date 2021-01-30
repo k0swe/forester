@@ -31,7 +31,8 @@ export class AvatarComponent {
       if (user == null) {
         return;
       }
-      this.settingsService.init();
+      // TODO: DO NOT SUBMIT
+      this.settingsService.init('K0SWE');
       this.settingsService.settings$.subscribe((settings) => {
         const url = `${settings.callsign}/qsos`;
         this.router.navigate([url]);

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Qso } from '../../qso';
 // @ts-ignore
 import moment from 'moment';
-import { ActivatedRoute } from '@angular/router';
+import { LogbookService } from '../logbook/logbook.service';
 
 interface State {
   name: string;
@@ -140,12 +140,13 @@ export class WasComponent implements OnInit, AfterViewInit {
     };
   }
 
-  constructor(private qsoService: QsoService, private route: ActivatedRoute) {}
+  constructor(
+    private logbookService: LogbookService,
+    private qsoService: QsoService
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) =>
-      this.qsoService.init(params.callsign)
-    );
+    this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
   }
 
   ngAfterViewInit(): void {

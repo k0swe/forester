@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { DxccRef } from '../../reference/dxcc';
 import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
+import { LogbookService } from '../logbook/logbook.service';
 import { MatButton } from '@angular/material/button';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,7 +14,6 @@ import { QsoDetailComponent } from '../../shared/qso-detail/qso-detail.component
 import { SelectionModel } from '@angular/cdk/collections';
 import { fromArray } from 'rxjs/internal/observable/fromArray';
 import { map, mergeAll } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'kel-qso-list',
@@ -42,15 +42,13 @@ export class QsoListComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
+    private logbookService: LogbookService,
     private qsoService: QsoService,
-    private route: ActivatedRoute,
     private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) =>
-      this.qsoService.init(params.callsign)
-    );
+    this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
     this.paginator.pageSize = 25;
     this.paginator.pageSizeOptions = [10, 25, 50, 100];
     this.selection.changed.subscribe((sel) => {

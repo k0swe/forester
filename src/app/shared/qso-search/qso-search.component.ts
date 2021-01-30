@@ -1,9 +1,9 @@
 import { AgentService } from '../agent/agent.service';
 import { Component, OnInit } from '@angular/core';
+import { LogbookService } from '../../pages/logbook/logbook.service';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { Observable, Subscription } from 'rxjs';
 import { QsoService } from '../qso/qso.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'kel-qso-search',
@@ -17,16 +17,14 @@ export class QsoSearchComponent implements OnInit {
 
   constructor(
     private agentService: AgentService,
-    private qsoService: QsoService,
-    private route: ActivatedRoute
+    private logbookService: LogbookService,
+    private qsoService: QsoService
   ) {
     this.wsjtxConnected$ = agentService.wsjtxState$;
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) =>
-      this.qsoService.init(params.callsign)
-    );
+    this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
   }
 
   changed(): void {
