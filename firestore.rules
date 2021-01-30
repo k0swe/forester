@@ -4,18 +4,18 @@ service cloud.firestore {
     match /{document=**} {
       allow read, write: if false;
     }
-  	match /users/{userid} {
-    	allow read, write: if request.auth.uid == userid;
-    	match /{document=**} {
-      	allow read, write: if request.auth.uid == userid;
-    	}
+    match /users/{userid} {
+      allow read, write: if request.auth.uid == userid;
+      match /{document=**} {
+        allow read, write: if request.auth.uid == userid;
+      }
     }
     match /logbooks/{logbookId} {
       allow create: if request.auth.uid in request.resource.data.editors;
       allow read, write: if request.auth.uid in resource.data.editors;
-    	match /{document=**} {
-      	allow read, write: if request.auth.uid in resource.data.editors;
-    	}
+      match /{document=**} {
+        allow read, write: if request.auth.uid in get(/databases/$(database)/documents/logbooks/$(logbookId)).data.editors;
+      }
     }
   }
 }

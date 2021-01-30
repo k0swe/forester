@@ -53,8 +53,7 @@ describe('Firestore rules', () => {
     expect().nothing();
   });
 
-  // TODO: for some reason, this causes firestore emulator to time out
-  xit('should allow a user to write to their own collection', async () => {
+  it('should allow a user to write to their own collection', async () => {
     const db = getFirestore(MY_AUTH);
     const myDoc = db.collection('users').doc(MY_UID);
     await myDoc.set({ callsign: 'K0SWE' });
@@ -91,16 +90,14 @@ describe('Firestore rules', () => {
     expect().nothing();
   });
 
-  // TODO: for some reason, this causes firestore emulator to time out
-  xit('should allow a user to create a logbook', async () => {
+  it('should allow a user to create a logbook', async () => {
     const db = getFirestore(MY_AUTH);
     const myDoc = db.collection('logbooks').doc('K0SWE');
     await assertSucceeds(myDoc.set({ editors: [MY_UID] }));
     expect().nothing();
   });
 
-  // TODO: for some reason, this causes firestore emulator to time out
-  xit('should allow an editor to read a logbook', async () => {
+  it('should allow an editor to read a logbook', async () => {
     await getAdminFirestore()
       .collection('logbooks')
       .doc('K0SWE')
@@ -109,6 +106,21 @@ describe('Firestore rules', () => {
     const db = getFirestore(MY_AUTH);
     const myDoc = db.collection('logbooks').doc('K0SWE');
     await assertSucceeds(myDoc.get());
+    expect().nothing();
+  });
+
+  it('should allow an editor to read contacts in a logbook', async () => {
+    await getAdminFirestore()
+      .collection('logbooks')
+      .doc('K0SWE')
+      .set({ editors: [MY_UID] });
+
+    const db = getFirestore(MY_AUTH);
+    const contacts = db
+      .collection('logbooks')
+      .doc('K0SWE')
+      .collection('contacts');
+    await assertSucceeds(contacts.get());
     expect().nothing();
   });
 });
