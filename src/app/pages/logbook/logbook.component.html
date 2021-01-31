@@ -13,9 +13,22 @@
     </a>
   </nav>
   <div fxFlex></div>
-  <button mat-icon-button color="accent" title="Logbook Settings">
+  <button
+    mat-icon-button
+    color="accent"
+    title="Logbook Settings"
+    [matMenuTriggerFor]="logbookMenu"
+  >
     <mat-icon>more_vert</mat-icon>
   </button>
+  <mat-menu #logbookMenu="matMenu">
+    <button mat-menu-item (click)="chooser.click()">Import ADIF file</button>
+    <button mat-menu-item (click)="importFromQrz()">Import QRZ.com</button>
+    <button mat-menu-item (click)="importFromLotw()">
+      Import Logbook of the World
+    </button>
+    <button mat-menu-item (click)="exportAdi()">Export ADIF file</button>
+  </mat-menu>
 </div>
 <input
   #chooser

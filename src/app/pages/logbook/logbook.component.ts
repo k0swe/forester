@@ -21,7 +21,6 @@ export class LogbookComponent implements OnInit {
 
   qrzImportUrl = environment.functionsBase + 'ImportQrz';
   lotwImportUrl = environment.functionsBase + 'ImportLotw';
-  logbookId$ = new BehaviorSubject<string>('N0CALL');
   userJwt$ = new BehaviorSubject<string>('N0CALL');
   @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
 
@@ -41,17 +40,25 @@ export class LogbookComponent implements OnInit {
     this.authService.user().subscribe((user) => {
       if (user != null) {
         user.getIdToken(false).then((token) => this.userJwt$.next(token));
+      } else {
+        this.userJwt$.next(null);
       }
     });
   }
 
   importFromQrz(): void {
-    const url = this.qrzImportUrl + '?logbookId=' + this.logbookId$.getValue();
+    const url =
+      this.qrzImportUrl +
+      '?logbookId=' +
+      this.logbookService.logbookId$.getValue();
     this.importWithCloudFunc('QRZ.com', url.toString());
   }
 
   importFromLotw(): void {
-    const url = this.lotwImportUrl + '?logbookId=' + this.logbookId$.getValue();
+    const url =
+      this.lotwImportUrl +
+      '?logbookId=' +
+      this.logbookService.logbookId$.getValue();
     this.importWithCloudFunc('LotW', url);
   }
 
