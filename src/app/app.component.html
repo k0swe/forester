@@ -19,13 +19,14 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <mat-list-item disabled>Logbooks</mat-list-item>
-      <a mat-list-item [routerLink]="'/K0SWE/qsos'" (click)="sidenav.close()"
-        >K0SWE</a
-      >
+      <!-- TODO: DO NOT SUBMIT -->
+      <a mat-list-item [routerLink]="'/K0SWE/qsos'" (click)="sidenav.close()">
+        K0SWE
+      </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLink]="'/credits'" (click)="sidenav.close()"
-        >Credits</a
-      >
+      <a mat-list-item [routerLink]="'/credits'" (click)="sidenav.close()">
+        Credits
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-container class="content">
