@@ -6,7 +6,7 @@
   >
     <mat-icon>menu</mat-icon>
   </button>
-  <img class="logo" src="assets/pine-tree.svg" />
+  <img class="logo" alt="App logo" src="assets/pine-tree.svg" />
   <h1 class="app-title mat-display-1">Forester</h1>
   <p class="app-subtitle mat-subheading-2" fxHide.lt-md>
     sustainably manage your ham radio logs
@@ -18,10 +18,16 @@
 <mat-sidenav-container class="page">
   <mat-sidenav #sidenav>
     <mat-nav-list>
-      <mat-list-item disabled>Logbooks</mat-list-item>
-      <!-- TODO: DO NOT SUBMIT -->
-      <a mat-list-item [routerLink]="'/K0SWE/qsos'" (click)="sidenav.close()">
-        K0SWE
+      <mat-list-item disabled>Starred Logbooks</mat-list-item>
+      <a
+        mat-list-item
+        *ngFor="
+          let star of (userSettingsService.settings$ | async).starredLogbooks
+        "
+        [routerLink]="'/' + star + '/qsos'"
+        (click)="sidenav.close()"
+      >
+        {{ star }}
       </a>
       <mat-divider></mat-divider>
       <a mat-list-item [routerLink]="'/credits'" (click)="sidenav.close()">

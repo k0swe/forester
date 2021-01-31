@@ -12,7 +12,7 @@ import { map, switchMap } from 'rxjs/operators';
 export class UserSettingsService {
   readonly updateSecretsUrl = environment.functionsBase + 'UpdateSecret';
   settings$ = new BehaviorSubject<UserSettings>({});
-  logbookId = null;
+  started = false;
   private userJwt: string;
 
   constructor(
@@ -21,11 +21,11 @@ export class UserSettingsService {
     private http: HttpClient
   ) {}
 
-  public init(logbookId: string): void {
-    if (this.logbookId === logbookId) {
+  public init(): void {
+    if (this.started === true) {
       return;
     }
-    this.logbookId = logbookId;
+    this.started = true;
     const uid$ = this.authService.user().pipe(
       map((user) => {
         if (user == null) {
@@ -86,7 +86,9 @@ export class UserSettingsService {
     if (!dataToSend) {
       return of(null);
     }
-    const url = this.updateSecretsUrl + '?logbookId=' + this.logbookId;
+    // TODO: DO NOT SUBMIT
+    const url = this.updateSecretsUrl + '?logbookId=N0CALL';
+    // this.logbookId;
     return this.http.post(url, formData, {
       headers: {
         Authorization: 'Bearer ' + this.userJwt,
@@ -97,4 +99,5 @@ export class UserSettingsService {
 
 interface UserSettings {
   callsign?: string;
+  starredLogbooks?: Array<string>;
 }
