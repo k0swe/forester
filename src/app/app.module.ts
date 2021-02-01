@@ -44,6 +44,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgModule } from '@angular/core';
+import { PrivacyAndTermsComponent } from './pages/privacy-and-terms/privacy-and-terms.component';
 import { QsoDetailComponent } from './shared/qso-detail/qso-detail.component';
 import { QsoListComponent } from './pages/qso-list/qso-list.component';
 import { QsoSearchComponent } from './shared/qso-search/qso-search.component';
@@ -64,6 +65,7 @@ import { environment } from '../environments/environment';
     LogbookComponent,
     LogbookSettingsComponent,
     LoginComponent,
+    PrivacyAndTermsComponent,
     QsoDetailComponent,
     QsoListComponent,
     QsoSearchComponent,
