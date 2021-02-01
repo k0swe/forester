@@ -39,7 +39,7 @@ export class AvatarComponent {
     });
   }
 
-  settings(): void {
+  userSettings(): void {
     const dialogRef = this.dialog.open(UserSettingsComponent, {
       width: '500px',
     });

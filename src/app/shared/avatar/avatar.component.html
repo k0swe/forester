@@ -4,7 +4,7 @@
   </button>
   <mat-menu #accountMenu="matMenu">
     <button mat-menu-item disabled>{{ user.email }}</button>
-    <button mat-menu-item (click)="settings()">Settings</button>
+    <button mat-menu-item (click)="userSettings()">User Settings</button>
     <button mat-menu-item (click)="authService.logout()">Logout</button>
   </mat-menu>
 </div>

@@ -1,12 +1,14 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LogbookService } from './logbook.service';
-import { environment } from '../../../environments/environment';
-import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../../shared/auth/auth.service';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ImportExportService } from '../../shared/import-export/import-export.service';
+import { LogbookService } from './logbook.service';
+import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-settings.component';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'kel-logbook',
@@ -26,6 +28,7 @@ export class LogbookComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
+    private dialog: MatDialog,
     private http: HttpClient,
     private importExportService: ImportExportService,
     private snackBar: MatSnackBar,
@@ -42,6 +45,19 @@ export class LogbookComponent implements OnInit {
         user.getIdToken(false).then((token) => this.userJwt$.next(token));
       } else {
         this.userJwt$.next(null);
+      }
+    });
+  }
+
+  logbookSettings(): void {
+    const dialogRef = this.dialog.open(LogbookSettingsComponent, {
+      width: '500px',
+    });
+    dialogRef.afterClosed().subscribe((dialogReturn) => {
+      if (dialogReturn instanceof Observable) {
+        (dialogReturn as Observable<void>).subscribe(() =>
+          this.snackBar.open('Saved logbook settings', null, { duration: 5000 })
+        );
       }
     });
   }

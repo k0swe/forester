@@ -46,18 +46,11 @@ export class UserSettingsComponent implements OnInit {
     const formValue = this.userSettingsForm.value;
     this.agentService.setHost(formValue.agentHost);
     this.agentService.setPort(formValue.agentPort);
-    const secretsObs = this.settingsService.setSecrets(
-      new Map([
-        ['lotw_username', formValue.lotwUser],
-        ['lotw_password', formValue.lotwPass],
-        ['qrz_logbook_api_key', formValue.qrzLogbookApiKey],
-      ])
-    );
     const updateObs = this.settingsService
       .set({
         callsign: formValue.callsign,
       })
       .pipe(take(1));
-    this.dialog.close(forkJoin([secretsObs, updateObs]));
+    this.dialog.close(forkJoin([updateObs]));
   }
 }

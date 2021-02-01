@@ -19,6 +19,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImportExportService } from './shared/import-export/import-export.service';
 import { LogbookComponent } from './pages/logbook/logbook.component';
+import { LogbookSettingsComponent } from './shared/logbook-settings/logbook-settings.component';
 import { LoginComponent } from './shared/login/login.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -47,6 +48,7 @@ import { QsoDetailComponent } from './shared/qso-detail/qso-detail.component';
 import { QsoListComponent } from './pages/qso-list/qso-list.component';
 import { QsoSearchComponent } from './shared/qso-search/qso-search.component';
 import { QsoService } from './shared/qso/qso.service';
+import { SecretService } from './shared/secret/secret.service';
 import { UserSettingsComponent } from './shared/user-settings/user-settings.component';
 import { UserSettingsService } from './shared/user-settings/user-settings.service';
 import { WasComponent } from './pages/was/was.component';
@@ -60,6 +62,7 @@ import { environment } from '../environments/environment';
     CreditsComponent,
     HomeComponent,
     LogbookComponent,
+    LogbookSettingsComponent,
     LoginComponent,
     QsoDetailComponent,
     QsoListComponent,
@@ -106,6 +109,7 @@ import { environment } from '../environments/environment';
     AuthService,
     ImportExportService,
     QsoService,
+    SecretService,
     UserSettingsService,
     {
       provide: FIRESTORE_SETTINGS,
