@@ -5,6 +5,7 @@ import { UserSettingsService } from '../user-settings/user-settings.service';
 import { Observable } from 'rxjs';
 import firebase from 'firebase';
 import { take, takeWhile } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'kel-login',
@@ -14,8 +15,8 @@ import { take, takeWhile } from 'rxjs/operators';
 export class LoginComponent {
   constructor(
     private authService: AuthService,
-    private settingsService: UserSettingsService,
     private router: Router,
+    private snackBarService: MatSnackBar,
     private userSettingsService: UserSettingsService
   ) {}
 
@@ -30,19 +31,44 @@ export class LoginComponent {
   }
 
   private postLogin(loginObs: Observable<firebase.auth.UserCredential>): void {
-    loginObs.pipe(take(1)).subscribe((user) => {
-      if (user == null) {
-        return;
-      }
-      this.userSettingsService.init();
-      this.userSettingsService.settings$
-        .pipe(takeWhile((settings) => settings.callsign == null, true))
-        .subscribe((settings) => {
-          if (settings.callsign != null) {
-            const url = `/${settings.callsign}/qsos`;
-            this.router.navigate([url]);
-          }
-        });
+    loginObs.pipe(take(1)).subscribe({
+      next: (user) => {
+        if (user == null) {
+          return;
+        }
+        this.userSettingsService.init();
+        this.userSettingsService.settings$
+          .pipe(takeWhile((settings) => settings.callsign == null, true))
+          .subscribe((settings) => {
+            if (settings.callsign != null) {
+              const url = `/${settings.callsign}/qsos`;
+              this.router.navigate([url]);
+            }
+          });
+      },
+      error: (err) => {
+        switch (err.code) {
+          case 'auth/popup-closed-by-user':
+          case 'auth/cancelled-popup-request':
+            break;
+          case 'auth/account-exists-with-different-credential':
+            this.snackBarService.open(
+              'The Forester account for ' +
+                err.email +
+                ' is associated with a different login provider.',
+              null,
+              { duration: 10000 }
+            );
+            break;
+          default:
+            console.warn('Problem logging in', err);
+            this.snackBarService.open(
+              'There was a problem logging in, see the JavaScript console for details.',
+              null,
+              { duration: 10000 }
+            );
+        }
+      },
     });
   }
 }
