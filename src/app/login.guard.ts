@@ -8,7 +8,7 @@ import {
 import { AuthService } from './shared/auth/auth.service';
 import { Injectable } from '@angular/core';
 import { interval, Observable, of } from 'rxjs';
-import { mapTo } from 'rxjs/operators';
+import { mapTo, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -24,11 +24,14 @@ export class LoginGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authService.user$.pipe((u) => {
-      if (u != null) {
-        return of(true);
-      }
-      return interval(1000).pipe(mapTo(false));
-    });
+    return this.authService.user$.pipe(
+      switchMap((u) => {
+        if (u != null) {
+          return of(true);
+        }
+        // Wait 500ms for auth to init, and redirect to login after that
+        return interval(500).pipe(mapTo(this.router.createUrlTree(['/login'])));
+      })
+    );
   }
 }
