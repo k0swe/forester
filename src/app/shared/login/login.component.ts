@@ -52,13 +52,19 @@ export class LoginComponent {
           case 'auth/cancelled-popup-request':
             break;
           case 'auth/account-exists-with-different-credential':
-            this.snackBarService.open(
-              'The Forester account for ' +
-                err.email +
-                ' is associated with a different login provider.',
-              null,
-              { duration: 10000 }
-            );
+            this.authService
+              .getLoginProvidersFor(err.email)
+              .subscribe((providers) => {
+                this.snackBarService.open(
+                  'The Forester account for ' +
+                    err.email +
+                    ' is associated with a different login provider. Please log in with ' +
+                    providers[0] +
+                    '.',
+                  null,
+                  { duration: 10000 }
+                );
+              });
             break;
           default:
             console.warn('Problem logging in', err);

@@ -1,9 +1,8 @@
 import firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { BehaviorSubject, from, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, from, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { fromPromise } from 'rxjs/internal-compatibility';
-import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -36,5 +35,9 @@ export class AuthService {
   /** @deprecated Use user$ instead */
   public user(): Observable<firebase.User | null> {
     return this.user$;
+  }
+
+  public getLoginProvidersFor(email: string): Observable<Array<string>> {
+    return fromPromise(this.afa.fetchSignInMethodsForEmail(email));
   }
 }
