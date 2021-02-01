@@ -13,13 +13,6 @@
     <mat-icon color="accent">person</mat-icon>
   </button>
   <mat-menu #loginMenu="matMenu">
-    <button mat-menu-item (click)="login()">
-      <img
-        class="vertical-middle"
-        src="/assets/btn_google_light_normal_ios.svg"
-        alt="Sign in with Google"
-      />
-      <span class="vertical-middle">Sign in with Google</span>
-    </button>
+    <div mat-menu-item routerLink="/login">Log In</div>
   </mat-menu>
 </ng-template>

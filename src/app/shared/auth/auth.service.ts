@@ -15,9 +15,15 @@ export class AuthService {
     });
   }
 
-  public login(): Observable<firebase.auth.UserCredential> {
+  public loginGoogle(): Observable<firebase.auth.UserCredential> {
     return from(
       this.afa.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    );
+  }
+
+  public loginFacebook(): Observable<firebase.auth.UserCredential> {
+    return from(
+      this.afa.signInWithPopup(new firebase.auth.FacebookAuthProvider())
     );
   }
 

@@ -2,12 +2,13 @@
   <mat-card fxFlex>
     <mat-card-title>Log In to Forester</mat-card-title>
     <mat-card-content fxLayout="column">
-      <button mat-stroked-button (click)="login()">
-        <img
-          src="/assets/btn_google_light_normal_ios.svg"
-          alt="Sign in with Google"
-        />
+      <button mat-stroked-button (click)="loginGoogle()">
+        <img class="logo" src="/assets/google-logo.svg" alt="Google Logo" />
         <span>Sign in with Google</span>
+      </button>
+      <button disabled mat-stroked-button (click)="loginFacebook()">
+        <img class="logo" src="/assets/facebook-logo.svg" alt="Facebook Logo" />
+        <span class="vertical-middle">Log in with Facebook</span>
       </button>
     </mat-card-content>
   </mat-card>
