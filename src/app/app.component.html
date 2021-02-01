@@ -33,6 +33,24 @@
       <a mat-list-item [routerLink]="'/credits'" (click)="sidenav.close()">
         Credits
       </a>
+      <a
+        mat-list-item
+        href="https://app.termly.io/document/terms-of-use-for-website/c7a51214-2237-4f0c-818d-915ab807099f"
+        target="_blank"
+        (click)="sidenav.close()"
+      >
+        Terms of Use
+        <mat-icon>open_in_new</mat-icon>
+      </a>
+      <a
+        mat-list-item
+        href="https://app.termly.io/document/privacy-policy/481946de-fdb7-4349-bbd2-ee59b8371894"
+        target="_blank"
+        (click)="sidenav.close()"
+      >
+        Privacy Policy
+        <mat-icon>open_in_new</mat-icon>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-container class="content">
