@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { UserSettingsComponent } from '../user-settings/user-settings.component';
 import { UserSettingsService } from '../user-settings/user-settings.service';
+import { take, takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'kel-avatar',
@@ -19,24 +20,38 @@ export class AvatarComponent {
   constructor(
     public authService: AuthService,
     private dialog: MatDialog,
-    private settingsService: UserSettingsService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private userSettingsService: UserSettingsService
   ) {
     this.user$ = this.authService.user$;
   }
 
   login(): void {
-    this.authService.login().subscribe((user) => {
-      if (user == null) {
-        return;
-      }
-      this.settingsService.init();
-      this.settingsService.settings$.subscribe((settings) => {
-        const url = `${settings.callsign}/qsos`;
-        this.router.navigate([url]);
+    this.authService
+      .login()
+      .pipe(take(1))
+      .subscribe((user) => {
+        if (user == null) {
+          return;
+        }
+        this.userSettingsService.init();
+        this.userSettingsService.settings$
+          .pipe(takeWhile((settings) => settings.callsign == null, true))
+          .subscribe((settings) => {
+            if (settings.callsign != null) {
+              const url = `/${settings.callsign}/qsos`;
+              this.router.navigate([url]);
+            }
+          });
       });
-    });
+  }
+
+  logout(): void {
+    this.authService
+      .logout()
+      .pipe(take(1))
+      .subscribe(() => this.router.navigate(['/']));
   }
 
   userSettings(): void {

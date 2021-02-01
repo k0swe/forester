@@ -5,7 +5,7 @@
   <mat-menu #accountMenu="matMenu">
     <button mat-menu-item disabled>{{ user.email }}</button>
     <button mat-menu-item (click)="userSettings()">User Settings</button>
-    <button mat-menu-item (click)="authService.logout()">Logout</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
   </mat-menu>
 </div>
 <ng-template #showLogin>
@@ -13,7 +13,7 @@
     <mat-icon color="accent">person</mat-icon>
   </button>
   <mat-menu #loginMenu="matMenu">
-    <button mat-menu-item (click)="authService.login()">
+    <button mat-menu-item (click)="login()">
       <img
         class="vertical-middle"
         src="/assets/btn_google_light_normal_ios.svg"
