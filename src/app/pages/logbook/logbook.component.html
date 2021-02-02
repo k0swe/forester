@@ -1,8 +1,11 @@
 <div class="logbook-header" fxLayout="row">
-  <h1>{{ logbookService.logbookId$ | async }} Logbook</h1>
+  <h1>
+    {{ logbookService.logbookId$ | async }} <span fxHide.lt-md>Logbook</span>
+  </h1>
   <nav mat-tab-nav-bar backgroundColor="accent">
     <a
       mat-tab-link
+      class="logbook-tab"
       *ngFor="let link of links"
       [routerLink]="link.path"
       routerLinkActive

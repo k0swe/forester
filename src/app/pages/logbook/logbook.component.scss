@@ -10,6 +10,12 @@ h1 {
   margin: 0;
 }
 
+.logbook-tab {
+  background-color: mat-color($kel-accent, 'default');
+  color: mat-color($kel-primary, 'default-contrast');
+  font-size: mat-font-size($kel-typography, title);
+}
+
 mat-icon {
   color: mat-color($kel-primary, 'default-contrast');
 }

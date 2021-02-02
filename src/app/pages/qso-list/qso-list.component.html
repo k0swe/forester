@@ -8,7 +8,6 @@
     <kel-qso-search></kel-qso-search>
     <div fxFlex></div>
     <div fxLayout="row">
-      <mat-chip-list></mat-chip-list>
       <button
         mat-raised-button
         color="warn"
@@ -83,9 +82,11 @@
       <ng-container matColumnDef="band">
         <th mat-header-cell *matHeaderCellDef>Band</th>
         <td mat-cell *matCellDef="let fbq">
-          <mat-chip [class]="'band band-' + fbq.qso.band">
-            {{ fbq.qso.band }}
-          </mat-chip>
+          <mat-chip-list aria-label="Band">
+            <mat-chip [class]="'band band-' + fbq.qso.band">
+              {{ fbq.qso.band }}
+            </mat-chip>
+          </mat-chip-list>
         </td>
       </ng-container>
       <ng-container matColumnDef="freq">
