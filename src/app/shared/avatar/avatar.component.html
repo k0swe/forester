@@ -1,5 +1,9 @@
 <div *ngIf="user$ | async as user; else showLogin">
-  <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="accountMenu"
+    aria-label="User Menu"
+  >
     <img class="avatar" [src]="user.photoURL" [alt]="user.displayName" />
   </button>
   <mat-menu #accountMenu="matMenu">
