@@ -27,6 +27,10 @@ table {
   font-family: mat-font-family($kel-mono-typography);
 }
 
+.band {
+  font-size: mat-font-size($kel-mono-typography, caption);
+}
+
 .band-2200m {
   background-color: #ff4500;
   color: black;
