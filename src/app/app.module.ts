@@ -108,6 +108,7 @@ import { environment } from '../environments/environment';
     MatTooltipModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
+      registrationStrategy: 'registerImmediately',
     }),
     ReactiveFormsModule,
   ],
