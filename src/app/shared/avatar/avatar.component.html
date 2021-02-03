@@ -13,7 +13,11 @@
   </mat-menu>
 </div>
 <ng-template #showLogin>
-  <button mat-icon-button [matMenuTriggerFor]="loginMenu">
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="loginMenu"
+    aria-label="User Menu"
+  >
     <mat-icon color="accent">person</mat-icon>
   </button>
   <mat-menu #loginMenu="matMenu">
