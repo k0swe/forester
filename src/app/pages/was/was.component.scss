@@ -2,15 +2,14 @@
 
 mat-card {
   margin: 8px;
-  min-height: 200px;
+  height: calc(100% - 96px);
 }
 
 mat-form-field {
   padding-right: 8px;
 }
 
-google-map {
-  width: 100%;
-  min-height: 200px;
-  height: 500px;
+mat-card-content {
+  height: calc(100% - 96px);
+  border: 1px solid gray;
 }
