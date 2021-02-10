@@ -82,6 +82,17 @@ export class QsoDetailComponent implements OnInit {
       gridSquare: undefined,
     },
     loggingStation: {
+      stationCall: undefined,
+      opName: undefined,
+      latitude: undefined,
+      longitude: undefined,
+      city: undefined,
+      state: undefined,
+      country: undefined,
+      continent: undefined,
+      gridSquare: undefined,
+      rig: undefined,
+      antenna: undefined,
       power: undefined,
     },
   };
