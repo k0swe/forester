@@ -1,10 +1,10 @@
 import { Band } from '../../reference/band';
-import { BehaviorSubject, interval, ReplaySubject, Subject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Qso } from '../../qso';
 import { QsoService } from '../qso/qso.service';
-import { debounceTime } from 'rxjs/operators';
-import { webSocket } from 'rxjs/webSocket';
+import { debounceTime, delay, retryWhen, tap } from 'rxjs/operators';
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 
 @Injectable({
   providedIn: 'root',
@@ -36,13 +36,9 @@ export class AgentService {
 
   private agentHost: string;
   private agentPort: number;
+  private myWebSocket: WebSocketSubject<Array<object>>;
 
-  constructor(private qsoService: QsoService) {
-    // if we haven't heard from WSJT-X in 15 seconds, consider it down
-    this.wsjtxState$
-      .pipe(debounceTime(15000))
-      .subscribe(() => this.wsjtxState$.next(false));
-  }
+  constructor(private qsoService: QsoService) {}
 
   public init(): void {
     this.agentHost = this.getHost();
@@ -53,6 +49,10 @@ export class AgentService {
     if (isNaN(this.agentPort)) {
       this.setPort(this.defaultAgentPort);
     }
+    // if we haven't heard from WSJT-X in 15 seconds, consider it down
+    this.wsjtxState$
+      .pipe(debounceTime(15000))
+      .subscribe(() => this.wsjtxState$.next(false));
     this.wsjtxQsoLogged$.subscribe((qsoLogged) => {
       // Dates come across as strings; convert to objects
       qsoLogged.dateTimeOn = new Date(qsoLogged.dateTimeOn);
@@ -64,32 +64,39 @@ export class AgentService {
       this.wsjtxHeartbeat$.next(null);
       this.wsjtxStatus$.next(null);
     });
-    this.connectedState$.subscribe((connected) => {
-      if (!connected) {
-        interval(60000).subscribe(() => this.connect());
-      }
-    });
     this.connect();
   }
 
   public connect(): void {
+    if (this.myWebSocket) {
+      this.myWebSocket.unsubscribe();
+    }
     this.agentHost = this.getHost();
     this.agentPort = this.getPort();
     const protocol = this.agentHost === 'localhost' ? 'ws://' : 'wss://';
-    const myWebSocket = webSocket<Array<object>>({
+    this.myWebSocket = webSocket<Array<object>>({
       url: protocol + this.agentHost + ':' + this.agentPort + '/websocket',
       // For issue #138, support multiple JSON docs per message
       deserializer: (e) => e.data.split('\n').map((m) => JSON.parse(m)),
     });
-    this.connectedState$.next(true);
-    myWebSocket.subscribe(
-      (msgs) => msgs.map((msg) => this.handleMessage(msg)),
-      (error) => {
-        console.error('Agent died. ' + error);
-        this.connectedState$.next(false);
-      },
-      () => this.connectedState$.next(false)
-    );
+    this.myWebSocket
+      .pipe(
+        retryWhen((errors) =>
+          // retry the websocket connection after 10 seconds
+          errors.pipe(
+            tap(() => this.connectedState$.next(false)),
+            delay(10000)
+          )
+        )
+      )
+      .subscribe({
+        next: (msgs) => {
+          this.connectedState$.next(true);
+          msgs.map((msg) => this.handleMessage(msg));
+        },
+        error: (error) => this.connectedState$.next(false),
+        complete: () => this.connectedState$.next(false),
+      });
   }
 
   private handleMessage(msg: any): void {
