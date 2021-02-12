@@ -32,7 +32,20 @@ export class UserSettingsService {
             .valueChanges();
         })
       )
-      .subscribe((settings) => this.settings$.next(settings));
+      .subscribe((settings) => {
+        if (settings) {
+          this.settings$.next(settings);
+        } else {
+          this.createUserDocument();
+        }
+      });
+  }
+
+  private createUserDocument(): void {
+    const u = this.authService.user$.getValue();
+    this.firestore
+      .doc<UserSettings>('users/' + u.uid)
+      .set({ starredLogbooks: [] });
   }
 
   public settings(): Observable<UserSettings> {
