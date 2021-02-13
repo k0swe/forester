@@ -1,7 +1,7 @@
 <h2 mat-dialog-title>User Settings</h2>
 <mat-dialog-content>
   <form [formGroup]="userSettingsForm">
-    <div>
+    <div fxLayout="row" class="row">
       <mat-form-field appearance="standard">
         <mat-label>My Callsign</mat-label>
         <input
@@ -11,6 +11,14 @@
           formControlName="callsign"
         />
       </mat-form-field>
+    </div>
+    <div>
+      Use
+      <a href="https://github.com/k0swe/kel-agent/releases/latest">
+        kel-agent
+        <mat-icon>open_in_new</mat-icon>
+      </a>
+      to connect to ham software on your local machine.
     </div>
     <div fxLayout="row" class="row">
       <mat-form-field fxFlex appearance="standard">
