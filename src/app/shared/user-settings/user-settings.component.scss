@@ -12,6 +12,10 @@
   width: 100%;
 }
 
+mat-icon {
+  font-size: mat-font-size($kel-typography, body-1);
+}
+
 mat-form-field.ng-dirty {
   color: mat-color($kel-accent, 800);
 }
