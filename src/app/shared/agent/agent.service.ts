@@ -1,10 +1,10 @@
 import { Band } from '../../reference/band';
-import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subject, Subscription } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Qso } from '../../qso';
 import { QsoService } from '../qso/qso.service';
 import { debounceTime, delay, retryWhen, tap } from 'rxjs/operators';
-import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { webSocket } from 'rxjs/webSocket';
 
 @Injectable({
   providedIn: 'root',
@@ -36,7 +36,7 @@ export class AgentService {
 
   private agentHost: string;
   private agentPort: number;
-  private myWebSocket: WebSocketSubject<Array<object>>;
+  private agentWebsocketSubscription: Subscription;
 
   constructor(private qsoService: QsoService) {}
 
@@ -68,18 +68,18 @@ export class AgentService {
   }
 
   public connect(): void {
-    if (this.myWebSocket) {
-      this.myWebSocket.unsubscribe();
+    if (this.agentWebsocketSubscription) {
+      this.agentWebsocketSubscription.unsubscribe();
     }
     this.agentHost = this.getHost();
     this.agentPort = this.getPort();
     const protocol = this.agentHost === 'localhost' ? 'ws://' : 'wss://';
-    this.myWebSocket = webSocket<Array<object>>({
+    const ws = webSocket<Array<object>>({
       url: protocol + this.agentHost + ':' + this.agentPort + '/websocket',
       // For issue #138, support multiple JSON docs per message
       deserializer: (e) => e.data.split('\n').map((m) => JSON.parse(m)),
     });
-    this.myWebSocket
+    this.agentWebsocketSubscription = ws
       .pipe(
         retryWhen((errors) =>
           // retry the websocket connection after 10 seconds
