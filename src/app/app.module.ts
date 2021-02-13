@@ -43,6 +43,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { NewLogbookDialogComponent } from './shared/new-logbook-dialog/new-logbook-dialog.component';
 import { NgModule } from '@angular/core';
 import { PrivacyAndTermsComponent } from './pages/privacy-and-terms/privacy-and-terms.component';
 import { QsoDetailComponent } from './shared/qso-detail/qso-detail.component';
@@ -66,6 +67,7 @@ import { environment } from '../environments/environment';
     LogbookComponent,
     LogbookSettingsComponent,
     LoginComponent,
+    NewLogbookDialogComponent,
     PrivacyAndTermsComponent,
     QsoDetailComponent,
     QsoListComponent,

@@ -16,4 +16,28 @@
     them for years to come.
   </mat-card-content>
 </mat-card>
-<kel-login></kel-login>
+
+<kel-login *ngIf="!(authService.user$ | async); else loggedIn"></kel-login>
+
+<ng-template #loggedIn>
+  <mat-card>
+    <mat-card-title>Your Starred Logbooks</mat-card-title>
+    <mat-card-content>
+      <button
+        mat-raised-button
+        color="primary"
+        *ngFor="
+          let star of (userSettingsService.settings$ | async).starredLogbooks
+        "
+        [routerLink]="'/' + star + '/qsos'"
+      >
+        {{ star }}
+      </button>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-stroked-button color="accent" (click)="createLogbook()">
+        Create New Logbook
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>
