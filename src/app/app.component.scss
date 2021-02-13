@@ -19,7 +19,20 @@
   margin-right: 16px;
 }
 
-.app-title {
+a.app-title {
+  display: contents;
+  text-decoration: none;
+
+  :hover {
+    text-decoration: none;
+  }
+
+  :visited {
+    text-decoration: none;
+  }
+}
+
+h1.app-title {
   background-color: mat-color($kel-primary, 'default');
   color: mat-color($kel-primary, 'default-contrast');
   margin: 0 0 0 0;
