@@ -79,6 +79,7 @@ export class AgentService {
       // For issue #138, support multiple JSON docs per message
       deserializer: (e) => e.data.split('\n').map((m) => JSON.parse(m)),
     });
+    this.connectedState$.next(true);
     this.agentWebsocketSubscription = ws
       .pipe(
         retryWhen((errors) =>
