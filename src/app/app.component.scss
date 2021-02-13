@@ -39,7 +39,8 @@
 }
 
 a mat-icon {
-  font-size: mat-font-size($kel-typography, subheading-2);
+  display: inline;
+  font-size: inherit;
 }
 
 .page {

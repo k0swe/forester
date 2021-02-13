@@ -13,7 +13,8 @@
 }
 
 mat-icon {
-  font-size: mat-font-size($kel-typography, body-1);
+  display: inline;
+  font-size: inherit;
 }
 
 mat-form-field.ng-dirty {

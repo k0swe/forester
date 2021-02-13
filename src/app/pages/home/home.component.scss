@@ -1,3 +1,5 @@
+@import 'src/styles/theme';
+
 mat-card {
   margin: 8px auto;
   max-width: 700px;
@@ -5,4 +7,9 @@ mat-card {
 
 .app-name {
   font-style: italic;
+}
+
+mat-icon {
+  display: inline;
+  font-size: inherit;
 }
