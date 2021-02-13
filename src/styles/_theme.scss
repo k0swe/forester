@@ -23,3 +23,8 @@ $kel-mono-typography: mat-typography-config(
   $font-family: 'DM Mono, monospace',
   $body-2: mat-typography-level(inherit, inherit, 600),
 );
+
+$kel-fancy-typography: mat-typography-config(
+  $font-family: 'Tinos, Times New Roman, serif',
+  $body-2: mat-typography-level(inherit, inherit, 700),
+);
