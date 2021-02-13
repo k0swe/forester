@@ -10,9 +10,9 @@ mat-card {
 }
 
 blockquote {
-  font-family: mat-font-family($kel-fancy-typography);
-  font-size: mat-font-size($kel-fancy-typography, body-2);
-  font-weight: mat-font-weight($kel-fancy-typography, body-2);
+  font-family: mat-font-family($kel-serif-typography);
+  font-size: mat-font-size($kel-serif-typography, subheading-2);
+  font-weight: mat-font-weight($kel-serif-typography, subheading-2);
   background-color: ivory;
   border: 1px solid lightgray;
   border-radius: 6px;
