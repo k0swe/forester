@@ -1,15 +1,19 @@
 <div *ngIf="agentService.connectedState$ | async; else notConnected">
-  <span *ngIf="agentService.wsjtxHeartbeat$ | async as heartbeat"
-    >{{ heartbeat.id }} {{ heartbeat.version }}</span
-  >
+  <span *ngIf="agentService.wsjtxHeartbeat$ | async as heartbeat">
+    {{ heartbeat.id }} {{ heartbeat.version }}
+  </span>
+  <span *ngIf="agentService.hamlibRigState$ | async as rigState">
+    {{ rigState.model }} {{ rigState.frequency / 1000 | number }} kHz
+    {{ rigState.mode }}
+  </span>
   <mat-icon [matTooltip]="'Connected to agent on ' + agentService.getHost()">
     radio
   </mat-icon>
 </div>
 <ng-template #notConnected>
   <div>
-    <mat-icon matTooltip="Agent disconnected" (click)="reconnect()"
-      >signal_cellular_off</mat-icon
-    >
+    <mat-icon matTooltip="Agent disconnected" (click)="reconnect()">
+      signal_cellular_off
+    </mat-icon>
   </div>
 </ng-template>

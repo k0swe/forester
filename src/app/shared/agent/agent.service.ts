@@ -31,6 +31,11 @@ export class AgentService {
   /** Subject for listening to WSJT-X "LoggedAdif" messages. */
   public readonly wsjtxLoggedAdif$ = new Subject<WsjtxLoggedAdif>();
 
+  /** Whether we're getting any messages from Hamlib. */
+  public readonly hamlibState$ = new BehaviorSubject<boolean>(false);
+  /** Subject for listening to Hamlib "RigState" messages. */
+  public readonly hamlibRigState$ = new Subject<HamlibRigState>();
+
   private readonly defaultAgentHost = 'localhost';
   private readonly defaultAgentPort = 8081;
 
@@ -53,6 +58,10 @@ export class AgentService {
     this.wsjtxState$
       .pipe(debounceTime(15000))
       .subscribe(() => this.wsjtxState$.next(false));
+    // if we haven't heard from Hamlib in 15 seconds, consider it down
+    this.hamlibState$
+      .pipe(debounceTime(15000))
+      .subscribe(() => this.hamlibState$.next(false));
     this.wsjtxQsoLogged$.subscribe((qsoLogged) => {
       // Dates come across as strings; convert to objects
       qsoLogged.dateTimeOn = new Date(qsoLogged.dateTimeOn);
@@ -127,6 +136,14 @@ export class AgentService {
           return;
         case 'LoggedAdifMessage':
           this.wsjtxLoggedAdif$.next(msg.wsjtx.payload as WsjtxLoggedAdif);
+          return;
+      }
+    }
+    if (msg.hamlib !== null) {
+      this.hamlibState$.next(true);
+      switch (msg.hamlib.type) {
+        case 'RigState':
+          this.hamlibRigState$.next(msg.hamlib.payload as HamlibRigState);
           return;
       }
     }
@@ -384,4 +401,15 @@ export interface WsjtxLoggedAdif {
   id: string;
   // ADIF encoded QSO data
   adif: string;
+}
+
+export interface HamlibRigState {
+  // Transceiver model name
+  model: string;
+  // Dial frequency of the "current" VFO in Hz
+  frequency: number;
+  // Mode name of the "current" VFO
+  mode: string;
+  // Width of the current passband filter in Hz
+  passbandWidthHz: number;
 }
