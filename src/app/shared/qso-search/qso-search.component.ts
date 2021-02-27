@@ -1,7 +1,10 @@
 import { AgentService } from '../agent/agent.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LogbookService } from '../../pages/logbook/logbook.service';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import {
+  MatSlideToggle,
+  MatSlideToggleChange,
+} from '@angular/material/slide-toggle';
 import { Observable, Subscription } from 'rxjs';
 import { QsoService } from '../qso/qso.service';
 
@@ -14,6 +17,7 @@ export class QsoSearchComponent implements OnInit {
   search = '';
   wsjtxConnected$: Observable<boolean>;
   private wsjtxSub: Subscription;
+  @ViewChild(MatSlideToggle, { static: true }) syncWithWsjtx: MatSlideToggle;
 
   constructor(
     private agentService: AgentService,
@@ -25,6 +29,14 @@ export class QsoSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
+    this.agentService.wsjtxState$.subscribe((isUp) => {
+      if (isUp) {
+        this.syncWithWsjtx.disabled = false;
+      } else {
+        this.syncWithWsjtx.checked = false;
+        this.syncWithWsjtx.disabled = true;
+      }
+    });
   }
 
   changed(): void {

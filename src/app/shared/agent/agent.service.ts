@@ -12,6 +12,8 @@ import { webSocket } from 'rxjs/webSocket';
 export class AgentService {
   /** Whether we're connected to the agent. */
   public readonly connectedState$ = new BehaviorSubject<boolean>(false);
+
+  /*  WSJT-X  */
   /** Whether we're getting any messages from WSJT-X. */
   public readonly wsjtxState$ = new BehaviorSubject<boolean>(false);
   /** Subject for listening to WSJT-X "Heartbeat" messages. */
@@ -31,6 +33,7 @@ export class AgentService {
   /** Subject for listening to WSJT-X "LoggedAdif" messages. */
   public readonly wsjtxLoggedAdif$ = new Subject<WsjtxLoggedAdif>();
 
+  /*  Hamlib  */
   /** Whether we're getting any messages from Hamlib. */
   public readonly hamlibState$ = new BehaviorSubject<boolean>(false);
   /** Subject for listening to Hamlib "RigState" messages. */
@@ -54,26 +57,47 @@ export class AgentService {
     if (isNaN(this.agentPort)) {
       this.setPort(this.defaultAgentPort);
     }
-    // if we haven't heard from WSJT-X in 15 seconds, consider it down
+    this.setupWsjtxBehaviors();
+    this.setupHamlibBehaviors();
+    this.connect();
+  }
+
+  private setupWsjtxBehaviors(): void {
+    // if we haven't heard from WSJT-X in 15 seconds, consider it "down"
     this.wsjtxState$
       .pipe(debounceTime(15000))
       .subscribe(() => this.wsjtxState$.next(false));
-    // if we haven't heard from Hamlib in 15 seconds, consider it down
-    this.hamlibState$
-      .pipe(debounceTime(15000))
-      .subscribe(() => this.hamlibState$.next(false));
+    // When WSJT-X announces it's closing, set it to "down" immediately
+    this.wsjtxClose$.subscribe(() => {
+      this.wsjtxState$.next(false);
+    });
+    // When WSJT-X goes down, clear its persistent message subjects
+    this.wsjtxState$.subscribe((isUp) => {
+      if (!isUp) {
+        this.wsjtxHeartbeat$.next(null);
+        this.wsjtxStatus$.next(null);
+      }
+    });
+    // When WSJT-X sends a QSO, log it right away
     this.wsjtxQsoLogged$.subscribe((qsoLogged) => {
       // Dates come across as strings; convert to objects
       qsoLogged.dateTimeOn = new Date(qsoLogged.dateTimeOn);
       qsoLogged.dateTimeOff = new Date(qsoLogged.dateTimeOff);
       this.saveWsjtxQso(qsoLogged);
     });
-    this.wsjtxClose$.subscribe(() => {
-      this.wsjtxState$.next(false);
-      this.wsjtxHeartbeat$.next(null);
-      this.wsjtxStatus$.next(null);
+  }
+
+  private setupHamlibBehaviors(): void {
+    // if we haven't heard from Hamlib in 15 seconds, consider it down
+    this.hamlibState$.pipe(debounceTime(15000)).subscribe(() => {
+      this.hamlibState$.next(false);
     });
-    this.connect();
+    // When Hamlib goes down, clear its persistent message subjects
+    this.hamlibState$.subscribe((isUp) => {
+      if (!isUp) {
+        this.hamlibRigState$.next(null);
+      }
+    });
   }
 
   public connect(): void {
@@ -104,13 +128,13 @@ export class AgentService {
           this.connectedState$.next(true);
           msgs.map((msg) => this.handleMessage(msg));
         },
-        error: (error) => this.connectedState$.next(false),
+        error: () => this.connectedState$.next(false),
         complete: () => this.connectedState$.next(false),
       });
   }
 
   private handleMessage(msg: any): void {
-    if (msg.wsjtx !== null) {
+    if (msg.wsjtx != null && msg.wsjtx.type != null) {
       this.wsjtxState$.next(true);
       switch (msg.wsjtx.type) {
         case 'HeartbeatMessage':
