@@ -5,20 +5,25 @@
     matInput
     [(ngModel)]="search"
     (ngModelChange)="changed()"
-    [disabled]="syncWithWsjtx.checked"
-    [ngClass]="{ accent: syncWithWsjtx.checked }"
+    [disabled]="syncToggle.checked"
+    [ngClass]="{ accent: syncToggle.checked }"
   />
   <button
     mat-icon-button
     matSuffix
-    (click)="search = ''; changed()"
-    *ngIf="search != '' && !syncWithWsjtx.checked"
+    (click)="clear()"
+    *ngIf="search != '' && !syncToggle.checked"
   >
     <mat-icon color="accent">clear</mat-icon>
   </button>
   <mat-hint>Callsign only for now</mat-hint>
 </mat-form-field>
 
-<mat-slide-toggle #syncWithWsjtx (change)="toggleSync($event)">
+<mat-slide-toggle
+  #syncToggle
+  [(ngModel)]="syncWithWsjtx"
+  (change)="toggleSync($event)"
+  [disabled]="!(agentService.wsjtxState$ | async)"
+>
   Sync with WSJT-X
 </mat-slide-toggle>
