@@ -40,7 +40,7 @@
     "@types/long": "4.0.1",
     "adif-parser-ts": "0.3.21",
     "firebase": "8.2.10",
-    "google-protobuf": "3.15.3",
+    "google-protobuf": "3.15.5",
     "moment": "2.29.1",
     "rxjs": "6.6.6",
     "ts-protoc-gen": "0.14.0",
