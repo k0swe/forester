@@ -4,19 +4,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish:
+  tag_deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.5
-
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Bump version
-        id: bump_version
+      - name: Move tag
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email ${GITHUB_ACTOR}@actions.github.com
-          npm run tag-deploy
+          git tag deploy --force && git push --tags --force
