@@ -2,17 +2,10 @@ name: Tag for deployment
 
 on:
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch'
-        required: true
-        default: 'main'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Setup Node.js environment
@@ -24,7 +17,6 @@ jobs:
       - name: Bump version
         id: bump_version
         run: |
-          git checkout ${{ github.event.inputs.branch }}
           git config --global user.name "GitHub Actions"
           git config --global user.email ${GITHUB_ACTOR}@actions.github.com
           npm run tag-deploy
