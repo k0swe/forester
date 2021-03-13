@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build-prod": "ng build --prod",
-    "deploy": "git tag deploy -m deploy -s --force && git push --tags --force",
+    "tag-deploy": "git tag deploy -m deploy -s --force && git push --tags --force",
     "test": "firebase emulators:exec 'ng test'",
     "test-ci": "firebase emulators:exec --only firestore 'ng test --no-watch --no-progress --browsers=ChromeHeadlessCI'",
     "lint": "ng lint",
