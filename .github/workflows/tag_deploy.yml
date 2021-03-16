@@ -15,4 +15,4 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email ${GITHUB_ACTOR}@actions.github.com
-          git tag deploy --force && git push --tags --force
+          git tag deploy -m deploy --force && git push --tags --force
