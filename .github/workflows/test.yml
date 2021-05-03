@@ -22,7 +22,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@master
         with:
-          node-version: '10.x'
+          node-version: '15'
 
       - name: Cache node deps
         uses: actions/cache@v2
