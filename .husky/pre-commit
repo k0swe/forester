@@ -1,4 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+echo "Generating license report"
+npx license-report > src/assets/license-report.json
 npx lint-staged
