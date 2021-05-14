@@ -1,4 +1,4 @@
-![Deploy](https://github.com/k0swe/forester/workflows/Deploy/badge.svg?branch=main)
+[![Deploy](https://github.com/k0swe/forester/workflows/Deploy/badge.svg?branch=main)](https://github.com/k0swe/forester/actions/workflows/deploy.yml)
 
 # Forester
 
