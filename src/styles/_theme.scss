@@ -1,8 +1,8 @@
-@import '~@angular/material/theming';
+@use '~@angular/material' as mat;
 
-$kel-primary: mat-palette($mat-green, 700, 300, 900);
-$kel-accent: mat-palette($mat-deep-purple);
-$kel-theme: mat-light-theme(
+$kel-primary: mat.define-palette(mat.$green-palette, 700, 300, 900);
+$kel-accent: mat.define-palette(mat.$deep-purple-palette);
+$kel-theme: mat.define-light-theme(
   (
     color: (
       primary: $kel-primary,
@@ -14,17 +14,17 @@ $kel-theme: mat-light-theme(
 $kel-background: map-get($kel-theme, background);
 $kel-foreground: map-get($kel-theme, foreground);
 
-$kel-typography: mat-typography-config(
+$kel-typography: mat.define-typography-config(
   $font-family: 'Open Sans, Helvetica Neue, sans-serif',
-  $body-2: mat-typography-level(14px, 24px, 600),
+  $body-2: mat.define-typography-level(14px, 24px, 600),
 );
 
-$kel-mono-typography: mat-typography-config(
+$kel-mono-typography: mat.define-typography-config(
   $font-family: 'DM Mono, monospace',
-  $body-2: mat-typography-level(14px, 24px, 600),
+  $body-2: mat.define-typography-level(14px, 24px, 600),
 );
 
-$kel-serif-typography: mat-typography-config(
+$kel-serif-typography: mat.define-typography-config(
   $font-family: 'Tinos, Times New Roman, serif',
-  $subheading-2: mat-typography-level(16px, 28px, 700),
+  $subheading-2: mat.define-typography-level(16px, 28px, 700),
 );

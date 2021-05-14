@@ -80,8 +80,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "11.2.12",
-    "installedVersion": "11.2.12"
+    "comment": "12.0.0",
+    "installedVersion": "12.0.0"
   },
   {
     "name": "@angular/platform-browser",
