@@ -198,16 +198,16 @@
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1102.13",
-    "installedVersion": "0.1102.13",
+    "comment": "12.0.0",
+    "installedVersion": "12.0.0",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "11.2.13",
-    "installedVersion": "11.2.13",
+    "comment": "12.0.0",
+    "installedVersion": "12.0.0",
     "author": "Angular Authors"
   },
   {
@@ -423,8 +423,8 @@
     "name": "typescript",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/Microsoft/TypeScript.git",
-    "comment": "4.1.5",
-    "installedVersion": "4.1.5",
+    "comment": "4.2.4",
+    "installedVersion": "4.2.4",
     "author": "Microsoft Corp."
   }
 ]
