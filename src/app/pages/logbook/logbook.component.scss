@@ -1,21 +1,22 @@
+@use '~@angular/material' as mat;
 @import 'src/styles/theme';
 
 .logbook-header {
-  background-color: mat-color($kel-accent, 'default');
+  background-color: mat.get-color-from-palette($kel-accent, 'default');
 }
 
 h1 {
-  color: mat-color($kel-primary, 'default-contrast');
+  color: mat.get-color-from-palette($kel-primary, 'default-contrast');
   padding: 8px 24px;
   margin: 0;
 }
 
 .logbook-tab {
-  background-color: mat-color($kel-accent, 'default');
-  color: mat-color($kel-primary, 'default-contrast');
-  font-size: mat-font-size($kel-typography, title);
+  background-color: mat.get-color-from-palette($kel-accent, 'default');
+  color: mat.get-color-from-palette($kel-primary, 'default-contrast');
+  font-size: mat.font-size($kel-typography, title);
 }
 
 mat-icon {
-  color: mat-color($kel-primary, 'default-contrast');
+  color: mat.get-color-from-palette($kel-primary, 'default-contrast');
 }
