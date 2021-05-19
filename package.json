@@ -38,7 +38,7 @@
     "@angular/router": "12.0.0",
     "@angular/service-worker": "12.0.0",
     "@types/long": "4.0.1",
-    "adif-parser-ts": "0.3.32",
+    "adif-parser-ts": "0.3.33",
     "firebase": "8.6.1",
     "google-protobuf": "3.17.0",
     "moment": "2.29.1",
