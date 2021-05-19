@@ -42,8 +42,8 @@
     "name": "@angular/fire",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angularfire.git",
-    "comment": "6.1.4",
-    "installedVersion": "6.1.4",
+    "comment": "6.1.5",
+    "installedVersion": "6.1.5",
     "author": "angular,firebase"
   },
   {
@@ -65,8 +65,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "11.2.12",
-    "installedVersion": "11.2.12"
+    "comment": "12.0.0",
+    "installedVersion": "12.0.0"
   },
   {
     "name": "@angular/localize",
@@ -126,8 +126,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.3.32",
-    "installedVersion": "0.3.32",
+    "comment": "0.3.33",
+    "installedVersion": "0.3.33",
     "author": "Chris Keller"
   },
   {
@@ -251,8 +251,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "14.14.45",
-    "installedVersion": "14.14.45"
+    "comment": "14.17.0",
+    "installedVersion": "14.17.0"
   },
   {
     "name": "codelyzer",
@@ -274,8 +274,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "9.10.2",
-    "installedVersion": "9.10.2",
+    "comment": "9.11.0",
+    "installedVersion": "9.11.0",
     "author": "Firebase"
   },
   {
@@ -384,8 +384,8 @@
     "name": "open",
     "licenseType": "MIT",
     "link": "git+https://github.com/sindresorhus/open.git",
-    "comment": "8.0.8",
-    "installedVersion": "8.0.8",
+    "comment": "8.0.9",
+    "installedVersion": "8.0.9",
     "author": "Sindre Sorhus"
   },
   {
