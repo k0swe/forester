@@ -221,8 +221,8 @@
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "1.3.1",
-    "installedVersion": "1.3.1",
+    "comment": "1.3.2",
+    "installedVersion": "1.3.2",
     "author": "Firebase"
   },
   {
@@ -298,8 +298,8 @@
     "name": "inquirer",
     "licenseType": "MIT",
     "link": "git+https://github.com/SBoudrias/Inquirer.js.git",
-    "comment": "8.0.0",
-    "installedVersion": "8.0.0",
+    "comment": "8.1.0",
+    "installedVersion": "8.1.0",
     "author": "Simon Boudrias"
   },
   {
@@ -384,8 +384,8 @@
     "name": "open",
     "licenseType": "MIT",
     "link": "git+https://github.com/sindresorhus/open.git",
-    "comment": "8.0.9",
-    "installedVersion": "8.0.9",
+    "comment": "8.1.0",
+    "installedVersion": "8.1.0",
     "author": "Sindre Sorhus"
   },
   {
