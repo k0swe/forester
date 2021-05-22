@@ -251,8 +251,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "14.17.0",
-    "installedVersion": "14.17.0"
+    "comment": "15.6.0",
+    "installedVersion": "15.6.0"
   },
   {
     "name": "codelyzer",
