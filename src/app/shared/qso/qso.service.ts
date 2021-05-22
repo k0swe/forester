@@ -4,10 +4,9 @@ import {
   DocumentChangeAction,
 } from '@angular/fire/firestore';
 import { AuthService } from '../auth/auth.service';
-import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, of, from } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Qso } from '../../qso';
-import { fromPromise } from 'rxjs/internal-compatibility';
 import { map, mergeMap } from 'rxjs/operators';
 
 @Injectable({
@@ -222,10 +221,10 @@ export class QsoService {
     }
     if (fbq.id == null) {
       const contactsCollection = this.firestore.collection(this.contactsPath());
-      return fromPromise(contactsCollection.add(fbq.qso));
+      return from(contactsCollection.add(fbq.qso));
     } else {
       const contactDoc = this.firestore.doc(this.contactsPath() + '/' + fbq.id);
-      return fromPromise(contactDoc.update(fbq.qso));
+      return from(contactDoc.update(fbq.qso));
     }
   }
 
@@ -253,7 +252,7 @@ export class QsoService {
     const contactDoc = this.firestore.doc(
       this.contactsPath() + '/' + firebaseId
     );
-    return fromPromise(contactDoc.delete());
+    return from(contactDoc.delete());
   }
 }
 

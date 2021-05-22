@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, from, Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../../shared/auth/auth.service';
-import { fromPromise } from 'rxjs/internal-compatibility';
 import { mergeMap } from 'rxjs/operators';
 import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
 
@@ -29,7 +28,7 @@ export class LogbookService {
       starredLogbooks = [];
     }
     starredLogbooks.push(callsign);
-    return fromPromise(
+    return from(
       // create the logbook
       this.firestore.doc('logbooks/' + callsign).set({ editors: [user.uid] })
       // TODO: handle logbook already exists

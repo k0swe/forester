@@ -2,7 +2,6 @@ import firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { BehaviorSubject, from, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { fromPromise } from 'rxjs/internal-compatibility';
 
 @Injectable({
   providedIn: 'root',
@@ -17,13 +16,13 @@ export class AuthService {
   }
 
   public loginGoogle(): Observable<firebase.auth.UserCredential> {
-    return fromPromise(
+    return from(
       this.afa.signInWithPopup(new firebase.auth.GoogleAuthProvider())
     );
   }
 
   public loginFacebook(): Observable<firebase.auth.UserCredential> {
-    return fromPromise(
+    return from(
       this.afa.signInWithPopup(new firebase.auth.FacebookAuthProvider())
     );
   }
@@ -38,6 +37,6 @@ export class AuthService {
   }
 
   public getLoginProvidersFor(email: string): Observable<Array<string>> {
-    return fromPromise(this.afa.fetchSignInMethodsForEmail(email));
+    return from(this.afa.fetchSignInMethodsForEmail(email));
   }
 }

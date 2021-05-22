@@ -9,10 +9,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { QsoDetailComponent } from '../../shared/qso-detail/qso-detail.component';
 import { SelectionModel } from '@angular/cdk/collections';
-import { fromArray } from 'rxjs/internal/observable/fromArray';
 import { map, mergeAll } from 'rxjs/operators';
 
 @Component({
@@ -181,7 +180,7 @@ export class QsoListComponent implements OnInit {
 
   deleteSelected(): void {
     this.snackBar.open('Deleting ' + this.selection.selected.length + ' QSOs');
-    const source = fromArray(this.selection.selected);
+    const source = from(this.selection.selected);
     const deleteObservables = source.pipe(
       map((fbq) => fbq.id),
       map((id) => this.qsoService.delete(id)),

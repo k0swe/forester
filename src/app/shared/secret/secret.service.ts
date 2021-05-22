@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { AuthService } from '../auth/auth.service';
-import { fromPromise } from 'rxjs/internal-compatibility';
 import { mergeMap } from 'rxjs/operators';
 
 @Injectable({
@@ -30,9 +29,7 @@ export class SecretService {
       return of(null);
     }
     const url = this.updateSecretsUrl + '?logbookId=' + logbookId;
-    return fromPromise(
-      this.authService.user$.getValue().getIdToken(false)
-    ).pipe(
+    return from(this.authService.user$.getValue().getIdToken(false)).pipe(
       mergeMap((jwt) => {
         return this.http.post(url, formData, {
           headers: { Authorization: 'Bearer ' + jwt },
