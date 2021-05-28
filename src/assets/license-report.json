@@ -134,8 +134,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "8.6.1",
-    "installedVersion": "8.6.1",
+    "comment": "8.6.3",
+    "installedVersion": "8.6.3",
     "author": "Firebase"
   },
   {
@@ -221,24 +221,24 @@
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "1.3.2",
-    "installedVersion": "1.3.2",
+    "comment": "1.3.3",
+    "installedVersion": "1.3.3",
     "author": "Firebase"
   },
   {
     "name": "@google-cloud/firestore",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/googleapis/nodejs-firestore.git",
-    "comment": "4.11.1",
-    "installedVersion": "4.11.1",
+    "comment": "4.12.2",
+    "installedVersion": "4.12.2",
     "author": "Google Inc."
   },
   {
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "3.7.5",
-    "installedVersion": "3.7.5"
+    "comment": "3.7.6",
+    "installedVersion": "3.7.6"
   },
   {
     "name": "@types/jasminewd2",
