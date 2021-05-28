@@ -40,7 +40,7 @@ export class LogbookComponent implements OnInit {
     this.route.params.subscribe((params) =>
       this.logbookService.logbookId$.next(params.callsign)
     );
-    this.authService.user().subscribe((user) => {
+    this.authService.user$.subscribe((user) => {
       if (user != null) {
         user.getIdToken(false).then((token) => this.userJwt$.next(token));
       } else {

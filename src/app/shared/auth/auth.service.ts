@@ -31,11 +31,6 @@ export class AuthService {
     return from(this.afa.signOut());
   }
 
-  /** @deprecated Use user$ instead */
-  public user(): Observable<firebase.User | null> {
-    return this.user$;
-  }
-
   public getLoginProvidersFor(email: string): Observable<Array<string>> {
     return from(this.afa.fetchSignInMethodsForEmail(email));
   }
