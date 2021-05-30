@@ -293,22 +293,22 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.23.0",
-    "installedVersion": "4.23.0"
+    "comment": "4.25.0",
+    "installedVersion": "4.25.0"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.23.0",
-    "installedVersion": "4.23.0"
+    "comment": "4.25.0",
+    "installedVersion": "4.25.0"
   },
   {
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
     "comment": "7.27.0",
-    "installedVersion": "7.26.0",
+    "installedVersion": "7.27.0",
     "author": "Nicholas C. Zakas"
   },
   {
@@ -465,8 +465,8 @@
     "name": "typescript",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/Microsoft/TypeScript.git",
-    "comment": "4.2.4",
-    "installedVersion": "4.2.4",
+    "comment": "4.3.2",
+    "installedVersion": "4.3.2",
     "author": "Microsoft Corp."
   }
 ]
