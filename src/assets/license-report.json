@@ -293,22 +293,22 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.23.0",
-    "installedVersion": "4.23.0"
+    "comment": "4.25.0",
+    "installedVersion": "4.25.0"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.23.0",
-    "installedVersion": "4.23.0"
+    "comment": "4.25.0",
+    "installedVersion": "4.25.0"
   },
   {
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
     "comment": "7.27.0",
-    "installedVersion": "7.26.0",
+    "installedVersion": "7.27.0",
     "author": "Nicholas C. Zakas"
   },
   {
@@ -323,8 +323,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "9.11.0",
-    "installedVersion": "9.11.0",
+    "comment": "9.12.0",
+    "installedVersion": "9.12.0",
     "author": "Firebase"
   },
   {
