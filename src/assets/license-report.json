@@ -65,8 +65,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.0.2",
-    "installedVersion": "12.0.2"
+    "comment": "12.0.3",
+    "installedVersion": "12.0.3"
   },
   {
     "name": "@angular/localize",
@@ -142,8 +142,8 @@
     "name": "google-protobuf",
     "licenseType": "BSD-3-Clause",
     "link": "https://github.com/protocolbuffers/protobuf/tree/master/js",
-    "comment": "3.17.1",
-    "installedVersion": "3.17.1",
+    "comment": "3.17.2",
+    "installedVersion": "3.17.2",
     "author": "Google Protocol Buffers Team"
   },
   {
@@ -256,8 +256,8 @@
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "1.3.3",
-    "installedVersion": "1.3.3",
+    "comment": "1.3.4",
+    "installedVersion": "1.3.4",
     "author": "Firebase"
   },
   {
@@ -286,8 +286,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "15.6.2",
-    "installedVersion": "15.6.2"
+    "comment": "15.12.0",
+    "installedVersion": "15.12.0"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
