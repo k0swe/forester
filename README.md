@@ -17,7 +17,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fk0swe%2Fforester.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fk0swe%2Fforester?ref=badge_large)
