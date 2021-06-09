@@ -4,7 +4,7 @@ import {
   DocumentChangeAction,
 } from '@angular/fire/firestore';
 import { AuthService } from '../auth/auth.service';
-import { BehaviorSubject, combineLatest, Observable, of, from } from 'rxjs';
+import { BehaviorSubject, combineLatest, from, Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Qso } from '../../qso';
 import { map, mergeMap } from 'rxjs/operators';
@@ -96,7 +96,7 @@ export class QsoService {
       ) {
         return false;
       }
-      if (criteria.state) {
+      if (criteria.state && q.qso.contactedStation.state != null) {
         if (
           criteria.stateOperator === CriteriaOperator.equal &&
           q.qso.contactedStation.state.toUpperCase() !==
@@ -111,7 +111,7 @@ export class QsoService {
           return false;
         }
       }
-      if (criteria.country) {
+      if (criteria.country && q.qso.contactedStation.country != null) {
         if (
           criteria.countryOperator === CriteriaOperator.equal &&
           q.qso.contactedStation.country.toUpperCase() !==
@@ -126,7 +126,7 @@ export class QsoService {
           return false;
         }
       }
-      if (criteria.mode) {
+      if (criteria.mode && q.qso.mode != null) {
         if (
           criteria.modeOperator === CriteriaOperator.equal &&
           q.qso.mode.toUpperCase() !== criteria.mode.toUpperCase()
@@ -156,13 +156,14 @@ export class QsoService {
             // if band is anything but 'mixed', it should match
             if (
               criteria.band !== 'mixed' &&
+              q.qso.band != null &&
               q.qso.band.toUpperCase() !== criteria.band.toUpperCase()
             ) {
               return false;
             }
 
             // if mode is anything but 'mixed', it should match (with categories)
-            if (criteria.mode !== 'mixed') {
+            if (criteria.mode !== 'mixed' && q.qso.mode != null) {
               let simpleMode;
               const mode = q.qso.mode.toUpperCase();
               if (mode === 'SSB' || mode === 'USB' || mode === 'LSB') {
@@ -184,8 +185,9 @@ export class QsoService {
 
             // if country is set (always should be), it should match
             if (
+              q.qso.contactedStation.country != null &&
               q.qso.contactedStation.country.toUpperCase() !==
-              criteria.country.toUpperCase()
+                criteria.country.toUpperCase()
             ) {
               return false;
             }
@@ -193,6 +195,7 @@ export class QsoService {
             // if state is set, it should match
             if (
               criteria.state != null &&
+              q.qso.contactedStation.state != null &&
               q.qso.contactedStation.state.toUpperCase() !==
                 criteria.state.toUpperCase()
             ) {
