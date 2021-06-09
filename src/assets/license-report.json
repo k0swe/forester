@@ -65,8 +65,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.0.3",
-    "installedVersion": "12.0.3"
+    "comment": "12.0.4",
+    "installedVersion": "12.0.4"
   },
   {
     "name": "@angular/localize",
@@ -126,8 +126,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.3.35",
-    "installedVersion": "0.3.35",
+    "comment": "0.3.36",
+    "installedVersion": "0.3.36",
     "author": "Chris Keller"
   },
   {
@@ -142,8 +142,8 @@
     "name": "google-protobuf",
     "licenseType": "BSD-3-Clause",
     "link": "https://github.com/protocolbuffers/protobuf/tree/master/js",
-    "comment": "3.17.2",
-    "installedVersion": "3.17.2",
+    "comment": "3.17.3",
+    "installedVersion": "3.17.3",
     "author": "Google Protocol Buffers Team"
   },
   {
