@@ -65,8 +65,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.0.4",
-    "installedVersion": "12.0.4"
+    "comment": "12.0.5",
+    "installedVersion": "12.0.5"
   },
   {
     "name": "@angular/localize",
