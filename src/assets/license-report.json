@@ -134,8 +134,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "8.6.7",
-    "installedVersion": "8.6.7",
+    "comment": "8.6.8",
+    "installedVersion": "8.6.8",
     "author": "Firebase"
   },
   {
@@ -190,16 +190,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1200.4",
-    "installedVersion": "0.1200.4",
+    "comment": "0.1200.5",
+    "installedVersion": "0.1200.5",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.0.4",
-    "installedVersion": "12.0.4",
+    "comment": "12.0.5",
+    "installedVersion": "12.0.5",
     "author": "Angular Authors"
   },
   {
@@ -241,8 +241,8 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.0.4",
-    "installedVersion": "12.0.4",
+    "comment": "12.0.5",
+    "installedVersion": "12.0.5",
     "author": "Angular Authors"
   },
   {
@@ -256,8 +256,8 @@
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "1.3.7",
-    "installedVersion": "1.3.7",
+    "comment": "1.3.8",
+    "installedVersion": "1.3.8",
     "author": "Firebase"
   },
   {
@@ -286,8 +286,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "15.12.2",
-    "installedVersion": "15.12.2"
+    "comment": "15.12.3",
+    "installedVersion": "15.12.3"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
@@ -323,8 +323,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "9.13.0",
-    "installedVersion": "9.13.0",
+    "comment": "9.13.1",
+    "installedVersion": "9.13.1",
     "author": "Firebase"
   },
   {
