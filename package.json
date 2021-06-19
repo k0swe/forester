@@ -64,7 +64,7 @@
     "@types/node": "15.12.3",
     "@typescript-eslint/eslint-plugin": "4.27.0",
     "@typescript-eslint/parser": "4.27.0",
-    "eslint": "7.28.0",
+    "eslint": "7.29.0",
     "firebase-admin": "9.9.0",
     "firebase-tools": "9.13.1",
     "fuzzy": "0.1.3",
