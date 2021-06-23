@@ -126,16 +126,16 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.3.37",
-    "installedVersion": "0.3.37",
+    "comment": "0.3.38",
+    "installedVersion": "0.3.38",
     "author": "Chris Keller"
   },
   {
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "8.6.8",
-    "installedVersion": "8.6.8",
+    "comment": "8.6.1",
+    "installedVersion": "8.6.1",
     "author": "Firebase"
   },
   {
@@ -293,15 +293,15 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.27.0",
-    "installedVersion": "4.27.0"
+    "comment": "4.28.0",
+    "installedVersion": "4.28.0"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.27.0",
-    "installedVersion": "4.27.0"
+    "comment": "4.28.0",
+    "installedVersion": "4.28.0"
   },
   {
     "name": "eslint",
@@ -323,8 +323,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "9.13.1",
-    "installedVersion": "9.13.1",
+    "comment": "9.14.0",
+    "installedVersion": "9.14.0",
     "author": "Firebase"
   },
   {
