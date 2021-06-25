@@ -11,8 +11,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.0.5",
-    "installedVersion": "12.0.5"
+    "comment": "12.1.0",
+    "installedVersion": "12.1.0"
   },
   {
     "name": "@angular/common",
@@ -80,8 +80,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.0.5",
-    "installedVersion": "12.0.5"
+    "comment": "12.1.0",
+    "installedVersion": "12.1.0"
   },
   {
     "name": "@angular/platform-browser",
@@ -315,8 +315,8 @@
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "9.9.0",
-    "installedVersion": "9.9.0",
+    "comment": "9.10.0",
+    "installedVersion": "9.10.0",
     "author": "Firebase"
   },
   {
