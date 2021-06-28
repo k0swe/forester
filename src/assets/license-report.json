@@ -190,16 +190,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1200.5",
-    "installedVersion": "0.1200.5",
+    "comment": "0.1201.0",
+    "installedVersion": "0.1201.0",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.0.5",
-    "installedVersion": "12.0.5",
+    "comment": "12.1.0",
+    "installedVersion": "12.1.0",
     "author": "Angular Authors"
   },
   {
@@ -241,8 +241,8 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.0.5",
-    "installedVersion": "12.0.5",
+    "comment": "12.1.0",
+    "installedVersion": "12.1.0",
     "author": "Angular Authors"
   },
   {
@@ -286,8 +286,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "15.12.4",
-    "installedVersion": "15.12.4"
+    "comment": "15.12.5",
+    "installedVersion": "15.12.5"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
@@ -441,8 +441,8 @@
     "name": "prettier",
     "licenseType": "MIT",
     "link": "git+https://github.com/prettier/prettier.git",
-    "comment": "2.3.1",
-    "installedVersion": "2.3.1",
+    "comment": "2.3.2",
+    "installedVersion": "2.3.2",
     "author": "James Long"
   },
   {
