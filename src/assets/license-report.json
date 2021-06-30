@@ -126,8 +126,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.3.38",
-    "installedVersion": "0.3.38",
+    "comment": "0.3.39",
+    "installedVersion": "0.3.39",
     "author": "Chris Keller"
   },
   {
@@ -264,8 +264,8 @@
     "name": "@google-cloud/firestore",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/googleapis/nodejs-firestore.git",
-    "comment": "4.12.3",
-    "installedVersion": "4.12.3",
+    "comment": "4.13.0",
+    "installedVersion": "4.13.0",
     "author": "Google Inc."
   },
   {
@@ -293,15 +293,15 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.28.0",
-    "installedVersion": "4.28.0"
+    "comment": "4.28.1",
+    "installedVersion": "4.28.1"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.28.0",
-    "installedVersion": "4.28.0"
+    "comment": "4.28.1",
+    "installedVersion": "4.28.1"
   },
   {
     "name": "eslint",
