@@ -65,8 +65,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.1.0",
-    "installedVersion": "12.1.0"
+    "comment": "12.1.1",
+    "installedVersion": "12.1.1"
   },
   {
     "name": "@angular/localize",
@@ -465,8 +465,8 @@
     "name": "typescript",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/Microsoft/TypeScript.git",
-    "comment": "4.2.4",
-    "installedVersion": "4.2.4",
+    "comment": "4.3.5",
+    "installedVersion": "4.3.5",
     "author": "Microsoft Corp."
   }
 ]
