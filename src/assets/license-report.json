@@ -126,16 +126,16 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.3.39",
-    "installedVersion": "0.3.39",
+    "comment": "0.3.41",
+    "installedVersion": "0.3.41",
     "author": "Chris Keller"
   },
   {
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "8.7.0",
-    "installedVersion": "8.7.0",
+    "comment": "8.7.1",
+    "installedVersion": "8.7.1",
     "author": "Firebase"
   },
   {
@@ -206,36 +206,36 @@
     "name": "@angular-eslint/builder",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "12.2.0",
-    "installedVersion": "12.2.0"
+    "comment": "12.2.1",
+    "installedVersion": "12.2.1"
   },
   {
     "name": "@angular-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "12.2.0",
-    "installedVersion": "12.2.0"
+    "comment": "12.2.1",
+    "installedVersion": "12.2.1"
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "12.2.0",
-    "installedVersion": "12.2.0"
+    "comment": "12.2.1",
+    "installedVersion": "12.2.1"
   },
   {
     "name": "@angular-eslint/schematics",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "12.2.0",
-    "installedVersion": "12.2.0"
+    "comment": "12.2.1",
+    "installedVersion": "12.2.1"
   },
   {
     "name": "@angular-eslint/template-parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "12.2.0",
-    "installedVersion": "12.2.0"
+    "comment": "12.2.1",
+    "installedVersion": "12.2.1"
   },
   {
     "name": "@angular/cli",
@@ -256,8 +256,8 @@
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "1.3.9",
-    "installedVersion": "1.3.9",
+    "comment": "1.3.10",
+    "installedVersion": "1.3.10",
     "author": "Firebase"
   },
   {
@@ -272,36 +272,36 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "3.7.7",
-    "installedVersion": "3.7.7"
+    "comment": "3.8.1",
+    "installedVersion": "3.8.1"
   },
   {
     "name": "@types/jasminewd2",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "2.0.9",
-    "installedVersion": "2.0.9"
+    "comment": "2.0.10",
+    "installedVersion": "2.0.10"
   },
   {
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "15.14.1",
-    "installedVersion": "15.14.1"
+    "comment": "15.14.2",
+    "installedVersion": "15.14.2"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.28.1",
-    "installedVersion": "4.28.1"
+    "comment": "4.28.2",
+    "installedVersion": "4.28.2"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.28.1",
-    "installedVersion": "4.28.1"
+    "comment": "4.28.2",
+    "installedVersion": "4.28.2"
   },
   {
     "name": "eslint",
@@ -323,8 +323,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "9.14.0",
-    "installedVersion": "9.14.0",
+    "comment": "9.16.0",
+    "installedVersion": "9.16.0",
     "author": "Firebase"
   },
   {
@@ -339,8 +339,8 @@
     "name": "husky",
     "licenseType": "MIT",
     "link": "git+https://github.com/typicode/husky.git",
-    "comment": "7.0.0",
-    "installedVersion": "7.0.0",
+    "comment": "7.0.1",
+    "installedVersion": "7.0.1",
     "author": "Typicode"
   },
   {
@@ -410,8 +410,8 @@
     "name": "karma-jasmine-html-reporter",
     "licenseType": "MIT",
     "link": "git+https://github.com/dfederm/karma-jasmine-html-reporter.git",
-    "comment": "1.6.0",
-    "installedVersion": "1.6.0"
+    "comment": "1.7.0",
+    "installedVersion": "1.7.0"
   },
   {
     "name": "license-report",
@@ -457,8 +457,8 @@
     "name": "ts-node",
     "licenseType": "MIT",
     "link": "git://github.com/TypeStrong/ts-node.git",
-    "comment": "10.0.0",
-    "installedVersion": "10.0.0",
+    "comment": "10.1.0",
+    "installedVersion": "10.1.0",
     "author": "Blake Embrey"
   },
   {
