@@ -126,16 +126,16 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.3.43",
-    "installedVersion": "0.3.43",
+    "comment": "0.3.44",
+    "installedVersion": "0.3.44",
     "author": "Chris Keller"
   },
   {
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "8.7.1",
-    "installedVersion": "8.7.1",
+    "comment": "8.8.0",
+    "installedVersion": "8.8.0",
     "author": "Firebase"
   },
   {
@@ -256,8 +256,8 @@
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "1.3.10",
-    "installedVersion": "1.3.10",
+    "comment": "1.3.11",
+    "installedVersion": "1.3.11",
     "author": "Firebase"
   },
   {
@@ -286,22 +286,22 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "15.14.2",
-    "installedVersion": "15.14.2"
+    "comment": "15.14.3",
+    "installedVersion": "15.14.3"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.28.4",
-    "installedVersion": "4.28.4"
+    "comment": "4.28.5",
+    "installedVersion": "4.28.5"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.28.4",
-    "installedVersion": "4.28.4"
+    "comment": "4.28.5",
+    "installedVersion": "4.28.5"
   },
   {
     "name": "eslint",
@@ -425,8 +425,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "11.0.1",
-    "installedVersion": "11.0.1",
+    "comment": "11.1.1",
+    "installedVersion": "11.1.1",
     "author": "Andrey Okonetchnikov"
   },
   {
