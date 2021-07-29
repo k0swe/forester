@@ -3,8 +3,8 @@
     "name": "@angular/animations",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "angular"
   },
   {
@@ -18,24 +18,24 @@
     "name": "@angular/common",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "angular"
   },
   {
     "name": "@angular/compiler",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "angular"
   },
   {
     "name": "@angular/core",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "angular"
   },
   {
@@ -57,8 +57,8 @@
     "name": "@angular/forms",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "angular"
   },
   {
@@ -72,8 +72,8 @@
     "name": "@angular/localize",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "angular"
   },
   {
@@ -87,32 +87,32 @@
     "name": "@angular/platform-browser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "angular"
   },
   {
     "name": "@angular/platform-browser-dynamic",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "angular"
   },
   {
     "name": "@angular/router",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "angular"
   },
   {
     "name": "@angular/service-worker",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "angular"
   },
   {
@@ -190,16 +190,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1201.3",
-    "installedVersion": "0.1201.3",
+    "comment": "0.1201.4",
+    "installedVersion": "0.1201.4",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "Angular Authors"
   },
   {
@@ -241,16 +241,16 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3",
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/compiler-cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "12.1.3",
-    "installedVersion": "12.1.3"
+    "comment": "12.1.4",
+    "installedVersion": "12.1.4"
   },
   {
     "name": "@firebase/rules-unit-testing",
@@ -272,8 +272,8 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "3.8.1",
-    "installedVersion": "3.8.1"
+    "comment": "3.8.2",
+    "installedVersion": "3.8.2"
   },
   {
     "name": "@types/jasminewd2",
@@ -286,8 +286,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "15.14.3",
-    "installedVersion": "15.14.3"
+    "comment": "15.14.4",
+    "installedVersion": "15.14.4"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
