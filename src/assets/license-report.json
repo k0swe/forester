@@ -158,8 +158,8 @@
     "name": "rxjs",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/reactivex/rxjs.git",
-    "comment": "7.2.0",
-    "installedVersion": "7.2.0",
+    "comment": "7.3.0",
+    "installedVersion": "7.3.0",
     "author": "Ben Lesh"
   },
   {
@@ -256,8 +256,8 @@
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "1.3.11",
-    "installedVersion": "1.3.11",
+    "comment": "1.3.12",
+    "installedVersion": "1.3.12",
     "author": "Firebase"
   },
   {
