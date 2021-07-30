@@ -42,7 +42,7 @@
     "firebase": "8.8.0",
     "google-protobuf": "3.17.3",
     "moment": "2.29.1",
-    "rxjs": "7.2.0",
+    "rxjs": "7.3.0",
     "ts-protoc-gen": "0.15.0",
     "tslib": "2.3.0",
     "zone.js": "0.11.4"
