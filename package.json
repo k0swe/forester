@@ -61,7 +61,7 @@
     "@google-cloud/firestore": "4.14.1",
     "@types/jasmine": "3.8.2",
     "@types/jasminewd2": "2.0.10",
-    "@types/node": "15.14.5",
+    "@types/node": "15.14.6",
     "@typescript-eslint/eslint-plugin": "4.29.0",
     "@typescript-eslint/parser": "4.29.0",
     "eslint": "7.32.0",
