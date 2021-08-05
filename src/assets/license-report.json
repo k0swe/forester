@@ -11,8 +11,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.1.4",
-    "installedVersion": "12.1.4"
+    "comment": "12.2.0",
+    "installedVersion": "12.2.0"
   },
   {
     "name": "@angular/common",
@@ -80,8 +80,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.1.4",
-    "installedVersion": "12.1.4"
+    "comment": "12.2.0",
+    "installedVersion": "12.2.0"
   },
   {
     "name": "@angular/platform-browser",
@@ -190,16 +190,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1201.4",
-    "installedVersion": "0.1201.4",
+    "comment": "0.1202.0",
+    "installedVersion": "0.1202.0",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.1.4",
-    "installedVersion": "12.1.4",
+    "comment": "12.2.0",
+    "installedVersion": "12.2.0",
     "author": "Angular Authors"
   },
   {
@@ -241,8 +241,8 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.1.4",
-    "installedVersion": "12.1.4",
+    "comment": "12.2.0",
+    "installedVersion": "12.2.0",
     "author": "Angular Authors"
   },
   {
@@ -286,8 +286,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "15.14.6",
-    "installedVersion": "15.14.6"
+    "comment": "15.14.7",
+    "installedVersion": "15.14.7"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
