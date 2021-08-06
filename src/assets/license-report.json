@@ -134,8 +134,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "8.8.1",
-    "installedVersion": "8.8.1",
+    "comment": "8.9.0",
+    "installedVersion": "8.9.0",
     "author": "Firebase"
   },
   {
@@ -256,8 +256,8 @@
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "1.3.12",
-    "installedVersion": "1.3.12",
+    "comment": "1.3.13",
+    "installedVersion": "1.3.13",
     "author": "Firebase"
   },
   {
@@ -425,8 +425,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "11.1.1",
-    "installedVersion": "11.1.1",
+    "comment": "11.1.2",
+    "installedVersion": "11.1.2",
     "author": "Andrey Okonetchnikov"
   },
   {
