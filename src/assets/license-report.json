@@ -457,8 +457,8 @@
     "name": "ts-node",
     "licenseType": "MIT",
     "link": "git://github.com/TypeStrong/ts-node.git",
-    "comment": "10.1.0",
-    "installedVersion": "10.1.0",
+    "comment": "10.2.0",
+    "installedVersion": "10.2.0",
     "author": "Blake Embrey"
   },
   {
