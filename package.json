@@ -39,7 +39,7 @@
     "@angular/service-worker": "12.2.0",
     "@types/long": "4.0.1",
     "adif-parser-ts": "0.3.45",
-    "firebase": "8.9.0",
+    "firebase": "8.9.1",
     "google-protobuf": "3.17.3",
     "moment": "2.29.1",
     "rxjs": "7.3.0",
