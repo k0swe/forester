@@ -293,15 +293,15 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.29.2",
-    "installedVersion": "4.29.2"
+    "comment": "4.29.3",
+    "installedVersion": "4.29.3"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.29.2",
-    "installedVersion": "4.29.2"
+    "comment": "4.29.3",
+    "installedVersion": "4.29.3"
   },
   {
     "name": "eslint",
@@ -339,8 +339,8 @@
     "name": "husky",
     "licenseType": "MIT",
     "link": "git+https://github.com/typicode/husky.git",
-    "comment": "7.0.1",
-    "installedVersion": "7.0.1",
+    "comment": "7.0.2",
+    "installedVersion": "7.0.2",
     "author": "Typicode"
   },
   {
