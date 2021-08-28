@@ -126,8 +126,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.3.46",
-    "installedVersion": "0.3.46",
+    "comment": "0.4.1",
+    "installedVersion": "0.4.1",
     "author": "Chris Keller"
   },
   {
@@ -190,16 +190,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1202.2",
-    "installedVersion": "0.1202.2",
+    "comment": "0.1202.3",
+    "installedVersion": "0.1202.3",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.2.2",
-    "installedVersion": "12.2.2",
+    "comment": "12.2.3",
+    "installedVersion": "12.2.3",
     "author": "Angular Authors"
   },
   {
@@ -241,8 +241,8 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.2.2",
-    "installedVersion": "12.2.2",
+    "comment": "12.2.3",
+    "installedVersion": "12.2.3",
     "author": "Angular Authors"
   },
   {
@@ -264,8 +264,8 @@
     "name": "@google-cloud/firestore",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/googleapis/nodejs-firestore.git",
-    "comment": "4.14.2",
-    "installedVersion": "4.14.2",
+    "comment": "4.15.0",
+    "installedVersion": "4.15.0",
     "author": "Google Inc."
   },
   {
