@@ -42,8 +42,8 @@
     "name": "@angular/fire",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angularfire.git",
-    "comment": "6.1.5",
-    "installedVersion": "6.1.5",
+    "comment": "7.0.0",
+    "installedVersion": "7.0.0",
     "author": "angular,firebase"
   },
   {
