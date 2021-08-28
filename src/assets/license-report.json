@@ -134,8 +134,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "8.10.0",
-    "installedVersion": "8.10.0",
+    "comment": "9.0.0",
+    "installedVersion": "9.0.0",
     "author": "Firebase"
   },
   {
