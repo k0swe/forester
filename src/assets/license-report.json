@@ -272,8 +272,8 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "3.8.2",
-    "installedVersion": "3.8.2"
+    "comment": "3.9.0",
+    "installedVersion": "3.9.0"
   },
   {
     "name": "@types/jasminewd2",
