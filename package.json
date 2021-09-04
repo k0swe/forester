@@ -58,7 +58,7 @@
     "@angular/cli": "12.2.4",
     "@angular/compiler-cli": "12.2.4",
     "@firebase/rules-unit-testing": "2.0.0",
-    "@google-cloud/firestore": "4.15.0",
+    "@google-cloud/firestore": "4.15.1",
     "@types/jasmine": "3.9.0",
     "@types/jasminewd2": "2.0.10",
     "@types/node": "15.14.9",
