@@ -359,6 +359,10 @@ export class Proto2Adif {
       // QsoService.unmarshalDates()
       date = new Date(date);
     }
+    if (isNaN(date.getTime())) {
+      // Invalid date
+      return undefined;
+    }
     const year = date.getUTCFullYear().toString();
     const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
     const day = date.getUTCDate().toString().padStart(2, '0');
