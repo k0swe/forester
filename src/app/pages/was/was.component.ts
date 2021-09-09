@@ -83,7 +83,10 @@ export class WasComponent implements OnInit, AfterViewInit {
     { name: 'Wisconsin', abbrev: 'WI', lat: 44.7863, lon: -89.8267 },
     { name: 'Wyoming', abbrev: 'WY', lat: 43.0003, lon: -107.5546 },
   ];
-  markers: Array<google.maps.Marker> = [];
+  markers: Map<string, google.maps.Marker> = new Map<
+    string,
+    google.maps.Marker
+  >();
   infoWindow: google.maps.InfoWindow = new google.maps.InfoWindow();
 
   private static makeQsoMarkerOptions(
@@ -150,12 +153,19 @@ export class WasComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.generateMarkers();
+    this.states.forEach((state) => {
+      let markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
+      markerOpts.map = this.map.googleMap;
+      const marker = new google.maps.Marker(markerOpts);
+      this.markers.set(state.abbrev, marker);
+    });
+    this.updateMarkers();
   }
 
-  private generateMarkers(): void {
+  private updateMarkers(): void {
     this.states.forEach((state) => {
       this.findQsoForState(state.abbrev).subscribe((fbq) => {
+        const marker = this.markers.get(state.abbrev);
         let markerOpts: google.maps.MarkerOptions;
         let iw: google.maps.InfoWindowOptions;
         if (fbq !== undefined) {
@@ -166,12 +176,11 @@ export class WasComponent implements OnInit, AfterViewInit {
           iw = WasComponent.makeNoQsoInfoWindowOptions(state);
         }
         markerOpts.map = this.map.googleMap;
-        const marker = new google.maps.Marker(markerOpts);
+        marker.setOptions(markerOpts);
         marker.addListener('click', () => {
           this.infoWindow.setOptions(iw);
           this.infoWindow.open(this.map.googleMap, marker);
         });
-        this.markers.push(marker);
       });
     });
   }
@@ -200,15 +209,6 @@ export class WasComponent implements OnInit, AfterViewInit {
   }
 
   changeFilters(): void {
-    this.clearMarkers();
-    this.generateMarkers();
-  }
-
-  private clearMarkers(): void {
-    // TODO: this is probably dumb and going to cause a memory leak. reuse the marker for each state?
-    this.markers.forEach((marker) => {
-      marker.setMap(null);
-    });
-    this.markers = [];
+    this.updateMarkers();
   }
 }
