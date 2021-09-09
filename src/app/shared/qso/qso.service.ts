@@ -67,8 +67,7 @@ export class QsoService {
   }
 
   private contactsPath(): string {
-    const path = 'logbooks/' + this.currentBook + '/contacts';
-    return path;
+    return 'logbooks/' + this.currentBook + '/contacts';
   }
 
   private unpackDocs(snapshots: DocumentChangeAction<Qso>[]): FirebaseQso[] {
@@ -154,16 +153,20 @@ export class QsoService {
           .sort((a, b) => a.qso.timeOn.getTime() - b.qso.timeOn.getTime())
           .find((q) => {
             // if band is anything but 'mixed', it should match
-            if (
-              criteria.band !== 'mixed' &&
-              q.qso.band != null &&
-              q.qso.band.toUpperCase() !== criteria.band.toUpperCase()
-            ) {
-              return false;
+            if (criteria.band !== 'mixed') {
+              if (
+                !q.qso.band ||
+                q.qso.band.toUpperCase() !== criteria.band.toUpperCase()
+              ) {
+                return false;
+              }
             }
 
             // if mode is anything but 'mixed', it should match (with categories)
-            if (criteria.mode !== 'mixed' && q.qso.mode != null) {
+            if (criteria.mode !== 'mixed') {
+              if (!q.qso.mode) {
+                return false;
+              }
               let simpleMode;
               const mode = q.qso.mode.toUpperCase();
               if (mode === 'SSB' || mode === 'USB' || mode === 'LSB') {
@@ -184,22 +187,25 @@ export class QsoService {
             }
 
             // if country is set (always should be), it should match
-            if (
-              q.qso.contactedStation.country != null &&
-              q.qso.contactedStation.country.toUpperCase() !==
-                criteria.country.toUpperCase()
-            ) {
-              return false;
+            if (criteria.country) {
+              if (
+                !q.qso.contactedStation.country ||
+                q.qso.contactedStation.country.toUpperCase() !==
+                  criteria.country.toUpperCase()
+              ) {
+                return false;
+              }
             }
 
             // if state is set, it should match
-            if (
-              criteria.state != null &&
-              q.qso.contactedStation.state != null &&
-              q.qso.contactedStation.state.toUpperCase() !==
-                criteria.state.toUpperCase()
-            ) {
-              return false;
+            if (criteria.state) {
+              if (
+                !q.qso.contactedStation.state ||
+                q.qso.contactedStation.state.toUpperCase() !==
+                  criteria.state.toUpperCase()
+              ) {
+                return false;
+              }
             }
 
             // everything matched
@@ -216,7 +222,9 @@ export class QsoService {
   /**
    * Insert or update the given QSO into the datastore. If `fbq.id` is null, insert; otherwise, update.
    */
-  public addOrUpdate(fbq: FirebaseQso): Observable<any> {
+  public;
+
+  addOrUpdate(fbq: FirebaseQso): Observable<any> {
     QsoService.marshalDates(fbq.qso);
     const u = this.user$.getValue();
     if (u == null) {
