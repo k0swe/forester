@@ -61,6 +61,14 @@
               ],
               "serviceWorker": true,
               "ngswConfigPath": "ngsw-config.json"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
@@ -72,8 +80,12 @@
           "configurations": {
             "production": {
               "browserTarget": "forester:build:production"
+            },
+            "development": {
+              "browserTarget": "forester:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
