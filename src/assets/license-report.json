@@ -65,8 +65,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.5",
-    "installedVersion": "12.2.5"
+    "comment": "12.2.6",
+    "installedVersion": "12.2.6"
   },
   {
     "name": "@angular/localize",
@@ -126,8 +126,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.2",
-    "installedVersion": "0.4.2",
+    "comment": "0.4.3",
+    "installedVersion": "0.4.3",
     "author": "Chris Keller"
   },
   {
@@ -142,8 +142,8 @@
     "name": "google-protobuf",
     "licenseType": "BSD-3-Clause",
     "link": "https://github.com/protocolbuffers/protobuf/tree/master/js",
-    "comment": "3.17.3",
-    "installedVersion": "3.17.3",
+    "comment": "3.18.0",
+    "installedVersion": "3.18.0",
     "author": "Google Protocol Buffers Team"
   },
   {
@@ -347,8 +347,8 @@
     "name": "inquirer",
     "licenseType": "MIT",
     "link": "git+https://github.com/SBoudrias/Inquirer.js.git",
-    "comment": "8.1.4",
-    "installedVersion": "8.1.4",
+    "comment": "8.1.5",
+    "installedVersion": "8.1.5",
     "author": "Simon Boudrias"
   },
   {
@@ -441,8 +441,8 @@
     "name": "prettier",
     "licenseType": "MIT",
     "link": "git+https://github.com/prettier/prettier.git",
-    "comment": "2.4.0",
-    "installedVersion": "2.4.0",
+    "comment": "2.4.1",
+    "installedVersion": "2.4.1",
     "author": "James Long"
   },
   {
