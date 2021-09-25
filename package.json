@@ -57,7 +57,7 @@
     "@angular-eslint/template-parser": "12.5.0",
     "@angular/cli": "12.2.7",
     "@angular/compiler-cli": "12.2.7",
-    "@firebase/rules-unit-testing": "2.0.0",
+    "@firebase/rules-unit-testing": "2.0.1",
     "@google-cloud/firestore": "4.15.1",
     "@types/jasmine": "3.9.1",
     "@types/jasminewd2": "2.0.10",
