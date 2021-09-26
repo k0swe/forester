@@ -11,8 +11,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.6",
-    "installedVersion": "12.2.6"
+    "comment": "12.2.7",
+    "installedVersion": "12.2.7"
   },
   {
     "name": "@angular/common",
@@ -65,8 +65,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.6",
-    "installedVersion": "12.2.6"
+    "comment": "12.2.7",
+    "installedVersion": "12.2.7"
   },
   {
     "name": "@angular/localize",
@@ -80,8 +80,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.6",
-    "installedVersion": "12.2.6"
+    "comment": "12.2.7",
+    "installedVersion": "12.2.7"
   },
   {
     "name": "@angular/platform-browser",
@@ -256,8 +256,8 @@
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "2.0.0",
-    "installedVersion": "2.0.0",
+    "comment": "2.0.1",
+    "installedVersion": "2.0.1",
     "author": "Firebase"
   },
   {
