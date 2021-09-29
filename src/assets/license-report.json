@@ -126,8 +126,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.4",
-    "installedVersion": "0.4.4",
+    "comment": "0.4.5",
+    "installedVersion": "0.4.5",
     "author": "Chris Keller"
   },
   {
@@ -293,15 +293,15 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.31.2",
-    "installedVersion": "4.31.2"
+    "comment": "4.32.0",
+    "installedVersion": "4.32.0"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.31.2",
-    "installedVersion": "4.31.2"
+    "comment": "4.32.0",
+    "installedVersion": "4.32.0"
   },
   {
     "name": "eslint",
@@ -315,8 +315,8 @@
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "9.11.1",
-    "installedVersion": "9.11.1",
+    "comment": "9.12.0",
+    "installedVersion": "9.12.0",
     "author": "Firebase"
   },
   {
