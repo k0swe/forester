@@ -158,8 +158,8 @@
     "name": "rxjs",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/reactivex/rxjs.git",
-    "comment": "7.3.0",
-    "installedVersion": "7.3.0",
+    "comment": "7.3.1",
+    "installedVersion": "7.3.1",
     "author": "Ben Lesh"
   },
   {
@@ -190,16 +190,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1202.7",
-    "installedVersion": "0.1202.7",
+    "comment": "0.1202.8",
+    "installedVersion": "0.1202.8",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.2.7",
-    "installedVersion": "12.2.7",
+    "comment": "12.2.8",
+    "installedVersion": "12.2.8",
     "author": "Angular Authors"
   },
   {
@@ -241,8 +241,8 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.2.7",
-    "installedVersion": "12.2.7",
+    "comment": "12.2.8",
+    "installedVersion": "12.2.8",
     "author": "Angular Authors"
   },
   {
