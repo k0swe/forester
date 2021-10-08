@@ -11,8 +11,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.8",
-    "installedVersion": "12.2.8"
+    "comment": "12.2.9",
+    "installedVersion": "12.2.9"
   },
   {
     "name": "@angular/common",
@@ -65,8 +65,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.8",
-    "installedVersion": "12.2.8"
+    "comment": "12.2.9",
+    "installedVersion": "12.2.9"
   },
   {
     "name": "@angular/localize",
@@ -80,8 +80,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.8",
-    "installedVersion": "12.2.8"
+    "comment": "12.2.9",
+    "installedVersion": "12.2.9"
   },
   {
     "name": "@angular/platform-browser",
@@ -158,8 +158,8 @@
     "name": "rxjs",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/reactivex/rxjs.git",
-    "comment": "7.3.1",
-    "installedVersion": "7.3.1",
+    "comment": "7.4.0",
+    "installedVersion": "7.4.0",
     "author": "Ben Lesh"
   },
   {
@@ -190,16 +190,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1202.8",
-    "installedVersion": "0.1202.8",
+    "comment": "0.1202.9",
+    "installedVersion": "0.1202.9",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.2.8",
-    "installedVersion": "12.2.8",
+    "comment": "12.2.9",
+    "installedVersion": "12.2.9",
     "author": "Angular Authors"
   },
   {
@@ -241,8 +241,8 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.2.8",
-    "installedVersion": "12.2.8",
+    "comment": "12.2.9",
+    "installedVersion": "12.2.9",
     "author": "Angular Authors"
   },
   {
@@ -323,8 +323,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "9.19.0",
-    "installedVersion": "9.19.0",
+    "comment": "9.20.0",
+    "installedVersion": "9.20.0",
     "author": "Firebase"
   },
   {
@@ -433,8 +433,8 @@
     "name": "open",
     "licenseType": "MIT",
     "link": "git+https://github.com/sindresorhus/open.git",
-    "comment": "8.2.1",
-    "installedVersion": "8.2.1",
+    "comment": "8.3.0",
+    "installedVersion": "8.3.0",
     "author": "Sindre Sorhus"
   },
   {
