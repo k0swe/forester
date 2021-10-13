@@ -293,22 +293,22 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.33.0",
-    "installedVersion": "4.33.0"
+    "comment": "5.0.0",
+    "installedVersion": "5.0.0"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "4.33.0",
-    "installedVersion": "4.33.0"
+    "comment": "5.0.0",
+    "installedVersion": "5.0.0"
   },
   {
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "7.32.0",
-    "installedVersion": "7.32.0",
+    "comment": "8.0.0",
+    "installedVersion": "8.0.0",
     "author": "Nicholas C. Zakas"
   },
   {
@@ -425,8 +425,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "11.2.0",
-    "installedVersion": "11.2.0",
+    "comment": "11.2.3",
+    "installedVersion": "11.2.3",
     "author": "Andrey Okonetchnikov"
   },
   {
@@ -457,8 +457,8 @@
     "name": "ts-node",
     "licenseType": "MIT",
     "link": "git://github.com/TypeStrong/ts-node.git",
-    "comment": "10.2.1",
-    "installedVersion": "10.2.1",
+    "comment": "10.3.0",
+    "installedVersion": "10.3.0",
     "author": "Blake Embrey"
   },
   {
