@@ -126,8 +126,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.6",
-    "installedVersion": "0.4.6",
+    "comment": "0.4.7",
+    "installedVersion": "0.4.7",
     "author": "Chris Keller"
   },
   {
