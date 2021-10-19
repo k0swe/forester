@@ -11,8 +11,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.9",
-    "installedVersion": "12.2.9"
+    "comment": "12.2.10",
+    "installedVersion": "12.2.10"
   },
   {
     "name": "@angular/common",
@@ -65,8 +65,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.9",
-    "installedVersion": "12.2.9"
+    "comment": "12.2.10",
+    "installedVersion": "12.2.10"
   },
   {
     "name": "@angular/localize",
@@ -80,8 +80,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.9",
-    "installedVersion": "12.2.9"
+    "comment": "12.2.10",
+    "installedVersion": "12.2.10"
   },
   {
     "name": "@angular/platform-browser",
@@ -272,8 +272,8 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "3.9.1",
-    "installedVersion": "3.9.1"
+    "comment": "3.10.0",
+    "installedVersion": "3.10.0"
   },
   {
     "name": "@types/jasminewd2",
@@ -293,30 +293,30 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.0.0",
-    "installedVersion": "5.0.0"
+    "comment": "5.1.0",
+    "installedVersion": "5.1.0"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.0.0",
-    "installedVersion": "5.0.0"
+    "comment": "5.1.0",
+    "installedVersion": "5.1.0"
   },
   {
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.0.0",
-    "installedVersion": "8.0.0",
+    "comment": "8.0.1",
+    "installedVersion": "8.0.1",
     "author": "Nicholas C. Zakas"
   },
   {
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "9.12.0",
-    "installedVersion": "9.12.0",
+    "comment": "10.0.0",
+    "installedVersion": "10.0.0",
     "author": "Firebase"
   },
   {
@@ -363,8 +363,8 @@
     "name": "jasmine-core",
     "licenseType": "MIT",
     "link": "git+https://github.com/jasmine/jasmine.git",
-    "comment": "3.9.0",
-    "installedVersion": "3.9.0"
+    "comment": "3.10.0",
+    "installedVersion": "3.10.0"
   },
   {
     "name": "jasmine-spec-reporter",
