@@ -11,8 +11,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.10",
-    "installedVersion": "12.2.10"
+    "comment": "12.2.11",
+    "installedVersion": "12.2.11"
   },
   {
     "name": "@angular/common",
@@ -65,8 +65,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.10",
-    "installedVersion": "12.2.10"
+    "comment": "12.2.11",
+    "installedVersion": "12.2.11"
   },
   {
     "name": "@angular/localize",
@@ -80,8 +80,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.10",
-    "installedVersion": "12.2.10"
+    "comment": "12.2.11",
+    "installedVersion": "12.2.11"
   },
   {
     "name": "@angular/platform-browser",
@@ -190,16 +190,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1202.10",
-    "installedVersion": "0.1202.10",
+    "comment": "0.1202.11",
+    "installedVersion": "0.1202.11",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.2.10",
-    "installedVersion": "12.2.10",
+    "comment": "12.2.11",
+    "installedVersion": "12.2.11",
     "author": "Angular Authors"
   },
   {
@@ -241,8 +241,8 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "12.2.10",
-    "installedVersion": "12.2.10",
+    "comment": "12.2.11",
+    "installedVersion": "12.2.11",
     "author": "Angular Authors"
   },
   {
@@ -339,8 +339,8 @@
     "name": "husky",
     "licenseType": "MIT",
     "link": "git+https://github.com/typicode/husky.git",
-    "comment": "7.0.2",
-    "installedVersion": "7.0.2",
+    "comment": "7.0.4",
+    "installedVersion": "7.0.4",
     "author": "Typicode"
   },
   {
@@ -378,8 +378,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.4",
-    "installedVersion": "6.3.4",
+    "comment": "6.3.5",
+    "installedVersion": "6.3.5",
     "author": "Vojta Jína"
   },
   {
