@@ -136,6 +136,7 @@ export class QsoDetailComponent implements OnInit {
     this.setupModeAutocomplete();
     this.setupCountryAutocomplete();
     this.setupAutoContinentFromCountry();
+    this.setupAutoBandFromFreq();
     this.qsoDetailForm
       .get('contactedStation')
       .valueChanges.subscribe(() => this.updateMapLink());
@@ -189,16 +190,25 @@ export class QsoDetailComponent implements OnInit {
     });
   }
 
+  private setupAutoBandFromFreq(): void {
+    const freqField = this.qsoDetailForm.get('freq');
+    const bandField = this.qsoDetailForm.get('band');
+    freqField.valueChanges.subscribe((freqInput) => {
+      const band = Band.freqToBand(freqInput);
+      bandField.setValue(band);
+    });
+  }
+
   private updateMapLink(): void {
-    const latitude: number = this.qsoDetailForm.get('contactedStation').value
-      .latitude;
-    const longitude: number = this.qsoDetailForm.get('contactedStation').value
-      .longitude;
+    const latitude: number =
+      this.qsoDetailForm.get('contactedStation').value.latitude;
+    const longitude: number =
+      this.qsoDetailForm.get('contactedStation').value.longitude;
     const city: string = this.qsoDetailForm.get('contactedStation').value.city;
-    const state: string = this.qsoDetailForm.get('contactedStation').value
-      .state;
-    const country: string = this.qsoDetailForm.get('contactedStation').value
-      .country;
+    const state: string =
+      this.qsoDetailForm.get('contactedStation').value.state;
+    const country: string =
+      this.qsoDetailForm.get('contactedStation').value.country;
     if (latitude && longitude) {
       this.mapLink = googleMapsSearchBase + latitude + ',' + longitude;
     } else if (city || state || country) {
