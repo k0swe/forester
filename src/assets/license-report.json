@@ -158,8 +158,8 @@
     "name": "rxjs",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/reactivex/rxjs.git",
-    "comment": "7.4.0",
-    "installedVersion": "7.4.0",
+    "comment": "6.6.7",
+    "installedVersion": "6.6.7",
     "author": "Ben Lesh"
   },
   {
@@ -256,8 +256,8 @@
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "2.0.1",
-    "installedVersion": "2.0.1",
+    "comment": "1.3.15",
+    "installedVersion": "1.3.15",
     "author": "Firebase"
   },
   {
@@ -315,8 +315,8 @@
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "10.0.0",
-    "installedVersion": "10.0.0",
+    "comment": "9.7.0",
+    "installedVersion": "9.7.0",
     "author": "Firebase"
   },
   {
