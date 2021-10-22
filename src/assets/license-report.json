@@ -142,8 +142,8 @@
     "name": "google-protobuf",
     "licenseType": "BSD-3-Clause",
     "link": "https://github.com/protocolbuffers/protobuf/tree/master/js",
-    "comment": "3.18.1",
-    "installedVersion": "3.18.1",
+    "comment": "3.19.0",
+    "installedVersion": "3.19.0",
     "author": "Google Protocol Buffers Team"
   },
   {
@@ -293,22 +293,22 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.1.0",
-    "installedVersion": "5.1.0"
+    "comment": "4.33.0",
+    "installedVersion": "4.33.0"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.1.0",
-    "installedVersion": "5.1.0"
+    "comment": "4.33.0",
+    "installedVersion": "4.33.0"
   },
   {
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.0.1",
-    "installedVersion": "8.0.1",
+    "comment": "7.32.0",
+    "installedVersion": "7.32.0",
     "author": "Nicholas C. Zakas"
   },
   {
@@ -323,8 +323,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "9.20.0",
-    "installedVersion": "9.20.0",
+    "comment": "9.21.0",
+    "installedVersion": "9.21.0",
     "author": "Firebase"
   },
   {
@@ -457,8 +457,8 @@
     "name": "ts-node",
     "licenseType": "MIT",
     "link": "git://github.com/TypeStrong/ts-node.git",
-    "comment": "10.3.0",
-    "installedVersion": "10.3.0",
+    "comment": "10.3.1",
+    "installedVersion": "10.3.1",
     "author": "Blake Embrey"
   },
   {
