@@ -179,6 +179,14 @@ export class QsoDetailComponent implements OnInit {
     const lonField = this.qsoDetailForm.get('loggingStation.longitude');
     const gridField = this.qsoDetailForm.get('loggingStation.gridSquare');
     this.locationService.getLocation().subscribe((loc) => {
+      if (
+        latField.value != null ||
+        lonField.value != null ||
+        gridField.value != null
+      ) {
+        // If there's any location info already, don't overwrite it
+        return;
+      }
       latField.setValue(loc.latitude);
       lonField.setValue(loc.longitude);
       gridField.setValue(loc.gridSquare);
