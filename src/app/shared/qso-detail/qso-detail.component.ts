@@ -1,3 +1,4 @@
+import { AgentService } from '../agent/agent.service';
 import { Band } from '../../reference/band';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
@@ -27,6 +28,7 @@ export class QsoDetailComponent implements OnInit {
     private datePipe: DatePipe,
     private qsoService: QsoService,
     private locationService: LocationService,
+    private agentService: AgentService,
     private dialog: MatDialogRef<any>
   ) {
     this.firebaseId = data.id;
@@ -140,6 +142,7 @@ export class QsoDetailComponent implements OnInit {
     this.setupAutoContinentFromCountry();
     this.setupAutoBandFromFreq();
     this.setupAutoLocation();
+    this.setupAgentFreqMode();
     this.qsoDetailForm
       .get('contactedStation')
       .valueChanges.subscribe(() => this.updateMapLink());
@@ -194,6 +197,23 @@ export class QsoDetailComponent implements OnInit {
       lonField.markAsDirty();
       gridField.markAsDirty();
     });
+  }
+
+  private setupAgentFreqMode(): void {
+    const freqField = this.qsoDetailForm.get('freq');
+    const modeField = this.qsoDetailForm.get('mode');
+    if (freqField.value == null) {
+      // only enable rig control updates if there's no existing freq
+      this.agentService.hamlibRigState$.subscribe((rig) => {
+        if (rig == null) {
+          return;
+        }
+        freqField.setValue(rig.frequency / 1000000);
+        modeField.setValue(rig.mode);
+        freqField.markAsDirty();
+        modeField.markAsDirty();
+      });
+    }
   }
 
   private filterCountries(countryInput: string): string[] {

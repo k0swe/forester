@@ -37,7 +37,7 @@ export class AgentService {
   /** Whether we're getting any messages from Hamlib. */
   public readonly hamlibState$ = new BehaviorSubject<boolean>(false);
   /** Subject for listening to Hamlib "RigState" messages. */
-  public readonly hamlibRigState$ = new Subject<HamlibRigState>();
+  public readonly hamlibRigState$ = new BehaviorSubject<HamlibRigState>(null);
 
   private readonly defaultAgentHost = 'localhost';
   private readonly defaultAgentPort = 8081;
