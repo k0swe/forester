@@ -66,6 +66,10 @@ export class QsoService {
     contacts.subscribe((qsos) => this.qsos$.next(qsos));
   }
 
+  public book(): string {
+    return this.currentBook;
+  }
+
   private contactsPath(): string {
     return 'logbooks/' + this.currentBook + '/contacts';
   }
