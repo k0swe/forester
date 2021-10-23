@@ -4,6 +4,7 @@ import { DatePipe } from '@angular/common';
 import { DxccRef } from '../../reference/dxcc';
 import { FirebaseQso, QsoService } from '../qso/qso.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LocationService } from '../location/location.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
 import { Modes } from '../../reference/mode';
@@ -25,6 +26,7 @@ export class QsoDetailComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: FirebaseQso,
     private datePipe: DatePipe,
     private qsoService: QsoService,
+    private locationService: LocationService,
     private dialog: MatDialogRef<any>
   ) {
     this.firebaseId = data.id;
@@ -137,6 +139,7 @@ export class QsoDetailComponent implements OnInit {
     this.setupCountryAutocomplete();
     this.setupAutoContinentFromCountry();
     this.setupAutoBandFromFreq();
+    this.setupAutoLocation();
     this.qsoDetailForm
       .get('contactedStation')
       .valueChanges.subscribe(() => this.updateMapLink());
@@ -169,6 +172,20 @@ export class QsoDetailComponent implements OnInit {
     this.filteredCountries$ = countryField.valueChanges.pipe(
       map((countryInput) => this.filterCountries(countryInput))
     );
+  }
+
+  private setupAutoLocation(): void {
+    const latField = this.qsoDetailForm.get('loggingStation.latitude');
+    const lonField = this.qsoDetailForm.get('loggingStation.longitude');
+    const gridField = this.qsoDetailForm.get('loggingStation.gridSquare');
+    this.locationService.getLocation().subscribe((loc) => {
+      latField.setValue(loc.latitude);
+      lonField.setValue(loc.longitude);
+      gridField.setValue(loc.gridSquare);
+      latField.markAsDirty();
+      lonField.markAsDirty();
+      gridField.markAsDirty();
+    });
   }
 
   private filterCountries(countryInput: string): string[] {

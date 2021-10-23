@@ -22,6 +22,7 @@
     "tls": false
   },
   "dependencies": {
+    "@amrato/maidenhead-ts": "2.0.0",
     "@angular/animations": "12.2.11",
     "@angular/cdk": "12.2.11",
     "@angular/common": "12.2.11",

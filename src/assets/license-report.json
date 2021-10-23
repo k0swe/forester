@@ -1,5 +1,13 @@
 [
   {
+    "name": "@amrato/maidenhead-ts",
+    "licenseType": "MIT",
+    "link": "git+https://github.com/paulirwin/Maidenhead.git",
+    "comment": "2.0.0",
+    "installedVersion": "2.0.0",
+    "author": "Paul Irwin, Mehmet Celik"
+  },
+  {
     "name": "@angular/animations",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
