@@ -280,8 +280,8 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "3.10.0",
-    "installedVersion": "3.10.0"
+    "comment": "3.10.1",
+    "installedVersion": "3.10.1"
   },
   {
     "name": "@types/jasminewd2",
@@ -371,8 +371,8 @@
     "name": "jasmine-core",
     "licenseType": "MIT",
     "link": "git+https://github.com/jasmine/jasmine.git",
-    "comment": "3.10.0",
-    "installedVersion": "3.10.0"
+    "comment": "3.10.1",
+    "installedVersion": "3.10.1"
   },
   {
     "name": "jasmine-spec-reporter",
@@ -465,8 +465,8 @@
     "name": "ts-node",
     "licenseType": "MIT",
     "link": "git://github.com/TypeStrong/ts-node.git",
-    "comment": "10.3.1",
-    "installedVersion": "10.3.1",
+    "comment": "10.4.0",
+    "installedVersion": "10.4.0",
     "author": "Blake Embrey"
   },
   {
