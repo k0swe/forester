@@ -214,36 +214,36 @@
     "name": "@angular-eslint/builder",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "12.5.0",
-    "installedVersion": "12.5.0"
+    "comment": "12.6.0",
+    "installedVersion": "12.6.0"
   },
   {
     "name": "@angular-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "12.5.0",
-    "installedVersion": "12.5.0"
+    "comment": "12.6.0",
+    "installedVersion": "12.6.0"
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "12.5.0",
-    "installedVersion": "12.5.0"
+    "comment": "12.6.0",
+    "installedVersion": "12.6.0"
   },
   {
     "name": "@angular-eslint/schematics",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "12.5.0",
-    "installedVersion": "12.5.0"
+    "comment": "12.6.0",
+    "installedVersion": "12.6.0"
   },
   {
     "name": "@angular-eslint/template-parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "12.5.0",
-    "installedVersion": "12.5.0"
+    "comment": "12.6.0",
+    "installedVersion": "12.6.0"
   },
   {
     "name": "@angular/cli",
@@ -386,8 +386,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.5",
-    "installedVersion": "6.3.5",
+    "comment": "6.3.6",
+    "installedVersion": "6.3.6",
     "author": "Vojta Jína"
   },
   {
@@ -433,16 +433,16 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "11.2.3",
-    "installedVersion": "11.2.3",
+    "comment": "11.2.4",
+    "installedVersion": "11.2.4",
     "author": "Andrey Okonetchnikov"
   },
   {
     "name": "open",
     "licenseType": "MIT",
     "link": "git+https://github.com/sindresorhus/open.git",
-    "comment": "8.3.0",
-    "installedVersion": "8.3.0",
+    "comment": "8.4.0",
+    "installedVersion": "8.4.0",
     "author": "Sindre Sorhus"
   },
   {
