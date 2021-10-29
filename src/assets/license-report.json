@@ -150,8 +150,8 @@
     "name": "google-protobuf",
     "licenseType": "BSD-3-Clause",
     "link": "https://github.com/protocolbuffers/protobuf/tree/master/js",
-    "comment": "3.19.0",
-    "installedVersion": "3.19.0",
+    "comment": "3.19.1",
+    "installedVersion": "3.19.1",
     "author": "Google Protocol Buffers Team"
   },
   {
