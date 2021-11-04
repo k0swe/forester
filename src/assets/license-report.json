@@ -134,8 +134,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.8",
-    "installedVersion": "0.4.8",
+    "comment": "0.4.9",
+    "installedVersion": "0.4.9",
     "author": "Chris Keller"
   },
   {
@@ -280,8 +280,8 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "3.10.1",
-    "installedVersion": "3.10.1"
+    "comment": "3.10.2",
+    "installedVersion": "3.10.2"
   },
   {
     "name": "@types/jasminewd2",
@@ -386,8 +386,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.6",
-    "installedVersion": "6.3.6",
+    "comment": "6.3.7",
+    "installedVersion": "6.3.7",
     "author": "Vojta Jína"
   },
   {
