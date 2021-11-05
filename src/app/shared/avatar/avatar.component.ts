@@ -1,4 +1,4 @@
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
 import { AuthService } from '../auth/auth.service';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';

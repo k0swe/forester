@@ -8,6 +8,14 @@
     "author": "Paul Irwin, Mehmet Celik"
   },
   {
+    "name": "@angular-devkit/schematics",
+    "licenseType": "MIT",
+    "link": "git+https://github.com/angular/angular-cli.git",
+    "comment": "12.2.13",
+    "installedVersion": "12.2.13",
+    "author": "Angular Authors"
+  },
+  {
     "name": "@angular/animations",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
@@ -50,8 +58,8 @@
     "name": "@angular/fire",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angularfire.git",
-    "comment": "6.1.5",
-    "installedVersion": "6.1.5",
+    "comment": "7.1.1",
+    "installedVersion": "7.1.1",
     "author": "angular,firebase"
   },
   {
@@ -124,6 +132,14 @@
     "author": "angular"
   },
   {
+    "name": "@schematics/angular",
+    "licenseType": "MIT",
+    "link": "git+https://github.com/angular/angular-cli.git",
+    "comment": "12.2.13",
+    "installedVersion": "12.2.13",
+    "author": "Angular Authors"
+  },
+  {
     "name": "@types/long",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
@@ -142,8 +158,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "8.10.0",
-    "installedVersion": "8.10.0",
+    "comment": "9.1.0",
+    "installedVersion": "9.1.0",
     "author": "Firebase"
   },
   {
@@ -161,6 +177,14 @@
     "comment": "2.29.1",
     "installedVersion": "2.29.1",
     "author": "Iskren Ivov Chernev"
+  },
+  {
+    "name": "rxfire",
+    "licenseType": "Apache-2.0",
+    "link": "git+https://github.com/firebaseextended/rxfire.git",
+    "comment": "6.0.3",
+    "installedVersion": "6.0.3",
+    "author": "Firebase"
   },
   {
     "name": "rxjs",
