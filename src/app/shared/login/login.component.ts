@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserSettingsService } from '../user-settings/user-settings.service';
 import { Observable } from 'rxjs';
-import firebase from 'firebase/compat';
+import firebase from 'firebase';
 import { take, takeWhile } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 

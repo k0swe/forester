@@ -1,5 +1,5 @@
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
 import { AuthService } from './shared/auth/auth.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';

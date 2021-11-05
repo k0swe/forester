@@ -1,6 +1,6 @@
 import { AgentService } from './agent.service';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { TestBed } from '@angular/core/testing';
 
 describe('AgentService', () => {

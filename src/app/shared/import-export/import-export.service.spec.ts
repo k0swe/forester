@@ -1,5 +1,5 @@
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { ImportExportService } from './import-export.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TestBed } from '@angular/core/testing';

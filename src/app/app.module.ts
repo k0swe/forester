@@ -1,10 +1,10 @@
 import { AgentComponent } from './shared/agent/agent.component';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
 import {
   AngularFirestoreModule,
   SETTINGS as FIRESTORE_SETTINGS,
-} from '@angular/fire/compat/firestore';
+} from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './shared/auth/auth.service';

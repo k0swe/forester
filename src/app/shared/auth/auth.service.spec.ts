@@ -1,4 +1,4 @@
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from './auth.service';
 import { TestBed } from '@angular/core/testing';
 

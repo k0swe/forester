@@ -4,8 +4,8 @@ import {
   clearFirestoreData,
   initializeAdminApp,
   initializeTestApp,
-} from 'firebase/testing';
-import firebase from 'firebase/compat/app';
+} from '@firebase/testing';
+import firebase from 'firebase/app';
 
 const PROJECT_ID = 'k0swe-kellog';
 const MY_UID = 'k0swe';
