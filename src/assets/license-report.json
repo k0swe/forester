@@ -19,8 +19,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.12",
-    "installedVersion": "12.2.12"
+    "comment": "12.2.13",
+    "installedVersion": "12.2.13"
   },
   {
     "name": "@angular/common",
@@ -73,8 +73,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.12",
-    "installedVersion": "12.2.12"
+    "comment": "12.2.13",
+    "installedVersion": "12.2.13"
   },
   {
     "name": "@angular/localize",
@@ -88,8 +88,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "12.2.12",
-    "installedVersion": "12.2.12"
+    "comment": "12.2.13",
+    "installedVersion": "12.2.13"
   },
   {
     "name": "@angular/platform-browser",
@@ -134,8 +134,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.9",
-    "installedVersion": "0.4.9",
+    "comment": "0.4.10",
+    "installedVersion": "0.4.10",
     "author": "Chris Keller"
   },
   {
@@ -198,8 +198,8 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1300.1",
-    "installedVersion": "0.1300.1",
+    "comment": "0.1300.2",
+    "installedVersion": "0.1300.2",
     "author": "Angular Authors"
   },
   {
@@ -386,8 +386,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.7",
-    "installedVersion": "6.3.7",
+    "comment": "6.3.8",
+    "installedVersion": "6.3.8",
     "author": "Vojta Jína"
   },
   {
@@ -433,8 +433,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "11.2.6",
-    "installedVersion": "11.2.6",
+    "comment": "12.0.2",
+    "installedVersion": "12.0.2",
     "author": "Andrey Okonetchnikov"
   },
   {
