@@ -50,8 +50,8 @@
     "name": "@angular/fire",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angularfire.git",
-    "comment": "6.1.5",
-    "installedVersion": "6.1.5",
+    "comment": "7.2.0",
+    "installedVersion": "7.2.0",
     "author": "angular,firebase"
   },
   {
@@ -142,8 +142,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "8.10.0",
-    "installedVersion": "8.10.0",
+    "comment": "9.4.1",
+    "installedVersion": "9.4.0",
     "author": "Firebase"
   },
   {
@@ -193,6 +193,14 @@
     "comment": "0.11.4",
     "installedVersion": "0.11.4",
     "author": "Brian Ford"
+  },
+  {
+    "name": "rxfire",
+    "licenseType": "Apache-2.0",
+    "link": "git+https://github.com/firebaseextended/rxfire.git",
+    "comment": "6.0.3",
+    "installedVersion": "6.0.0",
+    "author": "Firebase"
   },
   {
     "name": "@angular-devkit/architect",

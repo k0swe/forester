@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, from, Observable } from 'rxjs';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AuthService } from '../../shared/auth/auth.service';
 import { mergeMap } from 'rxjs/operators';
 import { UserSettingsService } from '../../shared/user-settings/user-settings.service';

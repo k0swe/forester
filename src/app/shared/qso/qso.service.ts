@@ -1,8 +1,8 @@
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
 import {
   AngularFirestore,
   DocumentChangeAction,
-} from '@angular/fire/firestore';
+} from '@angular/fire/compat/firestore';
 import { AuthService } from '../auth/auth.service';
 import { BehaviorSubject, combineLatest, from, Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
