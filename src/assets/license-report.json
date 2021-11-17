@@ -134,8 +134,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.10",
-    "installedVersion": "0.4.10",
+    "comment": "0.4.11",
+    "installedVersion": "0.4.11",
     "author": "Chris Keller"
   },
   {
@@ -386,8 +386,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.8",
-    "installedVersion": "6.3.8",
+    "comment": "6.3.9",
+    "installedVersion": "6.3.9",
     "author": "Vojta Jína"
   },
   {
