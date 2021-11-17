@@ -1,4 +1,4 @@
-@use '@angular/material' as mat;
+@use '~@angular/material' as mat;
 
 $kel-primary: mat.define-palette(mat.$green-palette, 700, 300, 900);
 $kel-accent: mat.define-palette(mat.$deep-purple-palette);
