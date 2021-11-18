@@ -1,4 +1,4 @@
-import { AgentService } from '../agent/agent.service';
+import { AgentService } from 'ngx-kel-agent';
 import { Component, OnInit } from '@angular/core';
 import { LogbookService } from '../../pages/logbook/logbook.service';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';

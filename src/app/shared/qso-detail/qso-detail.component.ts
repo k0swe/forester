@@ -1,4 +1,4 @@
-import { AgentService } from '../agent/agent.service';
+import { AgentService } from 'ngx-kel-agent';
 import { Band } from '../../reference/band';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
