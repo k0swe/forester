@@ -1,4 +1,4 @@
-import { AgentService } from './agent.service';
+import { AgentService } from 'ngx-kel-agent';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

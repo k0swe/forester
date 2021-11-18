@@ -1,4 +1,4 @@
-import { AgentService } from '../agent/agent.service';
+import { AgentService } from 'ngx-kel-agent';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatButton } from '@angular/material/button';

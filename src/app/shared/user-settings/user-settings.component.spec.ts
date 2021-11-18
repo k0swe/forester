@@ -1,4 +1,4 @@
-import { AgentService } from '../agent/agent.service';
+import { AgentService } from 'ngx-kel-agent';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';

@@ -163,6 +163,21 @@
     "author": "Iskren Ivov Chernev"
   },
   {
+    "name": "ngx-kel-agent",
+    "licenseType": "Apache-2.0",
+    "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
+    "comment": "0.4.5",
+    "installedVersion": "0.4.5"
+  },
+  {
+    "name": "rxfire",
+    "licenseType": "Apache-2.0",
+    "link": "git+https://github.com/firebaseextended/rxfire.git",
+    "comment": "6.0.3",
+    "installedVersion": "6.0.0",
+    "author": "Firebase"
+  },
+  {
     "name": "rxjs",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/reactivex/rxjs.git",
@@ -193,14 +208,6 @@
     "comment": "0.11.4",
     "installedVersion": "0.11.4",
     "author": "Brian Ford"
-  },
-  {
-    "name": "rxfire",
-    "licenseType": "Apache-2.0",
-    "link": "git+https://github.com/firebaseextended/rxfire.git",
-    "comment": "6.0.3",
-    "installedVersion": "6.0.0",
-    "author": "Firebase"
   },
   {
     "name": "@angular-devkit/architect",
