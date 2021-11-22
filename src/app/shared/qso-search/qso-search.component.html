@@ -23,7 +23,7 @@
   #syncToggle
   [(ngModel)]="syncWithWsjtx"
   (change)="toggleSync($event)"
-  [disabled]="!(agentService.wsjtxState$ | async)"
+  [disabled]="!(wsjtx.connected$ | async)"
 >
   Sync with WSJT-X
 </mat-slide-toggle>
