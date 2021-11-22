@@ -1,10 +1,10 @@
-import { AgentService } from 'ngx-kel-agent';
 import { Band } from '../../reference/band';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { DxccRef } from '../../reference/dxcc';
 import { FirebaseQso, QsoService } from '../qso/qso.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HamlibService } from 'ngx-kel-agent';
 import { LocationService } from '../location/location.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
@@ -28,7 +28,7 @@ export class QsoDetailComponent implements OnInit {
     private datePipe: DatePipe,
     private qsoService: QsoService,
     private locationService: LocationService,
-    private agentService: AgentService,
+    private hamlib: HamlibService,
     private dialog: MatDialogRef<any>
   ) {
     this.firebaseId = data.id;
@@ -204,7 +204,7 @@ export class QsoDetailComponent implements OnInit {
     const modeField = this.qsoDetailForm.get('mode');
     if (freqField.value == null) {
       // only enable rig control updates if there's no existing freq
-      this.agentService.hamlibRigState$.subscribe((rig) => {
+      this.hamlib.rigState$.subscribe((rig) => {
         if (rig == null) {
           return;
         }

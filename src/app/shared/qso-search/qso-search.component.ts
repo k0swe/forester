@@ -1,9 +1,9 @@
-import { AgentService } from 'ngx-kel-agent';
 import { Component, OnInit } from '@angular/core';
 import { LogbookService } from '../../pages/logbook/logbook.service';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { Observable, Subscription } from 'rxjs';
 import { QsoService } from '../qso/qso.service';
+import { WsjtxService } from 'ngx-kel-agent';
 
 @Component({
   selector: 'kel-qso-search',
@@ -17,16 +17,16 @@ export class QsoSearchComponent implements OnInit {
   syncWithWsjtx: boolean;
 
   constructor(
-    public agentService: AgentService,
+    public wsjtx: WsjtxService,
     private logbookService: LogbookService,
     private qsoService: QsoService
   ) {
-    this.wsjtxConnected$ = agentService.wsjtxState$;
+    this.wsjtxConnected$ = wsjtx.connected$;
   }
 
   ngOnInit(): void {
     this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
-    this.agentService.wsjtxState$.subscribe((isUp) => {
+    this.wsjtx.connected$.subscribe((isUp) => {
       if (!isUp) {
         this.syncWithWsjtx = false;
         this.clear();
@@ -43,7 +43,7 @@ export class QsoSearchComponent implements OnInit {
 
   toggleSync($event: MatSlideToggleChange): void {
     if ($event.checked) {
-      this.wsjtxSub = this.agentService.wsjtxStatus$.subscribe((status) => {
+      this.wsjtxSub = this.wsjtx.status$.subscribe((status) => {
         this.search = status.dxCall;
         this.changed();
       });
