@@ -1,20 +1,12 @@
 <div
-  *ngIf="agentService.connectedState$ | async; else notConnected"
+  *ngIf="agent.connectedState$ | async; else notConnected"
   fxLayout="row"
   fxLayoutAlign="center center"
 >
-  <div
-    class="inside"
-    *ngIf="agentService.wsjtxHeartbeat$ | async as heartbeat"
-    fxFlex
-  >
+  <div class="inside" *ngIf="wsjtx.heartbeat$ | async as heartbeat" fxFlex>
     {{ heartbeat.id }} {{ heartbeat.version }}
   </div>
-  <div
-    class="inside"
-    *ngIf="agentService.hamlibRigState$ | async as rigState"
-    fxFlex
-  >
+  <div class="inside" *ngIf="hamlib.rigState$ | async as rigState" fxFlex>
     {{ rigState.model }} <br />
     <span *ngIf="rigState.frequency / 1000 > 2000; else khz">
       {{ rigState.frequency / 1000000 | number: '1.3-3' }} MHz
@@ -24,10 +16,7 @@
     </ng-template>
     {{ rigState.mode }}
   </div>
-  <mat-icon
-    [matTooltip]="'Connected to agent on ' + agentService.getHost()"
-    fxFlex
-  >
+  <mat-icon [matTooltip]="'Connected to agent on ' + agent.getHost()" fxFlex>
     radio
   </mat-icon>
 </div>
