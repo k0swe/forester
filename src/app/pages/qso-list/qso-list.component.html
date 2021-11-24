@@ -138,19 +138,24 @@
         <th mat-header-cell mat-sort-header *matHeaderCellDef>QSL</th>
         <td mat-cell *matCellDef="let fbq">
           <span
-            *ngIf="fbq.qso.card && fbq.qso.card.receivedStatus == 'Y'"
+            *ngIf="fbq.qso.card && fbq.qso.card.receivedStatus === 'Y'"
             title="Paper card"
             >C</span
           >
           <span
-            *ngIf="fbq.qso.lotw && fbq.qso.lotw.receivedStatus == 'Y'"
+            *ngIf="fbq.qso.lotw && fbq.qso.lotw.receivedStatus === 'Y'"
             title="Logbook of the World"
             >L</span
           >
           <span
-            *ngIf="fbq.qso.eqsl && fbq.qso.eqsl.receivedStatus == 'Y'"
+            *ngIf="fbq.qso.eqsl && fbq.qso.eqsl.receivedStatus === 'Y'"
             title="eQSL.cc"
             >E</span
+          >
+          <span
+            *ngIf="fbq.qso.appDefined.app_qrzlog_status === 'C'"
+            title="QRZ.com"
+            >Q</span
           >
         </td>
       </ng-container>
