@@ -134,8 +134,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.11",
-    "installedVersion": "0.4.11",
+    "comment": "0.4.12",
+    "installedVersion": "0.4.12",
     "author": "Chris Keller"
   },
   {
@@ -331,7 +331,7 @@
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
     "comment": "8.3.0",
-    "installedVersion": "8.2.0",
+    "installedVersion": "8.3.0",
     "author": "Nicholas C. Zakas"
   },
   {
