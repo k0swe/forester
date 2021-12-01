@@ -58,8 +58,8 @@
     "name": "@angular/flex-layout",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/flex-layout.git",
-    "comment": "12.0.0-beta.35",
-    "installedVersion": "12.0.0-beta.35"
+    "comment": "13.0.0-beta.36",
+    "installedVersion": "13.0.0-beta.36"
   },
   {
     "name": "@angular/forms",
