@@ -316,22 +316,22 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.5.0",
-    "installedVersion": "5.5.0"
+    "comment": "5.6.0",
+    "installedVersion": "5.6.0"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.5.0",
-    "installedVersion": "5.5.0"
+    "comment": "5.6.0",
+    "installedVersion": "5.6.0"
   },
   {
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.4.0",
-    "installedVersion": "8.4.0",
+    "comment": "8.4.1",
+    "installedVersion": "8.4.1",
     "author": "Nicholas C. Zakas"
   },
   {
@@ -464,8 +464,8 @@
     "name": "prettier",
     "licenseType": "MIT",
     "link": "git+https://github.com/prettier/prettier.git",
-    "comment": "2.5.0",
-    "installedVersion": "2.5.0",
+    "comment": "2.5.1",
+    "installedVersion": "2.5.1",
     "author": "James Long"
   },
   {
