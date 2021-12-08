@@ -287,8 +287,8 @@
     "name": "@google-cloud/firestore",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/googleapis/nodejs-firestore.git",
-    "comment": "4.15.1",
-    "installedVersion": "4.15.1",
+    "comment": "5.0.1",
+    "installedVersion": "5.0.1",
     "author": "Google Inc."
   },
   {
