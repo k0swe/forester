@@ -134,8 +134,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.14",
-    "installedVersion": "0.4.14",
+    "comment": "0.4.15",
+    "installedVersion": "0.4.15",
     "author": "Chris Keller"
   },
   {
@@ -174,8 +174,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.6",
-    "installedVersion": "0.5.6"
+    "comment": "0.5.7",
+    "installedVersion": "0.5.7"
   },
   {
     "name": "rxfire",
@@ -354,8 +354,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "9.23.3",
-    "installedVersion": "9.23.3",
+    "comment": "10.0.1",
+    "installedVersion": "10.0.1",
     "author": "Firebase"
   },
   {
