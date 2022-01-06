@@ -317,8 +317,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "15.14.9",
-    "installedVersion": "15.14.9"
+    "comment": "17.0.8",
+    "installedVersion": "17.0.8"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
