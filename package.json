@@ -40,7 +40,7 @@
     "@angular/service-worker": "13.1.1",
     "@types/long": "4.0.1",
     "adif-parser-ts": "0.4.17",
-    "firebase": "9.6.1",
+    "firebase": "9.6.2",
     "google-protobuf": "3.19.2",
     "json-ptr": "3.0.1",
     "moment": "2.29.1",
