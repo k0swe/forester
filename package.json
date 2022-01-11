@@ -46,7 +46,7 @@
     "moment": "2.29.1",
     "ngx-kel-agent": "0.5.9",
     "rxfire": "6.0.3",
-    "rxjs": "7.5.1",
+    "rxjs": "7.5.2",
     "ts-protoc-gen": "0.15.0",
     "tslib": "2.3.1",
     "zone.js": "0.11.4"
