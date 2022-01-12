@@ -142,8 +142,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.6.1",
-    "installedVersion": "9.6.1",
+    "comment": "9.6.2",
+    "installedVersion": "9.6.2",
     "author": "Firebase"
   },
   {
@@ -189,8 +189,8 @@
     "name": "rxjs",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/reactivex/rxjs.git",
-    "comment": "7.5.1",
-    "installedVersion": "7.5.1",
+    "comment": "7.5.2",
+    "installedVersion": "7.5.2",
     "author": "Ben Lesh"
   },
   {
@@ -295,8 +295,8 @@
     "name": "@google-cloud/firestore",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/googleapis/nodejs-firestore.git",
-    "comment": "5.0.1",
-    "installedVersion": "5.0.1",
+    "comment": "5.0.2",
+    "installedVersion": "5.0.2",
     "author": "Google Inc."
   },
   {
@@ -324,15 +324,15 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.9.0",
-    "installedVersion": "5.9.0"
+    "comment": "5.9.1",
+    "installedVersion": "5.9.1"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.9.0",
-    "installedVersion": "5.9.0"
+    "comment": "5.9.1",
+    "installedVersion": "5.9.1"
   },
   {
     "name": "eslint",
@@ -346,8 +346,8 @@
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "9.7.0",
-    "installedVersion": "9.7.0",
+    "comment": "9.12.0",
+    "installedVersion": "9.12.0",
     "author": "Firebase"
   },
   {
@@ -409,8 +409,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.9",
-    "installedVersion": "6.3.9",
+    "comment": "6.3.10",
+    "installedVersion": "6.3.10",
     "author": "Vojta Jína"
   },
   {
@@ -456,8 +456,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "12.1.6",
-    "installedVersion": "12.1.6",
+    "comment": "12.1.7",
+    "installedVersion": "12.1.7",
     "author": "Andrey Okonetchnikov"
   },
   {
