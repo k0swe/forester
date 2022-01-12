@@ -134,8 +134,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.17",
-    "installedVersion": "0.4.17",
+    "comment": "0.4.18",
+    "installedVersion": "0.4.18",
     "author": "Chris Keller"
   },
   {
@@ -150,8 +150,8 @@
     "name": "google-protobuf",
     "licenseType": "BSD-3-Clause",
     "link": "git+https://github.com/protocolbuffers/protobuf.git#master",
-    "comment": "3.19.2",
-    "installedVersion": "3.19.2",
+    "comment": "3.19.3",
+    "installedVersion": "3.19.3",
     "author": "Google Protocol Buffers Team"
   },
   {
@@ -174,8 +174,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.9",
-    "installedVersion": "0.5.9"
+    "comment": "0.5.10",
+    "installedVersion": "0.5.10"
   },
   {
     "name": "rxfire",
