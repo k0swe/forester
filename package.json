@@ -31,7 +31,7 @@
     "@angular/fire": "7.2.0",
     "@angular/flex-layout": "13.0.0-beta.36",
     "@angular/forms": "13.1.2",
-    "@angular/google-maps": "13.1.1",
+    "@angular/google-maps": "13.1.2",
     "@angular/localize": "13.1.2",
     "@angular/material": "13.1.2",
     "@angular/platform-browser": "13.1.2",
