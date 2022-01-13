@@ -11,39 +11,39 @@
     "name": "@angular/animations",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1",
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2",
     "author": "angular"
   },
   {
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1"
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2"
   },
   {
     "name": "@angular/common",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1",
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2",
     "author": "angular"
   },
   {
     "name": "@angular/compiler",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1",
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2",
     "author": "angular"
   },
   {
     "name": "@angular/core",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1",
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2",
     "author": "angular"
   },
   {
@@ -65,62 +65,62 @@
     "name": "@angular/forms",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1",
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2",
     "author": "angular"
   },
   {
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1"
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2"
   },
   {
     "name": "@angular/localize",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1",
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2",
     "author": "angular"
   },
   {
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1"
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2"
   },
   {
     "name": "@angular/platform-browser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1",
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2",
     "author": "angular"
   },
   {
     "name": "@angular/platform-browser-dynamic",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1",
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2",
     "author": "angular"
   },
   {
     "name": "@angular/router",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1",
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2",
     "author": "angular"
   },
   {
     "name": "@angular/service-worker",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1",
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2",
     "author": "angular"
   },
   {
@@ -221,16 +221,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1301.2",
-    "installedVersion": "0.1301.2",
+    "comment": "0.1301.3",
+    "installedVersion": "0.1301.3",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "13.1.2",
-    "installedVersion": "13.1.2",
+    "comment": "13.1.3",
+    "installedVersion": "13.1.3",
     "author": "Angular Authors"
   },
   {
@@ -272,16 +272,16 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "13.1.2",
-    "installedVersion": "13.1.2",
+    "comment": "13.1.3",
+    "installedVersion": "13.1.3",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/compiler-cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1"
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2"
   },
   {
     "name": "@firebase/rules-unit-testing",
@@ -346,8 +346,8 @@
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "9.12.0",
-    "installedVersion": "9.12.0",
+    "comment": "10.0.1",
+    "installedVersion": "10.0.1",
     "author": "Firebase"
   },
   {
