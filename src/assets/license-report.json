@@ -317,8 +317,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.8",
-    "installedVersion": "17.0.8"
+    "comment": "17.0.9",
+    "installedVersion": "17.0.9"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
@@ -338,8 +338,8 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.6.0",
-    "installedVersion": "8.6.0",
+    "comment": "8.7.0",
+    "installedVersion": "8.7.0",
     "author": "Nicholas C. Zakas"
   },
   {
