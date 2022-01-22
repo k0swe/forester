@@ -495,9 +495,9 @@
   {
     "name": "typescript",
     "licenseType": "Apache-2.0",
-    "link": "git+https://github.com/Microsoft/TypeScript.git",
-    "comment": "4.4.4",
-    "installedVersion": "4.4.4",
+    "link": "https://github.com/Microsoft/TypeScript.git",
+    "comment": "4.5.5",
+    "installedVersion": "4.5.5",
     "author": "Microsoft Corp."
   }
 ]
