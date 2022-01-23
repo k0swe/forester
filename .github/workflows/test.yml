@@ -11,10 +11,6 @@ on:
       - '**'
 
 jobs:
-  firebase-deploy:
-    name: Test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Test and Build
-        uses: k0swe/forester/.github/workflows/test-shared.yml@main
+  test:
+    name: Test and Build
+    uses: k0swe/forester/.github/workflows/test-shared.yml@main

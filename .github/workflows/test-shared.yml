@@ -4,7 +4,7 @@ on:
   workflow_call:
 
 jobs:
-  firebase-deploy:
+  test:
     name: Test and Compile
     runs-on: ubuntu-latest
 

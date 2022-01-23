@@ -3,14 +3,16 @@ name: Deploy
 on: workflow_dispatch
 
 jobs:
+  test:
+    name: Test and Build
+    uses: k0swe/forester/.github/workflows/test-shared.yml@main
+
   firebase-deploy:
     name: Deploy to Firebase Hosting
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test and Build
-        uses: k0swe/forester/.github/workflows/test-shared.yml@main
-
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
