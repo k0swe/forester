@@ -13,6 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Read cached build artifacts
+        id: read-cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-build-artifacts
+        with:
+          path: ~/dist
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:

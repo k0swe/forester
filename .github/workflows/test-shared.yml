@@ -30,6 +30,14 @@ jobs:
           path: /home/runner/.cache/firebase/emulators
           key: ${{ runner.os }}-build-${{ env.cache-name }}
 
+      - name: Cache build artifacts
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-build-artifacts
+        with:
+          path: ~/dist
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
       - name: Install npm deps
         run: npm install
 
