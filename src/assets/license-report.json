@@ -456,8 +456,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "12.2.2",
-    "installedVersion": "12.2.2",
+    "comment": "12.3.1",
+    "installedVersion": "12.3.1",
     "author": "Andrey Okonetchnikov"
   },
   {

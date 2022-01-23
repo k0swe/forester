@@ -1,0 +1,43 @@
+name: Test
+
+on:
+  workflow_call:
+
+jobs:
+  firebase-deploy:
+    name: Test and Compile
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Cache node deps
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-deps
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Cache emulator
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-firebase-emulator
+        with:
+          path: /home/runner/.cache/firebase/emulators
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+
+      - name: Install npm deps
+        run: npm install
+
+      # - name: Test
+      #   run: npm run test-ci
+
+      - name: Compile
+        run: npm run build-prod

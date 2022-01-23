@@ -1,9 +1,6 @@
 name: Deploy
 
-on:
-  push:
-    tags:
-      - deploy
+on: workflow_dispatch
 
 jobs:
   firebase-deploy:
@@ -11,38 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
-      - name: Cache node deps
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-deps
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Cache emulator
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-firebase-emulator
-        with:
-          path: /home/runner/.cache/firebase/emulators
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
-
-      - name: Install npm deps
-        run: npm install
-
-      # - name: Test
-      #   run: npm run test-ci
-
-      - name: Compile
-        run: npm run build-prod
+      - name: Test and Build
+        uses: k0swe/forester/.github/workflows/test-shared.yml@main
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
@@ -50,3 +17,9 @@ jobs:
           args: deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: Tag as deployed
+        uses: mathieudutour/github-tag-action@v6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          custom_tag: deployed
