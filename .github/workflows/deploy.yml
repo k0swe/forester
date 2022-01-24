@@ -4,7 +4,6 @@ on: workflow_dispatch
 
 jobs:
   test:
-    name: Test Before Deploy
     uses: k0swe/forester/.github/workflows/test-shared.yml@main
 
   firebase-deploy:

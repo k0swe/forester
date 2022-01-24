@@ -12,5 +12,4 @@ on:
 
 jobs:
   test:
-    name: Test Commit
     uses: k0swe/forester/.github/workflows/test-shared.yml@main
