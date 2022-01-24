@@ -1,3 +1,4 @@
+name: (Reusable) Test and Compile
 on: workflow_call
 
 jobs:
