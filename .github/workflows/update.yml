@@ -5,6 +5,9 @@ jobs:
   npm-update:
     name: npm update
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout
@@ -28,8 +31,11 @@ jobs:
           npm install
           npm update
 
-      - name: Commit and push
-        uses: EndBug/add-and-commit@v8
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
         with:
-          add: 'package*.json'
-          message: 'npm update'
+          add-paths: 'package*.json'
+          commit-message: npm update
+          title: npm update
+          branch: npm-update
+          author: 'github-actions <github-actions@github.com>'
