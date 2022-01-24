@@ -24,7 +24,7 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: npm update
-        runs: -|
+        run: |
           npm install
           npm update
 
