@@ -317,22 +317,22 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.10",
-    "installedVersion": "17.0.10"
+    "comment": "17.0.12",
+    "installedVersion": "17.0.12"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.10.0",
-    "installedVersion": "5.10.0"
+    "comment": "5.10.1",
+    "installedVersion": "5.10.1"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.10.0",
-    "installedVersion": "5.10.0"
+    "comment": "5.10.1",
+    "installedVersion": "5.10.1"
   },
   {
     "name": "eslint",
@@ -409,8 +409,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.11",
-    "installedVersion": "6.3.11",
+    "comment": "6.3.12",
+    "installedVersion": "6.3.12",
     "author": "Vojta Jína"
   },
   {
