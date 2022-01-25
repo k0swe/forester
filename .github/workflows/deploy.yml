@@ -32,8 +32,9 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Tag as deployed
-        uses: mathieudutour/github-tag-action@v6.0
+        uses: xylo04/github-tag-action@force-tag
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           custom_tag: deployed
           tag_prefix: ''
+          force: true
