@@ -36,4 +36,4 @@ jobs:
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
           git tag deployed --force
-          git push --tags
+          git push --tags --force
