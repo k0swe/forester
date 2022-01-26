@@ -32,9 +32,8 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Tag as deployed
-        uses: xylo04/github-tag-action@force-tag
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          custom_tag: deployed
-          tag_prefix: ''
-          force: true
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+          git tag deployed --force
+          git push --tags
