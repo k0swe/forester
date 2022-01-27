@@ -82,7 +82,7 @@
     "karma-jasmine": "4.0.1",
     "karma-jasmine-html-reporter": "1.7.0",
     "license-report": "4.5.0",
-    "lint-staged": "12.3.1",
+    "lint-staged": "12.3.2",
     "open": "8.4.0",
     "prettier": "2.5.1",
     "protractor": "7.0.0",
