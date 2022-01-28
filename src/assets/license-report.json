@@ -73,8 +73,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "13.1.3",
-    "installedVersion": "13.1.3"
+    "comment": "13.2.0",
+    "installedVersion": "13.2.0"
   },
   {
     "name": "@angular/localize",
@@ -142,8 +142,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.6.4",
-    "installedVersion": "9.6.4",
+    "comment": "9.6.5",
+    "installedVersion": "9.6.5",
     "author": "Firebase"
   },
   {
@@ -287,8 +287,8 @@
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "2.0.1",
-    "installedVersion": "2.0.1",
+    "comment": "2.0.2",
+    "installedVersion": "2.0.2",
     "author": "Firebase"
   },
   {
@@ -317,8 +317,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.12",
-    "installedVersion": "17.0.12"
+    "comment": "17.0.13",
+    "installedVersion": "17.0.13"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
