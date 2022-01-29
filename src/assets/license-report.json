@@ -58,8 +58,8 @@
     "name": "@angular/flex-layout",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/flex-layout.git",
-    "comment": "13.0.0-beta.36",
-    "installedVersion": "13.0.0-beta.36"
+    "comment": "13.0.0-beta.37",
+    "installedVersion": "13.0.0-beta.37"
   },
   {
     "name": "@angular/forms",
@@ -150,8 +150,8 @@
     "name": "google-protobuf",
     "licenseType": "BSD-3-Clause",
     "link": "git+https://github.com/protocolbuffers/protobuf.git#master",
-    "comment": "3.19.3",
-    "installedVersion": "3.19.3",
+    "comment": "3.19.4",
+    "installedVersion": "3.19.4",
     "author": "Google Protocol Buffers Team"
   },
   {
@@ -338,8 +338,8 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.7.0",
-    "installedVersion": "8.7.0",
+    "comment": "8.8.0",
+    "installedVersion": "8.8.0",
     "author": "Nicholas C. Zakas"
   },
   {
