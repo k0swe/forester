@@ -221,16 +221,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1302.0",
-    "installedVersion": "0.1302.0",
+    "comment": "0.1302.1",
+    "installedVersion": "0.1302.1",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "13.2.0",
-    "installedVersion": "13.2.0",
+    "comment": "13.2.1",
+    "installedVersion": "13.2.1",
     "author": "Angular Authors"
   },
   {
@@ -272,8 +272,8 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "13.2.0",
-    "installedVersion": "13.2.0",
+    "comment": "13.2.1",
+    "installedVersion": "13.2.1",
     "author": "Angular Authors"
   },
   {
@@ -317,22 +317,22 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.13",
-    "installedVersion": "17.0.13"
+    "comment": "17.0.14",
+    "installedVersion": "17.0.14"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.10.1",
-    "installedVersion": "5.10.1"
+    "comment": "5.10.2",
+    "installedVersion": "5.10.2"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.10.1",
-    "installedVersion": "5.10.1"
+    "comment": "5.10.2",
+    "installedVersion": "5.10.2"
   },
   {
     "name": "eslint",
@@ -409,8 +409,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.12",
-    "installedVersion": "6.3.12",
+    "comment": "6.3.13",
+    "installedVersion": "6.3.13",
     "author": "Vojta Jína"
   },
   {
