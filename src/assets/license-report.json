@@ -58,8 +58,8 @@
     "name": "@angular/flex-layout",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/flex-layout.git",
-    "comment": "13.0.0-beta.37",
-    "installedVersion": "13.0.0-beta.37"
+    "comment": "13.0.0-beta.38",
+    "installedVersion": "13.0.0-beta.38"
   },
   {
     "name": "@angular/forms",
@@ -134,16 +134,16 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.22",
-    "installedVersion": "0.4.22",
+    "comment": "0.4.23",
+    "installedVersion": "0.4.23",
     "author": "Chris Keller"
   },
   {
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.6.5",
-    "installedVersion": "9.6.5",
+    "comment": "9.6.6",
+    "installedVersion": "9.6.6",
     "author": "Firebase"
   },
   {
@@ -158,8 +158,8 @@
     "name": "json-ptr",
     "licenseType": "MIT",
     "link": "git+https://github.com/flitbit/json-ptr.git",
-    "comment": "3.0.1",
-    "installedVersion": "3.0.1",
+    "comment": "3.1.0",
+    "installedVersion": "3.1.0",
     "author": "Phillip Clark"
   },
   {
