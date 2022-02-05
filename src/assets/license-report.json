@@ -317,8 +317,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.14",
-    "installedVersion": "17.0.14"
+    "comment": "17.0.15",
+    "installedVersion": "17.0.15"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
@@ -409,8 +409,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.13",
-    "installedVersion": "6.3.13",
+    "comment": "6.3.15",
+    "installedVersion": "6.3.15",
     "author": "Vojta Jína"
   },
   {
