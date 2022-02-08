@@ -317,22 +317,22 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.15",
-    "installedVersion": "17.0.15"
+    "comment": "17.0.16",
+    "installedVersion": "17.0.16"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.10.2",
-    "installedVersion": "5.10.2"
+    "comment": "5.11.0",
+    "installedVersion": "5.11.0"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.10.2",
-    "installedVersion": "5.10.2"
+    "comment": "5.11.0",
+    "installedVersion": "5.11.0"
   },
   {
     "name": "eslint",
@@ -488,8 +488,8 @@
     "name": "ts-node",
     "licenseType": "MIT",
     "link": "git://github.com/TypeStrong/ts-node.git",
-    "comment": "10.4.0",
-    "installedVersion": "10.4.0",
+    "comment": "10.5.0",
+    "installedVersion": "10.5.0",
     "author": "Blake Embrey"
   },
   {
