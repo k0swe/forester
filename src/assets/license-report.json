@@ -189,8 +189,8 @@
     "name": "rxjs",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/reactivex/rxjs.git",
-    "comment": "7.5.2",
-    "installedVersion": "7.5.2",
+    "comment": "7.5.4",
+    "installedVersion": "7.5.4",
     "author": "Ben Lesh"
   },
   {
