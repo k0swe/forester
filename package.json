@@ -43,7 +43,7 @@
     "google-protobuf": "3.19.4",
     "json-ptr": "3.1.0",
     "moment": "2.29.1",
-    "ngx-kel-agent": "0.5.13",
+    "ngx-kel-agent": "0.5.14",
     "rxfire": "6.0.3",
     "rxjs": "7.5.4",
     "ts-protoc-gen": "0.15.0",
