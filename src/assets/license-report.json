@@ -339,24 +339,24 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.12.1",
-    "installedVersion": "5.12.1",
+    "comment": "5.13.0",
+    "installedVersion": "5.13.0",
     "author": ""
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.12.1",
-    "installedVersion": "5.12.1",
+    "comment": "5.13.0",
+    "installedVersion": "5.13.0",
     "author": ""
   },
   {
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.9.0",
-    "installedVersion": "8.9.0",
+    "comment": "8.10.0",
+    "installedVersion": "8.10.0",
     "author": "Nicholas C. Zakas nicholas+npm@nczconsulting.com"
   },
   {
@@ -427,8 +427,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.16",
-    "installedVersion": "6.3.16",
+    "comment": "6.3.17",
+    "installedVersion": "6.3.17",
     "author": "Vojta Jína vojta.jina@gmail.com"
   },
   {
