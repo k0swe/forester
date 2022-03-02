@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.26",
-    "installedVersion": "0.4.26",
+    "comment": "0.4.27",
+    "installedVersion": "0.4.27",
     "author": "Chris Keller xylo04@gmail.com"
   },
   {
@@ -179,8 +179,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.15",
-    "installedVersion": "0.5.15",
+    "comment": "0.5.16",
+    "installedVersion": "0.5.16",
     "author": ""
   },
   {
@@ -507,8 +507,8 @@
     "name": "ts-node",
     "licenseType": "MIT",
     "link": "git://github.com/TypeStrong/ts-node.git",
-    "comment": "10.5.0",
-    "installedVersion": "10.5.0",
+    "comment": "10.6.0",
+    "installedVersion": "10.6.0",
     "author": "Blake Embrey hello@blakeembrey.com http://blakeembrey.me"
   },
   {
