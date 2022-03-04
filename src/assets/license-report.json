@@ -75,8 +75,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "13.2.4",
-    "installedVersion": "13.2.4",
+    "comment": "13.2.5",
+    "installedVersion": "13.2.5",
     "author": ""
   },
   {
@@ -219,8 +219,8 @@
     "name": "zone.js",
     "licenseType": "MIT",
     "link": "git://github.com/angular/angular.git",
-    "comment": "0.11.4",
-    "installedVersion": "0.11.4",
+    "comment": "0.11.5",
+    "installedVersion": "0.11.5",
     "author": "Brian Ford"
   },
   {
