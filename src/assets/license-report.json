@@ -352,6 +352,14 @@
     "author": ""
   },
   {
+    "name": "dedent",
+    "licenseType": "MIT",
+    "link": "git://github.com/dmnd/dedent.git",
+    "comment": "0.7.0",
+    "installedVersion": "0.7.0",
+    "author": "Desmond Brand dmnd@desmondbrand.com http://desmondbrand.com"
+  },
+  {
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",

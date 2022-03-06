@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { versions } from '../../../environments/versions';
 
 @Component({
   selector: 'kel-credits',
@@ -10,6 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 export class CreditsComponent implements OnInit {
   licenses = new BehaviorSubject<Array<LicenseInfo>>([]);
   columnsToDisplay = ['name', 'installedVersion', 'author', 'licenseType'];
+  gitRev = versions.revision;
 
   constructor(private http: HttpClient) {}
 

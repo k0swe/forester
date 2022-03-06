@@ -38,6 +38,10 @@
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "src/environments/versions.ts",
+                  "with": "src/environments/versions.prod.ts"
                 }
               ],
               "optimization": true,
