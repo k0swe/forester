@@ -8,8 +8,14 @@
   </button>
   <mat-menu #accountMenu="matMenu">
     <button mat-menu-item disabled>{{ user.email }}</button>
-    <button mat-menu-item (click)="userSettings()">User Settings</button>
-    <button mat-menu-item (click)="logout()">Logout</button>
+    <button mat-menu-item (click)="userSettings()">
+      <mat-icon>settings</mat-icon>
+      User Settings
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
   </mat-menu>
 </div>
 <ng-template #showLogin>

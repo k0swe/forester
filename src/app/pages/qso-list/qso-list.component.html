@@ -27,15 +27,11 @@
       </button>
       <mat-menu xPosition="before" #selectedMenu="matMenu">
         <button mat-menu-item (click)="exportSelected()">
-          <mat-icon aria-hidden="false" aria-label="Export selected QSOs">
-            file_download
-          </mat-icon>
-          Export
+          <mat-icon>file_download</mat-icon>
+          Export ADIF
         </button>
         <button mat-menu-item (click)="deleteSelected()">
-          <mat-icon aria-hidden="false" aria-label="Delete selected QSOs">
-            delete
-          </mat-icon>
+          <mat-icon>delete</mat-icon>
           Delete
         </button>
       </mat-menu>

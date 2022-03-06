@@ -25,14 +25,27 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #logbookMenu="matMenu">
-    <button mat-menu-item (click)="chooser.click()">Import ADIF file</button>
-    <button mat-menu-item (click)="importFromQrz()">Import QRZ.com</button>
+    <button mat-menu-item (click)="chooser.click()">
+      <mat-icon>file_upload</mat-icon>
+      Import ADIF file
+    </button>
+    <button mat-menu-item (click)="importFromQrz()">
+      <mat-icon>cloud_upload</mat-icon>
+      Import QRZ.com
+    </button>
     <button mat-menu-item (click)="importFromLotw()">
+      <mat-icon>cloud_upload</mat-icon>
       Import Logbook of the World
     </button>
-    <button mat-menu-item (click)="exportAdi()">Export ADIF file</button>
+    <button mat-menu-item (click)="exportAdi()">
+      <mat-icon>file_download</mat-icon>
+      Export ADIF file
+    </button>
     <mat-divider></mat-divider>
-    <button mat-menu-item (click)="logbookSettings()">Logbook Settings</button>
+    <button mat-menu-item (click)="logbookSettings()">
+      <mat-icon aria-hidden="false" aria-label="Settings"> settings</mat-icon>
+      Logbook Settings
+    </button>
   </mat-menu>
 </div>
 <input
