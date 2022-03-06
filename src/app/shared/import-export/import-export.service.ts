@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Proto2Adif } from '../proto2adif';
 import { Qso } from '../../qso';
-import { QsoService } from '../qso/qso.service';
+import { FirebaseQso, QsoService } from '../qso/qso.service';
 import { forkJoin, Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
@@ -66,7 +66,12 @@ export class ImportExportService {
 
   public exportAdi(): Observable<Blob> {
     this.snackBar.open('Exporting ADIF...', null, { duration: 5000 });
-    return this.qsoService.getFilteredQsos().pipe(
+    const qsos = this.qsoService.getFilteredQsos();
+    return this.exportAdiFor(qsos);
+  }
+
+  public exportAdiFor(qsos: Observable<FirebaseQso[]>): Observable<Blob> {
+    return qsos.pipe(
       take(1),
       map((fbqs) => {
         const qsos = fbqs.map((fbq) => fbq.qso);

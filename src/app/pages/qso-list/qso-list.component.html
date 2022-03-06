@@ -1,5 +1,6 @@
 <mat-card>
   <mat-card-title>QSO List</mat-card-title>
+  <a #download hidden></a>
   <mat-card-header
     fxLayout="row"
     fxLayout.lt-md="column"
@@ -8,19 +9,36 @@
     <kel-qso-search></kel-qso-search>
     <div fxFlex></div>
     <div fxLayout="row">
-      <button
-        mat-raised-button
-        color="warn"
-        #deleteButton
-        disabled
-        fxHide.xs
-        (click)="deleteSelected()"
-      >
-        Delete
-      </button>
       <button mat-raised-button color="accent" (click)="newQso()">
         New QSO
       </button>
+      <button
+        mat-button
+        mat-raised-button
+        #selectedButton
+        disabled
+        fxHide.xs
+        [matMenuTriggerFor]="selectedMenu"
+      >
+        Selected
+        <mat-icon aria-hidden="false" aria-label="Actions for selected QSOs">
+          expand_more
+        </mat-icon>
+      </button>
+      <mat-menu xPosition="before" #selectedMenu="matMenu">
+        <button mat-menu-item (click)="exportSelected()">
+          <mat-icon aria-hidden="false" aria-label="Export selected QSOs">
+            file_download
+          </mat-icon>
+          Export
+        </button>
+        <button mat-menu-item (click)="deleteSelected()">
+          <mat-icon aria-hidden="false" aria-label="Delete selected QSOs">
+            delete
+          </mat-icon>
+          Delete
+        </button>
+      </mat-menu>
     </div>
   </mat-card-header>
   <mat-card-content>

@@ -1,4 +1,10 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { DxccRef } from '../../reference/dxcc';
 import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
 import { LogbookService } from '../logbook/logbook.service';
@@ -9,10 +15,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable, from } from 'rxjs';
+import { from, Observable, toArray } from 'rxjs';
 import { QsoDetailComponent } from '../../shared/qso-detail/qso-detail.component';
 import { SelectionModel } from '@angular/cdk/collections';
 import { map, mergeAll } from 'rxjs/operators';
+import { ImportExportService } from '../../shared/import-export/import-export.service';
 
 @Component({
   selector: 'kel-qso-list',
@@ -23,7 +30,8 @@ export class QsoListComponent implements OnInit {
   dataSource = new MatTableDataSource<FirebaseQso>();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  @ViewChild(MatButton, { static: true }) deleteButton: MatButton;
+  @ViewChild('selectedButton') selectedButton: MatButton;
+  @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
   selection = new SelectionModel<FirebaseQso>(true, []);
 
   columnsToDisplay = [
@@ -42,6 +50,7 @@ export class QsoListComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private logbookService: LogbookService,
+    private importExportService: ImportExportService,
     private qsoService: QsoService,
     private snackBar: MatSnackBar
   ) {}
@@ -51,7 +60,7 @@ export class QsoListComponent implements OnInit {
     this.paginator.pageSize = 25;
     this.paginator.pageSizeOptions = [10, 25, 50, 100];
     this.selection.changed.subscribe((sel) => {
-      this.deleteButton.disabled = sel.source.isEmpty();
+      this.selectedButton.disabled = sel.source.isEmpty();
     });
     this.qsoService.getFilteredQsos().subscribe((qsos) => {
       this.dataSource.data = qsos;
@@ -176,6 +185,32 @@ export class QsoListComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
       row.id + 1
     }`;
+  }
+
+  exportSelected(): void {
+    this.snackBar.open('Exporting ' + this.selection.selected.length + ' QSOs');
+    const source = from(this.selection.selected).pipe(toArray());
+    this.importExportService.exportAdiFor(source).subscribe({
+      next: (blob) => {
+        const objectURL = (window.URL || window.webkitURL).createObjectURL(
+          blob
+        );
+        this.download.nativeElement.setAttribute('href', objectURL);
+        this.download.nativeElement.setAttribute('download', 'forester.adi');
+        this.download.nativeElement.click();
+      },
+      error: (error) => {
+        this.snackBar.open(
+          'There was a problem exporting, see the Javascript console for details',
+          null,
+          { duration: 5000 }
+        );
+        console.warn(error);
+      },
+      complete: () => {
+        this.snackBar.open('Done', null, { duration: 2000 });
+      },
+    });
   }
 
   deleteSelected(): void {
