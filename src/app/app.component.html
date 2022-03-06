@@ -30,10 +30,12 @@
         [routerLink]="'/' + star + '/qsos'"
         (click)="sidenav.close()"
       >
+        <mat-icon>menu_book</mat-icon>
         {{ star }}
       </a>
       <mat-divider></mat-divider>
       <a mat-list-item [routerLink]="'/credits'" (click)="sidenav.close()">
+        <mat-icon>attribution</mat-icon>
         Credits
       </a>
       <a
@@ -41,6 +43,7 @@
         [routerLink]="'/privacy-and-terms'"
         (click)="sidenav.close()"
       >
+        <mat-icon>gavel</mat-icon>
         Privacy & Terms
       </a>
       <a
@@ -48,8 +51,9 @@
         href="https://github.com/k0swe/forester/issues"
         target="_blank"
       >
+        <mat-icon>bug_report</mat-icon>
         Bugs Reports and <br />
-        Feature Requests <mat-icon>open_in_new</mat-icon>
+        Feature Requests
       </a>
     </mat-nav-list>
   </mat-sidenav>
