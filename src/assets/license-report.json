@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.6.7",
-    "installedVersion": "9.6.7",
+    "comment": "9.6.8",
+    "installedVersion": "9.6.8",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
@@ -475,8 +475,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "12.3.4",
-    "installedVersion": "12.3.4",
+    "comment": "12.3.5",
+    "installedVersion": "12.3.5",
     "author": "Andrey Okonetchnikov andrey@okonet.ru"
   },
   {
@@ -507,8 +507,8 @@
     "name": "ts-node",
     "licenseType": "MIT",
     "link": "git://github.com/TypeStrong/ts-node.git",
-    "comment": "10.6.0",
-    "installedVersion": "10.6.0",
+    "comment": "10.7.0",
+    "installedVersion": "10.7.0",
     "author": "Blake Embrey hello@blakeembrey.com http://blakeembrey.me"
   },
   {
