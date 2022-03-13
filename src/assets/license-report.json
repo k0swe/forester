@@ -195,8 +195,8 @@
     "name": "rxjs",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/reactivex/rxjs.git",
-    "comment": "7.5.4",
-    "installedVersion": "7.5.4",
+    "comment": "7.5.5",
+    "installedVersion": "7.5.5",
     "author": "Ben Lesh ben@benlesh.com"
   },
   {
@@ -363,8 +363,8 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.10.0",
-    "installedVersion": "8.10.0",
+    "comment": "8.11.0",
+    "installedVersion": "8.11.0",
     "author": "Nicholas C. Zakas nicholas+npm@nczconsulting.com"
   },
   {
@@ -443,8 +443,8 @@
     "name": "karma-chrome-launcher",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma-chrome-launcher.git",
-    "comment": "3.1.0",
-    "installedVersion": "3.1.0",
+    "comment": "3.1.1",
+    "installedVersion": "3.1.1",
     "author": "Vojta Jina vojta.jina@gmail.com"
   },
   {
