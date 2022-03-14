@@ -475,8 +475,8 @@
     "name": "license-report",
     "licenseType": "MIT",
     "link": "git+https://github.com/ironSource/license-report.git",
-    "comment": "5.0.1",
-    "installedVersion": "5.0.1",
+    "comment": "5.0.2",
+    "installedVersion": "5.0.2",
     "author": "Yaniv Kessler"
   },
   {
