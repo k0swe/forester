@@ -179,8 +179,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.17",
-    "installedVersion": "0.5.17",
+    "comment": "0.5.18",
+    "installedVersion": "0.5.18",
     "author": ""
   },
   {
@@ -483,8 +483,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "12.3.5",
-    "installedVersion": "12.3.5",
+    "comment": "12.3.6",
+    "installedVersion": "12.3.6",
     "author": "Andrey Okonetchnikov andrey@okonet.ru"
   },
   {

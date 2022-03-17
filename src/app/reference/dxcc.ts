@@ -11,6 +11,14 @@ export class DxccEntity {
 
 /**
  * DXCC reference utility for retrieving DXCC information.
+ *
+ * Based on https://github.com/k0swe/dxcc-json.
+ *
+ * ```
+ * $ < dxcc.json jq '{dxcc: [ .dxcc[] | select( .deleted==false ) |
+ *     {id: .entityCode, name: .name, continent: .continent[0],
+ *     prefixRegex: .prefixRegex, flag: .flag} ]}'
+ * ```
  */
 export class DxccRef {
   private static readonly dxcc: DxccEntity[] = [
@@ -901,7 +909,7 @@ export class DxccRef {
       name: 'Mariana Islands',
       continent: 'OC',
       prefixRegex: /^KH0[A-Z0-9/]*$/,
-      flag: '🇺🇸',
+      flag: '🇲🇵',
     },
     {
       id: 167,
@@ -1549,10 +1557,10 @@ export class DxccRef {
     },
     {
       id: 285,
-      name: 'Virgin Islands',
+      name: 'US Virgin Islands',
       continent: 'NA',
       prefixRegex: /^KP2[A-Z0-9/]*$/,
-      flag: '🇺🇸',
+      flag: '🇻🇮',
     },
     {
       id: 286,
