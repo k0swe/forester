@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.6.8",
-    "installedVersion": "9.6.8",
+    "comment": "9.6.9",
+    "installedVersion": "9.6.9",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
@@ -483,8 +483,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "12.3.6",
-    "installedVersion": "12.3.6",
+    "comment": "12.3.7",
+    "installedVersion": "12.3.7",
     "author": "Andrey Okonetchnikov andrey@okonet.ru"
   },
   {
