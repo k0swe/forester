@@ -315,8 +315,8 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "3.10.4",
-    "installedVersion": "3.10.4",
+    "comment": "4.0.0",
+    "installedVersion": "4.0.0",
     "author": ""
   },
   {
@@ -499,8 +499,8 @@
     "name": "prettier",
     "licenseType": "MIT",
     "link": "git+https://github.com/prettier/prettier.git",
-    "comment": "2.5.1",
-    "installedVersion": "2.5.1",
+    "comment": "2.6.0",
+    "installedVersion": "2.6.0",
     "author": "James Long"
   },
   {
