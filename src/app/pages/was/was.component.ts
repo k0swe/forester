@@ -101,12 +101,15 @@ export class WasComponent implements OnInit, AfterViewInit {
     if (qso.contactedStation.longitude != null) {
       longitude = qso.contactedStation.longitude;
     }
+    const icon = QsoService.isWASQsl(qso)
+      ? '/assets/green-pin.png'
+      : '/assets/yellow-pin.png';
     return {
       position: {
         lat: latitude,
         lng: longitude,
       },
-      icon: '/assets/green-pin.png',
+      icon: icon,
       title: state.abbrev,
     };
   }

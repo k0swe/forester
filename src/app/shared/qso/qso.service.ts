@@ -152,70 +152,99 @@ export class QsoService {
    */
   findWASQso(criteria: WASQsoCriteria): Observable<FirebaseQso | undefined> {
     return this.qsos$.pipe(
-      map((qsos) =>
-        Array.from(qsos.values())
+      map((qsos) => {
+        const matches = Array.from(qsos.values())
           .sort((a, b) => a.qso.timeOn.getTime() - b.qso.timeOn.getTime())
-          .find((q) => {
-            // if band is anything but 'mixed', it should match
-            if (criteria.band !== 'mixed') {
-              if (
-                !q.qso.band ||
-                q.qso.band.toUpperCase() !== criteria.band.toUpperCase()
-              ) {
-                return false;
-              }
-            }
+          .filter((q) => QsoService.fitsWASCriteria(q, criteria));
+        const qslMatch = matches.find((q) => QsoService.isWASQsl(q.qso));
+        if (qslMatch !== undefined) {
+          return qslMatch;
+        }
+        // No QSO with QSL (confirmation), so just return a non-QSL one
+        if (matches.length > 0) {
+          return matches[0];
+        }
+        // No QSO whatsoever
+        return undefined;
+      })
+    );
+  }
 
-            // if mode is anything but 'mixed', it should match (with categories)
-            if (criteria.mode !== 'mixed') {
-              if (!q.qso.mode) {
-                return false;
-              }
-              let simpleMode;
-              const mode = q.qso.mode.toUpperCase();
-              if (mode === 'SSB' || mode === 'USB' || mode === 'LSB') {
-                simpleMode = 'phone';
-              }
-              if (mode === 'FT8' || mode === 'JS8' || mode === 'JT65') {
-                simpleMode = 'digital';
-              }
-              if (mode === 'RTTY') {
-                simpleMode = 'rtty';
-              }
-              if (mode === 'CW') {
-                simpleMode = 'cw';
-              }
-              if (simpleMode !== criteria.mode) {
-                return false;
-              }
-            }
+  /**
+   * Does the given QSO meet the given criteria, applying Worked All States rules
+   * (e.g. mode 'digital' matches QSOs with FT8, JT65, etc.)?
+   */
+  private static fitsWASCriteria(
+    q: FirebaseQso,
+    criteria: WASQsoCriteria
+  ): boolean {
+    // if band is anything but 'mixed', it should match
+    if (criteria.band !== 'mixed') {
+      if (
+        !q.qso.band ||
+        q.qso.band.toUpperCase() !== criteria.band.toUpperCase()
+      ) {
+        return false;
+      }
+    }
 
-            // if country is set (always should be), it should match
-            if (criteria.country) {
-              if (
-                !q.qso.contactedStation.country ||
-                q.qso.contactedStation.country.toUpperCase() !==
-                  criteria.country.toUpperCase()
-              ) {
-                return false;
-              }
-            }
+    // if mode is anything but 'mixed', it should match (with categories)
+    if (criteria.mode !== 'mixed') {
+      if (!q.qso.mode) {
+        return false;
+      }
+      let simpleMode;
+      const mode = q.qso.mode.toUpperCase();
+      if (mode === 'SSB' || mode === 'USB' || mode === 'LSB') {
+        simpleMode = 'phone';
+      }
+      if (mode === 'FT8' || mode === 'JS8' || mode === 'JT65') {
+        simpleMode = 'digital';
+      }
+      if (mode === 'RTTY') {
+        simpleMode = 'rtty';
+      }
+      if (mode === 'CW') {
+        simpleMode = 'cw';
+      }
+      if (simpleMode !== criteria.mode) {
+        return false;
+      }
+    }
 
-            // if state is set, it should match
-            if (criteria.state) {
-              if (
-                !q.qso.contactedStation.state ||
-                q.qso.contactedStation.state.toUpperCase() !==
-                  criteria.state.toUpperCase()
-              ) {
-                return false;
-              }
-            }
+    // if criteria country is set (always should be), it should match
+    if (criteria.country) {
+      if (
+        !q.qso.contactedStation.country ||
+        q.qso.contactedStation.country.toUpperCase() !==
+          criteria.country.toUpperCase()
+      ) {
+        return false;
+      }
+    }
 
-            // everything matched
-            return true;
-          })
-      )
+    // if criteria state is set, it should match
+    if (criteria.state) {
+      if (
+        !q.qso.contactedStation.state ||
+        q.qso.contactedStation.state.toUpperCase() !==
+          criteria.state.toUpperCase()
+      ) {
+        return false;
+      }
+    }
+
+    // everything matched
+    return true;
+  }
+
+  /**
+   *  Does the given QSO have a QSL recognized by Worked All States?
+   */
+  static isWASQsl(q: Qso): boolean {
+    return (
+      (q.lotw && q.lotw.receivedStatus == 'Y') ||
+      (q.card && q.card.receivedStatus == 'Y')
     );
   }
 
