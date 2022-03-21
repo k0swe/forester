@@ -119,9 +119,16 @@ export class WasComponent implements OnInit, AfterViewInit {
     qso: Qso
   ): google.maps.InfoWindowOptions {
     const timeStr: string = moment(qso.timeOn).utc().format('YYYY-MM-DD HH:mm');
+    let qsl = 'no QSL yet';
+    if (qso.lotw != null && qso.lotw.receivedStatus == 'Y') {
+      qsl = 'QSL via LotW';
+    } else if (qso.card != null && qso.card.receivedStatus == 'Y') {
+      qsl = 'QSL via card';
+    }
+    let msg = `Contacted ${qso.contactedStation.stationCall} in ${state.name}
+              <br>on ${timeStr}<br>via ${qso.band} ${qso.mode}<br>${qsl}`;
     return {
-      content: `Contacted ${qso.contactedStation.stationCall} in ${state.name}
-                <br>on ${timeStr}<br>via ${qso.band} ${qso.mode}`,
+      content: msg,
     };
   }
 
