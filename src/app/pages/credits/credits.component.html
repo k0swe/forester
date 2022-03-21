@@ -53,8 +53,8 @@
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
       <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
     </table>
-    <div>
-      Deployed at
+    <div id="deployed">
+      Deployed at revision
       <a
         href="https://github.com/k0swe/forester/tree/{{ gitRev }}"
         target="_blank"
