@@ -1,8 +1,8 @@
 @use '@angular/material' as mat;
 
 $kel-primary: mat.define-palette(mat.$green-palette, 700, 300, 900);
-$kel-accent: mat.define-palette(mat.$deep-purple-palette);
-$kel-theme: mat.define-light-theme(
+$kel-accent: mat.define-palette(mat.$deep-purple-palette, 600, 300, 800);
+$kel-theme: mat.define-dark-theme(
   (
     color: (
       primary: $kel-primary,

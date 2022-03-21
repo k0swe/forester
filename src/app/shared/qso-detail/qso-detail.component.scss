@@ -22,7 +22,7 @@ mat-form-field.ng-dirty {
 }
 
 mat-card {
-  background-color: #fafafa;
+  border: 1px solid mat.get-color-from-palette($kel-primary, A100);
   margin-bottom: 8px;
   margin-top: 8px;
 }

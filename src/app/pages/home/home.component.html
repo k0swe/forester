@@ -28,7 +28,9 @@
   </mat-card-content>
 </mat-card>
 
-<kel-login *ngIf="!(authService.user$ | async); else loggedIn"></kel-login>
+<kel-login
+  *ngIf="(authService.user$ | async) === null; else loggedIn"
+></kel-login>
 
 <ng-template #loggedIn>
   <mat-card>
@@ -46,7 +48,7 @@
       </button>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-stroked-button color="accent" (click)="createLogbook()">
+      <button mat-flat-button color="accent" (click)="createLogbook()">
         Create New Logbook
       </button>
     </mat-card-actions>
