@@ -17,7 +17,7 @@ jobs:
 
       - name: Read cached build artifacts
         id: read-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: cache-build-artifacts
         with:
