@@ -102,8 +102,8 @@ export class WasComponent implements OnInit, AfterViewInit {
       longitude = qso.contactedStation.longitude;
     }
     const icon = QsoService.isWASQsl(qso)
-      ? '/assets/green-pin.png'
-      : '/assets/yellow-pin.png';
+      ? '/assets/map-pin-green.svg'
+      : '/assets/map-pin-yellow.svg';
     return {
       position: {
         lat: latitude,
@@ -133,7 +133,7 @@ export class WasComponent implements OnInit, AfterViewInit {
         lat: state.lat,
         lng: state.lon,
       },
-      icon: '/assets/red-pin.png',
+      icon: '/assets/map-pin-red.svg',
       title: state.name,
     };
   }
