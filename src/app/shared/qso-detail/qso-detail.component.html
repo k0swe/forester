@@ -1,7 +1,7 @@
 <!--suppress HtmlFormInputWithoutLabel -->
 <h2 mat-dialog-title>QSO Details</h2>
 <mat-dialog-content>
-  <form [formGroup]="qsoDetailForm">
+  <form [formGroup]="qsoDetailForm" autocomplete="dummy">
     <div fxLayout="row" class="row">
       <div fxFlex>
         <mat-form-field appearance="standard">
@@ -78,13 +78,15 @@
                 class="callsign"
                 formControlName="stationCall"
                 autocapitalize="characters"
+                autocomplete="dummy"
+                spellcheck="false"
               />
             </mat-form-field>
           </div>
           <div fxFlex="30%">
             <mat-form-field appearance="standard">
               <mat-label>Name</mat-label>
-              <input matInput formControlName="opName" />
+              <input matInput formControlName="opName" autocomplete="dummy" />
             </mat-form-field>
           </div>
           <div fxFlex="20%">
@@ -95,6 +97,7 @@
                 class="latLong"
                 formControlName="latitude"
                 type="number"
+                autocomplete="dummy"
               />
               <mat-hint>+N/-S</mat-hint>
             </mat-form-field>
@@ -107,6 +110,7 @@
                 class="latLong"
                 formControlName="longitude"
                 type="number"
+                autocomplete="dummy"
               />
               <mat-hint>+E/-W</mat-hint>
             </mat-form-field>
@@ -114,7 +118,11 @@
           <div fxFlex="10%">
             <mat-form-field appearance="standard">
               <mat-label>Grid</mat-label>
-              <input matInput formControlName="gridSquare" />
+              <input
+                matInput
+                formControlName="gridSquare"
+                autocomplete="dummy"
+              />
             </mat-form-field>
           </div>
           <div fxFlex>
@@ -133,13 +141,13 @@
           <div fxFlex>
             <mat-form-field appearance="standard">
               <mat-label>City</mat-label>
-              <input matInput formControlName="city" />
+              <input matInput formControlName="city" autocomplete="dummy" />
             </mat-form-field>
           </div>
           <div fxFlex>
             <mat-form-field appearance="standard">
               <mat-label>State/Province</mat-label>
-              <input matInput formControlName="state" />
+              <input matInput formControlName="state" autocomplete="dummy" />
             </mat-form-field>
           </div>
           <div fxFlex>
@@ -149,6 +157,7 @@
                 matInput
                 formControlName="country"
                 [matAutocomplete]="countryAutocomplete"
+                autocomplete="dummy"
               />
               <mat-autocomplete #countryAutocomplete="matAutocomplete">
                 <mat-option
@@ -191,6 +200,8 @@
                 class="callsign"
                 formControlName="stationCall"
                 autocapitalize="characters"
+                autocomplete="dummy"
+                spellcheck="false"
               />
             </mat-form-field>
           </div>
