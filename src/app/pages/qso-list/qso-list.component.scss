@@ -17,6 +17,18 @@ table {
   width: 100%;
 }
 
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
+  padding-left: 4px;
+}
+
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type {
+  padding-right: 4px;
+}
+
 .mat-column-select {
   overflow: initial;
 }
