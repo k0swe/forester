@@ -19,8 +19,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "13.3.0",
-    "installedVersion": "13.3.0",
+    "comment": "13.3.1",
+    "installedVersion": "13.3.1",
     "author": ""
   },
   {
@@ -51,8 +51,8 @@
     "name": "@angular/fire",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angularfire.git",
-    "comment": "7.2.1",
-    "installedVersion": "7.2.1",
+    "comment": "7.3.0",
+    "installedVersion": "7.3.0",
     "author": "angular,firebase"
   },
   {
@@ -75,8 +75,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "13.3.0",
-    "installedVersion": "13.3.0",
+    "comment": "13.3.1",
+    "installedVersion": "13.3.1",
     "author": ""
   },
   {
@@ -91,8 +91,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "13.3.0",
-    "installedVersion": "13.3.0",
+    "comment": "13.3.1",
+    "installedVersion": "13.3.1",
     "author": ""
   },
   {
@@ -331,8 +331,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.22",
-    "installedVersion": "17.0.22",
+    "comment": "17.0.23",
+    "installedVersion": "17.0.23",
     "author": ""
   },
   {
