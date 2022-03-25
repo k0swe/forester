@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.6.9",
-    "installedVersion": "9.6.9",
+    "comment": "9.6.10",
+    "installedVersion": "9.6.10",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
@@ -403,8 +403,8 @@
     "name": "inquirer",
     "licenseType": "MIT",
     "link": "git+https://github.com/SBoudrias/Inquirer.js.git",
-    "comment": "8.2.1",
-    "installedVersion": "8.2.1",
+    "comment": "8.2.2",
+    "installedVersion": "8.2.2",
     "author": "Simon Boudrias admin@simonboudrias.com"
   },
   {
@@ -499,8 +499,8 @@
     "name": "prettier",
     "licenseType": "MIT",
     "link": "git+https://github.com/prettier/prettier.git",
-    "comment": "2.6.0",
-    "installedVersion": "2.6.0",
+    "comment": "2.6.1",
+    "installedVersion": "2.6.1",
     "author": "James Long"
   },
   {
@@ -523,8 +523,8 @@
     "name": "typescript",
     "licenseType": "Apache-2.0",
     "link": "https://github.com/Microsoft/TypeScript.git",
-    "comment": "4.5.5",
-    "installedVersion": "4.5.5",
+    "comment": "4.6.3",
+    "installedVersion": "4.6.3",
     "author": "Microsoft Corp."
   }
 ]
