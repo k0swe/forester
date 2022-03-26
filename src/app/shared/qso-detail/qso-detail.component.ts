@@ -3,7 +3,12 @@ import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { DxccRef } from '../../reference/dxcc';
 import { FirebaseQso, QsoService } from '../qso/qso.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { HamlibService } from 'ngx-kel-agent';
 import { LocationService } from '../location/location.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -149,6 +154,18 @@ export class QsoDetailComponent implements OnInit {
     this.updateMapLink();
     this.qsoDetailForm.valueChanges.subscribe(
       () => (this.saveButton.disabled = !this.qsoDetailForm.valid)
+    );
+    this.forceUpperCase(
+      this.qsoDetailForm.get('contactedStation').get('stationCall')
+    );
+    this.forceUpperCase(
+      this.qsoDetailForm.get('loggingStation').get('stationCall')
+    );
+  }
+
+  private forceUpperCase(control: AbstractControl) {
+    control.valueChanges.subscribe(() =>
+      control.patchValue(control.value.toUpperCase(), { emitEvent: false })
     );
   }
 
