@@ -14,7 +14,7 @@ h1 {
 .logbook-tab {
   background-color: mat.get-color-from-palette($kel-accent, 'default');
   color: mat.get-color-from-palette($kel-primary, 'default-contrast');
-  font-size: mat.font-size($kel-typography, title);
+  font-size: mat.font-size($kel-typography, subheading-2);
 }
 
 mat-icon {
