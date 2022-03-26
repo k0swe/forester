@@ -1,0 +1,26 @@
+<div fxLayout="row" fxLayoutAlign="center center" [ngSwitch]="state">
+  <mat-icon
+    *ngSwitchCase="'downloading'"
+    fxFlex
+    matTooltip="Downloading Forester update"
+  >
+    update
+  </mat-icon>
+  <mat-icon
+    *ngSwitchCase="'ready'"
+    fxFlex
+    matTooltip="Forester update ready, click to reload"
+    color="accent"
+    (click)="updateNow()"
+  >
+    update
+  </mat-icon>
+  <mat-icon
+    *ngSwitchCase="'failed'"
+    fxFlex
+    matTooltip="Forester update failed"
+    color="warn"
+  >
+    update
+  </mat-icon>
+</div>

@@ -52,6 +52,7 @@ import { QsoSearchComponent } from './shared/qso-search/qso-search.component';
 import { QsoService } from './shared/qso/qso.service';
 import { SecretService } from './shared/secret/secret.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { SwUpdateComponent } from './shared/sw-update/sw-update.component';
 import { UserSettingsComponent } from './shared/user-settings/user-settings.component';
 import { UserSettingsService } from './shared/user-settings/user-settings.service';
 import { WasComponent } from './pages/was/was.component';
@@ -72,6 +73,7 @@ import { environment } from '../environments/environment';
     QsoDetailComponent,
     QsoListComponent,
     QsoSearchComponent,
+    SwUpdateComponent,
     UserSettingsComponent,
     WasComponent,
   ],
