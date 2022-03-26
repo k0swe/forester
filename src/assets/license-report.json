@@ -379,8 +379,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "10.1.0",
-    "installedVersion": "10.1.0",
+    "comment": "10.5.0",
+    "installedVersion": "10.5.0",
     "author": "Firebase https://firebase.google.com/"
   },
   {
