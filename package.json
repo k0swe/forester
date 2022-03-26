@@ -69,7 +69,7 @@
     "@typescript-eslint/eslint-plugin": "5.16.0",
     "@typescript-eslint/parser": "5.16.0",
     "dedent": "0.7.0",
-    "eslint": "8.11.0",
+    "eslint": "8.12.0",
     "firebase-admin": "10.0.2",
     "firebase-tools": "9.23.3",
     "fuzzy": "0.1.3",
