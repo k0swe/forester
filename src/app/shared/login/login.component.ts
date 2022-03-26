@@ -1,6 +1,6 @@
 import { AuthService } from '../auth/auth.service';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserSettingsService } from '../user-settings/user-settings.service';
 import { Observable } from 'rxjs';
 import firebase from 'firebase/compat';
@@ -12,40 +12,37 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
+    private route: ActivatedRoute,
     private router: Router,
     private snackBarService: MatSnackBar,
     private userSettingsService: UserSettingsService
   ) {}
 
+  ngOnInit() {
+    this.authService.user$.subscribe((user) => {
+      if (user != null) {
+        this.redirectAfterLogin();
+      }
+    });
+  }
+
   loginGoogle(): void {
     const loginObs = this.authService.loginGoogle();
-    this.postLogin(loginObs);
+    this.handleLogin(loginObs);
   }
 
   loginFacebook(): void {
     const loginObs = this.authService.loginFacebook();
-    this.postLogin(loginObs);
+    this.handleLogin(loginObs);
   }
 
-  private postLogin(loginObs: Observable<firebase.auth.UserCredential>): void {
+  private handleLogin(
+    loginObs: Observable<firebase.auth.UserCredential>
+  ): void {
     loginObs.pipe(take(1)).subscribe({
-      next: (user) => {
-        if (user == null) {
-          return;
-        }
-        this.userSettingsService.init();
-        this.userSettingsService.settings$
-          .pipe(takeWhile((settings) => settings.callsign == null, true))
-          .subscribe((settings) => {
-            if (settings.callsign != null) {
-              const url = `/${settings.callsign}/qsos`;
-              this.router.navigate([url]);
-            }
-          });
-      },
       error: (err) => {
         switch (err.code) {
           case 'auth/popup-closed-by-user':
@@ -76,5 +73,30 @@ export class LoginComponent {
         }
       },
     });
+  }
+
+  private redirectAfterLogin(): void {
+    this.route.queryParamMap.subscribe((map) => {
+      if (map.has('continue')) {
+        const continueUrl = new URL(map.get('continue'), 'https://example.com');
+        this.router.navigate([continueUrl.pathname], {
+          queryParams: continueUrl.searchParams,
+        });
+      } else {
+        this.redirectToLogbook();
+      }
+    });
+  }
+
+  private redirectToLogbook(): void {
+    this.userSettingsService.init();
+    this.userSettingsService.settings$
+      .pipe(takeWhile((settings) => settings.callsign == null, true))
+      .subscribe((settings) => {
+        if (settings.callsign != null) {
+          const url = `/${settings.callsign}/qsos`;
+          this.router.navigate([url]);
+        }
+      });
   }
 }
