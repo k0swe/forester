@@ -28,3 +28,7 @@ $kel-serif-typography: mat.define-typography-config(
   $font-family: 'Tinos, Times New Roman, serif',
   $subheading-2: mat.define-typography-level(16px, 28px, 700),
 );
+
+$kel-emoji-typography: mat.define-typography-config(
+  $font-family: 'Noto Colr Emoji Glyf',
+);

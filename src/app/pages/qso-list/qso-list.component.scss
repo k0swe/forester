@@ -127,3 +127,7 @@ td.mat-footer-cell:last-of-type {
   text-align: end;
   padding-right: 8px;
 }
+
+.flag {
+  font-family: mat.font-family($kel-emoji-typography);
+}
