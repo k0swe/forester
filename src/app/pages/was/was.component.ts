@@ -83,10 +83,8 @@ export class WasComponent implements OnInit, AfterViewInit {
     { name: 'Wisconsin', abbrev: 'WI', lat: 44.7863, lon: -89.8267 },
     { name: 'Wyoming', abbrev: 'WY', lat: 43.0003, lon: -107.5546 },
   ];
-  markers: Map<string, google.maps.Marker> = new Map<
-    string,
-    google.maps.Marker
-  >();
+  markers = new Map<string, google.maps.Marker>();
+  paths = new Map<string, google.maps.Polyline>();
   infoWindow: google.maps.InfoWindow = new google.maps.InfoWindow();
 
   private static makeQsoMarkerOptions(
@@ -168,6 +166,14 @@ export class WasComponent implements OnInit, AfterViewInit {
       markerOpts.map = this.map.googleMap;
       const marker = new google.maps.Marker(markerOpts);
       this.markers.set(state.abbrev, marker);
+      let polyline = new google.maps.Polyline({
+        strokeColor: 'darkgreen',
+        strokeOpacity: 0.5,
+        strokeWeight: 1,
+        geodesic: true,
+        map: this.map.googleMap,
+      });
+      this.paths.set(state.abbrev, polyline);
     });
     this.updateMarkers();
   }
@@ -181,9 +187,17 @@ export class WasComponent implements OnInit, AfterViewInit {
         if (fbq !== undefined) {
           markerOpts = WasComponent.makeQsoMarkerOptions(state, fbq.qso);
           iw = WasComponent.makeQsoInfoWindowOptions(state, fbq.qso);
+          const loggingStationPosition: google.maps.LatLngLiteral = {
+            lat: fbq.qso.loggingStation.latitude,
+            lng: fbq.qso.loggingStation.longitude,
+          };
+          this.paths
+            .get(state.abbrev)
+            .setPath([loggingStationPosition, markerOpts.position]);
         } else {
           markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
           iw = WasComponent.makeNoQsoInfoWindowOptions(state);
+          this.paths.get(state.abbrev).setPath([{ lat: 0, lng: 0 }]);
         }
         markerOpts.map = this.map.googleMap;
         marker.setOptions(markerOpts);
