@@ -1,6 +1,19 @@
 <mat-card>
   <mat-card-title>ARRL Worked All States Progress</mat-card-title>
-  <mat-card-header>
+  <mat-card-content>
+    <google-map
+      #map
+      width="100%"
+      height="100%"
+      [zoom]="zoom"
+      [center]="center"
+      [options]="options"
+    >
+    </google-map>
+  </mat-card-content>
+</mat-card>
+<div #filterSelectors>
+  <mat-card>
     <mat-form-field color="accent" appearance="standard">
       <mat-label>Mode</mat-label>
       <mat-select [(value)]="mode" (valueChange)="changeFilters()">
@@ -32,16 +45,5 @@
         <mat-option value="23cm">23cm</mat-option>
       </mat-select>
     </mat-form-field>
-  </mat-card-header>
-  <mat-card-content>
-    <google-map
-      #map
-      width="100%"
-      height="100%"
-      [zoom]="zoom"
-      [center]="center"
-      [options]="options"
-    >
-    </google-map>
-  </mat-card-content>
-</mat-card>
+  </mat-card>
+</div>

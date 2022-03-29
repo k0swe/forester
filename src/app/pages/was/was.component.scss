@@ -6,11 +6,15 @@ mat-card {
 }
 
 mat-form-field {
+  width: 100px;
+}
+
+mat-form-field:not(:last-child) {
   padding-right: 8px;
 }
 
 mat-card-content {
-  height: calc(100% - 96px);
+  height: calc(100% - 30px);
   border: 1px solid gray;
 }
 

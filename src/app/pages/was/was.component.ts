@@ -1,11 +1,18 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
 import { GoogleMap } from '@angular/google-maps';
+import { LogbookService } from '../logbook/logbook.service';
 import { Observable } from 'rxjs';
 import { Qso } from '../../qso';
+import ControlPosition = google.maps.ControlPosition;
 // @ts-ignore
 import moment from 'moment';
-import { LogbookService } from '../logbook/logbook.service';
 
 interface State {
   name: string;
@@ -21,14 +28,18 @@ interface State {
 })
 export class WasComponent implements OnInit, AfterViewInit {
   @ViewChild('map') map: GoogleMap;
+  @ViewChild('filterSelectors') filterSelectors: ElementRef;
   mode = 'mixed';
   band = 'mixed';
   zoom = 3;
   center: google.maps.LatLngLiteral = { lat: 40, lng: -105 };
   options: google.maps.MapOptions = {
     minZoom: 2,
-    maxZoom: 7,
+    maxZoom: 9,
     streetViewControl: false,
+    mapTypeControlOptions: {
+      position: ControlPosition.TOP_RIGHT,
+    },
   };
 
   states: Array<State> = [
@@ -86,6 +97,101 @@ export class WasComponent implements OnInit, AfterViewInit {
   markers = new Map<string, google.maps.Marker>();
   paths = new Map<string, google.maps.Polyline>();
   infoWindow: google.maps.InfoWindow = new google.maps.InfoWindow();
+
+  constructor(
+    private logbookService: LogbookService,
+    private qsoService: QsoService
+  ) {}
+
+  ngOnInit(): void {
+    this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
+  }
+
+  ngAfterViewInit(): void {
+    this.setupMapControls();
+
+    this.states.forEach((state) => {
+      let markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
+      markerOpts.map = this.map.googleMap;
+      const marker = new google.maps.Marker(markerOpts);
+      this.markers.set(state.abbrev, marker);
+      let polyline = new google.maps.Polyline({
+        strokeColor: 'darkgreen',
+        strokeOpacity: 0.5,
+        strokeWeight: 1,
+        geodesic: true,
+        map: this.map.googleMap,
+      });
+      this.paths.set(state.abbrev, polyline);
+    });
+    this.updateMarkers();
+  }
+
+  private setupMapControls() {
+    // TODO: why can't I see select option list when map is fullscreen, maybe z-index?
+    this.filterSelectors.nativeElement.remove();
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+      this.filterSelectors.nativeElement
+    );
+  }
+
+  private updateMarkers(): void {
+    this.states.forEach((state) => {
+      this.findQsoForState(state.abbrev).subscribe((fbq) => {
+        const marker = this.markers.get(state.abbrev);
+        let markerOpts: google.maps.MarkerOptions;
+        let iw: google.maps.InfoWindowOptions;
+        if (fbq !== undefined) {
+          markerOpts = WasComponent.makeQsoMarkerOptions(state, fbq.qso);
+          iw = WasComponent.makeQsoInfoWindowOptions(state, fbq.qso);
+          const loggingStationPosition: google.maps.LatLngLiteral = {
+            lat: fbq.qso.loggingStation.latitude,
+            lng: fbq.qso.loggingStation.longitude,
+          };
+          this.paths
+            .get(state.abbrev)
+            .setPath([loggingStationPosition, markerOpts.position]);
+        } else {
+          markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
+          iw = WasComponent.makeNoQsoInfoWindowOptions(state);
+          this.paths.get(state.abbrev).setPath([{ lat: 0, lng: 0 }]);
+        }
+        markerOpts.map = this.map.googleMap;
+        marker.setOptions(markerOpts);
+        marker.addListener('click', () => {
+          this.infoWindow.setOptions(iw);
+          this.infoWindow.open(this.map.googleMap, marker);
+        });
+      });
+    });
+  }
+
+  private findQsoForState(abbrev: string): Observable<FirebaseQso | undefined> {
+    if (abbrev === 'AK') {
+      return this.qsoService.findWASQso({
+        country: 'Alaska',
+        mode: this.mode,
+        band: this.band,
+      });
+    }
+    if (abbrev === 'HI') {
+      return this.qsoService.findWASQso({
+        country: 'Hawaii',
+        mode: this.mode,
+        band: this.band,
+      });
+    }
+    return this.qsoService.findWASQso({
+      country: 'United States',
+      state: abbrev,
+      mode: this.mode,
+      band: this.band,
+    });
+  }
+
+  changeFilters(): void {
+    this.updateMarkers();
+  }
 
   private static makeQsoMarkerOptions(
     state: State,
@@ -149,90 +255,5 @@ export class WasComponent implements OnInit, AfterViewInit {
     return {
       content: `${state.name} not contacted`,
     };
-  }
-
-  constructor(
-    private logbookService: LogbookService,
-    private qsoService: QsoService
-  ) {}
-
-  ngOnInit(): void {
-    this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
-  }
-
-  ngAfterViewInit(): void {
-    this.states.forEach((state) => {
-      let markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
-      markerOpts.map = this.map.googleMap;
-      const marker = new google.maps.Marker(markerOpts);
-      this.markers.set(state.abbrev, marker);
-      let polyline = new google.maps.Polyline({
-        strokeColor: 'darkgreen',
-        strokeOpacity: 0.5,
-        strokeWeight: 1,
-        geodesic: true,
-        map: this.map.googleMap,
-      });
-      this.paths.set(state.abbrev, polyline);
-    });
-    this.updateMarkers();
-  }
-
-  private updateMarkers(): void {
-    this.states.forEach((state) => {
-      this.findQsoForState(state.abbrev).subscribe((fbq) => {
-        const marker = this.markers.get(state.abbrev);
-        let markerOpts: google.maps.MarkerOptions;
-        let iw: google.maps.InfoWindowOptions;
-        if (fbq !== undefined) {
-          markerOpts = WasComponent.makeQsoMarkerOptions(state, fbq.qso);
-          iw = WasComponent.makeQsoInfoWindowOptions(state, fbq.qso);
-          const loggingStationPosition: google.maps.LatLngLiteral = {
-            lat: fbq.qso.loggingStation.latitude,
-            lng: fbq.qso.loggingStation.longitude,
-          };
-          this.paths
-            .get(state.abbrev)
-            .setPath([loggingStationPosition, markerOpts.position]);
-        } else {
-          markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
-          iw = WasComponent.makeNoQsoInfoWindowOptions(state);
-          this.paths.get(state.abbrev).setPath([{ lat: 0, lng: 0 }]);
-        }
-        markerOpts.map = this.map.googleMap;
-        marker.setOptions(markerOpts);
-        marker.addListener('click', () => {
-          this.infoWindow.setOptions(iw);
-          this.infoWindow.open(this.map.googleMap, marker);
-        });
-      });
-    });
-  }
-
-  private findQsoForState(abbrev: string): Observable<FirebaseQso | undefined> {
-    if (abbrev === 'AK') {
-      return this.qsoService.findWASQso({
-        country: 'Alaska',
-        mode: this.mode,
-        band: this.band,
-      });
-    }
-    if (abbrev === 'HI') {
-      return this.qsoService.findWASQso({
-        country: 'Hawaii',
-        mode: this.mode,
-        band: this.band,
-      });
-    }
-    return this.qsoService.findWASQso({
-      country: 'United States',
-      state: abbrev,
-      mode: this.mode,
-      band: this.band,
-    });
-  }
-
-  changeFilters(): void {
-    this.updateMarkers();
   }
 }
