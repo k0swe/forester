@@ -29,6 +29,12 @@ td.mat-footer-cell:last-of-type {
   padding-right: 4px;
 }
 
+th.mat-header-cell,
+td.mat-cell {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
 .mat-column-select {
   overflow: initial;
 }
@@ -37,6 +43,10 @@ td.mat-footer-cell:last-of-type {
   &:hover {
     background-color: mat.get-color-from-palette($kel-background, hover);
   }
+}
+
+.timeOn {
+  width: 128px;
 }
 
 .callsign {
@@ -123,7 +133,7 @@ td.mat-footer-cell:last-of-type {
   color: white;
 }
 
-.mat-column-freq {
+.freq {
   text-align: end;
   padding-right: 8px;
 }
