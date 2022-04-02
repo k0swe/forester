@@ -315,8 +315,8 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "4.0.1",
-    "installedVersion": "4.0.1",
+    "comment": "4.0.2",
+    "installedVersion": "4.0.2",
     "author": ""
   },
   {
@@ -459,8 +459,8 @@
     "name": "karma-jasmine",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma-jasmine.git",
-    "comment": "4.0.1",
-    "installedVersion": "4.0.1",
+    "comment": "4.0.2",
+    "installedVersion": "4.0.2",
     "author": "Vojta Jina vojta.jina@gmail.com"
   },
   {
