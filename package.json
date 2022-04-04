@@ -43,7 +43,7 @@
     "firebase": "9.6.10",
     "google-protobuf": "3.19.4",
     "json-ptr": "3.1.0",
-    "moment": "2.29.1",
+    "moment": "2.29.2",
     "ngx-kel-agent": "0.5.20",
     "rxfire": "6.0.3",
     "rxjs": "7.5.5",
