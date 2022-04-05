@@ -155,8 +155,8 @@
     "name": "google-protobuf",
     "licenseType": "BSD-3-Clause",
     "link": "git+https://github.com/protocolbuffers/protobuf.git#master",
-    "comment": "3.19.4",
-    "installedVersion": "3.19.4",
+    "comment": "3.20.0",
+    "installedVersion": "3.20.0",
     "author": "Google Protocol Buffers Team"
   },
   {
@@ -339,16 +339,16 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.17.0",
-    "installedVersion": "5.17.0",
+    "comment": "5.18.0",
+    "installedVersion": "5.18.0",
     "author": ""
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.17.0",
-    "installedVersion": "5.17.0",
+    "comment": "5.18.0",
+    "installedVersion": "5.18.0",
     "author": ""
   },
   {
@@ -379,8 +379,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "10.5.0",
-    "installedVersion": "10.5.0",
+    "comment": "10.6.0",
+    "installedVersion": "10.6.0",
     "author": "Firebase https://firebase.google.com/"
   },
   {
