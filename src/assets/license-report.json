@@ -171,16 +171,16 @@
     "name": "moment",
     "licenseType": "MIT",
     "link": "git+https://github.com/moment/moment.git",
-    "comment": "2.29.1",
-    "installedVersion": "2.29.1",
+    "comment": "2.29.2",
+    "installedVersion": "2.29.2",
     "author": "Iskren Ivov Chernev iskren.chernev@gmail.com https://github.com/ichernev"
   },
   {
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.19",
-    "installedVersion": "0.5.19",
+    "comment": "0.5.20",
+    "installedVersion": "0.5.20",
     "author": ""
   },
   {
@@ -243,40 +243,40 @@
     "name": "@angular-eslint/builder",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.1.0",
-    "installedVersion": "13.1.0",
+    "comment": "13.2.0",
+    "installedVersion": "13.2.0",
     "author": ""
   },
   {
     "name": "@angular-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.1.0",
-    "installedVersion": "13.1.0",
+    "comment": "13.2.0",
+    "installedVersion": "13.2.0",
     "author": ""
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.1.0",
-    "installedVersion": "13.1.0",
+    "comment": "13.2.0",
+    "installedVersion": "13.2.0",
     "author": ""
   },
   {
     "name": "@angular-eslint/schematics",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.1.0",
-    "installedVersion": "13.1.0",
+    "comment": "13.2.0",
+    "installedVersion": "13.2.0",
     "author": ""
   },
   {
     "name": "@angular-eslint/template-parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.1.0",
-    "installedVersion": "13.1.0",
+    "comment": "13.2.0",
+    "installedVersion": "13.2.0",
     "author": ""
   },
   {
@@ -499,8 +499,8 @@
     "name": "prettier",
     "licenseType": "MIT",
     "link": "git+https://github.com/prettier/prettier.git",
-    "comment": "2.6.1",
-    "installedVersion": "2.6.1",
+    "comment": "2.6.2",
+    "installedVersion": "2.6.2",
     "author": "James Long"
   },
   {
