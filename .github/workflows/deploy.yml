@@ -32,17 +32,17 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Tag as deployed
-        id: tag-deploy
         run: |
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
           git tag deployed --force
           git push --tags --force
-          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
+        uses: Ilshidur/action-discord@0.3.2
         with:
-          args: 'Forester has been deployed at ${{ steps.tag-deploy.outputs.sha_short }}'
+          args: >
+            I just deployed Forester:
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
