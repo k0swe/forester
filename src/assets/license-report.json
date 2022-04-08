@@ -11,8 +11,8 @@
     "name": "@angular/animations",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "angular"
   },
   {
@@ -27,24 +27,24 @@
     "name": "@angular/common",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "angular"
   },
   {
     "name": "@angular/compiler",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "angular"
   },
   {
     "name": "@angular/core",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "angular"
   },
   {
@@ -67,8 +67,8 @@
     "name": "@angular/forms",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "angular"
   },
   {
@@ -83,8 +83,8 @@
     "name": "@angular/localize",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "angular"
   },
   {
@@ -99,32 +99,32 @@
     "name": "@angular/platform-browser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "angular"
   },
   {
     "name": "@angular/platform-browser-dynamic",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "angular"
   },
   {
     "name": "@angular/router",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "angular"
   },
   {
     "name": "@angular/service-worker",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "angular"
   },
   {
@@ -227,16 +227,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1303.1",
-    "installedVersion": "0.1303.1",
+    "comment": "0.1303.2",
+    "installedVersion": "0.1303.2",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "Angular Authors"
   },
   {
@@ -283,16 +283,16 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/compiler-cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "13.3.1",
-    "installedVersion": "13.3.1",
+    "comment": "13.3.2",
+    "installedVersion": "13.3.2",
     "author": ""
   },
   {
