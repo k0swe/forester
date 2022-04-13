@@ -339,16 +339,16 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.18.0",
-    "installedVersion": "5.18.0",
+    "comment": "5.19.0",
+    "installedVersion": "5.19.0",
     "author": ""
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.18.0",
-    "installedVersion": "5.18.0",
+    "comment": "5.19.0",
+    "installedVersion": "5.19.0",
     "author": ""
   },
   {
@@ -419,8 +419,8 @@
     "name": "jasmine-core",
     "licenseType": "MIT",
     "link": "git+https://github.com/jasmine/jasmine.git",
-    "comment": "4.0.1",
-    "installedVersion": "4.0.1",
+    "comment": "4.1.0",
+    "installedVersion": "4.1.0",
     "author": ""
   },
   {
@@ -435,8 +435,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.17",
-    "installedVersion": "6.3.17",
+    "comment": "6.3.18",
+    "installedVersion": "6.3.18",
     "author": "Vojta Jína vojta.jina@gmail.com"
   },
   {
@@ -459,8 +459,8 @@
     "name": "karma-jasmine",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma-jasmine.git",
-    "comment": "4.0.2",
-    "installedVersion": "4.0.2",
+    "comment": "5.0.0",
+    "installedVersion": "5.0.0",
     "author": "Vojta Jina vojta.jina@gmail.com"
   },
   {
