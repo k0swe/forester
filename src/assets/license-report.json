@@ -19,8 +19,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "13.3.2",
-    "installedVersion": "13.3.2",
+    "comment": "13.3.3",
+    "installedVersion": "13.3.3",
     "author": ""
   },
   {
@@ -91,8 +91,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "13.3.2",
-    "installedVersion": "13.3.2",
+    "comment": "13.3.3",
+    "installedVersion": "13.3.3",
     "author": ""
   },
   {
@@ -243,40 +243,40 @@
     "name": "@angular-eslint/builder",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.2.0",
-    "installedVersion": "13.2.0",
+    "comment": "13.2.1",
+    "installedVersion": "13.2.1",
     "author": ""
   },
   {
     "name": "@angular-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.2.0",
-    "installedVersion": "13.2.0",
+    "comment": "13.2.1",
+    "installedVersion": "13.2.1",
     "author": ""
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.2.0",
-    "installedVersion": "13.2.0",
+    "comment": "13.2.1",
+    "installedVersion": "13.2.1",
     "author": ""
   },
   {
     "name": "@angular-eslint/schematics",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.2.0",
-    "installedVersion": "13.2.0",
+    "comment": "13.2.1",
+    "installedVersion": "13.2.1",
     "author": ""
   },
   {
     "name": "@angular-eslint/template-parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.2.0",
-    "installedVersion": "13.2.0",
+    "comment": "13.2.1",
+    "installedVersion": "13.2.1",
     "author": ""
   },
   {
