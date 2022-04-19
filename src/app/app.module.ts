@@ -21,6 +21,7 @@ import { ImportExportService } from './shared/import-export/import-export.servic
 import { LogbookComponent } from './pages/logbook/logbook.component';
 import { LogbookSettingsComponent } from './shared/logbook-settings/logbook-settings.component';
 import { LoginComponent } from './shared/login/login.component';
+import { MapComponent } from './pages/map/map.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -68,6 +69,7 @@ import { environment } from '../environments/environment';
     LogbookComponent,
     LogbookSettingsComponent,
     LoginComponent,
+    MapComponent,
     NewLogbookDialogComponent,
     PrivacyAndTermsComponent,
     QsoDetailComponent,

@@ -8,6 +8,7 @@ import { BehaviorSubject, combineLatest, from, Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Qso } from '../../qso';
 import { map, mergeMap } from 'rxjs/operators';
+import { nativeJs, ZonedDateTime } from 'js-joda';
 
 @Injectable({
   providedIn: 'root',
@@ -139,6 +140,18 @@ export class QsoService {
           criteria.modeOperator === CriteriaOperator.not_equal &&
           q.qso.mode.toUpperCase() === criteria.mode.toUpperCase()
         ) {
+          return false;
+        }
+      }
+      if (criteria.dateBefore) {
+        const qsoDate = ZonedDateTime.from(nativeJs(q.qso.timeOn));
+        if (!qsoDate.isBefore(criteria.dateBefore)) {
+          return false;
+        }
+      }
+      if (criteria.dateAfter) {
+        const qsoDate = ZonedDateTime.from(nativeJs(q.qso.timeOn));
+        if (!qsoDate.isAfter(criteria.dateAfter)) {
           return false;
         }
       }
@@ -318,6 +331,8 @@ export interface FilterCriteria {
   countryOperator?: CriteriaOperator;
   mode?: string;
   modeOperator?: CriteriaOperator;
+  dateBefore?: ZonedDateTime;
+  dateAfter?: ZonedDateTime;
 }
 
 interface WASQsoCriteria {

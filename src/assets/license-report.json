@@ -160,6 +160,14 @@
     "author": "Google Protocol Buffers Team"
   },
   {
+    "name": "js-joda",
+    "licenseType": "BSD-3-Clause",
+    "link": "git+https://github.com/js-joda/js-joda.git",
+    "comment": "1.11.0",
+    "installedVersion": "1.11.0",
+    "author": "pithu"
+  },
+  {
     "name": "json-ptr",
     "licenseType": "MIT",
     "link": "git+https://github.com/flitbit/json-ptr.git",

@@ -18,6 +18,7 @@ import { environment } from '../../../environments/environment';
 export class LogbookComponent implements OnInit {
   links = [
     { name: 'QSO List', path: 'qsos' },
+    { name: 'Map', path: 'map' },
     { name: 'Awards', path: 'was' },
   ];
 
