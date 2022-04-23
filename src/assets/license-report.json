@@ -155,8 +155,8 @@
     "name": "google-protobuf",
     "licenseType": "BSD-3-Clause",
     "link": "git+https://github.com/protocolbuffers/protobuf.git#master",
-    "comment": "3.20.0",
-    "installedVersion": "3.20.0",
+    "comment": "3.20.1",
+    "installedVersion": "3.20.1",
     "author": "Google Protocol Buffers Team"
   },
   {
@@ -179,16 +179,16 @@
     "name": "moment",
     "licenseType": "MIT",
     "link": "git+https://github.com/moment/moment.git",
-    "comment": "2.29.2",
-    "installedVersion": "2.29.2",
+    "comment": "2.29.3",
+    "installedVersion": "2.29.3",
     "author": "Iskren Ivov Chernev iskren.chernev@gmail.com https://github.com/ichernev"
   },
   {
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.21",
-    "installedVersion": "0.5.21",
+    "comment": "0.5.22",
+    "installedVersion": "0.5.22",
     "author": ""
   },
   {
@@ -443,8 +443,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.18",
-    "installedVersion": "6.3.18",
+    "comment": "6.3.19",
+    "installedVersion": "6.3.19",
     "author": "Vojta Jína vojta.jina@gmail.com"
   },
   {
