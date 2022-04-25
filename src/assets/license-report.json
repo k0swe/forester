@@ -371,24 +371,24 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.13.0",
-    "installedVersion": "8.13.0",
+    "comment": "8.14.0",
+    "installedVersion": "8.14.0",
     "author": "Nicholas C. Zakas nicholas+npm@nczconsulting.com"
   },
   {
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "10.0.2",
-    "installedVersion": "10.0.2",
+    "comment": "10.1.0",
+    "installedVersion": "10.1.0",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "10.6.0",
-    "installedVersion": "10.6.0",
+    "comment": "10.7.1",
+    "installedVersion": "10.7.1",
     "author": "Firebase https://firebase.google.com/"
   },
   {
@@ -491,8 +491,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "12.3.8",
-    "installedVersion": "12.3.8",
+    "comment": "12.4.0",
+    "installedVersion": "12.4.0",
     "author": "Andrey Okonetchnikov andrey@okonet.ru"
   },
   {
