@@ -219,8 +219,8 @@
     "name": "tslib",
     "licenseType": "0BSD",
     "link": "git+https://github.com/Microsoft/tslib.git",
-    "comment": "2.3.1",
-    "installedVersion": "2.3.1",
+    "comment": "2.4.0",
+    "installedVersion": "2.4.0",
     "author": "Microsoft Corp."
   },
   {
@@ -339,24 +339,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.25",
-    "installedVersion": "17.0.25",
+    "comment": "17.0.27",
+    "installedVersion": "17.0.27",
     "author": ""
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.19.0",
-    "installedVersion": "5.19.0",
+    "comment": "5.21.0",
+    "installedVersion": "5.21.0",
     "author": ""
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.19.0",
-    "installedVersion": "5.19.0",
+    "comment": "5.21.0",
+    "installedVersion": "5.21.0",
     "author": ""
   },
   {
