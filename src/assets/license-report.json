@@ -131,8 +131,8 @@
     "name": "@types/long",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "4.0.1",
-    "installedVersion": "4.0.1",
+    "comment": "4.0.2",
+    "installedVersion": "4.0.2",
     "author": ""
   },
   {
@@ -339,8 +339,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.27",
-    "installedVersion": "17.0.27",
+    "comment": "17.0.29",
+    "installedVersion": "17.0.29",
     "author": ""
   },
   {
