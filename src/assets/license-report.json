@@ -187,8 +187,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.22",
-    "installedVersion": "0.5.22",
+    "comment": "0.5.23",
+    "installedVersion": "0.5.23",
     "author": ""
   },
   {
@@ -387,8 +387,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "10.7.1",
-    "installedVersion": "10.7.1",
+    "comment": "10.7.2",
+    "installedVersion": "10.7.2",
     "author": "Firebase https://firebase.google.com/"
   },
   {
@@ -411,8 +411,8 @@
     "name": "inquirer",
     "licenseType": "MIT",
     "link": "git+https://github.com/SBoudrias/Inquirer.js.git",
-    "comment": "8.2.2",
-    "installedVersion": "8.2.2",
+    "comment": "8.2.4",
+    "installedVersion": "8.2.4",
     "author": "Simon Boudrias admin@simonboudrias.com"
   },
   {
@@ -491,8 +491,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "12.4.0",
-    "installedVersion": "12.4.0",
+    "comment": "12.4.1",
+    "installedVersion": "12.4.1",
     "author": "Andrey Okonetchnikov andrey@okonet.ru"
   },
   {
