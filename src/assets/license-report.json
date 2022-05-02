@@ -339,8 +339,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.30",
-    "installedVersion": "17.0.30",
+    "comment": "17.0.31",
+    "installedVersion": "17.0.31",
     "author": ""
   },
   {
@@ -531,8 +531,8 @@
     "name": "typescript",
     "licenseType": "Apache-2.0",
     "link": "https://github.com/Microsoft/TypeScript.git",
-    "comment": "4.6.3",
-    "installedVersion": "4.6.3",
+    "comment": "4.6.4",
+    "installedVersion": "4.6.4",
     "author": "Microsoft Corp."
   }
 ]
