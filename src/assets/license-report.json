@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.6.11",
-    "installedVersion": "9.6.11",
+    "comment": "9.7.0",
+    "installedVersion": "9.7.0",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
@@ -347,16 +347,16 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.21.0",
-    "installedVersion": "5.21.0",
+    "comment": "5.22.0",
+    "installedVersion": "5.22.0",
     "author": ""
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.21.0",
-    "installedVersion": "5.21.0",
+    "comment": "5.22.0",
+    "installedVersion": "5.22.0",
     "author": ""
   },
   {
