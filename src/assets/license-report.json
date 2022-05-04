@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.33",
-    "installedVersion": "0.4.33",
+    "comment": "0.4.34",
+    "installedVersion": "0.4.34",
     "author": "Chris Keller xylo04@gmail.com"
   },
   {
@@ -187,8 +187,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.23",
-    "installedVersion": "0.5.23",
+    "comment": "0.5.24",
+    "installedVersion": "0.5.24",
     "author": ""
   },
   {
