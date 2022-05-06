@@ -1,0 +1,129 @@
+<form [formGroup]="stationDetailForm" autocomplete="dummy">
+  <div fxLayout="row" class="row">
+    <div fxFlex="15%">
+      <mat-form-field appearance="standard">
+        <mat-label>Callsign</mat-label>
+        <input
+          matInput
+          class="callsign"
+          formControlName="stationCall"
+          autocapitalize="characters"
+          autocomplete="dummy"
+          spellcheck="false"
+        />
+      </mat-form-field>
+    </div>
+    <div fxFlex="30%">
+      <mat-form-field appearance="standard">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="opName" />
+      </mat-form-field>
+    </div>
+    <div fxFlex="20%">
+      <mat-form-field appearance="standard">
+        <mat-label>Latitude</mat-label>
+        <input
+          matInput
+          class="latLong"
+          formControlName="latitude"
+          type="number"
+        />
+        <mat-hint>+N/-S</mat-hint>
+      </mat-form-field>
+    </div>
+    <div fxFlex="20%">
+      <mat-form-field appearance="standard">
+        <mat-label>Longitude</mat-label>
+        <input
+          matInput
+          class="latLong"
+          formControlName="longitude"
+          type="number"
+        />
+        <mat-hint>+E/-W</mat-hint>
+      </mat-form-field>
+    </div>
+    <div fxFlex="10%">
+      <mat-form-field appearance="standard">
+        <mat-label>Grid</mat-label>
+        <input matInput formControlName="gridSquare" />
+      </mat-form-field>
+    </div>
+    <a
+      mat-stroked-button
+      [href]="mapLink"
+      [disabled]="mapLink === null"
+      target="map"
+      color="primary"
+    >
+      Map
+    </a>
+  </div>
+
+  <div fxLayout="row" class="row">
+    <div fxFlex>
+      <mat-form-field appearance="standard">
+        <mat-label>City</mat-label>
+        <input matInput formControlName="city" />
+      </mat-form-field>
+    </div>
+    <div fxFlex>
+      <mat-form-field appearance="standard">
+        <mat-label>State/Province</mat-label>
+        <input matInput formControlName="state" />
+      </mat-form-field>
+    </div>
+    <div fxFlex>
+      <mat-form-field appearance="standard">
+        <mat-label>Country</mat-label>
+        <input
+          matInput
+          formControlName="country"
+          [matAutocomplete]="countryAutocomplete"
+        />
+        <mat-autocomplete #countryAutocomplete="matAutocomplete">
+          <mat-option *ngFor="let c of filteredCountries$ | async" [value]="c">
+            {{ c }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div fxFlex>
+      <mat-form-field appearance="standard">
+        <mat-label>Continent</mat-label>
+        <mat-select formControlName="continent">
+          <mat-option value="">(not set)</mat-option>
+          <mat-option value="NA">North America</mat-option>
+          <mat-option value="SA">South America</mat-option>
+          <mat-option value="EU">Europe</mat-option>
+          <mat-option value="AF">Africa</mat-option>
+          <mat-option value="OC">Oceana</mat-option>
+          <mat-option value="AS">Asia</mat-option>
+          <mat-option value="AN">Antarctica</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div *ngIf="showRig || showTxPower" fxLayout="row" class="row">
+    <div fxFlex>
+      <mat-form-field *ngIf="showRig" appearance="standard">
+        <mat-label>Rig</mat-label>
+        <input matInput formControlName="rig" />
+      </mat-form-field>
+    </div>
+    <div fxFlex>
+      <mat-form-field *ngIf="showRig" appearance="standard">
+        <mat-label>Antenna</mat-label>
+        <input matInput formControlName="antenna" />
+      </mat-form-field>
+    </div>
+    <div fxFlex>
+      <mat-form-field *ngIf="showTxPower" appearance="standard">
+        <mat-label>TX Power</mat-label>
+        <input matInput formControlName="power" type="number" />
+        <span matSuffix>W</span>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

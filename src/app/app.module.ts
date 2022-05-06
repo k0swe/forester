@@ -58,6 +58,7 @@ import { UserSettingsComponent } from './shared/user-settings/user-settings.comp
 import { UserSettingsService } from './shared/user-settings/user-settings.service';
 import { WasComponent } from './pages/was/was.component';
 import { environment } from '../environments/environment';
+import { StationDetailComponent } from './shared/station-detail/station-detail.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { environment } from '../environments/environment';
     SwUpdateComponent,
     UserSettingsComponent,
     WasComponent,
+    StationDetailComponent,
   ],
   imports: [
     AngularFireAuthModule,

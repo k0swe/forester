@@ -3,22 +3,15 @@ import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { DxccRef } from '../../reference/dxcc';
 import { FirebaseQso, QsoService } from '../qso/qso.service';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HamlibService } from 'ngx-kel-agent';
 import { LocationService } from '../location/location.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
 import { Modes } from '../../reference/mode';
 import { Observable } from 'rxjs';
-import { Qso } from '../../qso';
+import { Qso, Station } from '../../qso';
 import { map } from 'rxjs/operators';
-
-const googleMapsSearchBase = 'https://www.google.com/maps/search/';
 
 @Component({
   selector: 'kel-qso-detail',
@@ -37,34 +30,16 @@ export class QsoDetailComponent implements OnInit {
     private dialog: MatDialogRef<any>
   ) {
     this.firebaseId = data.id;
-    const model = {
+    const model: Qso = {
       ...this.template,
       ...data.qso,
-      contactedStation: {
-        ...this.template.contactedStation,
-        ...data.qso.contactedStation,
-      },
-      loggingStation: {
-        ...this.template.loggingStation,
-        ...data.qso.loggingStation,
-      },
     };
+    this.contactedStation = data.qso.contactedStation;
+    this.loggingStation = data.qso.loggingStation;
     this.formatDates(model);
     this.qsoDetailForm = fb.group({
       ...model,
-      ...{
-        timeOn: [model.timeOn, Validators.required],
-        contactedStation: fb.group({
-          ...model.contactedStation,
-          ...{
-            stationCall: [
-              model.contactedStation.stationCall,
-              Validators.required,
-            ],
-          },
-        }),
-        loggingStation: fb.group(model.loggingStation),
-      },
+      ...{ timeOn: [model.timeOn, Validators.required] },
     });
   }
 
@@ -79,42 +54,16 @@ export class QsoDetailComponent implements OnInit {
     notes: undefined,
     rstSent: undefined,
     rstReceived: undefined,
-    contactedStation: {
-      stationCall: undefined,
-      opName: undefined,
-      latitude: undefined,
-      longitude: undefined,
-      city: undefined,
-      state: undefined,
-      country: undefined,
-      continent: undefined,
-      gridSquare: undefined,
-    },
-    loggingStation: {
-      stationCall: this.qsoService.book(),
-      opName: undefined,
-      latitude: undefined,
-      longitude: undefined,
-      city: undefined,
-      state: undefined,
-      country: undefined,
-      continent: undefined,
-      gridSquare: undefined,
-      rig: undefined,
-      antenna: undefined,
-      power: undefined,
-    },
   };
 
   private readonly firebaseId;
   bands = Band.bands;
   qsoDetailForm: FormGroup;
-  mapLink: string;
   startDelete = false;
   modeNames = Modes.modeNames;
   filteredModes$: Observable<string[]>;
-  countries = DxccRef.getNames();
-  filteredCountries$: Observable<string[]>;
+  contactedStation: Station;
+  loggingStation: Station;
 
   @ViewChild('saveButton') saveButton: MatButton;
 
@@ -143,30 +92,13 @@ export class QsoDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.setupModeAutocomplete();
-    this.setupCountryAutocomplete();
-    this.setupAutoContinentFromCountry();
     this.setupAutoBandFromFreq();
-    this.setupAutoLocation();
     this.setupAgentFreqMode();
-    this.qsoDetailForm
-      .get('contactedStation')
-      .valueChanges.subscribe(() => this.updateMapLink());
-    this.updateMapLink();
-    this.qsoDetailForm.valueChanges.subscribe(
-      () => (this.saveButton.disabled = !this.qsoDetailForm.valid)
-    );
-    this.forceUpperCase(
-      this.qsoDetailForm.get('contactedStation').get('stationCall')
-    );
-    this.forceUpperCase(
-      this.qsoDetailForm.get('loggingStation').get('stationCall')
-    );
+    this.qsoDetailForm.valueChanges.subscribe(() => this.enableSaveButton());
   }
 
-  private forceUpperCase(control: AbstractControl) {
-    control.valueChanges.subscribe(() =>
-      control.patchValue(control.value.toUpperCase(), { emitEvent: false })
-    );
+  enableSaveButton() {
+    return (this.saveButton.disabled = !this.qsoDetailForm.valid);
   }
 
   private setupModeAutocomplete(): void {
@@ -187,35 +119,6 @@ export class QsoDetailComponent implements OnInit {
     );
   }
 
-  private setupCountryAutocomplete(): void {
-    const countryField = this.qsoDetailForm.get('contactedStation.country');
-    this.filteredCountries$ = countryField.valueChanges.pipe(
-      map((countryInput) => this.filterCountries(countryInput))
-    );
-  }
-
-  private setupAutoLocation(): void {
-    const latField = this.qsoDetailForm.get('loggingStation.latitude');
-    const lonField = this.qsoDetailForm.get('loggingStation.longitude');
-    const gridField = this.qsoDetailForm.get('loggingStation.gridSquare');
-    this.locationService.getLocation().subscribe((loc) => {
-      if (
-        latField.value != null ||
-        lonField.value != null ||
-        gridField.value != null
-      ) {
-        // If there's any location info already, don't overwrite it
-        return;
-      }
-      latField.setValue(loc.latitude);
-      lonField.setValue(loc.longitude);
-      gridField.setValue(loc.gridSquare);
-      latField.markAsDirty();
-      lonField.markAsDirty();
-      gridField.markAsDirty();
-    });
-  }
-
   private setupAgentFreqMode(): void {
     const freqField = this.qsoDetailForm.get('freq');
     const modeField = this.qsoDetailForm.get('mode');
@@ -233,25 +136,6 @@ export class QsoDetailComponent implements OnInit {
     }
   }
 
-  private filterCountries(countryInput: string): string[] {
-    const filterValue = countryInput.toUpperCase();
-    return this.countries.filter((option) =>
-      option.toUpperCase().includes(filterValue)
-    );
-  }
-
-  private setupAutoContinentFromCountry(): void {
-    const countryField = this.qsoDetailForm.get('contactedStation.country');
-    countryField.valueChanges.subscribe((countryInput) => {
-      const entity = DxccRef.getByName(countryInput);
-      if (entity != null) {
-        this.qsoDetailForm
-          .get('contactedStation.continent')
-          .setValue(entity.continent);
-      }
-    });
-  }
-
   private setupAutoBandFromFreq(): void {
     const freqField = this.qsoDetailForm.get('freq');
     const bandField = this.qsoDetailForm.get('band');
@@ -261,33 +145,10 @@ export class QsoDetailComponent implements OnInit {
     });
   }
 
-  private updateMapLink(): void {
-    const latitude: number =
-      this.qsoDetailForm.get('contactedStation').value.latitude;
-    const longitude: number =
-      this.qsoDetailForm.get('contactedStation').value.longitude;
-    const city: string = this.qsoDetailForm.get('contactedStation').value.city;
-    const state: string =
-      this.qsoDetailForm.get('contactedStation').value.state;
-    const country: string =
-      this.qsoDetailForm.get('contactedStation').value.country;
-    if (latitude && longitude) {
-      this.mapLink = googleMapsSearchBase + latitude + ',' + longitude;
-    } else if (city || state || country) {
-      this.mapLink =
-        googleMapsSearchBase +
-        encodeURIComponent(city) +
-        '+' +
-        encodeURIComponent(state) +
-        '+' +
-        encodeURIComponent(country);
-    } else {
-      this.mapLink = '';
-    }
-  }
-
   save(): void {
     const formValue = this.qsoDetailForm.value;
+    formValue.contactedStation = this.contactedStation;
+    formValue.loggingStation = this.loggingStation;
     QsoDetailComponent.parseDates(formValue);
     QsoDetailComponent.saveMode(formValue);
     QsoDetailComponent.saveCountry(formValue);
