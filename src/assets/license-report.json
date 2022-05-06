@@ -379,16 +379,16 @@
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "10.1.0",
-    "installedVersion": "10.1.0",
+    "comment": "10.2.0",
+    "installedVersion": "10.2.0",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "10.7.2",
-    "installedVersion": "10.7.2",
+    "comment": "10.8.0",
+    "installedVersion": "10.8.0",
     "author": "Firebase https://firebase.google.com/"
   },
   {
