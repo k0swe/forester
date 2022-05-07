@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.7.0",
-    "installedVersion": "9.7.0",
+    "comment": "9.8.0",
+    "installedVersion": "9.8.0",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
@@ -371,8 +371,8 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.14.0",
-    "installedVersion": "8.14.0",
+    "comment": "8.15.0",
+    "installedVersion": "8.15.0",
     "author": "Nicholas C. Zakas nicholas+npm@nczconsulting.com"
   },
   {
