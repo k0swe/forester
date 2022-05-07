@@ -6,6 +6,7 @@ import {
 } from 'ngx-kel-agent';
 import { Band } from '../../reference/band';
 import { Component, OnInit } from '@angular/core';
+import { LogbookService } from '../../pages/logbook/logbook.service';
 import { Qso } from '../../qso';
 import { QsoService } from '../qso/qso.service';
 
@@ -19,11 +20,13 @@ export class AgentComponent implements OnInit {
     public agent: AgentService,
     public hamlib: HamlibService,
     public wsjtx: WsjtxService,
+    private logbookService: LogbookService,
     private qsoService: QsoService
   ) {}
 
   ngOnInit(): void {
     this.agent.init();
+    this.logbookService.init();
     // When WSJT-X sends a QSO, log it right away
     this.wsjtx.qsoLogged$.subscribe((qsoLogged) => {
       // Dates come across as strings; convert to objects
@@ -39,6 +42,7 @@ export class AgentComponent implements OnInit {
 
   private saveWsjtxQso(qsoLogged: WsjtxQsoLogged): void {
     // TODO: do something with "exchange sent/received"; contest fields?
+    const qthProfile = this.logbookService.settings$.getValue().qthProfile;
     const freqMhz = qsoLogged.txFrequency / 1000000;
     const qso: Qso = {
       band: Band.freqToBand(freqMhz),
@@ -52,6 +56,7 @@ export class AgentComponent implements OnInit {
         opName: qsoLogged.name,
       },
       loggingStation: {
+        ...qthProfile,
         stationCall: qsoLogged.myCall,
         gridSquare: qsoLogged.myGrid,
         power: Number(qsoLogged.txPower),
