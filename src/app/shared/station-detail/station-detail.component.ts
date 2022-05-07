@@ -60,12 +60,6 @@ export class StationDetailComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (!changes.station.firstChange) {
-      return;
-    }
-    // Ideally this would be part of ngOnInit, but it seems like the parent
-    // (QsoDetailComponent) is not initializing the bound variables until after
-    // this is init, so instead, init this stuff on the first change.
     this.station = changes.station.currentValue;
     const model: Station = {
       ...this.template,
