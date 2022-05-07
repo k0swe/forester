@@ -52,7 +52,7 @@ export class LogbookComponent implements OnInit {
 
   logbookSettings(): void {
     const dialogRef = this.dialog.open(LogbookSettingsComponent, {
-      width: '500px',
+      width: '800px',
     });
     dialogRef.afterClosed().subscribe((dialogReturn) => {
       if (dialogReturn instanceof Observable) {

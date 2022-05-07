@@ -5,6 +5,7 @@ import { MatButton } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
 import { SecretService } from '../secret/secret.service';
 import { LogbookService } from '../../pages/logbook/logbook.service';
+import { Station } from '../../qso';
 
 @Component({
   selector: 'kel-logbook-settings',
@@ -14,6 +15,7 @@ import { LogbookService } from '../../pages/logbook/logbook.service';
 export class LogbookSettingsComponent implements OnInit {
   logbookSettingsForm: FormGroup;
   @ViewChild('saveButton') saveButton: MatButton;
+  qthProfile: Station = {};
 
   constructor(
     private dialog: MatDialogRef<any>,
@@ -26,9 +28,13 @@ export class LogbookSettingsComponent implements OnInit {
       lotwUser: '',
       lotwPass: '',
     });
-    this.logbookSettingsForm.valueChanges.subscribe(
-      () => (this.saveButton.disabled = false)
+    this.logbookSettingsForm.valueChanges.subscribe(() =>
+      this.enableSaveButton()
     );
+  }
+
+  enableSaveButton(): void {
+    this.saveButton.disabled = false;
   }
 
   ngOnInit(): void {}

@@ -1,29 +1,51 @@
 <h2 mat-dialog-title>Logbook Settings</h2>
 <mat-dialog-content>
-  These values are stored encrypted on the server and will not be displayed
-  here.
-  <form [formGroup]="logbookSettingsForm">
-    <div>
-      <mat-form-field appearance="standard">
-        <mat-label>QRZ.com Logbook API Key</mat-label>
-        <input
-          matInput
-          placeholder="ABCD-1234-EFGH-5678"
-          formControlName="qrzLogbookApiKey"
-        />
-      </mat-form-field>
-    </div>
-    <div fxLayout="row" class="row">
-      <mat-form-field fxFlex appearance="standard">
-        <mat-label>LotW Username</mat-label>
-        <input matInput formControlName="lotwUser" />
-      </mat-form-field>
-      <mat-form-field fxFlex appearance="standard">
-        <mat-label>LotW Password</mat-label>
-        <input matInput type="password" formControlName="lotwPass" />
-      </mat-form-field>
-    </div>
-  </form>
+  <mat-card>
+    <mat-card-subtitle>QTH Profile</mat-card-subtitle>
+    <mat-card-content>
+      <kel-station-detail
+        [(station)]="qthProfile"
+        (stationChange)="enableSaveButton()"
+        [showTxPower]="false"
+      ></kel-station-detail>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-subtitle>Secrets</mat-card-subtitle>
+    <mat-card-content>
+      <form [formGroup]="logbookSettingsForm">
+        <div fxLayout="row" class="row">
+          These values are stored encrypted on the server and will not be
+          displayed here.
+        </div>
+        <div fxLayout="row" class="row">
+          <mat-form-field appearance="standard">
+            <mat-label>QRZ.com Logbook API Key</mat-label>
+            <input
+              matInput
+              placeholder="ABCD-1234-EFGH-5678"
+              formControlName="qrzLogbookApiKey"
+            />
+            <mat-hint>For syncing with a QRZ.com logbook</mat-hint>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" class="row">
+          <mat-form-field fxFlex appearance="standard">
+            <mat-label>LotW Username</mat-label>
+            <input matInput formControlName="lotwUser" />
+            <mat-hint>
+              For querying station details from the QRZ.com database
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field fxFlex appearance="standard">
+            <mat-label>LotW Password</mat-label>
+            <input matInput type="password" formControlName="lotwPass" />
+            <mat-hint> Requires QRZ.com XML subscription </mat-hint>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
