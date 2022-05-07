@@ -56,6 +56,7 @@ export class QsoListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.logbookService.init();
     this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
     this.paginator.pageSize = 25;
     this.paginator.pageSizeOptions = [10, 25, 50, 100];
@@ -151,7 +152,10 @@ export class QsoListComponent implements OnInit {
   }
 
   newQso(): void {
-    this.openDialog({ qso: { contactedStation: {}, loggingStation: {} } });
+    const loggingStation = this.logbookService.settings$.getValue().qthProfile;
+    this.openDialog({
+      qso: { contactedStation: {}, loggingStation: loggingStation },
+    });
   }
 
   flagFor(dxcc: number): string {
