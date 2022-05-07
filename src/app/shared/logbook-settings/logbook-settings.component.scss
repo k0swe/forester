@@ -13,6 +13,16 @@
   width: 100%;
 }
 
+:host ::ng-deep .mat-form-field-infix {
+  width: auto !important;
+}
+
 mat-form-field.ng-dirty {
   color: mat.get-color-from-palette($kel-accent, 800);
+}
+
+mat-card {
+  border: 1px solid mat.get-color-from-palette($kel-primary, A100);
+  margin-bottom: 8px;
+  margin-top: 8px;
 }

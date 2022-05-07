@@ -4,7 +4,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
 import { SecretService } from '../secret/secret.service';
-import { LogbookService } from '../../pages/logbook/logbook.service';
+import {
+  LogbookService,
+  LogbookSettings,
+} from '../../pages/logbook/logbook.service';
+import { Station } from '../../qso';
 
 @Component({
   selector: 'kel-logbook-settings',
@@ -14,6 +18,7 @@ import { LogbookService } from '../../pages/logbook/logbook.service';
 export class LogbookSettingsComponent implements OnInit {
   logbookSettingsForm: FormGroup;
   @ViewChild('saveButton') saveButton: MatButton;
+  qthProfile = {} as Station;
 
   constructor(
     private dialog: MatDialogRef<any>,
@@ -26,14 +31,27 @@ export class LogbookSettingsComponent implements OnInit {
       lotwUser: '',
       lotwPass: '',
     });
-    this.logbookSettingsForm.valueChanges.subscribe(
-      () => (this.saveButton.disabled = false)
+    this.logbookSettingsForm.valueChanges.subscribe(() =>
+      this.enableSaveButton()
     );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.logbookService.init();
+    this.logbookService.settings$.subscribe((settings) => {
+      this.qthProfile = settings.qthProfile;
+    });
+  }
+
+  enableSaveButton(): void {
+    this.saveButton.disabled = false;
+  }
 
   save(): void {
+    const qthObs = this.logbookService.set({
+      qthProfile: this.qthProfile,
+    } as LogbookSettings);
+
     const formValue = this.logbookSettingsForm.value;
     const secretsObs = this.secretService.setSecrets(
       new Map([
@@ -43,6 +61,7 @@ export class LogbookSettingsComponent implements OnInit {
       ]),
       this.logbookService.logbookId$.getValue()
     );
-    this.dialog.close(forkJoin([secretsObs]));
+
+    this.dialog.close(forkJoin([qthObs, secretsObs]));
   }
 }
