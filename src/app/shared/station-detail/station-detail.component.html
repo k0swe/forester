@@ -16,7 +16,12 @@
     <div fxFlex="30%">
       <mat-form-field appearance="standard">
         <mat-label>Name</mat-label>
-        <input matInput formControlName="opName" />
+        <input
+          matInput
+          formControlName="opName"
+          autocapitalize="words"
+          autocomplete="dummy"
+        />
       </mat-form-field>
     </div>
     <div fxFlex="20%">
@@ -27,6 +32,7 @@
           class="latLong"
           formControlName="latitude"
           type="number"
+          autocomplete="dummy"
         />
         <mat-hint>+N/-S</mat-hint>
       </mat-form-field>
@@ -39,6 +45,7 @@
           class="latLong"
           formControlName="longitude"
           type="number"
+          autocomplete="dummy"
         />
         <mat-hint>+E/-W</mat-hint>
       </mat-form-field>
@@ -46,7 +53,12 @@
     <div fxFlex="10%">
       <mat-form-field appearance="standard">
         <mat-label>Grid</mat-label>
-        <input matInput formControlName="gridSquare" />
+        <input
+          matInput
+          formControlName="gridSquare"
+          autocapitalize="characters"
+          autocomplete="dummy"
+        />
       </mat-form-field>
     </div>
     <a
@@ -64,13 +76,23 @@
     <div fxFlex>
       <mat-form-field appearance="standard">
         <mat-label>City</mat-label>
-        <input matInput formControlName="city" />
+        <input
+          matInput
+          formControlName="city"
+          autocapitalize="words"
+          autocomplete="dummy"
+        />
       </mat-form-field>
     </div>
     <div fxFlex>
       <mat-form-field appearance="standard">
         <mat-label>State/Province</mat-label>
-        <input matInput formControlName="state" />
+        <input
+          matInput
+          formControlName="state"
+          autocapitalize="characters"
+          autocomplete="dummy"
+        />
       </mat-form-field>
     </div>
     <div fxFlex>
@@ -79,6 +101,8 @@
         <input
           matInput
           formControlName="country"
+          autocapitalize="words"
+          autocomplete="dummy"
           [matAutocomplete]="countryAutocomplete"
         />
         <mat-autocomplete #countryAutocomplete="matAutocomplete">
@@ -109,19 +133,34 @@
     <div fxFlex>
       <mat-form-field *ngIf="showRig" appearance="standard">
         <mat-label>Rig</mat-label>
-        <input matInput formControlName="rig" />
+        <input
+          matInput
+          formControlName="rig"
+          autocapitalize="words"
+          autocomplete="dummy"
+        />
       </mat-form-field>
     </div>
     <div fxFlex>
       <mat-form-field *ngIf="showRig" appearance="standard">
         <mat-label>Antenna</mat-label>
-        <input matInput formControlName="antenna" />
+        <input
+          matInput
+          formControlName="antenna"
+          autocapitalize="words"
+          autocomplete="dummy"
+        />
       </mat-form-field>
     </div>
     <div fxFlex>
       <mat-form-field *ngIf="showTxPower" appearance="standard">
         <mat-label>TX Power</mat-label>
-        <input matInput formControlName="power" type="number" />
+        <input
+          matInput
+          formControlName="power"
+          type="number"
+          autocomplete="dummy"
+        />
         <span matSuffix>W</span>
       </mat-form-field>
     </div>
