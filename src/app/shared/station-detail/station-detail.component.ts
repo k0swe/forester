@@ -1,3 +1,4 @@
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import {
   Component,
   EventEmitter,
@@ -9,9 +10,9 @@ import {
 } from '@angular/core';
 import { DxccRef } from '../../reference/dxcc';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Station } from '../../qso';
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { StationLocationValidator } from './station-location-validator';
+import { map } from 'rxjs/operators';
 
 const googleMapsSearchBase = 'https://www.google.com/maps/search/';
 
@@ -65,7 +66,9 @@ export class StationDetailComponent implements OnInit, OnChanges {
       ...this.template,
       ...this.station,
     };
-    this.stationDetailForm = this.fb.group(model);
+    this.stationDetailForm = this.fb.group(model, {
+      validators: StationLocationValidator.consistentLocation(),
+    });
     this.forceUpperCase(this.stationDetailForm.get('stationCall'));
     this.stationDetailForm.valueChanges.subscribe(() => {
       this.updateMapLink();

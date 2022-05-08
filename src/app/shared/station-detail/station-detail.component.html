@@ -126,4 +126,9 @@
       </mat-form-field>
     </div>
   </div>
+  <mat-error>
+    <span *ngIf="stationDetailForm.errors?.locationInconsistent">
+      Latitude and longitude are not within the grid
+    </span>
+  </mat-error>
 </form>
