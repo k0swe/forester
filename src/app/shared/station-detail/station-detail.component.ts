@@ -4,7 +4,6 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -13,6 +12,7 @@ import { Observable } from 'rxjs';
 import { Station } from '../../qso';
 import { StationLocationValidator } from './station-location-validator';
 import { map } from 'rxjs/operators';
+import isEqual from 'lodash/isEqual';
 
 const googleMapsSearchBase = 'https://www.google.com/maps/search/';
 
@@ -30,6 +30,7 @@ export class StationDetailComponent implements OnChanges {
   countries = DxccRef.getNames();
   filteredCountries$: Observable<string[]>;
   mapLink: string;
+  flag: string;
 
   // empty values for each field in the form to prevent error "Cannot find control with name"
   private readonly template: Station = {
@@ -40,6 +41,7 @@ export class StationDetailComponent implements OnChanges {
     city: undefined,
     state: undefined,
     country: undefined,
+    dxcc: undefined,
     continent: undefined,
     gridSquare: undefined,
     rig: undefined,
@@ -56,7 +58,7 @@ export class StationDetailComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.station.currentValue == this.stationDetailForm.value) {
+    if (isEqual(changes.station.currentValue, this.stationDetailForm.value)) {
       return;
     }
     this.station = changes.station.currentValue;
@@ -73,7 +75,7 @@ export class StationDetailComponent implements OnChanges {
       this.stationChange.emit(this.stationDetailForm.value);
     });
     this.setupCountryAutocomplete();
-    this.setupAutoContinentFromCountry();
+    this.setupDxcc();
     this.updateMapLink();
   }
 
@@ -91,14 +93,29 @@ export class StationDetailComponent implements OnChanges {
     );
   }
 
-  private setupAutoContinentFromCountry(): void {
+  private setupDxcc() {
     const countryField = this.stationDetailForm.get('country');
-    countryField.valueChanges.subscribe((countryInput) => {
-      const entity = DxccRef.getByName(countryInput);
-      if (entity != null) {
-        this.stationDetailForm.get('continent').setValue(entity.continent);
-      }
-    });
+    this.setDxccAndFlag(countryField.value);
+    countryField.valueChanges.subscribe((countryInput) =>
+      this.setDxccAndFlag(countryInput)
+    );
+  }
+
+  private setDxccAndFlag(countryName) {
+    if (!countryName) {
+      this.stationDetailForm.get('dxcc').setValue(null);
+      this.flag = '';
+      return;
+    }
+    const entity = DxccRef.getByName(countryName);
+    if (entity != null) {
+      this.stationDetailForm.get('dxcc').setValue(entity.id);
+      this.stationDetailForm.get('continent').setValue(entity.continent);
+      this.flag = entity.flag;
+    } else {
+      this.stationDetailForm.get('dxcc').setValue(null);
+      this.flag = '';
+    }
   }
 
   private forceUpperCase(control: AbstractControl) {

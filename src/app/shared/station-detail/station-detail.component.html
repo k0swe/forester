@@ -110,7 +110,11 @@
             {{ c }}
           </mat-option>
         </mat-autocomplete>
+        <span matSuffix [title]="stationDetailForm.get('dxcc').value">
+          {{ flag }}
+        </span>
       </mat-form-field>
+      <input type="hidden" formControlName="dxcc" />
     </div>
     <div fxFlex>
       <mat-form-field appearance="standard">

@@ -2417,6 +2417,9 @@ export class DxccRef {
   }
 
   public static getByName(name: string): DxccEntity {
+    if (!name) {
+      return null;
+    }
     return this.dxcc.find((rec) => rec.name === name);
   }
 
