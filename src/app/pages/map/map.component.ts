@@ -10,9 +10,10 @@ import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
 import { GoogleMap } from '@angular/google-maps';
 import { LogbookService } from '../logbook/logbook.service';
 import { Observable, switchMap } from 'rxjs';
-import { Qso } from '../../qso';
+import { Qso, Station } from '../../qso';
 // @ts-ignore
 import moment from 'moment';
+import Maidenhead from '@amrato/maidenhead-ts';
 
 @Component({
   selector: 'kel-map',
@@ -51,33 +52,8 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   private updateMarkers(): void {
     this.findQsosForPast(Duration.ofHours(24)).subscribe((fbq) => {
-      let marker = this.markers.get(fbq.id);
-      if (marker == undefined) {
-        marker = new google.maps.Marker();
-      }
-      let polyline = this.paths.get(fbq.id);
-      if (polyline == undefined) {
-        polyline = new google.maps.Polyline({
-          strokeColor: 'darkgreen',
-          strokeOpacity: 0.5,
-          strokeWeight: 1,
-          geodesic: true,
-          map: this.map.googleMap,
-        });
-      }
-      let markerOpts = MapComponent.makeQsoMarkerOptions(fbq.qso);
-      let iw = MapComponent.makeQsoInfoWindowOptions(fbq.qso);
-      const loggingStationPosition: google.maps.LatLngLiteral = {
-        lat: fbq.qso.loggingStation.latitude,
-        lng: fbq.qso.loggingStation.longitude,
-      };
-      polyline.setPath([loggingStationPosition, markerOpts.position]);
-      markerOpts.map = this.map.googleMap;
-      marker.setOptions(markerOpts);
-      marker.addListener('click', () => {
-        this.infoWindow.setOptions(iw);
-        this.infoWindow.open(this.map.googleMap, marker);
-      });
+      this.renderContactedMarker(fbq);
+      this.renderQsoPath(fbq);
     });
   }
 
@@ -88,16 +64,54 @@ export class MapComponent implements OnInit, AfterViewInit {
     return this.qsoService.getFilteredQsos().pipe(switchMap((fbqs) => fbqs));
   }
 
+  private renderContactedMarker(fbq: FirebaseQso): void {
+    const contactedLoc = MapComponent.getStationLocation(
+      fbq.qso.contactedStation
+    );
+    if (!contactedLoc) {
+      return;
+    }
+    let marker = this.markers.get(fbq.id);
+    if (marker == undefined) {
+      marker = new google.maps.Marker();
+    }
+
+    let markerOpts = MapComponent.makeQsoMarkerOptions(fbq.qso);
+    let iw = MapComponent.makeQsoInfoWindowOptions(fbq.qso);
+    marker.setOptions(markerOpts);
+    marker.addListener('click', () => {
+      this.infoWindow.setOptions(iw);
+      this.infoWindow.open(this.map.googleMap, marker);
+    });
+    markerOpts.map = this.map.googleMap;
+  }
+
+  private renderQsoPath(fbq: FirebaseQso) {
+    const contactedLoc = MapComponent.getStationLocation(
+      fbq.qso.contactedStation
+    );
+    const loggingLoc = MapComponent.getStationLocation(fbq.qso.loggingStation);
+    if (!loggingLoc || !contactedLoc) {
+      return;
+    }
+    let polyline = this.paths.get(fbq.id);
+    if (polyline == undefined) {
+      polyline = new google.maps.Polyline({
+        strokeColor: 'darkgreen',
+        strokeOpacity: 0.5,
+        strokeWeight: 1,
+        geodesic: true,
+        map: this.map.googleMap,
+      });
+    }
+    polyline.setPath([loggingLoc, contactedLoc]);
+    this.paths.set(fbq.id, polyline);
+  }
+
   private static makeQsoMarkerOptions(qso: Qso): google.maps.MarkerOptions {
-    const latitude = qso.contactedStation.latitude;
-    const longitude = qso.contactedStation.longitude;
-    const icon = '/assets/map-pin-green.svg';
     return {
-      position: {
-        lat: latitude,
-        lng: longitude,
-      },
-      icon: icon,
+      position: MapComponent.getStationLocation(qso.contactedStation),
+      icon: '/assets/map-pin-green.svg',
     };
   }
 
@@ -108,5 +122,24 @@ export class MapComponent implements OnInit, AfterViewInit {
     return {
       content: msg,
     };
+  }
+
+  static getStationLocation(
+    station: Station
+  ): google.maps.LatLngLiteral | null {
+    if (!!station.latitude && !!station.longitude) {
+      return {
+        lat: station.latitude,
+        lng: station.longitude,
+      };
+    }
+    if (!!station.gridSquare) {
+      const loc = Maidenhead.fromLocator(station.gridSquare);
+      return {
+        lat: loc.latitude,
+        lng: loc.longitude,
+      };
+    }
+    return null;
   }
 }
