@@ -21,7 +21,7 @@ const googleMapsSearchBase = 'https://www.google.com/maps/search/';
   templateUrl: './station-detail.component.html',
   styleUrls: ['./station-detail.component.scss'],
 })
-export class StationDetailComponent implements OnInit, OnChanges {
+export class StationDetailComponent implements OnChanges {
   @Input() station: Station;
   @Output() stationChange = new EventEmitter<Station>();
   @Input() showRig: boolean = true;
@@ -55,12 +55,10 @@ export class StationDetailComponent implements OnInit, OnChanges {
     this.stationDetailForm = fb.group(model);
   }
 
-  ngOnInit(): void {
-    this.setupCountryAutocomplete();
-    this.setupAutoContinentFromCountry();
-  }
-
   ngOnChanges(changes: SimpleChanges) {
+    if (changes.station.currentValue == this.stationDetailForm.value) {
+      return;
+    }
     this.station = changes.station.currentValue;
     const model: Station = {
       ...this.template,
@@ -74,6 +72,8 @@ export class StationDetailComponent implements OnInit, OnChanges {
       this.updateMapLink();
       this.stationChange.emit(this.stationDetailForm.value);
     });
+    this.setupCountryAutocomplete();
+    this.setupAutoContinentFromCountry();
     this.updateMapLink();
   }
 
