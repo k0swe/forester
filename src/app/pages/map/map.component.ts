@@ -77,13 +77,13 @@ export class MapComponent implements OnInit, AfterViewInit {
     }
 
     let markerOpts = MapComponent.makeQsoMarkerOptions(fbq.qso);
-    let iw = MapComponent.makeQsoInfoWindowOptions(fbq.qso);
+    markerOpts.map = this.map.googleMap;
     marker.setOptions(markerOpts);
+    let iw = MapComponent.makeQsoInfoWindowOptions(fbq.qso);
     marker.addListener('click', () => {
       this.infoWindow.setOptions(iw);
       this.infoWindow.open(this.map.googleMap, marker);
     });
-    markerOpts.map = this.map.googleMap;
   }
 
   private renderQsoPath(fbq: FirebaseQso) {
@@ -109,8 +109,9 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   private static makeQsoMarkerOptions(qso: Qso): google.maps.MarkerOptions {
+    const loc = MapComponent.getStationLocation(qso.contactedStation);
     return {
-      position: MapComponent.getStationLocation(qso.contactedStation),
+      position: loc,
       icon: '/assets/map-pin-green.svg',
     };
   }
