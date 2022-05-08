@@ -98,10 +98,14 @@ export class QsoDetailComponent implements OnInit {
   }
 
   enableSaveButton() {
-    return (this.saveButton.disabled =
-      !this.qsoDetailForm.valid &&
+    if (!this.saveButton) {
+      return;
+    }
+    this.saveButton.disabled = !(
+      this.qsoDetailForm.valid &&
       this.contactedStation != this.data.qso.contactedStation &&
-      this.loggingStation != this.data.qso.loggingStation);
+      this.loggingStation != this.data.qso.loggingStation
+    );
   }
 
   private setupModeAutocomplete(): void {
