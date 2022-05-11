@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.8.0",
-    "installedVersion": "9.8.0",
+    "comment": "9.8.1",
+    "installedVersion": "9.8.1",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
@@ -419,8 +419,8 @@
     "name": "husky",
     "licenseType": "MIT",
     "link": "git+https://github.com/typicode/husky.git",
-    "comment": "7.0.4",
-    "installedVersion": "7.0.4",
+    "comment": "8.0.1",
+    "installedVersion": "8.0.1",
     "author": "Typicode typicode@gmail.com"
   },
   {
@@ -443,8 +443,8 @@
     "name": "jasmine-core",
     "licenseType": "MIT",
     "link": "git+https://github.com/jasmine/jasmine.git",
-    "comment": "4.1.0",
-    "installedVersion": "4.1.0",
+    "comment": "4.1.1",
+    "installedVersion": "4.1.1",
     "author": ""
   },
   {
