@@ -459,8 +459,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.19",
-    "installedVersion": "6.3.19",
+    "comment": "6.3.20",
+    "installedVersion": "6.3.20",
     "author": "Vojta Jína vojta.jina@gmail.com"
   },
   {
@@ -483,8 +483,8 @@
     "name": "karma-jasmine",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma-jasmine.git",
-    "comment": "5.0.0",
-    "installedVersion": "5.0.0",
+    "comment": "5.0.1",
+    "installedVersion": "5.0.1",
     "author": "Vojta Jina vojta.jina@gmail.com"
   },
   {
