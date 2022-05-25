@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.36",
-    "installedVersion": "0.4.36",
+    "comment": "0.4.37",
+    "installedVersion": "0.4.37",
     "author": "Chris Keller xylo04@gmail.com"
   },
   {
@@ -507,8 +507,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "12.4.1",
-    "installedVersion": "12.4.1",
+    "comment": "12.4.2",
+    "installedVersion": "12.4.2",
     "author": "Andrey Okonetchnikov andrey@okonet.ru"
   },
   {
