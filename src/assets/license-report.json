@@ -493,7 +493,7 @@
     "link": "git+https://github.com/dfederm/karma-jasmine-html-reporter.git",
     "comment": "1.7.0",
     "installedVersion": "1.7.0",
-    "author": ""
+    "author": "David Federman david.federman@outlook.com https://github.com/dfederm"
   },
   {
     "name": "license-report",
