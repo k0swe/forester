@@ -491,8 +491,8 @@
     "name": "karma-jasmine-html-reporter",
     "licenseType": "MIT",
     "link": "git+https://github.com/dfederm/karma-jasmine-html-reporter.git",
-    "comment": "1.7.0",
-    "installedVersion": "1.7.0",
+    "comment": "2.0.0",
+    "installedVersion": "2.0.0",
     "author": "David Federman david.federman@outlook.com https://github.com/dfederm"
   },
   {
@@ -507,8 +507,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "12.4.2",
-    "installedVersion": "12.4.2",
+    "comment": "12.4.3",
+    "installedVersion": "12.4.3",
     "author": "Andrey Okonetchnikov andrey@okonet.ru"
   },
   {
