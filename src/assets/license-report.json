@@ -243,8 +243,8 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1303.7",
-    "installedVersion": "0.1303.7",
+    "comment": "0.1400.0",
+    "installedVersion": "0.1400.0",
     "author": "Angular Authors"
   },
   {
@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.39",
-    "installedVersion": "17.0.39",
+    "comment": "17.0.40",
+    "installedVersion": "17.0.40",
     "author": ""
   },
   {
@@ -387,8 +387,8 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.16.0",
-    "installedVersion": "8.16.0",
+    "comment": "8.17.0",
+    "installedVersion": "8.17.0",
     "author": "Nicholas C. Zakas nicholas+npm@nczconsulting.com"
   },
   {
@@ -507,8 +507,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "12.4.3",
-    "installedVersion": "12.4.3",
+    "comment": "12.5.0",
+    "installedVersion": "12.5.0",
     "author": "Andrey Okonetchnikov andrey@okonet.ru"
   },
   {
