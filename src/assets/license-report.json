@@ -51,8 +51,8 @@
     "name": "@angular/fire",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angularfire.git",
-    "comment": "7.3.0",
-    "installedVersion": "7.3.0",
+    "comment": "7.4.0",
+    "installedVersion": "7.4.0",
     "author": "angular,firebase"
   },
   {
@@ -363,16 +363,16 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.27.0",
-    "installedVersion": "5.27.0",
+    "comment": "5.27.1",
+    "installedVersion": "5.27.1",
     "author": ""
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.27.0",
-    "installedVersion": "5.27.0",
+    "comment": "5.27.1",
+    "installedVersion": "5.27.1",
     "author": ""
   },
   {
