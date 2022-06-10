@@ -51,8 +51,8 @@
     "name": "@angular/fire",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angularfire.git",
-    "comment": "7.4.0",
-    "installedVersion": "7.4.0",
+    "comment": "7.4.1",
+    "installedVersion": "7.4.1",
     "author": "angular,firebase"
   },
   {
@@ -243,8 +243,8 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1400.0",
-    "installedVersion": "0.1400.0",
+    "comment": "0.1400.1",
+    "installedVersion": "0.1400.1",
     "author": "Angular Authors"
   },
   {
