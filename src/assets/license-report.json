@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.8.2",
-    "installedVersion": "9.8.2",
+    "comment": "9.8.3",
+    "installedVersion": "9.8.3",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.40",
-    "installedVersion": "17.0.40",
+    "comment": "17.0.42",
+    "installedVersion": "17.0.42",
     "author": ""
   },
   {
