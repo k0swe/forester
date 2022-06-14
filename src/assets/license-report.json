@@ -259,40 +259,40 @@
     "name": "@angular-eslint/builder",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.2.1",
-    "installedVersion": "13.2.1",
+    "comment": "13.5.0",
+    "installedVersion": "13.5.0",
     "author": ""
   },
   {
     "name": "@angular-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.2.1",
-    "installedVersion": "13.2.1",
+    "comment": "13.5.0",
+    "installedVersion": "13.5.0",
     "author": ""
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.2.1",
-    "installedVersion": "13.2.1",
+    "comment": "13.5.0",
+    "installedVersion": "13.5.0",
     "author": ""
   },
   {
     "name": "@angular-eslint/schematics",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.2.1",
-    "installedVersion": "13.2.1",
+    "comment": "13.5.0",
+    "installedVersion": "13.5.0",
     "author": ""
   },
   {
     "name": "@angular-eslint/template-parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "13.2.1",
-    "installedVersion": "13.2.1",
+    "comment": "13.5.0",
+    "installedVersion": "13.5.0",
     "author": ""
   },
   {
@@ -395,16 +395,16 @@
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "10.2.0",
-    "installedVersion": "10.2.0",
+    "comment": "10.3.0",
+    "installedVersion": "10.3.0",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "10.9.2",
-    "installedVersion": "10.9.2",
+    "comment": "11.1.0",
+    "installedVersion": "11.1.0",
     "author": "Firebase https://firebase.google.com/"
   },
   {
