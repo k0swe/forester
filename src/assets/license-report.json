@@ -243,16 +243,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1400.1",
-    "installedVersion": "0.1400.1",
+    "comment": "0.1400.2",
+    "installedVersion": "0.1400.2",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "13.3.7",
-    "installedVersion": "13.3.7",
+    "comment": "13.3.8",
+    "installedVersion": "13.3.8",
     "author": "Angular Authors"
   },
   {
@@ -299,8 +299,8 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "13.3.7",
-    "installedVersion": "13.3.7",
+    "comment": "13.3.8",
+    "installedVersion": "13.3.8",
     "author": "Angular Authors"
   },
   {
@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.42",
-    "installedVersion": "17.0.42",
+    "comment": "17.0.43",
+    "installedVersion": "17.0.43",
     "author": ""
   },
   {
