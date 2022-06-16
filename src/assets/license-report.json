@@ -235,8 +235,8 @@
     "name": "zone.js",
     "licenseType": "MIT",
     "link": "git://github.com/angular/angular.git",
-    "comment": "0.11.5",
-    "installedVersion": "0.11.5",
+    "comment": "0.11.6",
+    "installedVersion": "0.11.6",
     "author": "Brian Ford"
   },
   {
@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "17.0.43",
-    "installedVersion": "17.0.43",
+    "comment": "17.0.45",
+    "installedVersion": "17.0.45",
     "author": ""
   },
   {
