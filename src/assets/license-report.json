@@ -443,8 +443,8 @@
     "name": "jasmine-core",
     "licenseType": "MIT",
     "link": "git+https://github.com/jasmine/jasmine.git",
-    "comment": "4.1.1",
-    "installedVersion": "4.1.1",
+    "comment": "4.2.0",
+    "installedVersion": "4.2.0",
     "author": ""
   },
   {
@@ -459,8 +459,8 @@
     "name": "karma",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma.git",
-    "comment": "6.3.20",
-    "installedVersion": "6.3.20",
+    "comment": "6.4.0",
+    "installedVersion": "6.4.0",
     "author": "Vojta Jína vojta.jina@gmail.com"
   },
   {
