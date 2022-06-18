@@ -387,8 +387,8 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.17.0",
-    "installedVersion": "8.17.0",
+    "comment": "8.18.0",
+    "installedVersion": "8.18.0",
     "author": "Nicholas C. Zakas nicholas+npm@nczconsulting.com"
   },
   {
@@ -483,8 +483,8 @@
     "name": "karma-jasmine",
     "licenseType": "MIT",
     "link": "git://github.com/karma-runner/karma-jasmine.git",
-    "comment": "5.0.1",
-    "installedVersion": "5.0.1",
+    "comment": "5.1.0",
+    "installedVersion": "5.1.0",
     "author": "Vojta Jina vojta.jina@gmail.com"
   },
   {
