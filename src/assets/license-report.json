@@ -427,8 +427,8 @@
     "name": "inquirer",
     "licenseType": "MIT",
     "link": "git+https://github.com/SBoudrias/Inquirer.js.git",
-    "comment": "9.0.0",
-    "installedVersion": "9.0.0",
+    "comment": "8.2.4",
+    "installedVersion": "8.2.4",
     "author": "Simon Boudrias admin@simonboudrias.com"
   },
   {
