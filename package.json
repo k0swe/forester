@@ -46,7 +46,7 @@
     "json-ptr": "3.1.0",
     "lodash.isequal": "4.5.0",
     "moment": "2.29.3",
-    "ngx-kel-agent": "0.5.28",
+    "ngx-kel-agent": "0.5.29",
     "rxfire": "6.0.3",
     "rxjs": "7.5.5",
     "ts-protoc-gen": "0.15.0",
