@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.8.3",
-    "installedVersion": "9.8.3",
+    "comment": "9.8.4",
+    "installedVersion": "9.8.4",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
@@ -395,8 +395,8 @@
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "10.3.0",
-    "installedVersion": "10.3.0",
+    "comment": "11.0.0",
+    "installedVersion": "11.0.0",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
@@ -507,8 +507,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "13.0.2",
-    "installedVersion": "13.0.2",
+    "comment": "13.0.3",
+    "installedVersion": "13.0.3",
     "author": "Andrey Okonetchnikov andrey@okonet.ru"
   },
   {
