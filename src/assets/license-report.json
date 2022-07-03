@@ -363,16 +363,16 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.30.3",
-    "installedVersion": "5.30.3",
+    "comment": "5.30.4",
+    "installedVersion": "5.30.4",
     "author": ""
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.30.3",
-    "installedVersion": "5.30.3",
+    "comment": "5.30.4",
+    "installedVersion": "5.30.4",
     "author": ""
   },
   {
@@ -539,8 +539,8 @@
     "name": "ts-node",
     "licenseType": "MIT",
     "link": "git://github.com/TypeStrong/ts-node.git",
-    "comment": "10.8.1",
-    "installedVersion": "10.8.1",
+    "comment": "10.8.2",
+    "installedVersion": "10.8.2",
     "author": "Blake Embrey hello@blakeembrey.com http://blakeembrey.me"
   },
   {
