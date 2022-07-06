@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.40",
-    "installedVersion": "0.4.40",
+    "comment": "0.4.41",
+    "installedVersion": "0.4.41",
     "author": "Chris Keller xylo04@gmail.com"
   },
   {
@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.0.1",
-    "installedVersion": "18.0.1",
+    "comment": "18.0.3",
+    "installedVersion": "18.0.3",
     "author": ""
   },
   {
