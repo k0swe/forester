@@ -195,8 +195,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.31",
-    "installedVersion": "0.5.31",
+    "comment": "0.5.32",
+    "installedVersion": "0.5.32",
     "author": ""
   },
   {
@@ -403,8 +403,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "11.2.0",
-    "installedVersion": "11.2.0",
+    "comment": "11.2.1",
+    "installedVersion": "11.2.1",
     "author": "Firebase https://firebase.google.com/"
   },
   {
