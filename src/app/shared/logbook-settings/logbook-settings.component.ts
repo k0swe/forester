@@ -46,6 +46,9 @@ export class LogbookSettingsComponent implements OnInit {
   }
 
   enableSaveButton(): void {
+    if (!this.saveButton) {
+      return;
+    }
     this.saveButton.disabled = false;
   }
 
