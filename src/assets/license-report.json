@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.8.4",
-    "installedVersion": "9.8.4",
+    "comment": "9.9.0",
+    "installedVersion": "9.9.0",
     "author": "Firebase firebase-support@google.com https://firebase.google.com/"
   },
   {
@@ -259,40 +259,40 @@
     "name": "@angular-eslint/builder",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.0",
-    "installedVersion": "14.0.0",
+    "comment": "14.0.2",
+    "installedVersion": "14.0.2",
     "author": ""
   },
   {
     "name": "@angular-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.0",
-    "installedVersion": "14.0.0",
+    "comment": "14.0.2",
+    "installedVersion": "14.0.2",
     "author": ""
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.0",
-    "installedVersion": "14.0.0",
+    "comment": "14.0.2",
+    "installedVersion": "14.0.2",
     "author": ""
   },
   {
     "name": "@angular-eslint/schematics",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.0",
-    "installedVersion": "14.0.0",
+    "comment": "14.0.2",
+    "installedVersion": "14.0.2",
     "author": ""
   },
   {
     "name": "@angular-eslint/template-parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.0",
-    "installedVersion": "14.0.0",
+    "comment": "14.0.2",
+    "installedVersion": "14.0.2",
     "author": ""
   },
   {
