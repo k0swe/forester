@@ -27,9 +27,11 @@ export class LogbookSettingsComponent implements OnInit {
     private secretService: SecretService
   ) {
     this.logbookSettingsForm = fb.group({
-      qrzLogbookApiKey: '',
       lotwUser: '',
       lotwPass: '',
+      qrzLogbookApiKey: '',
+      qrzUser: '',
+      qrzPass: '',
     });
     this.logbookSettingsForm.valueChanges.subscribe(() =>
       this.enableSaveButton()
@@ -58,6 +60,8 @@ export class LogbookSettingsComponent implements OnInit {
         ['lotw_username', formValue.lotwUser],
         ['lotw_password', formValue.lotwPass],
         ['qrz_logbook_api_key', formValue.qrzLogbookApiKey],
+        ['qrz_username', formValue.qrzUser],
+        ['qrz_password', formValue.qrzPass],
       ]),
       this.logbookService.logbookId$.getValue()
     );
