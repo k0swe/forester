@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.41",
-    "installedVersion": "0.4.41",
+    "comment": "0.4.42",
+    "installedVersion": "0.4.42",
     "author": "Chris Keller xylo04@gmail.com"
   },
   {
@@ -171,8 +171,8 @@
     "name": "json-ptr",
     "licenseType": "MIT",
     "link": "git+https://github.com/flitbit/json-ptr.git",
-    "comment": "3.1.0",
-    "installedVersion": "3.1.0",
+    "comment": "3.1.1",
+    "installedVersion": "3.1.1",
     "author": "Phillip Clark phillip@flitbit.com"
   },
   {
@@ -195,8 +195,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.32",
-    "installedVersion": "0.5.32",
+    "comment": "0.5.33",
+    "installedVersion": "0.5.33",
     "author": ""
   },
   {
@@ -403,8 +403,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "11.2.1",
-    "installedVersion": "11.2.1",
+    "comment": "11.2.2",
+    "installedVersion": "11.2.2",
     "author": "Firebase https://firebase.google.com/"
   },
   {
