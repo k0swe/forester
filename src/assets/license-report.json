@@ -19,8 +19,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "14.0.4",
-    "installedVersion": "14.0.4",
+    "comment": "14.0.5",
+    "installedVersion": "14.0.5",
     "author": ""
   },
   {
@@ -75,8 +75,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "14.0.4",
-    "installedVersion": "14.0.4",
+    "comment": "14.0.5",
+    "installedVersion": "14.0.5",
     "author": ""
   },
   {
@@ -91,8 +91,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "14.0.4",
-    "installedVersion": "14.0.4",
+    "comment": "14.0.5",
+    "installedVersion": "14.0.5",
     "author": ""
   },
   {
