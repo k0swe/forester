@@ -21,7 +21,7 @@
     "link": "git+https://github.com/angular/components.git",
     "comment": "14.1.0",
     "installedVersion": "14.1.0",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@angular/common",
@@ -61,7 +61,7 @@
     "link": "git+https://github.com/angular/flex-layout.git",
     "comment": "14.0.0-beta.40",
     "installedVersion": "14.0.0-beta.40",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@angular/forms",
@@ -77,7 +77,7 @@
     "link": "git+https://github.com/angular/components.git",
     "comment": "14.1.0",
     "installedVersion": "14.1.0",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@angular/localize",
@@ -93,7 +93,7 @@
     "link": "git+https://github.com/angular/components.git",
     "comment": "14.1.0",
     "installedVersion": "14.1.0",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@angular/platform-browser",
@@ -133,7 +133,7 @@
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
     "comment": "4.0.2",
     "installedVersion": "4.0.2",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "adif-parser-ts",
@@ -141,15 +141,15 @@
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
     "comment": "0.4.43",
     "installedVersion": "0.4.43",
-    "author": "Chris Keller xylo04@gmail.com"
+    "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.9.0",
-    "installedVersion": "9.9.0",
-    "author": "Firebase firebase-support@google.com https://firebase.google.com/"
+    "comment": "9.9.1",
+    "installedVersion": "9.9.1",
+    "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
     "name": "google-protobuf",
@@ -173,7 +173,7 @@
     "link": "git+https://github.com/flitbit/json-ptr.git",
     "comment": "3.1.1",
     "installedVersion": "3.1.1",
-    "author": "Phillip Clark phillip@flitbit.com"
+    "author": "Phillip Clark <phillip@flitbit.com>"
   },
   {
     "name": "lodash.isequal",
@@ -181,7 +181,7 @@
     "link": "git+https://github.com/lodash/lodash.git",
     "comment": "4.5.0",
     "installedVersion": "4.5.0",
-    "author": "John-David Dalton john.david.dalton@gmail.com http://allyoucanleet.com/"
+    "author": "John-David Dalton <john.david.dalton@gmail.com> (http://allyoucanleet.com/)"
   },
   {
     "name": "moment",
@@ -189,7 +189,7 @@
     "link": "git+https://github.com/moment/moment.git",
     "comment": "2.29.4",
     "installedVersion": "2.29.4",
-    "author": "Iskren Ivov Chernev iskren.chernev@gmail.com https://github.com/ichernev"
+    "author": "Iskren Ivov Chernev <iskren.chernev@gmail.com> (https://github.com/ichernev)"
   },
   {
     "name": "ngx-kel-agent",
@@ -197,7 +197,7 @@
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
     "comment": "0.5.34",
     "installedVersion": "0.5.34",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "rxfire",
@@ -205,7 +205,7 @@
     "link": "git+https://github.com/firebaseextended/rxfire.git",
     "comment": "6.0.3",
     "installedVersion": "6.0.3",
-    "author": "Firebase firebase-support@google.com https://firebase.google.com/"
+    "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
     "name": "rxjs",
@@ -213,7 +213,7 @@
     "link": "git+https://github.com/reactivex/rxjs.git",
     "comment": "7.5.6",
     "installedVersion": "7.5.6",
-    "author": "Ben Lesh ben@benlesh.com"
+    "author": "Ben Lesh <ben@benlesh.com>"
   },
   {
     "name": "ts-protoc-gen",
@@ -261,7 +261,7 @@
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
     "comment": "14.0.2",
     "installedVersion": "14.0.2",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin",
@@ -269,7 +269,7 @@
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
     "comment": "14.0.2",
     "installedVersion": "14.0.2",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
@@ -277,7 +277,7 @@
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
     "comment": "14.0.2",
     "installedVersion": "14.0.2",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@angular-eslint/schematics",
@@ -285,7 +285,7 @@
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
     "comment": "14.0.2",
     "installedVersion": "14.0.2",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@angular-eslint/template-parser",
@@ -293,7 +293,7 @@
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
     "comment": "14.0.2",
     "installedVersion": "14.0.2",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@angular/cli",
@@ -309,15 +309,15 @@
     "link": "git+https://github.com/angular/angular.git",
     "comment": "14.1.0",
     "installedVersion": "14.1.0",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@firebase/rules-unit-testing",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "2.0.3",
-    "installedVersion": "2.0.3",
-    "author": "Firebase firebase-support@google.com https://firebase.google.com/"
+    "comment": "2.0.4",
+    "installedVersion": "2.0.4",
+    "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
     "name": "@google-cloud/firestore",
@@ -333,7 +333,7 @@
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
     "comment": "4.0.3",
     "installedVersion": "4.0.3",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@types/jasminewd2",
@@ -341,7 +341,7 @@
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
     "comment": "2.0.10",
     "installedVersion": "2.0.10",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@types/lodash.isequal",
@@ -349,7 +349,7 @@
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
     "comment": "4.5.6",
     "installedVersion": "4.5.6",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@types/node",
@@ -357,7 +357,7 @@
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
     "comment": "18.0.6",
     "installedVersion": "18.0.6",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
@@ -365,7 +365,7 @@
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
     "comment": "5.30.7",
     "installedVersion": "5.30.7",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
@@ -373,7 +373,7 @@
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
     "comment": "5.30.7",
     "installedVersion": "5.30.7",
-    "author": ""
+    "author": "n/a"
   },
   {
     "name": "dedent",
@@ -389,7 +389,7 @@
     "link": "git+https://github.com/eslint/eslint.git",
     "comment": "8.20.0",
     "installedVersion": "8.20.0",
-    "author": "Nicholas C. Zakas nicholas+npm@nczconsulting.com"
+    "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
     "name": "firebase-admin",
@@ -397,7 +397,7 @@
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
     "comment": "11.0.0",
     "installedVersion": "11.0.0",
-    "author": "Firebase firebase-support@google.com https://firebase.google.com/"
+    "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
     "name": "firebase-tools",
@@ -405,7 +405,7 @@
     "link": "git+https://github.com/firebase/firebase-tools.git",
     "comment": "11.3.0",
     "installedVersion": "11.3.0",
-    "author": "Firebase https://firebase.google.com/"
+    "author": "Firebase (https://firebase.google.com/)"
   },
   {
     "name": "fuzzy",
@@ -421,7 +421,7 @@
     "link": "git+https://github.com/typicode/husky.git",
     "comment": "8.0.1",
     "installedVersion": "8.0.1",
-    "author": "Typicode typicode@gmail.com"
+    "author": "Typicode <typicode@gmail.com>"
   },
   {
     "name": "inquirer",
@@ -429,7 +429,7 @@
     "link": "git+https://github.com/SBoudrias/Inquirer.js.git",
     "comment": "8.2.4",
     "installedVersion": "8.2.4",
-    "author": "Simon Boudrias admin@simonboudrias.com"
+    "author": "Simon Boudrias <admin@simonboudrias.com>"
   },
   {
     "name": "inquirer-autocomplete-prompt",
@@ -437,15 +437,15 @@
     "link": "git+ssh://git@github.com/mokkabonna/inquirer-autocomplete-prompt.git",
     "comment": "2.0.0",
     "installedVersion": "2.0.0",
-    "author": "Martin Hansen martin@martinhansen.no"
+    "author": "Martin Hansen <martin@martinhansen.no>"
   },
   {
     "name": "jasmine-core",
     "licenseType": "MIT",
     "link": "git+https://github.com/jasmine/jasmine.git",
-    "comment": "4.2.0",
-    "installedVersion": "4.2.0",
-    "author": ""
+    "comment": "4.3.0",
+    "installedVersion": "4.3.0",
+    "author": "n/a"
   },
   {
     "name": "jasmine-spec-reporter",
@@ -461,7 +461,7 @@
     "link": "git://github.com/karma-runner/karma.git",
     "comment": "6.4.0",
     "installedVersion": "6.4.0",
-    "author": "Vojta Jína vojta.jina@gmail.com"
+    "author": "Vojta Jína <vojta.jina@gmail.com>"
   },
   {
     "name": "karma-chrome-launcher",
@@ -469,7 +469,7 @@
     "link": "git://github.com/karma-runner/karma-chrome-launcher.git",
     "comment": "3.1.1",
     "installedVersion": "3.1.1",
-    "author": "Vojta Jina vojta.jina@gmail.com"
+    "author": "Vojta Jina <vojta.jina@gmail.com>"
   },
   {
     "name": "karma-coverage-istanbul-reporter",
@@ -485,7 +485,7 @@
     "link": "git://github.com/karma-runner/karma-jasmine.git",
     "comment": "5.1.0",
     "installedVersion": "5.1.0",
-    "author": "Vojta Jina vojta.jina@gmail.com"
+    "author": "Vojta Jina <vojta.jina@gmail.com>"
   },
   {
     "name": "karma-jasmine-html-reporter",
@@ -493,14 +493,14 @@
     "link": "git+https://github.com/dfederm/karma-jasmine-html-reporter.git",
     "comment": "2.0.0",
     "installedVersion": "2.0.0",
-    "author": "David Federman david.federman@outlook.com https://github.com/dfederm"
+    "author": "David Federman <david.federman@outlook.com> (https://github.com/dfederm)"
   },
   {
     "name": "license-report",
     "licenseType": "MIT",
     "link": "git+https://github.com/ironSource/license-report.git",
-    "comment": "5.0.2",
-    "installedVersion": "5.0.2",
+    "comment": "6.0.0",
+    "installedVersion": "6.0.0",
     "author": "Yaniv Kessler"
   },
   {
@@ -509,7 +509,7 @@
     "link": "git+https://github.com/okonet/lint-staged.git",
     "comment": "13.0.3",
     "installedVersion": "13.0.3",
-    "author": "Andrey Okonetchnikov andrey@okonet.ru"
+    "author": "Andrey Okonetchnikov <andrey@okonet.ru>"
   },
   {
     "name": "open",
@@ -533,7 +533,7 @@
     "link": "git://github.com/angular/protractor.git",
     "comment": "7.0.0",
     "installedVersion": "7.0.0",
-    "author": "Julie Ralph ju.ralph@gmail.com"
+    "author": "Julie Ralph <ju.ralph@gmail.com>"
   },
   {
     "name": "ts-node",
