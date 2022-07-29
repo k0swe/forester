@@ -154,9 +154,9 @@
   {
     "name": "google-protobuf",
     "licenseType": "BSD-3-Clause",
-    "link": "git+https://github.com/protocolbuffers/protobuf.git#master",
-    "comment": "3.20.1",
-    "installedVersion": "3.20.1",
+    "link": "git+https://github.com/protocolbuffers/protobuf-javascript.git",
+    "comment": "3.21.0",
+    "installedVersion": "3.21.0",
     "author": "Google Protocol Buffers Team"
   },
   {
