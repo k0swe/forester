@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.6.2",
-    "installedVersion": "18.6.2",
+    "comment": "18.6.3",
+    "installedVersion": "18.6.3",
     "author": "n/a"
   },
   {
@@ -387,8 +387,8 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.20.0",
-    "installedVersion": "8.20.0",
+    "comment": "8.21.0",
+    "installedVersion": "8.21.0",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
@@ -403,8 +403,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "11.4.0",
-    "installedVersion": "11.4.0",
+    "comment": "11.4.2",
+    "installedVersion": "11.4.2",
     "author": "Firebase (https://firebase.google.com/)"
   },
   {
