@@ -38,11 +38,10 @@ jobs:
           git tag deployed --force
           git push --tags --force
 
-      - name: Discord notification
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@0.3.2
+      - name: Google Chat Notification
+        uses: Co-qn/google-chat-notification@v1
         with:
-          args: >
-            I just deployed Forester:
-            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          name: Deploy
+          url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          status: ${{ job.status }}
+        if: always()
