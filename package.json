@@ -64,7 +64,7 @@
     "@angular/cli": "14.1.1",
     "@angular/compiler-cli": "14.1.1",
     "@firebase/rules-unit-testing": "2.0.4",
-    "@google-cloud/firestore": "5.0.2",
+    "@google-cloud/firestore": "6.0.0",
     "@types/jasmine": "4.0.3",
     "@types/jasminewd2": "2.0.10",
     "@types/lodash.isequal": "4.5.6",
