@@ -363,16 +363,16 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.32.0",
-    "installedVersion": "5.32.0",
+    "comment": "5.33.0",
+    "installedVersion": "5.33.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.32.0",
-    "installedVersion": "5.32.0",
+    "comment": "5.33.0",
+    "installedVersion": "5.33.0",
     "author": "n/a"
   },
   {
