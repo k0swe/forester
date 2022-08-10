@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.6.4",
-    "installedVersion": "18.6.4",
+    "comment": "18.6.5",
+    "installedVersion": "18.6.5",
     "author": "n/a"
   },
   {
@@ -403,8 +403,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "11.4.2",
-    "installedVersion": "11.4.2",
+    "comment": "11.5.0",
+    "installedVersion": "11.5.0",
     "author": "Firebase (https://firebase.google.com/)"
   },
   {
