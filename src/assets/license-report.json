@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.7.2",
-    "installedVersion": "18.7.2",
+    "comment": "18.7.4",
+    "installedVersion": "18.7.4",
     "author": "n/a"
   },
   {
@@ -387,8 +387,8 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.21.0",
-    "installedVersion": "8.21.0",
+    "comment": "8.22.0",
+    "installedVersion": "8.22.0",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
