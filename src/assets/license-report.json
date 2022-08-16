@@ -355,24 +355,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.7.4",
-    "installedVersion": "18.7.4",
+    "comment": "18.7.5",
+    "installedVersion": "18.7.5",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.33.0",
-    "installedVersion": "5.33.0",
+    "comment": "5.33.1",
+    "installedVersion": "5.33.1",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.33.0",
-    "installedVersion": "5.33.0",
+    "comment": "5.33.1",
+    "installedVersion": "5.33.1",
     "author": "n/a"
   },
   {
@@ -403,8 +403,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "11.6.0",
-    "installedVersion": "11.6.0",
+    "comment": "11.7.0",
+    "installedVersion": "11.7.0",
     "author": "Firebase (https://firebase.google.com/)"
   },
   {
