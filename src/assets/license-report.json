@@ -259,40 +259,40 @@
     "name": "@angular-eslint/builder",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.2",
-    "installedVersion": "14.0.2",
+    "comment": "14.0.3",
+    "installedVersion": "14.0.3",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.2",
-    "installedVersion": "14.0.2",
+    "comment": "14.0.3",
+    "installedVersion": "14.0.3",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.2",
-    "installedVersion": "14.0.2",
+    "comment": "14.0.3",
+    "installedVersion": "14.0.3",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/schematics",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.2",
-    "installedVersion": "14.0.2",
+    "comment": "14.0.3",
+    "installedVersion": "14.0.3",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/template-parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.2",
-    "installedVersion": "14.0.2",
+    "comment": "14.0.3",
+    "installedVersion": "14.0.3",
     "author": "n/a"
   },
   {
@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.7.8",
-    "installedVersion": "18.7.8",
+    "comment": "18.7.11",
+    "installedVersion": "18.7.11",
     "author": "n/a"
   },
   {
