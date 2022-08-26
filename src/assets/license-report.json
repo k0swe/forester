@@ -195,8 +195,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.37",
-    "installedVersion": "0.5.37",
+    "comment": "0.5.38",
+    "installedVersion": "0.5.38",
     "author": "n/a"
   },
   {
@@ -331,8 +331,8 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "4.0.3",
-    "installedVersion": "4.0.3",
+    "comment": "4.3.0",
+    "installedVersion": "4.3.0",
     "author": "n/a"
   },
   {
@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.7.11",
-    "installedVersion": "18.7.11",
+    "comment": "18.7.13",
+    "installedVersion": "18.7.13",
     "author": "n/a"
   },
   {
@@ -403,8 +403,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "11.7.0",
-    "installedVersion": "11.7.0",
+    "comment": "11.8.0",
+    "installedVersion": "11.8.0",
     "author": "Firebase (https://firebase.google.com/)"
   },
   {
