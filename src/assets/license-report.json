@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.9.3",
-    "installedVersion": "9.9.3",
+    "comment": "9.9.4",
+    "installedVersion": "9.9.4",
     "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
@@ -195,8 +195,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.38",
-    "installedVersion": "0.5.38",
+    "comment": "0.5.39",
+    "installedVersion": "0.5.39",
     "author": "n/a"
   },
   {
@@ -355,24 +355,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.7.13",
-    "installedVersion": "18.7.13",
+    "comment": "18.7.14",
+    "installedVersion": "18.7.14",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.33.1",
-    "installedVersion": "5.33.1",
+    "comment": "5.36.1",
+    "installedVersion": "5.36.1",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.33.1",
-    "installedVersion": "5.33.1",
+    "comment": "5.36.1",
+    "installedVersion": "5.36.1",
     "author": "n/a"
   },
   {
@@ -499,8 +499,8 @@
     "name": "license-report",
     "licenseType": "MIT",
     "link": "git+https://github.com/ironSource/license-report.git",
-    "comment": "6.0.0",
-    "installedVersion": "6.0.0",
+    "comment": "6.1.0",
+    "installedVersion": "6.1.0",
     "author": "Yaniv Kessler"
   },
   {
