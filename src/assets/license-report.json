@@ -355,24 +355,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.7.14",
-    "installedVersion": "18.7.14",
+    "comment": "18.7.15",
+    "installedVersion": "18.7.15",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.36.1",
-    "installedVersion": "5.36.1",
+    "comment": "5.36.2",
+    "installedVersion": "5.36.2",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.36.1",
-    "installedVersion": "5.36.1",
+    "comment": "5.36.2",
+    "installedVersion": "5.36.2",
     "author": "n/a"
   },
   {
