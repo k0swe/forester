@@ -19,8 +19,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "14.2.0",
-    "installedVersion": "14.2.0",
+    "comment": "14.2.1",
+    "installedVersion": "14.2.1",
     "author": "n/a"
   },
   {
@@ -91,8 +91,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "14.2.0",
-    "installedVersion": "14.2.0",
+    "comment": "14.2.1",
+    "installedVersion": "14.2.1",
     "author": "n/a"
   },
   {
@@ -259,40 +259,40 @@
     "name": "@angular-eslint/builder",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.3",
-    "installedVersion": "14.0.3",
+    "comment": "14.0.4",
+    "installedVersion": "14.0.4",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.3",
-    "installedVersion": "14.0.3",
+    "comment": "14.0.4",
+    "installedVersion": "14.0.4",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.3",
-    "installedVersion": "14.0.3",
+    "comment": "14.0.4",
+    "installedVersion": "14.0.4",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/schematics",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.3",
-    "installedVersion": "14.0.3",
+    "comment": "14.0.4",
+    "installedVersion": "14.0.4",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/template-parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.3",
-    "installedVersion": "14.0.3",
+    "comment": "14.0.4",
+    "installedVersion": "14.0.4",
     "author": "n/a"
   },
   {
