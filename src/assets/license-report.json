@@ -75,8 +75,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "14.2.0",
-    "installedVersion": "14.2.0",
+    "comment": "14.2.1",
+    "installedVersion": "14.2.1",
     "author": "n/a"
   },
   {
@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.7.15",
-    "installedVersion": "18.7.15",
+    "comment": "18.7.16",
+    "installedVersion": "18.7.16",
     "author": "n/a"
   },
   {
