@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.9.4",
-    "installedVersion": "9.9.4",
+    "comment": "9.10.0",
+    "installedVersion": "9.10.0",
     "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
@@ -259,40 +259,40 @@
     "name": "@angular-eslint/builder",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.4",
-    "installedVersion": "14.0.4",
+    "comment": "14.1.1",
+    "installedVersion": "14.1.1",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.4",
-    "installedVersion": "14.0.4",
+    "comment": "14.1.1",
+    "installedVersion": "14.1.1",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.4",
-    "installedVersion": "14.0.4",
+    "comment": "14.1.1",
+    "installedVersion": "14.1.1",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/schematics",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.4",
-    "installedVersion": "14.0.4",
+    "comment": "14.1.1",
+    "installedVersion": "14.1.1",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/template-parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "14.0.4",
-    "installedVersion": "14.0.4",
+    "comment": "14.1.1",
+    "installedVersion": "14.1.1",
     "author": "n/a"
   },
   {
@@ -403,8 +403,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "11.8.0",
-    "installedVersion": "11.8.0",
+    "comment": "11.9.0",
+    "installedVersion": "11.9.0",
     "author": "Firebase (https://firebase.google.com/)"
   },
   {
@@ -443,8 +443,8 @@
     "name": "jasmine-core",
     "licenseType": "MIT",
     "link": "git+https://github.com/jasmine/jasmine.git",
-    "comment": "4.3.0",
-    "installedVersion": "4.3.0",
+    "comment": "4.4.0",
+    "installedVersion": "4.4.0",
     "author": "n/a"
   },
   {
