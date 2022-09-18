@@ -75,8 +75,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "14.2.1",
-    "installedVersion": "14.2.1",
+    "comment": "14.2.2",
+    "installedVersion": "14.2.2",
     "author": "n/a"
   },
   {
@@ -195,8 +195,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.39",
-    "installedVersion": "0.5.39",
+    "comment": "0.5.41",
+    "installedVersion": "0.5.41",
     "author": "n/a"
   },
   {
@@ -243,16 +243,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1402.2",
-    "installedVersion": "0.1402.2",
+    "comment": "0.1402.3",
+    "installedVersion": "0.1402.3",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "14.2.2",
-    "installedVersion": "14.2.2",
+    "comment": "14.2.3",
+    "installedVersion": "14.2.3",
     "author": "Angular Authors"
   },
   {
@@ -299,8 +299,8 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "14.2.2",
-    "installedVersion": "14.2.2",
+    "comment": "14.2.3",
+    "installedVersion": "14.2.3",
     "author": "Angular Authors"
   },
   {
@@ -323,8 +323,8 @@
     "name": "@google-cloud/firestore",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/googleapis/nodejs-firestore.git",
-    "comment": "6.0.0",
-    "installedVersion": "6.0.0",
+    "comment": "6.2.0",
+    "installedVersion": "6.2.0",
     "author": "Google Inc."
   },
   {
@@ -387,8 +387,8 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.23.0",
-    "installedVersion": "8.23.0",
+    "comment": "8.23.1",
+    "installedVersion": "8.23.1",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
@@ -547,8 +547,8 @@
     "name": "typescript",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/Microsoft/TypeScript.git",
-    "comment": "4.8.2",
-    "installedVersion": "4.8.2",
+    "comment": "4.8.3",
+    "installedVersion": "4.8.3",
     "author": "Microsoft Corp."
   }
 ]
