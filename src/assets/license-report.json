@@ -211,8 +211,8 @@
     "name": "rxjs",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/reactivex/rxjs.git",
-    "comment": "7.5.6",
-    "installedVersion": "7.5.6",
+    "comment": "7.5.7",
+    "installedVersion": "7.5.7",
     "author": "Ben Lesh <ben@benlesh.com>"
   },
   {
@@ -355,24 +355,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.7.19",
-    "installedVersion": "18.7.19",
+    "comment": "18.7.23",
+    "installedVersion": "18.7.23",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.38.0",
-    "installedVersion": "5.38.0",
+    "comment": "5.38.1",
+    "installedVersion": "5.38.1",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.38.0",
-    "installedVersion": "5.38.0",
+    "comment": "5.38.1",
+    "installedVersion": "5.38.1",
     "author": "n/a"
   },
   {
