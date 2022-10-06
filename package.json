@@ -54,14 +54,14 @@
     "zone.js": "0.11.8"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "0.1402.4",
-    "@angular-devkit/build-angular": "14.2.4",
+    "@angular-devkit/architect": "0.1402.5",
+    "@angular-devkit/build-angular": "14.2.5",
     "@angular-eslint/builder": "14.1.2",
     "@angular-eslint/eslint-plugin": "14.1.2",
     "@angular-eslint/eslint-plugin-template": "14.1.2",
     "@angular-eslint/schematics": "14.1.2",
     "@angular-eslint/template-parser": "14.1.2",
-    "@angular/cli": "14.2.4",
+    "@angular/cli": "14.2.5",
     "@angular/compiler-cli": "14.2.5",
     "@firebase/rules-unit-testing": "2.0.4",
     "@google-cloud/firestore": "6.3.0",
