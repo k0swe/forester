@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.53",
-    "installedVersion": "0.4.53",
+    "comment": "0.4.54",
+    "installedVersion": "0.4.54",
     "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
@@ -323,8 +323,8 @@
     "name": "@google-cloud/firestore",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/googleapis/nodejs-firestore.git",
-    "comment": "6.4.0",
-    "installedVersion": "6.4.0",
+    "comment": "6.4.1",
+    "installedVersion": "6.4.1",
     "author": "Google Inc."
   },
   {
@@ -355,8 +355,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.11.4",
-    "installedVersion": "18.11.4",
+    "comment": "18.11.7",
+    "installedVersion": "18.11.7",
     "author": "n/a"
   },
   {
