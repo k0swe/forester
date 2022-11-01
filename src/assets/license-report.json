@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "9.12.1",
-    "installedVersion": "9.12.1",
+    "comment": "9.13.0",
+    "installedVersion": "9.13.0",
     "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
@@ -227,8 +227,8 @@
     "name": "tslib",
     "licenseType": "0BSD",
     "link": "git+https://github.com/Microsoft/tslib.git",
-    "comment": "2.4.0",
-    "installedVersion": "2.4.0",
+    "comment": "2.4.1",
+    "installedVersion": "2.4.1",
     "author": "Microsoft Corp."
   },
   {
@@ -355,24 +355,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.11.7",
-    "installedVersion": "18.11.7",
+    "comment": "18.11.9",
+    "installedVersion": "18.11.9",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.41.0",
-    "installedVersion": "5.41.0",
+    "comment": "5.42.0",
+    "installedVersion": "5.42.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.41.0",
-    "installedVersion": "5.41.0",
+    "comment": "5.42.0",
+    "installedVersion": "5.42.0",
     "author": "n/a"
   },
   {
@@ -443,8 +443,8 @@
     "name": "jasmine-core",
     "licenseType": "MIT",
     "link": "git+https://github.com/jasmine/jasmine.git",
-    "comment": "4.4.0",
-    "installedVersion": "4.4.0",
+    "comment": "4.5.0",
+    "installedVersion": "4.5.0",
     "author": "n/a"
   },
   {
@@ -499,8 +499,8 @@
     "name": "license-report",
     "licenseType": "MIT",
     "link": "git+https://github.com/ironSource/license-report.git",
-    "comment": "6.2.0",
-    "installedVersion": "6.2.0",
+    "comment": "6.3.0",
+    "installedVersion": "6.3.0",
     "author": "Yaniv Kessler"
   },
   {
