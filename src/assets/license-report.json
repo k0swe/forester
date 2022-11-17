@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.56",
-    "installedVersion": "0.4.56",
+    "comment": "0.4.57",
+    "installedVersion": "0.4.57",
     "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
@@ -403,8 +403,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "11.16.0",
-    "installedVersion": "11.16.0",
+    "comment": "11.16.1",
+    "installedVersion": "11.16.1",
     "author": "Firebase (https://firebase.google.com/)"
   },
   {
