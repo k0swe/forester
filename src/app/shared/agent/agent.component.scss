@@ -1,4 +1,12 @@
+div.outside {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  place-content: center;
+}
+
 div.inside {
+  flex: 1 1 auto;
   font-size: 11pt;
   line-height: normal;
   margin-right: 16px;

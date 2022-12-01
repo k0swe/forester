@@ -1,6 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
 mat-card {
+  flex: 1 1 0;
   margin: 8px;
   max-width: 400px;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
 }
 
 button {

@@ -2,15 +2,15 @@
 <h2 mat-dialog-title>QSO Details</h2>
 <mat-dialog-content>
   <form [formGroup]="qsoDetailForm" autocomplete="dummy">
-    <div fxLayout="row" class="row">
-      <div fxFlex>
+    <div class="row">
+      <div>
         <mat-form-field appearance="standard">
           <mat-label>Date/Time On</mat-label>
           <input matInput formControlName="timeOn" />
           <mat-hint>UTC</mat-hint>
         </mat-form-field>
       </div>
-      <div fxFlex>
+      <div>
         <mat-form-field appearance="standard">
           <mat-label>Date/Time Off</mat-label>
           <input matInput formControlName="timeOff" />
@@ -19,8 +19,8 @@
       </div>
     </div>
 
-    <div fxLayout="row" class="row">
-      <div fxFlex>
+    <div class="row">
+      <div class="band">
         <mat-form-field appearance="standard">
           <mat-label>Band</mat-label>
           <mat-select formControlName="band" value="10m">
@@ -30,14 +30,14 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div fxFlex>
+      <div>
         <mat-form-field appearance="standard">
           <mat-label>Frequency</mat-label>
           <input matInput class="freq" formControlName="freq" type="number" />
           <span matSuffix>MHz</span>
         </mat-form-field>
       </div>
-      <div fxFlex>
+      <div>
         <mat-form-field appearance="standard">
           <mat-label>Mode</mat-label>
           <input
@@ -52,13 +52,13 @@
           </mat-autocomplete>
         </mat-form-field>
       </div>
-      <div fxFlex>
+      <div>
         <mat-form-field appearance="standard">
           <mat-label>RST Sent</mat-label>
           <input matInput formControlName="rstSent" />
         </mat-form-field>
       </div>
-      <div fxFlex>
+      <div>
         <mat-form-field appearance="standard">
           <mat-label>RST Received</mat-label>
           <input matInput formControlName="rstReceived" />
@@ -88,14 +88,14 @@
       </mat-card-content>
     </mat-card>
 
-    <div fxLayout="row" class="row">
-      <div fxFlex>
+    <div class="row">
+      <div>
         <mat-form-field appearance="standard">
           <mat-label>Comment</mat-label>
           <textarea matInput formControlName="comment"></textarea>
         </mat-form-field>
       </div>
-      <div fxFlex>
+      <div>
         <mat-form-field appearance="standard">
           <mat-label>Notes</mat-label>
           <textarea matInput formControlName="notes"></textarea>
@@ -105,7 +105,7 @@
   </form>
 </mat-dialog-content>
 
-<mat-dialog-actions fxLayout="row">
+<mat-dialog-actions>
   <div [hidden]="startDelete">
     <button mat-raised-button (click)="startDelete = true">Delete</button>
   </div>
@@ -115,7 +115,7 @@
     </button>
     <button mat-raised-button color="warn" (click)="delete()">Delete</button>
   </div>
-  <div fxFlex></div>
+  <div class="spacer"></div>
   <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
   <button
     mat-raised-button

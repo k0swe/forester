@@ -1,8 +1,14 @@
 @use '@angular/material' as mat;
 @import 'src/styles/theme';
 
+div.row {
+  display: flex;
+  flex-direction: row;
+}
+
 .row mat-form-field {
   margin-right: 8px;
+  flex: 1 1 auto;
 }
 
 .row mat-form-field:last-child {

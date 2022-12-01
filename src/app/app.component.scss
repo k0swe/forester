@@ -13,6 +13,7 @@
   color: mat.get-color-from-palette($kel-primary, 'default-contrast');
   z-index: 2;
   box-shadow: 0 1px mat.get-color-from-palette($kel-foreground, divider);
+  display: flex;
 }
 
 .logo {
@@ -44,6 +45,13 @@ h1.app-title {
   color: mat.get-color-from-palette($kel-primary, 'default-contrast');
   font-size: mat.font-size($kel-typography, subheading-2);
   margin: 16px 0 0 16px;
+  @media screen and (max-width: 959px) {
+    display: none;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
 }
 
 .toolbar__menu-button {
