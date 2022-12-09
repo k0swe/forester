@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.59",
-    "installedVersion": "0.4.59",
+    "comment": "0.4.60",
+    "installedVersion": "0.4.60",
     "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
@@ -195,8 +195,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.51",
-    "installedVersion": "0.5.51",
+    "comment": "0.5.52",
+    "installedVersion": "0.5.52",
     "author": "n/a"
   },
   {
@@ -243,8 +243,8 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1500.2",
-    "installedVersion": "0.1500.2",
+    "comment": "0.1500.3",
+    "installedVersion": "0.1500.3",
     "author": "Angular Authors"
   },
   {
@@ -331,8 +331,8 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "4.3.0",
-    "installedVersion": "4.3.0",
+    "comment": "4.3.1",
+    "installedVersion": "4.3.1",
     "author": "n/a"
   },
   {
@@ -355,24 +355,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.11.10",
-    "installedVersion": "18.11.10",
+    "comment": "18.11.11",
+    "installedVersion": "18.11.11",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.45.0",
-    "installedVersion": "5.45.0",
+    "comment": "5.46.0",
+    "installedVersion": "5.46.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.45.0",
-    "installedVersion": "5.45.0",
+    "comment": "5.46.0",
+    "installedVersion": "5.46.0",
     "author": "n/a"
   },
   {
@@ -403,8 +403,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "11.16.1",
-    "installedVersion": "11.16.1",
+    "comment": "11.17.0",
+    "installedVersion": "11.17.0",
     "author": "Firebase (https://firebase.google.com/)"
   },
   {
@@ -523,8 +523,8 @@
     "name": "prettier",
     "licenseType": "MIT",
     "link": "git+https://github.com/prettier/prettier.git",
-    "comment": "2.8.0",
-    "installedVersion": "2.8.0",
+    "comment": "2.8.1",
+    "installedVersion": "2.8.1",
     "author": "James Long"
   },
   {
