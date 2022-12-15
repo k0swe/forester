@@ -1,6 +1,6 @@
 import { AuthService } from '../../shared/auth/auth.service';
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { NewLogbookDialogComponent } from '../../shared/new-logbook-dialog/new-logbook-dialog.component';
 import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
 import { LogbookService } from '../logbook/logbook.service';

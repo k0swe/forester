@@ -14,21 +14,21 @@ $kel-theme: mat.define-light-theme(
 $kel-background: map-get($kel-theme, background);
 $kel-foreground: map-get($kel-theme, foreground);
 
-$kel-typography: mat.define-typography-config(
+$kel-typography: mat.define-legacy-typography-config(
   $font-family: 'Open Sans, Helvetica Neue, sans-serif',
   $body-2: mat.define-typography-level(14px, 24px, 600),
 );
 
-$kel-mono-typography: mat.define-typography-config(
+$kel-mono-typography: mat.define-legacy-typography-config(
   $font-family: 'DM Mono, monospace',
   $body-2: mat.define-typography-level(14px, 24px, 600),
 );
 
-$kel-serif-typography: mat.define-typography-config(
+$kel-serif-typography: mat.define-legacy-typography-config(
   $font-family: 'Tinos, Times New Roman, serif',
   $subheading-2: mat.define-typography-level(16px, 28px, 700),
 );
 
-$kel-emoji-typography: mat.define-typography-config(
+$kel-emoji-typography: mat.define-legacy-typography-config(
   $font-family: 'Apple Color Emoji, Noto Colr Emoji Glyf',
 );

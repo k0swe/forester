@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 import { ImportExportService } from '../../shared/import-export/import-export.service';
 import { LogbookService } from './logbook.service';
 import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-settings.component';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { environment } from '../../../environments/environment';
 
 @Component({

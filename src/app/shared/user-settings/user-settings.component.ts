@@ -1,8 +1,8 @@
 import { AgentService } from 'ngx-kel-agent';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatLegacyButton as MatButton } from '@angular/material/legacy-button';
+import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
 import { UserSettingsService } from './user-settings.service';
 import { forkJoin } from 'rxjs';
 import { take } from 'rxjs/operators';

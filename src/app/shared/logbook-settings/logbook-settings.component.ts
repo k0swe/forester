@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatLegacyButton as MatButton } from '@angular/material/legacy-button';
+import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
 import { SecretService } from '../secret/secret.service';
 import {
   LogbookService,
