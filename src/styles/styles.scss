@@ -11,9 +11,9 @@
 //  If you don't need the default component typographies but still want the hierarchy styles,
 //  you can delete this line and instead use:
 //    `@include mat.legacy-typography-hierarchy($kel-typography);`
-@include mat.all-legacy-component-typographies($kel-typography);
-@include mat.legacy-core();
-@include mat.all-legacy-component-themes($kel-theme);
+@include mat.all-component-typographies($kel-typography);
+@include mat.core();
+@include mat.all-component-themes($kel-theme);
 
 // Global styles.
 html {

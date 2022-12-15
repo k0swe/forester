@@ -22,7 +22,7 @@ h1 {
 .logbook-tab {
   background-color: mat.get-color-from-palette($kel-accent, 'default');
   color: mat.get-color-from-palette($kel-primary, 'default-contrast');
-  font-size: mat.font-size($kel-typography, subheading-2);
+  font-size: mat.font-size($kel-typography, subtitle-1);
 }
 
 .spacer {

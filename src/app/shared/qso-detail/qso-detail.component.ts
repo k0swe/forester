@@ -6,11 +6,8 @@ import { FirebaseQso, QsoService } from '../qso/qso.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HamlibService } from 'ngx-kel-agent';
 import { LocationService } from '../location/location.service';
-import {
-  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
-  MatLegacyDialogRef as MatDialogRef,
-} from '@angular/material/legacy-dialog';
-import { MatLegacyButton as MatButton } from '@angular/material/legacy-button';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatButton } from '@angular/material/button';
 import { Modes } from '../../reference/mode';
 import { Observable } from 'rxjs';
 import { Qso, Station } from '../../qso';

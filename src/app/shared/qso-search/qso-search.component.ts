@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogbookService } from '../../pages/logbook/logbook.service';
-import { MatLegacySlideToggleChange as MatSlideToggleChange } from '@angular/material/legacy-slide-toggle';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { Observable, Subscription } from 'rxjs';
 import { QsoService } from '../qso/qso.service';
 import { WsjtxService } from 'ngx-kel-agent';

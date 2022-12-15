@@ -5,6 +5,7 @@ div.row,
 mat-dialog-actions {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .row div {
@@ -16,7 +17,7 @@ mat-dialog-actions {
   margin-right: 0;
 }
 
-.mat-form-field {
+.mat-mdc-form-field {
   width: 100%;
 }
 
@@ -24,12 +25,8 @@ mat-dialog-actions {
   min-width: 5em;
 }
 
-:host ::ng-deep .mat-form-field-infix {
-  width: auto !important;
-}
-
-mat-form-field.ng-dirty {
-  color: mat.get-color-from-palette($kel-accent, 900);
+input.ng-dirty {
+  color: mat.get-color-from-palette($kel-accent, 900) !important;
 }
 
 mat-card {
@@ -54,7 +51,7 @@ input.freq {
   -moz-appearance: textfield;
 }
 
-a.mat-stroked-button {
+a.mat-mdc-outlined-button {
   margin-top: 16px;
 }
 

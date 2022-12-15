@@ -11,13 +11,12 @@ mat-card {
 }
 
 blockquote {
-  font-family: mat.font-family($kel-serif-typography);
-  font-size: mat.font-size($kel-serif-typography, subheading-2);
-  font-weight: mat.font-weight($kel-serif-typography, subheading-2);
+  @include mat.typography-level($kel-serif-typography, subtitle-1);
   background-color: ivory;
-  border: 1px solid lightgray;
   border-radius: 6px;
+  border: 1px solid lightgray;
   color: black;
+  //font-weight: bold;
   padding: 8px;
 }
 

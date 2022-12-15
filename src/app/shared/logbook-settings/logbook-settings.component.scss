@@ -4,6 +4,7 @@
 div.row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .row mat-form-field {
@@ -13,14 +14,6 @@ div.row {
 
 .row mat-form-field:last-child {
   margin-right: 0;
-}
-
-.mat-form-field {
-  width: 100%;
-}
-
-:host ::ng-deep .mat-form-field-infix {
-  width: auto !important;
 }
 
 mat-form-field.ng-dirty {

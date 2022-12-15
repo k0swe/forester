@@ -1,5 +1,7 @@
-<mat-card>
-  <mat-card-title>Welcome to Forester!</mat-card-title>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Welcome to Forester!</mat-card-title>
+  </mat-card-header>
   <mat-card-content>
     <blockquote>
       <a href="https://www.merriam-webster.com/dictionary/forester">
@@ -33,8 +35,10 @@
 ></kel-login>
 
 <ng-template #loggedIn>
-  <mat-card>
-    <mat-card-title>Your Starred Logbooks</mat-card-title>
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Your Starred Logbooks</mat-card-title>
+    </mat-card-header>
     <mat-card-content>
       <button
         mat-raised-button

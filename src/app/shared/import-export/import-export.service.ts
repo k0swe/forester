@@ -1,7 +1,7 @@
 import { Adif2Proto } from '../adif2proto';
 import { AdifFormatter, AdifParser } from 'adif-parser-ts';
 import { Injectable } from '@angular/core';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Proto2Adif } from '../proto2adif';
 import { Qso } from '../../qso';
 import { FirebaseQso, QsoService } from '../qso/qso.service';

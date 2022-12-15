@@ -1,7 +1,9 @@
 <h2 mat-dialog-title>Logbook Settings</h2>
 <mat-dialog-content>
-  <mat-card>
-    <mat-card-subtitle>QTH Profile</mat-card-subtitle>
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-subtitle>QTH Profile</mat-card-subtitle>
+    </mat-card-header>
     <mat-card-content>
       <kel-station-detail
         [(station)]="qthProfile"
@@ -10,8 +12,10 @@
       ></kel-station-detail>
     </mat-card-content>
   </mat-card>
-  <mat-card>
-    <mat-card-subtitle>Secrets</mat-card-subtitle>
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-subtitle>Secrets</mat-card-subtitle>
+    </mat-card-header>
     <mat-card-content>
       <form [formGroup]="logbookSettingsForm">
         <div class="row">
@@ -20,7 +24,7 @@
         </div>
         <div class="row"><h3>QRZ.com</h3></div>
         <div class="row">
-          <mat-form-field appearance="standard">
+          <mat-form-field>
             <mat-label>QRZ.com Logbook API Key</mat-label>
             <input
               matInput
@@ -31,14 +35,14 @@
           </mat-form-field>
         </div>
         <div class="row">
-          <mat-form-field appearance="standard">
+          <mat-form-field>
             <mat-label>QRZ.com Username</mat-label>
             <input matInput formControlName="qrzUser" />
             <mat-hint>
               For querying station details from the QRZ.com database
             </mat-hint>
           </mat-form-field>
-          <mat-form-field appearance="standard">
+          <mat-form-field>
             <mat-label>QRZ.com Password</mat-label>
             <input matInput type="password" formControlName="qrzPass" />
             <mat-hint> Requires QRZ.com XML subscription </mat-hint>
@@ -46,12 +50,12 @@
         </div>
         <div class="row"><h3>Logbook of the World</h3></div>
         <div class="row">
-          <mat-form-field appearance="standard">
+          <mat-form-field>
             <mat-label>LotW Username</mat-label>
             <input matInput formControlName="lotwUser" />
             <mat-hint> For querying QSL status from LotW </mat-hint>
           </mat-form-field>
-          <mat-form-field appearance="standard">
+          <mat-form-field>
             <mat-label>LotW Password</mat-label>
             <input matInput type="password" formControlName="lotwPass" />
             <mat-hint></mat-hint>

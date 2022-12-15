@@ -203,8 +203,8 @@
     "name": "rxjs",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/reactivex/rxjs.git",
-    "comment": "7.6.0",
-    "installedVersion": "7.6.0",
+    "comment": "7.8.0",
+    "installedVersion": "7.8.0",
     "author": "Ben Lesh <ben@benlesh.com>"
   },
   {
@@ -347,24 +347,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.11.15",
-    "installedVersion": "18.11.15",
+    "comment": "18.11.16",
+    "installedVersion": "18.11.16",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.43.0",
-    "installedVersion": "5.43.0",
+    "comment": "5.46.1",
+    "installedVersion": "5.46.1",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.43.0",
-    "installedVersion": "5.43.0",
+    "comment": "5.46.1",
+    "installedVersion": "5.46.1",
     "author": "n/a"
   },
   {
@@ -379,16 +379,16 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.28.0",
-    "installedVersion": "8.28.0",
+    "comment": "8.30.0",
+    "installedVersion": "8.30.0",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "11.3.0",
-    "installedVersion": "11.3.0",
+    "comment": "11.4.0",
+    "installedVersion": "11.4.0",
     "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {

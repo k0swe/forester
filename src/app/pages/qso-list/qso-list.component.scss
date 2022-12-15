@@ -19,7 +19,7 @@ mat-card-header {
   flex: 1 1 0;
 }
 
-.actions {
+.action-button-container {
   flex-direction: row;
   display: flex;
 }
@@ -28,8 +28,12 @@ button {
   margin-left: 16px;
 }
 
-button.mat-menu-item {
+button.mat-mdc-menu-item {
   margin-left: 0;
+}
+
+button.newQso {
+  width: 110px;
 }
 
 button.selectedButton {
@@ -42,20 +46,20 @@ table {
   width: 100%;
 }
 
-th.mat-header-cell:first-of-type,
-td.mat-cell:first-of-type,
-td.mat-footer-cell:first-of-type {
+th.mat-mdc-header-cell:first-of-type,
+td.mat-mdc-cell:first-of-type,
+td.mat-mdc-footer-cell:first-of-type {
   padding-left: 4px;
 }
 
-th.mat-header-cell:last-of-type,
-td.mat-cell:last-of-type,
-td.mat-footer-cell:last-of-type {
+th.mat-mdc-header-cell:last-of-type,
+td.mat-mdc-cell:last-of-type,
+td.mat-mdc-footer-cell:last-of-type {
   padding-right: 4px;
 }
 
-th.mat-header-cell,
-td.mat-cell {
+th.mat-mdc-header-cell,
+td.mat-mdc-cell {
   padding-left: 2px;
   padding-right: 2px;
 }
@@ -64,7 +68,7 @@ td.mat-cell {
   overflow: initial;
 }
 
-.mat-row {
+.mat-mdc-row {
   &:hover {
     background-color: mat.get-color-from-palette($kel-background, hover);
   }
@@ -75,8 +79,8 @@ td.mat-cell {
 }
 
 .callsign {
-  font-weight: mat.font-weight($kel-mono-typography, body-2);
-  font-family: mat.font-family($kel-mono-typography);
+  @include mat.typography-level($kel-mono-typography, body-2);
+  font-weight: bold;
 }
 
 .band {
@@ -84,86 +88,85 @@ td.mat-cell {
 }
 
 .band-2200m {
-  background-color: #ff4500;
-  color: black;
+  background-color: #ff4500 !important;
+  color: black !important;
 }
 
 .band-600m {
-  background-color: #1e90ff;
-  color: black;
+  background-color: #1e90ff !important;
+  color: black !important;
 }
 
 .band-160m {
-  background-color: #7cfc00;
-  color: black;
+  background-color: #7cfc00 !important;
+  color: black !important;
 }
 
 .band-80m {
-  background-color: #e550e5;
-  color: black;
+  background-color: #e550e5 !important;
+  color: black !important;
 }
 
 .band-60m {
-  background-color: #00008b;
-  color: white;
+  background-color: #00008b !important;
+  color: white !important;
 }
 
 .band-40m {
-  background-color: #5959ff;
-  color: white;
+  background-color: #5959ff !important;
+  color: white !important;
 }
 
 .band-30m {
-  background-color: #62d962;
-  color: black;
+  background-color: #62d962 !important;
+  color: black !important;
 }
 
 .band-20m {
-  background-color: #f2c40c;
-  color: black;
+  background-color: #f2c40c !important;
+  color: black !important;
 }
 
 .band-17m {
-  background-color: #f2f261;
-  color: black;
+  background-color: #f2f261 !important;
+  color: black !important;
 }
 
 .band-15m {
-  background-color: #cca166;
-  color: black;
+  background-color: #cca166 !important;
+  color: black !important;
 }
 
 .band-12m {
-  background-color: #b22222;
-  color: white;
+  background-color: #b22222 !important;
+  color: white !important;
 }
 
 .band-10m {
-  background-color: #ff69b4;
-  color: black;
+  background-color: #ff69b4 !important;
+  color: black !important;
 }
 
 .band-6m {
-  background-color: #ff0000;
-  color: black;
+  background-color: #ff0000 !important;
+  color: black !important;
 }
 
 .band-2m {
-  background-color: #ff1493;
-  color: black;
+  background-color: #ff1493 !important;
+  color: black !important;
 }
 
 .band-70cm {
-  background-color: #999900;
-  color: white;
+  background-color: #999900 !important;
+  color: white !important;
 }
 
 .freq {
   text-align: end;
-  padding-right: 8px;
+  padding-right: 8px !important;
 }
 
 .flag {
-  font-family: mat.font-family($kel-emoji-typography);
-  font-size: mat.font-size($kel-emoji-typography, body-2);
+  @include mat.typography-level($kel-emoji-typography, body-2);
 }

@@ -18,6 +18,13 @@ button {
   margin-bottom: 16px;
 }
 
+.button-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 img.logo {
   height: 38px;
+  margin-right: 8px;
 }

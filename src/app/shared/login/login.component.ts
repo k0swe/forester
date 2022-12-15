@@ -5,7 +5,7 @@ import { UserSettingsService } from '../user-settings/user-settings.service';
 import { Observable } from 'rxjs';
 import firebase from 'firebase/compat';
 import { take, takeWhile } from 'rxjs/operators';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'kel-login',
