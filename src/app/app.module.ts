@@ -12,7 +12,6 @@ import { AvatarComponent } from './shared/avatar/avatar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CreditsComponent } from './pages/credits/credits.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HomeComponent } from './pages/home/home.component';
@@ -88,7 +87,6 @@ import { StationDetailComponent } from './shared/station-detail/station-detail.c
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    FlexLayoutModule,
     FormsModule,
     GoogleMapsModule,
     HttpClientModule,

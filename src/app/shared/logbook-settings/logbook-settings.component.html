@@ -14,12 +14,12 @@
     <mat-card-subtitle>Secrets</mat-card-subtitle>
     <mat-card-content>
       <form [formGroup]="logbookSettingsForm">
-        <div fxLayout="row" class="row">
+        <div class="row">
           These values are stored encrypted on the server and will not be
           displayed here.
         </div>
-        <div fxLayout="row" class="row"><h3>QRZ.com</h3></div>
-        <div fxLayout="row" class="row">
+        <div class="row"><h3>QRZ.com</h3></div>
+        <div class="row">
           <mat-form-field appearance="standard">
             <mat-label>QRZ.com Logbook API Key</mat-label>
             <input
@@ -30,28 +30,28 @@
             <mat-hint>For syncing with a QRZ.com logbook</mat-hint>
           </mat-form-field>
         </div>
-        <div fxLayout="row" class="row">
-          <mat-form-field fxFlex appearance="standard">
+        <div class="row">
+          <mat-form-field appearance="standard">
             <mat-label>QRZ.com Username</mat-label>
             <input matInput formControlName="qrzUser" />
             <mat-hint>
               For querying station details from the QRZ.com database
             </mat-hint>
           </mat-form-field>
-          <mat-form-field fxFlex appearance="standard">
+          <mat-form-field appearance="standard">
             <mat-label>QRZ.com Password</mat-label>
             <input matInput type="password" formControlName="qrzPass" />
             <mat-hint> Requires QRZ.com XML subscription </mat-hint>
           </mat-form-field>
         </div>
-        <div fxLayout="row" class="row"><h3>Logbook of the World</h3></div>
-        <div fxLayout="row" class="row">
-          <mat-form-field fxFlex appearance="standard">
+        <div class="row"><h3>Logbook of the World</h3></div>
+        <div class="row">
+          <mat-form-field appearance="standard">
             <mat-label>LotW Username</mat-label>
             <input matInput formControlName="lotwUser" />
             <mat-hint> For querying QSL status from LotW </mat-hint>
           </mat-form-field>
-          <mat-form-field fxFlex appearance="standard">
+          <mat-form-field appearance="standard">
             <mat-label>LotW Password</mat-label>
             <input matInput type="password" formControlName="lotwPass" />
             <mat-hint></mat-hint>

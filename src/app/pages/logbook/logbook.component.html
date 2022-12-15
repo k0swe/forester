@@ -1,6 +1,7 @@
-<div class="logbook-header" fxLayout="row">
+<div class="logbook-header">
   <h1>
-    {{ logbookService.logbookId$ | async }} <span fxHide.lt-md>Logbook</span>
+    {{ logbookService.logbookId$ | async }}
+    <span class="logbook-long-title">Logbook</span>
   </h1>
   <nav mat-tab-nav-bar backgroundColor="accent">
     <a
@@ -15,7 +16,7 @@
       {{ link.name }}
     </a>
   </nav>
-  <div fxFlex></div>
+  <div class="spacer"></div>
   <button
     mat-icon-button
     color="accent"

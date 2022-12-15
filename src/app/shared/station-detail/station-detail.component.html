@@ -1,6 +1,6 @@
 <form [formGroup]="stationDetailForm" autocomplete="dummy">
-  <div fxLayout="row" class="row">
-    <div fxFlex="15%">
+  <div class="row">
+    <div class="callsign-container">
       <mat-form-field appearance="standard">
         <mat-label>Callsign</mat-label>
         <input
@@ -13,7 +13,7 @@
         />
       </mat-form-field>
     </div>
-    <div fxFlex="30%">
+    <div class="name-container">
       <mat-form-field appearance="standard">
         <mat-label>Name</mat-label>
         <input
@@ -24,7 +24,7 @@
         />
       </mat-form-field>
     </div>
-    <div fxFlex="20%">
+    <div class="lat-lon-container">
       <mat-form-field appearance="standard">
         <mat-label>Latitude</mat-label>
         <input
@@ -37,7 +37,7 @@
         <mat-hint>+N/-S</mat-hint>
       </mat-form-field>
     </div>
-    <div fxFlex="20%">
+    <div class="lat-lon-container">
       <mat-form-field appearance="standard">
         <mat-label>Longitude</mat-label>
         <input
@@ -50,7 +50,7 @@
         <mat-hint>+E/-W</mat-hint>
       </mat-form-field>
     </div>
-    <div fxFlex="10%">
+    <div class="grid-container">
       <mat-form-field appearance="standard">
         <mat-label>Grid</mat-label>
         <input
@@ -72,8 +72,8 @@
     </a>
   </div>
 
-  <div fxLayout="row" class="row">
-    <div fxFlex>
+  <div class="row">
+    <div>
       <mat-form-field appearance="standard">
         <mat-label>City</mat-label>
         <input
@@ -84,7 +84,7 @@
         />
       </mat-form-field>
     </div>
-    <div fxFlex>
+    <div>
       <mat-form-field appearance="standard">
         <mat-label>State/Province</mat-label>
         <input
@@ -95,7 +95,7 @@
         />
       </mat-form-field>
     </div>
-    <div fxFlex>
+    <div>
       <mat-form-field appearance="standard">
         <mat-label>Country</mat-label>
         <input
@@ -116,7 +116,7 @@
       </mat-form-field>
       <input type="hidden" formControlName="dxcc" />
     </div>
-    <div fxFlex>
+    <div>
       <mat-form-field appearance="standard">
         <mat-label>Continent</mat-label>
         <mat-select formControlName="continent">
@@ -133,8 +133,8 @@
     </div>
   </div>
 
-  <div *ngIf="showRig || showTxPower" fxLayout="row" class="row">
-    <div fxFlex>
+  <div *ngIf="showRig || showTxPower" class="row">
+    <div>
       <mat-form-field *ngIf="showRig" appearance="standard">
         <mat-label>Rig</mat-label>
         <input
@@ -145,7 +145,7 @@
         />
       </mat-form-field>
     </div>
-    <div fxFlex>
+    <div>
       <mat-form-field *ngIf="showRig" appearance="standard">
         <mat-label>Antenna</mat-label>
         <input
@@ -156,7 +156,7 @@
         />
       </mat-form-field>
     </div>
-    <div fxFlex>
+    <div>
       <mat-form-field *ngIf="showTxPower" appearance="standard">
         <mat-label>TX Power</mat-label>
         <input

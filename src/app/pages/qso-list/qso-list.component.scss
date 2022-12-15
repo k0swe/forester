@@ -5,12 +5,37 @@ mat-card {
   margin: 8px;
 }
 
+mat-card-header {
+  flex-direction: row;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  @media screen and (max-width: 959px) {
+    flex-direction: column;
+  }
+}
+
+.spacer {
+  flex: 1 1 0;
+}
+
+.actions {
+  flex-direction: row;
+  display: flex;
+}
+
 button {
   margin-left: 16px;
 }
 
 button.mat-menu-item {
   margin-left: 0;
+}
+
+button.selectedButton {
+  @media screen and (max-width: 599px) {
+    display: none;
+  }
 }
 
 table {

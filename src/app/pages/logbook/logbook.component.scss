@@ -3,6 +3,8 @@
 
 .logbook-header {
   background-color: mat.get-color-from-palette($kel-accent, 'default');
+  display: flex;
+  flex-direction: row;
 }
 
 h1 {
@@ -11,10 +13,20 @@ h1 {
   margin: 0;
 }
 
+.logbook-long-title {
+  @media screen and (max-width: 959px) {
+    display: none;
+  }
+}
+
 .logbook-tab {
   background-color: mat.get-color-from-palette($kel-accent, 'default');
   color: mat.get-color-from-palette($kel-primary, 'default-contrast');
   font-size: mat.font-size($kel-typography, subheading-2);
+}
+
+.spacer {
+  flex: 1 1 0;
 }
 
 mat-icon {

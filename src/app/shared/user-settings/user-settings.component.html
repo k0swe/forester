@@ -1,7 +1,7 @@
 <h2 mat-dialog-title>User Settings</h2>
 <mat-dialog-content>
   <form [formGroup]="userSettingsForm">
-    <div fxLayout="row" class="row">
+    <div class="row">
       <mat-form-field appearance="standard">
         <mat-label>My Callsign</mat-label>
         <input
@@ -20,12 +20,12 @@
       </a>
       to connect to ham software on your local machine.
     </div>
-    <div fxLayout="row" class="row">
-      <mat-form-field fxFlex appearance="standard">
+    <div class="row">
+      <mat-form-field appearance="standard">
         <mat-label>Agent Host</mat-label>
         <input matInput placeholder="localhost" formControlName="agentHost" />
       </mat-form-field>
-      <mat-form-field fxFlex appearance="standard">
+      <mat-form-field appearance="standard">
         <mat-label>Agent Port</mat-label>
         <input
           matInput
