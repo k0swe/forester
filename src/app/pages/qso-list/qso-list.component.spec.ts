@@ -10,26 +10,22 @@ describe('QsoListComponent', () => {
   let component: QsoListComponent;
   let fixture: ComponentFixture<QsoListComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [QsoListComponent],
-        imports: [MatDialogModule, MatPaginatorModule, BrowserAnimationsModule],
-        providers: [
-          {
-            provide: QsoService,
-            useValue: {
-              init: () => null,
-              getFilteredQsos: () =>
-                of([
-                  { qso: { contactedStation: { contactedCall: 'N0CALL' } } },
-                ]),
-            },
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [QsoListComponent],
+      imports: [MatDialogModule, MatPaginatorModule, BrowserAnimationsModule],
+      providers: [
+        {
+          provide: QsoService,
+          useValue: {
+            init: () => null,
+            getFilteredQsos: () =>
+              of([{ qso: { contactedStation: { contactedCall: 'N0CALL' } } }]),
           },
-        ],
-      }).compileComponents();
-    })
-  );
+        },
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(QsoListComponent);

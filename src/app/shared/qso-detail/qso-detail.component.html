@@ -4,14 +4,14 @@
   <form [formGroup]="qsoDetailForm" autocomplete="dummy">
     <div class="row">
       <div>
-        <mat-form-field appearance="standard">
+        <mat-form-field>
           <mat-label>Date/Time On</mat-label>
           <input matInput formControlName="timeOn" />
           <mat-hint>UTC</mat-hint>
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field appearance="standard">
+        <mat-form-field>
           <mat-label>Date/Time Off</mat-label>
           <input matInput formControlName="timeOff" />
           <mat-hint>UTC</mat-hint>
@@ -21,7 +21,7 @@
 
     <div class="row">
       <div class="band">
-        <mat-form-field appearance="standard">
+        <mat-form-field>
           <mat-label>Band</mat-label>
           <mat-select formControlName="band" value="10m">
             <mat-option *ngFor="let band of bands" [value]="band">
@@ -31,14 +31,14 @@
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field appearance="standard">
+        <mat-form-field>
           <mat-label>Frequency</mat-label>
           <input matInput class="freq" formControlName="freq" type="number" />
           <span matSuffix>MHz</span>
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field appearance="standard">
+        <mat-form-field>
           <mat-label>Mode</mat-label>
           <input
             matInput
@@ -53,21 +53,23 @@
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field appearance="standard">
+        <mat-form-field>
           <mat-label>RST Sent</mat-label>
           <input matInput formControlName="rstSent" />
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field appearance="standard">
+        <mat-form-field>
           <mat-label>RST Received</mat-label>
           <input matInput formControlName="rstReceived" />
         </mat-form-field>
       </div>
     </div>
 
-    <mat-card>
-      <mat-card-subtitle>Contacted Station</mat-card-subtitle>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-subtitle>Contacted Station</mat-card-subtitle>
+      </mat-card-header>
       <mat-card-content>
         <kel-station-detail
           [(station)]="contactedStation"
@@ -78,8 +80,10 @@
       </mat-card-content>
     </mat-card>
 
-    <mat-card>
-      <mat-card-subtitle>Logging Station</mat-card-subtitle>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-subtitle>Logging Station</mat-card-subtitle>
+      </mat-card-header>
       <mat-card-content>
         <kel-station-detail
           [(station)]="loggingStation"
@@ -90,13 +94,13 @@
 
     <div class="row">
       <div>
-        <mat-form-field appearance="standard">
+        <mat-form-field>
           <mat-label>Comment</mat-label>
           <textarea matInput formControlName="comment"></textarea>
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field appearance="standard">
+        <mat-form-field>
           <mat-label>Notes</mat-label>
           <textarea matInput formControlName="notes"></textarea>
         </mat-form-field>

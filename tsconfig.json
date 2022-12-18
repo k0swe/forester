@@ -13,8 +13,9 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2015",
+    "target": "ES2022",
     "module": "es2020",
-    "lib": ["es2018", "dom"]
+    "lib": ["es2018", "dom"],
+    "useDefineForClassFields": false
   }
 }

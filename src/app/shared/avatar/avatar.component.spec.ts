@@ -10,27 +10,25 @@ describe('AvatarComponent', () => {
   let component: AvatarComponent;
   let fixture: ComponentFixture<AvatarComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [AvatarComponent],
-        imports: [MatMenuModule, MatDialogModule, MatSnackBarModule],
-        providers: [
-          {
-            provide: AuthService,
-            useValue: {
-              user: () =>
-                of({
-                  displayName: 'Joe Schmoe',
-                  email: 'joe@schmoe.net',
-                  photoURL: 'http://example.com/image.png',
-                }),
-            },
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [AvatarComponent],
+      imports: [MatMenuModule, MatDialogModule, MatSnackBarModule],
+      providers: [
+        {
+          provide: AuthService,
+          useValue: {
+            user: () =>
+              of({
+                displayName: 'Joe Schmoe',
+                email: 'joe@schmoe.net',
+                photoURL: 'http://example.com/image.png',
+              }),
           },
-        ],
-      }).compileComponents();
-    })
-  );
+        },
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AvatarComponent);

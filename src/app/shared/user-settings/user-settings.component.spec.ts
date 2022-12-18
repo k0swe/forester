@@ -10,36 +10,34 @@ describe('UserSettingsComponent', () => {
   let component: UserSettingsComponent;
   let fixture: ComponentFixture<UserSettingsComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [UserSettingsComponent],
-        imports: [ReactiveFormsModule],
-        providers: [
-          {
-            provide: MAT_DIALOG_DATA,
-            useValue: null,
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [UserSettingsComponent],
+      imports: [ReactiveFormsModule],
+      providers: [
+        {
+          provide: MAT_DIALOG_DATA,
+          useValue: null,
+        },
+        { provide: MatDialogRef, useValue: {} },
+        {
+          provide: AgentService,
+          useValue: {
+            getHost: () => 'localhost',
+            getPort: () => 8081,
           },
-          { provide: MatDialogRef, useValue: {} },
-          {
-            provide: AgentService,
-            useValue: {
-              getHost: () => 'localhost',
-              getPort: () => 8081,
-            },
+        },
+        {
+          provide: UserSettingsService,
+          useValue: {
+            init: () => null,
+            settings: () =>
+              of({ callsign: 'N0CALL', qrzLogbookApiKey: 'ABCD-1234' }),
           },
-          {
-            provide: UserSettingsService,
-            useValue: {
-              init: () => null,
-              settings: () =>
-                of({ callsign: 'N0CALL', qrzLogbookApiKey: 'ABCD-1234' }),
-            },
-          },
-        ],
-      }).compileComponents();
-    })
-  );
+        },
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UserSettingsComponent);

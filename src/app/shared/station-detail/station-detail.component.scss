@@ -4,6 +4,7 @@
 div.row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .row div {
@@ -31,7 +32,7 @@ div.row {
   margin-right: 0;
 }
 
-.mat-form-field {
+.mat-mdc-form-field {
   width: 100%;
 }
 
@@ -46,7 +47,7 @@ mat-card {
 }
 
 input.callsign {
-  font-family: mat.font-family($kel-mono-typography);
+  @include mat.typography-level($kel-mono-typography, body-1);
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -61,7 +62,7 @@ input.latLong {
   -moz-appearance: textfield;
 }
 
-a.mat-stroked-button {
+a.mat-mdc-outlined-button {
   height: 36px;
   margin-top: 16px;
 }

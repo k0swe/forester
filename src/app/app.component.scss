@@ -41,9 +41,9 @@ h1.app-title {
 }
 
 .app-subtitle {
+  @include mat.typography-level($kel-typography, subtitle-1);
   background-color: mat.get-color-from-palette($kel-primary, 'default');
   color: mat.get-color-from-palette($kel-primary, 'default-contrast');
-  font-size: mat.font-size($kel-typography, subheading-2);
   margin: 16px 0 0 16px;
   @media screen and (max-width: 959px) {
     display: none;

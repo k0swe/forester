@@ -2,7 +2,7 @@
 <mat-dialog-content>
   <form [formGroup]="userSettingsForm">
     <div class="row">
-      <mat-form-field appearance="standard">
+      <mat-form-field>
         <mat-label>My Callsign</mat-label>
         <input
           matInput
@@ -21,11 +21,11 @@
       to connect to ham software on your local machine.
     </div>
     <div class="row">
-      <mat-form-field appearance="standard">
+      <mat-form-field>
         <mat-label>Agent Host</mat-label>
         <input matInput placeholder="localhost" formControlName="agentHost" />
       </mat-form-field>
-      <mat-form-field appearance="standard">
+      <mat-form-field>
         <mat-label>Agent Port</mat-label>
         <input
           matInput

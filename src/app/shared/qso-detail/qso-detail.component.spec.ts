@@ -19,51 +19,49 @@ describe('QsoDetailComponent', () => {
   let component: QsoDetailComponent;
   let fixture: ComponentFixture<QsoDetailComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [QsoDetailComponent],
-        imports: [
-          BrowserAnimationsModule,
-          FormsModule,
-          MatAutocompleteModule,
-          MatDialogModule,
-          MatFormFieldModule,
-          MatInputModule,
-          MatOptionModule,
-          MatSelectModule,
-          ReactiveFormsModule,
-        ],
-        providers: [
-          {
-            provide: MAT_DIALOG_DATA,
-            useValue: {
-              qso: {
-                band: '20m',
-                freq: 14.074,
-                mode: 'FT8',
-                timeOn: new Date(),
-                timeOff: new Date(),
-              },
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [QsoDetailComponent],
+      imports: [
+        BrowserAnimationsModule,
+        FormsModule,
+        MatAutocompleteModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+      ],
+      providers: [
+        {
+          provide: MAT_DIALOG_DATA,
+          useValue: {
+            qso: {
+              band: '20m',
+              freq: 14.074,
+              mode: 'FT8',
+              timeOn: new Date(),
+              timeOff: new Date(),
             },
           },
-          { provide: MatDialogRef, useValue: {} },
-          {
-            provide: AngularFireAuth,
-            useValue: {
-              signInWithPopup: () => null,
-            },
+        },
+        { provide: MatDialogRef, useValue: {} },
+        {
+          provide: AngularFireAuth,
+          useValue: {
+            signInWithPopup: () => null,
           },
-          {
-            provide: AngularFirestore,
-            useValue: {
-              doc: () => null,
-            },
+        },
+        {
+          provide: AngularFirestore,
+          useValue: {
+            doc: () => null,
           },
-        ],
-      }).compileComponents();
-    })
-  );
+        },
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(QsoDetailComponent);

@@ -1,9 +1,18 @@
-img.avatar {
-  border-radius: 20px;
-  height: 40px;
-  width: 40px;
+$avatar-size: 40px;
+
+:host {
+  height: $avatar-size;
+  width: $avatar-size;
 }
 
-.vertical-middle {
-  vertical-align: middle;
+button.avatar {
+  height: $avatar-size;
+  width: $avatar-size;
+  padding: 0;
+}
+
+img.avatar {
+  border-radius: $avatar-size / 2;
+  height: $avatar-size;
+  width: $avatar-size;
 }

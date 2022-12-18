@@ -2,31 +2,29 @@
 
 $kel-primary: mat.define-palette(mat.$green-palette, 700, 300, 900);
 $kel-accent: mat.define-palette(mat.$deep-purple-palette);
+$kel-typography: mat.define-typography-config(
+  $font-family: 'Open Sans, Helvetica Neue, sans-serif',
+);
+
 $kel-theme: mat.define-light-theme(
   (
     color: (
       primary: $kel-primary,
       accent: $kel-accent,
     ),
+    typography: $kel-typography,
   )
 );
 
 $kel-background: map-get($kel-theme, background);
 $kel-foreground: map-get($kel-theme, foreground);
 
-$kel-typography: mat.define-typography-config(
-  $font-family: 'Open Sans, Helvetica Neue, sans-serif',
-  $body-2: mat.define-typography-level(14px, 24px, 600),
-);
-
 $kel-mono-typography: mat.define-typography-config(
   $font-family: 'DM Mono, monospace',
-  $body-2: mat.define-typography-level(14px, 24px, 600),
 );
 
 $kel-serif-typography: mat.define-typography-config(
   $font-family: 'Tinos, Times New Roman, serif',
-  $subheading-2: mat.define-typography-level(16px, 28px, 700),
 );
 
 $kel-emoji-typography: mat.define-typography-config(
