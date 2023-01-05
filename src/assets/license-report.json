@@ -131,8 +131,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.61",
-    "installedVersion": "0.4.61",
+    "comment": "0.4.62",
+    "installedVersion": "0.4.62",
     "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
@@ -187,8 +187,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.53",
-    "installedVersion": "0.5.53",
+    "comment": "0.5.54",
+    "installedVersion": "0.5.54",
     "author": "n/a"
   },
   {
@@ -347,24 +347,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.11.17",
-    "installedVersion": "18.11.17",
+    "comment": "18.11.18",
+    "installedVersion": "18.11.18",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.47.0",
-    "installedVersion": "5.47.0",
+    "comment": "5.48.0",
+    "installedVersion": "5.48.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.47.0",
-    "installedVersion": "5.47.0",
+    "comment": "5.48.0",
+    "installedVersion": "5.48.0",
     "author": "n/a"
   },
   {
@@ -379,16 +379,16 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.30.0",
-    "installedVersion": "8.30.0",
+    "comment": "8.31.0",
+    "installedVersion": "8.31.0",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
     "name": "firebase-admin",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-admin-node.git",
-    "comment": "11.4.0",
-    "installedVersion": "11.4.0",
+    "comment": "11.4.1",
+    "installedVersion": "11.4.1",
     "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
@@ -411,8 +411,8 @@
     "name": "husky",
     "licenseType": "MIT",
     "link": "git+https://github.com/typicode/husky.git",
-    "comment": "8.0.2",
-    "installedVersion": "8.0.2",
+    "comment": "8.0.3",
+    "installedVersion": "8.0.3",
     "author": "Typicode <typicode@gmail.com>"
   },
   {
