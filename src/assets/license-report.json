@@ -19,8 +19,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "15.0.3",
-    "installedVersion": "15.0.3",
+    "comment": "15.0.4",
+    "installedVersion": "15.0.4",
     "author": "n/a"
   },
   {
@@ -67,8 +67,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "15.0.3",
-    "installedVersion": "15.0.3",
+    "comment": "15.0.4",
+    "installedVersion": "15.0.4",
     "author": "n/a"
   },
   {
@@ -83,8 +83,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "15.0.3",
-    "installedVersion": "15.0.3",
+    "comment": "15.0.4",
+    "installedVersion": "15.0.4",
     "author": "n/a"
   },
   {
@@ -131,8 +131,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.4.62",
-    "installedVersion": "0.4.62",
+    "comment": "0.4.63",
+    "installedVersion": "0.4.63",
     "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
@@ -187,8 +187,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.5.54",
-    "installedVersion": "0.5.54",
+    "comment": "0.5.55",
+    "installedVersion": "0.5.55",
     "author": "n/a"
   },
   {
