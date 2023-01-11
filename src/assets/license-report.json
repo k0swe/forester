@@ -235,16 +235,16 @@
     "name": "@angular-devkit/architect",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "0.1500.4",
-    "installedVersion": "0.1500.4",
+    "comment": "0.1500.5",
+    "installedVersion": "0.1500.5",
     "author": "Angular Authors"
   },
   {
     "name": "@angular-devkit/build-angular",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "15.0.4",
-    "installedVersion": "15.0.4",
+    "comment": "15.0.5",
+    "installedVersion": "15.0.5",
     "author": "Angular Authors"
   },
   {
@@ -291,8 +291,8 @@
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "15.0.4",
-    "installedVersion": "15.0.4",
+    "comment": "15.0.5",
+    "installedVersion": "15.0.5",
     "author": "Angular Authors"
   },
   {
@@ -315,8 +315,8 @@
     "name": "@google-cloud/firestore",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/googleapis/nodejs-firestore.git",
-    "comment": "6.4.1",
-    "installedVersion": "6.4.1",
+    "comment": "6.4.2",
+    "installedVersion": "6.4.2",
     "author": "Google Inc."
   },
   {
@@ -355,16 +355,16 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.48.0",
-    "installedVersion": "5.48.0",
+    "comment": "5.48.1",
+    "installedVersion": "5.48.1",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.48.0",
-    "installedVersion": "5.48.0",
+    "comment": "5.48.1",
+    "installedVersion": "5.48.1",
     "author": "n/a"
   },
   {
@@ -395,8 +395,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "11.19.0",
-    "installedVersion": "11.19.0",
+    "comment": "11.20.0",
+    "installedVersion": "11.20.0",
     "author": "Firebase (https://firebase.google.com/)"
   },
   {
@@ -515,8 +515,8 @@
     "name": "prettier",
     "licenseType": "MIT",
     "link": "git+https://github.com/prettier/prettier.git",
-    "comment": "2.8.1",
-    "installedVersion": "2.8.1",
+    "comment": "2.8.2",
+    "installedVersion": "2.8.2",
     "author": "James Long"
   },
   {
