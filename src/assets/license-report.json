@@ -395,8 +395,8 @@
     "name": "firebase-tools",
     "licenseType": "MIT",
     "link": "git+https://github.com/firebase/firebase-tools.git",
-    "comment": "11.22.0",
-    "installedVersion": "11.22.0",
+    "comment": "11.23.0",
+    "installedVersion": "11.23.0",
     "author": "Firebase (https://firebase.google.com/)"
   },
   {
@@ -499,8 +499,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "13.1.1",
-    "installedVersion": "13.1.1",
+    "comment": "13.1.2",
+    "installedVersion": "13.1.2",
     "author": "Andrey Okonetchnikov <andrey@okonet.ru>"
   },
   {
