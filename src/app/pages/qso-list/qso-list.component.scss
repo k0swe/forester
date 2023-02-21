@@ -169,4 +169,5 @@ td.mat-mdc-cell {
 
 .flag {
   @include mat.typography-level($kel-emoji-typography, body-2);
+  text-shadow: 1px 1px #ccc;
 }
