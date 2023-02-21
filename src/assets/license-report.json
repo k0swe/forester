@@ -355,16 +355,16 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.52.0",
-    "installedVersion": "5.52.0",
+    "comment": "5.53.0",
+    "installedVersion": "5.53.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.52.0",
-    "installedVersion": "5.52.0",
+    "comment": "5.53.0",
+    "installedVersion": "5.53.0",
     "author": "n/a"
   },
   {
@@ -507,8 +507,8 @@
     "name": "open",
     "licenseType": "MIT",
     "link": "git+https://github.com/sindresorhus/open.git",
-    "comment": "8.4.1",
-    "installedVersion": "8.4.1",
+    "comment": "8.4.2",
+    "installedVersion": "8.4.2",
     "author": "Sindre Sorhus sindresorhus@gmail.com https://sindresorhus.com"
   },
   {
