@@ -11,6 +11,10 @@ export class NewLogbookDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<NewLogbookDialogComponent>) {}
 
+  create(): void {
+    this.dialogRef.close({ data: this.newLogbookCallsign });
+  }
+
   cancel(): void {
     this.dialogRef.close();
   }
