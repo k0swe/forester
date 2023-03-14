@@ -347,24 +347,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "18.14.6",
-    "installedVersion": "18.14.6",
+    "comment": "18.15.3",
+    "installedVersion": "18.15.3",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.54.1",
-    "installedVersion": "5.54.1",
+    "comment": "5.55.0",
+    "installedVersion": "5.55.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "BSD-2-Clause",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "5.54.1",
-    "installedVersion": "5.54.1",
+    "comment": "5.55.0",
+    "installedVersion": "5.55.0",
     "author": "n/a"
   },
   {
@@ -379,8 +379,8 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.35.0",
-    "installedVersion": "8.35.0",
+    "comment": "8.36.0",
+    "installedVersion": "8.36.0",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
@@ -499,8 +499,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "13.1.2",
-    "installedVersion": "13.1.2",
+    "comment": "13.2.0",
+    "installedVersion": "13.2.0",
     "author": "Andrey Okonetchnikov <andrey@okonet.ru>"
   },
   {
