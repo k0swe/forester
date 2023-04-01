@@ -1,0 +1,60 @@
+name: Update Go and Javascript dependencies
+on: workflow_dispatch
+
+jobs:
+  update-go:
+    name: Update Go dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.19.x
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Update Go dependencies
+        run: |
+          go get -u
+          go mod tidy
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: '${{ secrets.GH_PAT }}'
+          add-paths: |
+            go.mod
+            go.sum
+          commit-message: go get -u
+          title: go get -u
+          branch: go-update
+          author: 'github-actions <github-actions@github.com>'
+
+  update-js:
+    name: Update Javascript dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Update Javascript dependencies
+        working-directory: javascript/functions
+        run: npm update
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: '${{ secrets.GH_PAT }}'
+          add-paths: 'javascript/functions/package*.json'
+          commit-message: npm update
+          title: npm update
+          branch: npm-update
+          author: 'github-actions <github-actions@github.com>'

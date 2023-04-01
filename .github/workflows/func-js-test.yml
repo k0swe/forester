@@ -1,0 +1,28 @@
+name: (Reusable) Test Javascript
+on: workflow_call
+
+jobs:
+
+  test-js:
+    name: Build and test Javascript functions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cache node deps
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-deps
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Test
+        run: make build-js
