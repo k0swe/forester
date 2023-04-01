@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "forester",
-      "public": "dist/forester",
+      "public": "web/dist/forester",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "headers": [
         {
