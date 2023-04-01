@@ -22,10 +22,10 @@ jobs:
       - name: Cache node deps
         uses: actions/cache@v3
         env:
-          cache-name: cache-node-deps
+          cache-name: cache-web-node-deps
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('web/package-lock.json') }}
 
       - name: Cache emulator
         uses: actions/cache@v3
@@ -33,15 +33,15 @@ jobs:
           cache-name: cache-firebase-emulator
         with:
           path: /home/runner/.cache/firebase/emulators
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          key: ${{ runner.os }}-${{ env.cache-name }}
 
       - name: Cache build artifacts
         uses: actions/cache@v3
         env:
-          cache-name: cache-build-artifacts
+          cache-name: cache-web-build-artifacts
         with:
-          path: dist/
-          key: ${{ runner.os }}-web-${{ env.cache-name }}-${{ github.sha }}
+          path: web/dist/
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ github.sha }}
 
       - name: Install npm deps
         run: npm ci

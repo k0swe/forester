@@ -23,10 +23,10 @@ jobs:
         id: read-cache
         uses: actions/cache@v3
         env:
-          cache-name: cache-build-artifacts
+          cache-name: cache-web-build-artifacts
         with:
-          path: dist/
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.sha }}
+          path: web/dist/
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ github.sha }}
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
