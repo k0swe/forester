@@ -1,14 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/firebase,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=firebase,node
-
-### Firebase ###
-.idea
-**/node_modules/*
-**/.firebaserc
-
-### Firebase Patch ###
-.runtimeconfig.json
-.firebase/
+# Created by https://www.toptal.com/developers/gitignore/api/node
+# Edit at https://www.toptal.com/developers/gitignore?templates=node
 
 ### Node ###
 # Logs
@@ -150,6 +141,6 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
-# End of https://www.toptal.com/developers/gitignore/api/firebase,node
+# End of https://www.toptal.com/developers/gitignore/api/node
 
 firestore-coverage.html
