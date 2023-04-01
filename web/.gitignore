@@ -1,50 +1,38 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Created by https://www.toptal.com/developers/gitignore/api/angular
+# Edit at https://www.toptal.com/developers/gitignore?templates=angular
 
+### Angular ###
+## Angular ##
 # compiled output
-/dist
-/tmp
-/out-tsc
-/src/environments/versions.prod.ts
-# Only exists if Bazel was run
-/bazel-out
+dist/
+tmp/
+app/**/*.js
+app/**/*.js.map
 
 # dependencies
-/node_modules
-
-# profiling files
-chrome-profiler-events*.json
-speed-measure-plugin*.json
+node_modules/
+bower_components/
 
 # IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+.idea/
 
 # misc
-/.angular/cache
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
+.sass-cache/
+connect.lock/
+coverage/
+libpeerconnection.log/
 npm-debug.log
-yarn-error.log
 testem.log
-/typings
-/.firebase/
-*.log
+typings/
+.angular/
+
+# e2e
+e2e/*.js
+e2e/*.map
 
 # System Files
-.DS_Store
-Thumbs.db
+.DS_Store/
+
+# End of https://www.toptal.com/developers/gitignore/api/angular
+
+src/environments/versions.prod.ts
