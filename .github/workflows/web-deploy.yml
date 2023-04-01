@@ -33,6 +33,7 @@ jobs:
         with:
           args: deploy
         env:
+          PROJECT_ID: k0swe-kellog
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Tag as deployed
