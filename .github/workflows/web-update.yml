@@ -1,5 +1,9 @@
-name: npm update
+name: npm update (web)
 on: workflow_dispatch
+
+defaults:
+  run:
+    working-directory: web
 
 jobs:
   npm-update:
@@ -16,7 +20,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Cache node deps
         uses: actions/cache@v3
@@ -35,9 +39,9 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          token: '${{ secrets.GH_PAT }}'
-          add-paths: 'package*.json'
+          token: "${{ secrets.GH_PAT }}"
+          add-paths: "package*.json"
           commit-message: npm update
           title: npm update
           branch: npm-update
-          author: 'github-actions <github-actions@github.com>'
+          author: "github-actions <github-actions@github.com>"
