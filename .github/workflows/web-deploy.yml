@@ -1,10 +1,14 @@
-name: Deploy
+name: Deploy Web
 
 on: workflow_dispatch
 
+defaults:
+  run:
+    working-directory: web
+
 jobs:
   test:
-    uses: k0swe/forester/.github/workflows/test-shared.yml@main
+    uses: k0swe/forester/.github/workflows/web-test-shared.yml@main
 
   firebase-deploy:
     name: Deploy to Firebase Hosting

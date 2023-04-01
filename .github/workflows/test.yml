@@ -1,15 +1,14 @@
-name: Test
+name: Test and Compile
 
 on:
   push:
-    branches-ignore:
-      - 'renovate/**'
-    tags-ignore:
-      - deploy
+    branches: ["main"]
   pull_request:
-    branches:
-      - '**'
+    branches: ["main"]
 
 jobs:
-  test:
-    uses: k0swe/forester/.github/workflows/test-shared.yml@main
+  test-web:
+    uses: k0swe/forester/.github/workflows/web-test-shared.yml@main
+
+  test-firestore:
+    uses: k0swe/forester/.github/workflows/firestore-test-shared.yml@main
