@@ -1,5 +1,4 @@
 # forester javascript Functions
 
-The functions in this path are for use cases that don't support golang.
-
-https://firebase.google.com/docs/functions/firestore-events
+[Firebase Functions](https://firebase.google.com/docs/functions/firestore-events) written in
+Javascript. These functions support triggers that are not supported by GCF/Go.

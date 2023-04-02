@@ -1,4 +1,4 @@
-# forester go functions
+# forester Go functions
 
-Serverless cloud functions to support K0SWE's [Forester](https://github.com/k0swe/forester) amateur
-radio logger.
+[Google Cloud Functions](https://cloud.google.com/functions) written in Go. These are the bulk of
+the application's cloud functions.
