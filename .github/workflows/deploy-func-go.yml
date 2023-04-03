@@ -1,5 +1,9 @@
-name: (Reusable) Deploy Golang Functions
-on: workflow_dispatch
+name: "{Reusable} Deploy Golang Functions"
+on:
+  workflow_call:
+    secrets:
+      GCP_SA_KEY:
+        required: true
 
 defaults:
   run:
@@ -30,6 +34,7 @@ jobs:
       - name: Cloud Functions Deploy
         uses: google-github-actions/deploy-cloud-functions@main
         with:
+          source_dir: functions/go-func/
           name: ${{ matrix.function-name }}
           entry_point: ${{ matrix.function-name }}
           runtime: go119
@@ -63,6 +68,7 @@ jobs:
       - name: Cloud Functions Deploy
         uses: google-github-actions/deploy-cloud-functions@main
         with:
+          source_dir: functions/go-func/
           name: ${{ matrix.function-spec.name }}
           entry_point: ${{ matrix.function-spec.name }}
           event_trigger_type: google.pubsub.topic.publish

@@ -1,5 +1,9 @@
-name: (Reusable) Update Web dependencies
-on: workflow_call
+name: "{Reusable} Update Web dependencies"
+on:
+  workflow_call:
+    secrets:
+      GH_PAT:
+        required: true
 
 defaults:
   run:

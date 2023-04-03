@@ -4,9 +4,15 @@ on: workflow_dispatch
 jobs:
   update-web:
     uses: k0swe/forester/.github/workflows/update-web.yml@main
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}
 
   update-func-js:
-    uses: k0swe/forester/.github/workflows/update-func-go.yml@main
+    uses: k0swe/forester/.github/workflows/update-func-js.yml@main
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}
 
   update-func-go:
-    uses: k0swe/forester/.github/workflows/update-func-js.yml@main
+    uses: k0swe/forester/.github/workflows/update-func-go.yml@main
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}

@@ -14,6 +14,7 @@
     "indexes": "firestore/firestore.indexes.json"
   },
   "functions": {
+    "source": "functions/js-func",
     "predeploy": [
       "npm --prefix \"$RESOURCE_DIR\" run lint",
       "npm --prefix \"$RESOURCE_DIR\" run build"

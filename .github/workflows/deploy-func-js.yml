@@ -1,5 +1,9 @@
-name: (Reusable) Deploy Javascript Functions
-on: workflow_dispatch
+name: "{Reusable} Deploy Javascript Functions"
+on:
+  workflow_call:
+    secrets:
+      FIREBASE_TOKEN:
+        required: true
 
 defaults:
   run:
@@ -40,4 +44,4 @@ jobs:
       - name: Deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: npx firebase deploy --only functions --token "$FIREBASE_TOKEN"
+        run: npx firebase deploy --project k0swe-kellog --only functions --token "$FIREBASE_TOKEN"

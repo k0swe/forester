@@ -11,10 +11,10 @@ jobs:
     uses: k0swe/forester/.github/workflows/test-firestore.yml@main
 
   test-func-go:
-    uses: k0swe/forester/.github/workflows/test-func-js.yml@main
+    uses: k0swe/forester/.github/workflows/test-func-go.yml@main
 
   test-func-js:
-    uses: k0swe/forester/.github/workflows/test-func-go.yml@main
+    uses: k0swe/forester/.github/workflows/test-func-js.yml@main
 
   test-web:
     uses: k0swe/forester/.github/workflows/test-web.yml@main

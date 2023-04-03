@@ -1,6 +1,9 @@
-name: (Reusable) Deploy Web
-
-on: workflow_dispatch
+name: "{Reusable} Deploy Web"
+on:
+  workflow_call:
+    secrets:
+      FIREBASE_TOKEN:
+        required: true
 
 defaults:
   run:
@@ -19,6 +22,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Setup Firebase CLI
+        run: npm i -g firebase-tools
+
       - name: Read cached build artifacts
         id: read-cache
         uses: actions/cache@v3
@@ -28,10 +39,7 @@ jobs:
           path: web/dist/
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ github.sha }}
 
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy
+      - name: Deploy
         env:
-          PROJECT_ID: k0swe-kellog
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: npx firebase deploy --project k0swe-kellog --only hosting --token "$FIREBASE_TOKEN"

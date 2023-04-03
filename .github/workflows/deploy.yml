@@ -3,19 +3,28 @@ on: workflow_dispatch
 
 jobs:
   deploy-func-go:
-    uses: k0swe/forester/.github/workflows/deploy-func-js.yml@main
+    uses: k0swe/forester/.github/workflows/deploy-func-go.yml@main
+    secrets:
+      GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
 
   deploy-func-js:
-    uses: k0swe/forester/.github/workflows/deploy-func-go.yml@main
+    uses: k0swe/forester/.github/workflows/deploy-func-js.yml@main
+    secrets:
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
   deploy-web:
     uses: k0swe/forester/.github/workflows/deploy-web.yml@main
+    secrets:
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
   notify:
     runs-on: ubuntu-latest
     needs: [deploy-func-go, deploy-func-js, deploy-web]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Tag as deployed
         run: |
           git config --global user.name github-actions

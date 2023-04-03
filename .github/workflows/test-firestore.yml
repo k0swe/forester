@@ -1,4 +1,4 @@
-name: (Reusable) Test Firestore Rules
+name: "{Reusable} Test Firestore Rules"
 on: workflow_call
 
 defaults:

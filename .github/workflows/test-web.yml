@@ -1,4 +1,4 @@
-name: (Reusable) Test Web
+name: "{Reusable} Test Web"
 on: workflow_call
 
 defaults:
