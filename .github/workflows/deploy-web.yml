@@ -1,4 +1,4 @@
-name: Deploy Web
+name: (Reusable) Deploy Web
 
 on: workflow_dispatch
 
@@ -8,9 +8,9 @@ defaults:
 
 jobs:
   test:
-    uses: k0swe/forester/.github/workflows/web-test-shared.yml@main
+    uses: k0swe/forester/.github/workflows/test-web.yml@main
 
-  firebase-deploy:
+  firebase-deploy-hosting:
     name: Deploy to Firebase Hosting
     needs: test
     runs-on: ubuntu-latest
@@ -35,18 +35,3 @@ jobs:
         env:
           PROJECT_ID: k0swe-kellog
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
-      - name: Tag as deployed
-        run: |
-          git config --global user.name github-actions
-          git config --global user.email github-actions@github.com
-          git tag deployed --force
-          git push --tags --force
-
-      - name: Google Chat Notification
-        uses: Co-qn/google-chat-notification@v1
-        with:
-          name: Forester Deploy
-          url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
-          status: ${{ job.status }}
-        if: always()

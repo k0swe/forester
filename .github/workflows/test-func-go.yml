@@ -1,5 +1,9 @@
-name: (Reusable) Test Golang
+name: (Reusable) Test Golang Functions
 on: workflow_call
+
+defaults:
+  run:
+    working-directory: functions/go-func/
 
 jobs:
   test-go:

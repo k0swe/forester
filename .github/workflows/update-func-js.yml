@@ -1,0 +1,33 @@
+name: (Reusable) Update Javascript Function dependencies
+on: workflow_call
+
+defaults:
+  run:
+    working-directory: functions/js-func/
+
+jobs:
+  update-js-func:
+    name: Update Javascript Function dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Update Javascript dependencies
+        run: npm update
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: "${{ secrets.GH_PAT }}"
+          add-paths: "package*.json"
+          commit-message: npm update (js-func)
+          title: npm update (js-func)
+          branch: update-js-func
+          author: "github-actions <github-actions@github.com>"
