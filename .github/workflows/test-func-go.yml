@@ -1,0 +1,23 @@
+name: (Reusable) Test Golang Functions
+on: workflow_call
+
+defaults:
+  run:
+    working-directory: functions/go-func/
+
+jobs:
+  test-go:
+    name: Build and test Golang functions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.19.x
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Test
+        run: make build-go

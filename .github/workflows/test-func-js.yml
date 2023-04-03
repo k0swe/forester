@@ -1,0 +1,31 @@
+name: (Reusable) Test Javascript Functions
+on: workflow_call
+
+defaults:
+  run:
+    working-directory: functions/js-func/
+
+jobs:
+  test-js:
+    name: Build and test Javascript functions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cache node deps
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-jsfunc-node-deps
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('functions/js-func/package-lock.json') }}
+
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Test
+        run: make build-js

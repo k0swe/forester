@@ -1,0 +1,12 @@
+name: Update Dependencies
+on: workflow_dispatch
+
+jobs:
+  update-web:
+    uses: k0swe/forester/.github/workflows/update-web.yml@main
+
+  update-func-js:
+    uses: k0swe/forester/.github/workflows/update-func-go.yml@main
+
+  update-func-go:
+    uses: k0swe/forester/.github/workflows/update-func-js.yml@main

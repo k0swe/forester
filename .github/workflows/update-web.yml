@@ -1,13 +1,13 @@
-name: npm update (web)
-on: workflow_dispatch
+name: (Reusable) Update Web dependencies
+on: workflow_call
 
 defaults:
   run:
     working-directory: web
 
 jobs:
-  npm-update:
-    name: npm update
+  update-web:
+    name: Update Web dependencies
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -41,7 +41,7 @@ jobs:
         with:
           token: "${{ secrets.GH_PAT }}"
           add-paths: "package*.json"
-          commit-message: npm update
-          title: npm update
-          branch: npm-update
+          commit-message: npm update (web)
+          title: npm update (web)
+          branch: update-web
           author: "github-actions <github-actions@github.com>"

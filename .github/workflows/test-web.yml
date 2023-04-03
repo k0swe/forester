@@ -1,4 +1,4 @@
-name: (Reusable) Test and Compile Web
+name: (Reusable) Test Web
 on: workflow_call
 
 defaults:
@@ -7,7 +7,7 @@ defaults:
 
 jobs:
   test-web:
-    name: Test and Compile
+    name: Build and test Web
     runs-on: ubuntu-latest
 
     steps:
