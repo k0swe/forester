@@ -44,7 +44,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: "${{ secrets.GH_PAT }}"
-          add-paths: "package*.json"
+          add-paths: "web/package*.json"
           commit-message: npm update (web)
           title: npm update (web)
           branch: update-web

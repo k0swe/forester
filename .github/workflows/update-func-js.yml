@@ -33,7 +33,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: "${{ secrets.GH_PAT }}"
-          add-paths: "package*.json"
+          add-paths: "functions/js-func/package*.json"
           commit-message: npm update (js-func)
           title: npm update (js-func)
           branch: update-js-func
