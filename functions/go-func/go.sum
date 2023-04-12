@@ -104,6 +104,8 @@ github.com/k0swe/lotw-qsl v0.3.40 h1:cZim49+AcaIue6iwbNfmDSl6OFvFxXBIyECPEwmquCI
 github.com/k0swe/lotw-qsl v0.3.40/go.mod h1:1xNVMc4re/di+CE+v3XfeD141VuCn0gKl1L5Befxkxs=
 github.com/k0swe/qrz-api v0.2.27 h1:Qtq0vLo8Ds3/LJWuTzFNqECib4D+7luA2vh1+l+dasY=
 github.com/k0swe/qrz-api v0.2.27/go.mod h1:+BzHadtwRIseKQxROoxtl3ZzTeI/LgBvbpcPLFElURs=
+github.com/k0swe/qrz-api v0.2.28 h1:q+rcTM8x3dtGvjnOak9A6F+trUVyqAesmWR7mepLDDY=
+github.com/k0swe/qrz-api v0.2.28/go.mod h1:RTclY5rwoP6rzfQhqV6hgdInpUpTGmtZgGT7/g34f58=
 github.com/k0swe/qrz-logbook v0.2.27 h1:mFkDAe6PgGNw9vsZ+4SRdHxaeqsCGFuTPlkUULKiHf4=
 github.com/k0swe/qrz-logbook v0.2.27/go.mod h1:3oJM8qyu3dirDtLOzsVzVD6rZs7VLk4e5RDbt6R8eys=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
