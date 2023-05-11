@@ -110,6 +110,8 @@ github.com/k0swe/lotw-qsl v0.3.39 h1:78GbK/GIvYDQFQfASFWfUYDalXsnqINMynuKGzEDIts
 github.com/k0swe/lotw-qsl v0.3.39/go.mod h1:jq4ftyizIvR0zW9LAF8CF81hJVpukT/ZNQNv3ljqsj8=
 github.com/k0swe/lotw-qsl v0.3.40 h1:cZim49+AcaIue6iwbNfmDSl6OFvFxXBIyECPEwmquCI=
 github.com/k0swe/lotw-qsl v0.3.40/go.mod h1:1xNVMc4re/di+CE+v3XfeD141VuCn0gKl1L5Befxkxs=
+github.com/k0swe/lotw-qsl v0.3.41 h1:zmK9rByT6f8bYJx/fVsYfi36T+qrszEHtXa9pvuEDHk=
+github.com/k0swe/lotw-qsl v0.3.41/go.mod h1:vO/u07HWRLzN0Q1AaX7IRZ6bFfmAUTWw64ZY+5XmfNk=
 github.com/k0swe/qrz-api v0.2.27 h1:Qtq0vLo8Ds3/LJWuTzFNqECib4D+7luA2vh1+l+dasY=
 github.com/k0swe/qrz-api v0.2.27/go.mod h1:+BzHadtwRIseKQxROoxtl3ZzTeI/LgBvbpcPLFElURs=
 github.com/k0swe/qrz-api v0.2.28 h1:q+rcTM8x3dtGvjnOak9A6F+trUVyqAesmWR7mepLDDY=

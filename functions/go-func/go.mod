@@ -12,7 +12,7 @@ require (
 	github.com/imdario/mergo v0.3.15
 	github.com/jinzhu/copier v0.3.5
 	github.com/k0swe/adif-json-protobuf/go v0.0.8
-	github.com/k0swe/lotw-qsl v0.3.40
+	github.com/k0swe/lotw-qsl v0.3.41
 	github.com/k0swe/qrz-api v0.2.28
 	github.com/k0swe/qrz-logbook v0.2.28
 	golang.org/x/oauth2 v0.8.0
