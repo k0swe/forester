@@ -122,6 +122,8 @@ github.com/k0swe/qrz-logbook v0.2.27 h1:mFkDAe6PgGNw9vsZ+4SRdHxaeqsCGFuTPlkUULKi
 github.com/k0swe/qrz-logbook v0.2.27/go.mod h1:3oJM8qyu3dirDtLOzsVzVD6rZs7VLk4e5RDbt6R8eys=
 github.com/k0swe/qrz-logbook v0.2.28 h1:vGbCwenqpUu3Ql9YPFwAG+EG/8u6h+ddVieJo7N9zkk=
 github.com/k0swe/qrz-logbook v0.2.28/go.mod h1:FDsDguHheU+KCsnTH8spvQLqK/I6fKHptjW1iKhW0Rw=
+github.com/k0swe/qrz-logbook v0.2.29 h1:Tvy83Ii2S6qdp2BJq5GpK6yiA+Ne8xJ/q3G3lOhrAp8=
+github.com/k0swe/qrz-logbook v0.2.29/go.mod h1:PFdUX9llVEUfY/7h9coLEdEwQIZUMj9oTv/sNQiogmo=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 github.com/rogpeppe/fastuuid v1.2.0/go.mod h1:jVj6XXZzXRy/MSR5jhDC/2q6DgLz+nrA6LYCDYWNEvQ=
