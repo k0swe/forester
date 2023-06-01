@@ -3,7 +3,7 @@ module github.com/k0swe/forester-func
 go 1.19
 
 require (
-	cloud.google.com/go/firestore v1.9.0
+	cloud.google.com/go/firestore v1.10.0
 	cloud.google.com/go/pubsub v1.31.0
 	cloud.google.com/go/secretmanager v1.11.0
 	firebase.google.com/go/v4 v4.11.0
@@ -26,7 +26,7 @@ require (
 	cloud.google.com/go/compute v1.19.3 // indirect
 	cloud.google.com/go/compute/metadata v0.2.3 // indirect
 	cloud.google.com/go/iam v1.0.1 // indirect
-	cloud.google.com/go/longrunning v0.4.1 // indirect
+	cloud.google.com/go/longrunning v0.4.2 // indirect
 	cloud.google.com/go/storage v1.30.1 // indirect
 	github.com/MicahParks/keyfunc v1.9.0 // indirect
 	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
