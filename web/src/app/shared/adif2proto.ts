@@ -61,9 +61,9 @@ export class Adif2Proto {
     qso.swl = this.getBool(record.swl);
   }
 
-  private static translateAppDefined(record: {
-    [p: string]: string;
-  }): { [key: string]: string } {
+  private static translateAppDefined(record: { [p: string]: string }): {
+    [key: string]: string;
+  } {
     const retval: { [key: string]: string } = {};
     for (const field in record) {
       if (field.startsWith('app_')) {
