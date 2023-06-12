@@ -7,27 +7,25 @@ describe('AgentComponent', () => {
   let component: AgentComponent;
   let fixture: ComponentFixture<AgentComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [AgentComponent],
-        providers: [
-          {
-            provide: AngularFireAuth,
-            useValue: {
-              signInWithPopup: () => null,
-            },
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [AgentComponent],
+      providers: [
+        {
+          provide: AngularFireAuth,
+          useValue: {
+            signInWithPopup: () => null,
           },
-          {
-            provide: AngularFirestore,
-            useValue: {
-              doc: () => null,
-            },
+        },
+        {
+          provide: AngularFirestore,
+          useValue: {
+            doc: () => null,
           },
-        ],
-      }).compileComponents();
-    })
-  );
+        },
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AgentComponent);

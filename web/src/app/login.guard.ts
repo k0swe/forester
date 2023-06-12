@@ -1,6 +1,5 @@
 import {
   ActivatedRouteSnapshot,
-  CanActivate,
   Router,
   RouterStateSnapshot,
   UrlTree,
@@ -13,7 +12,7 @@ import { switchMap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginGuard implements CanActivate {
+export class LoginGuard {
   constructor(private router: Router, private authService: AuthService) {}
 
   canActivate(

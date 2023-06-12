@@ -8,24 +8,22 @@ describe('WasComponent', () => {
   let component: WasComponent;
   let fixture: ComponentFixture<WasComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [WasComponent],
-        imports: [GoogleMapsModule],
-        providers: [
-          {
-            provide: QsoService,
-            useValue: {
-              init: () => null,
-              findWASQso: () =>
-                of({ qso: { contactedStation: { contactedCall: 'N0CALL' } } }),
-            },
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [WasComponent],
+      imports: [GoogleMapsModule],
+      providers: [
+        {
+          provide: QsoService,
+          useValue: {
+            init: () => null,
+            findWASQso: () =>
+              of({ qso: { contactedStation: { contactedCall: 'N0CALL' } } }),
           },
-        ],
-      }).compileComponents();
-    })
-  );
+        },
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(WasComponent);
