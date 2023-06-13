@@ -25,7 +25,8 @@ jobs:
 
       - name: npm update
         run: |
-          npm install
+          npx npm-check-updates -u -x typescript
+          npm install -f
           npm update
           npm install
 
