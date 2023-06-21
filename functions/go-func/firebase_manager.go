@@ -9,7 +9,7 @@ import (
 	firebase "firebase.google.com/go/v4"
 	"firebase.google.com/go/v4/auth"
 	"fmt"
-	"github.com/imdario/mergo"
+	"dario.cat/mergo"
 	"github.com/jinzhu/copier"
 	adifpb "github.com/k0swe/adif-json-protobuf/go"
 	"golang.org/x/oauth2"
