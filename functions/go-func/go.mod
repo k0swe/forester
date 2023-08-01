@@ -7,7 +7,7 @@ require (
 	cloud.google.com/go/pubsub v1.31.0
 	cloud.google.com/go/secretmanager v1.11.1
 	dario.cat/mergo v1.0.0
-	firebase.google.com/go/v4 v4.11.0
+	firebase.google.com/go/v4 v4.12.0
 	github.com/Matir/adifparser v0.0.0-20230124172935-2c465737f437
 	github.com/antihax/optional v1.0.0
 	github.com/jinzhu/copier v0.3.5
