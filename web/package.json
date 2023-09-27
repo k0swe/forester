@@ -69,7 +69,7 @@
     "@types/node": "20.7.0",
     "@typescript-eslint/eslint-plugin": "6.7.3",
     "@typescript-eslint/parser": "6.7.3",
-    "dedent": "0.7.0",
+    "dedent": "1.5.1",
     "eslint": "8.50.0",
     "firebase-admin": "11.10.1",
     "firebase-tools": "12.6.0",
