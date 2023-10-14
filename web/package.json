@@ -49,7 +49,7 @@
     "rxjs": "7.8.1",
     "ts-protoc-gen": "0.15.0",
     "tslib": "2.6.2",
-    "zone.js": "0.14.0"
+    "zone.js": "0.13.3"
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.1602.6",
