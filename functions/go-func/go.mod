@@ -13,7 +13,7 @@ require (
 	github.com/jinzhu/copier v0.4.0
 	github.com/k0swe/adif-json-protobuf/go v0.0.8
 	github.com/k0swe/lotw-qsl v0.3.44
-	github.com/k0swe/qrz-api v0.2.31
+	github.com/k0swe/qrz-api v0.2.32
 	github.com/k0swe/qrz-logbook v0.2.31
 	golang.org/x/oauth2 v0.13.0
 	google.golang.org/api v0.146.0
