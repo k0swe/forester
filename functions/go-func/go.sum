@@ -108,6 +108,8 @@ github.com/k0swe/qrz-logbook v0.2.30 h1:gfS7/zvk8noyVVkYQOiF8ifjkNIfpkxPmpOXn5yb
 github.com/k0swe/qrz-logbook v0.2.30/go.mod h1:sGhiUHTmta/gnlQKeXAuTDkyRBE80C7xUAL25mCgAq8=
 github.com/k0swe/qrz-logbook v0.2.31 h1:HHSErVMpRtDpak9GRcOu8k6up6jZsuBTjl/Y5jo2N3I=
 github.com/k0swe/qrz-logbook v0.2.31/go.mod h1:tnYLVrgQ2iH8XQGDxo+Nhun7TjrPCEM8J+x4AdPk+RQ=
+github.com/k0swe/qrz-logbook v0.2.32 h1:bPrVFtN8xp/7Hw9mnQSTESCiMSm723rKBpd2Odbf62c=
+github.com/k0swe/qrz-logbook v0.2.32/go.mod h1:efYf8a+VpFWeCWXhQHxvFscY7+0jbYMEDjrOGM+jSCs=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
