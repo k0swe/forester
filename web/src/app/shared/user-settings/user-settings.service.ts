@@ -1,5 +1,11 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Injectable, inject } from '@angular/core';
+import {
+  Firestore,
+  doc,
+  docData,
+  setDoc,
+  updateDoc,
+} from '@angular/fire/firestore';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -9,13 +15,11 @@ import { AuthService } from '../auth/auth.service';
   providedIn: 'root',
 })
 export class UserSettingsService {
+  private firestore: Firestore = inject(Firestore);
   settings$ = new BehaviorSubject<UserSettings>({});
   started = false;
 
-  constructor(
-    private authService: AuthService,
-    private firestore: AngularFirestore,
-  ) {}
+  constructor(private authService: AuthService) {}
 
   public init(): void {
     if (this.started === true) {
@@ -28,9 +32,7 @@ export class UserSettingsService {
           if (user == null) {
             return of({});
           }
-          return this.firestore
-            .doc<UserSettings>('users/' + user.uid)
-            .valueChanges();
+          return docData(doc(this.firestore, 'users', user.uid));
         }),
       )
       .subscribe((settings) => {
@@ -44,9 +46,9 @@ export class UserSettingsService {
 
   private createUserDocument(): void {
     const u = this.authService.user$.getValue();
-    this.firestore
-      .doc<UserSettings>('users/' + u.uid)
-      .set({ starredLogbooks: [] });
+    setDoc(doc(this.firestore, 'users', u.uid), <UserSettings>{
+      starredLogbooks: [],
+    });
   }
 
   public settings(): Observable<UserSettings> {
@@ -59,9 +61,9 @@ export class UserSettingsService {
         if (user == null) {
           return of(null);
         }
-        return this.firestore
-          .doc<UserSettings>('users/' + user.uid)
-          .update(values);
+        return updateDoc(doc(this.firestore, 'users', user.uid), {
+          ...values,
+        });
       }),
     );
   }

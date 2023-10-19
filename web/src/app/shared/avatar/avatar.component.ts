@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
+import { User } from '@angular/fire/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import firebase from 'firebase/compat/app';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -15,7 +15,7 @@ import { UserSettingsComponent } from '../user-settings/user-settings.component'
   styleUrls: ['./avatar.component.scss'],
 })
 export class AvatarComponent {
-  user$: Observable<firebase.User>;
+  user$: Observable<User>;
 
   constructor(
     public authService: AuthService,

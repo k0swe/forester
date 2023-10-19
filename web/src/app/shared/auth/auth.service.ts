@@ -1,37 +1,42 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import firebase from 'firebase/compat/app';
+import { Injectable, inject } from '@angular/core';
+import {
+  Auth,
+  FacebookAuthProvider,
+  GoogleAuthProvider,
+  User,
+  UserCredential,
+  fetchSignInMethodsForEmail,
+  signInWithPopup,
+  user,
+} from '@angular/fire/auth';
 import { BehaviorSubject, Observable, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  user$ = new BehaviorSubject<firebase.User | null>(null);
+  private auth: Auth = inject(Auth);
+  user$ = new BehaviorSubject<User | null>(null);
 
-  constructor(public afa: AngularFireAuth) {
-    this.afa.user.subscribe((u) => {
+  constructor() {
+    user(this.auth).subscribe((u) => {
       this.user$.next(u);
     });
   }
 
-  public loginGoogle(): Observable<firebase.auth.UserCredential> {
-    return from(
-      this.afa.signInWithPopup(new firebase.auth.GoogleAuthProvider()),
-    );
+  public loginGoogle(): Observable<UserCredential> {
+    return from(signInWithPopup(this.auth, new GoogleAuthProvider()));
   }
 
-  public loginFacebook(): Observable<firebase.auth.UserCredential> {
-    return from(
-      this.afa.signInWithPopup(new firebase.auth.FacebookAuthProvider()),
-    );
+  public loginFacebook(): Observable<UserCredential> {
+    return from(signInWithPopup(this.auth, new FacebookAuthProvider()));
   }
 
   public logout(): Observable<void> {
-    return from(this.afa.signOut());
+    return from(this.auth.signOut());
   }
 
   public getLoginProvidersFor(email: string): Observable<Array<string>> {
-    return from(this.afa.fetchSignInMethodsForEmail(email));
+    return from(fetchSignInMethodsForEmail(this.auth, email));
   }
 }
