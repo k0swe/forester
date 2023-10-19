@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { UserSettingsService } from './shared/user-settings/user-settings.service';
 
 @Component({

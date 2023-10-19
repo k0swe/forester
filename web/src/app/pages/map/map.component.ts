@@ -1,3 +1,4 @@
+import Maidenhead from '@amrato/maidenhead-ts';
 import {
   AfterViewInit,
   Component,
@@ -5,15 +6,15 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Duration, ZonedDateTime } from 'js-joda';
-import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
 import { GoogleMap } from '@angular/google-maps';
-import { LogbookService } from '../logbook/logbook.service';
-import { Observable, switchMap } from 'rxjs';
-import { Qso, Station } from '../../qso';
+import { Duration, ZonedDateTime } from 'js-joda';
 // @ts-ignore
 import moment from 'moment';
-import Maidenhead from '@amrato/maidenhead-ts';
+import { Observable, switchMap } from 'rxjs';
+
+import { Qso, Station } from '../../qso';
+import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
+import { LogbookService } from '../logbook/logbook.service';
 
 @Component({
   selector: 'kel-map',
@@ -39,7 +40,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   constructor(
     private logbookService: LogbookService,
-    private qsoService: QsoService
+    private qsoService: QsoService,
   ) {}
 
   ngOnInit(): void {
@@ -66,7 +67,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   private renderContactedMarker(fbq: FirebaseQso): void {
     const contactedLoc = MapComponent.getStationLocation(
-      fbq.qso.contactedStation
+      fbq.qso.contactedStation,
     );
     if (!contactedLoc) {
       return;
@@ -88,7 +89,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   private renderQsoPath(fbq: FirebaseQso) {
     const contactedLoc = MapComponent.getStationLocation(
-      fbq.qso.contactedStation
+      fbq.qso.contactedStation,
     );
     const loggingLoc = MapComponent.getStationLocation(fbq.qso.loggingStation);
     if (!loggingLoc || !contactedLoc) {
@@ -126,7 +127,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   static getStationLocation(
-    station: Station
+    station: Station,
   ): google.maps.LatLngLiteral | null {
     if (!!station.latitude && !!station.longitude) {
       return {

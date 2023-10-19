@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { forkJoin } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
-import { SecretService } from '../secret/secret.service';
+import { forkJoin } from 'rxjs';
+
 import {
   LogbookService,
   LogbookSettings,
 } from '../../pages/logbook/logbook.service';
 import { Station } from '../../qso';
+import { SecretService } from '../secret/secret.service';
 
 @Component({
   selector: 'kel-logbook-settings',
@@ -24,7 +25,7 @@ export class LogbookSettingsComponent implements OnInit {
     private dialog: MatDialogRef<any>,
     private fb: FormBuilder,
     private logbookService: LogbookService,
-    private secretService: SecretService
+    private secretService: SecretService,
   ) {
     this.logbookSettingsForm = fb.group({
       lotwUser: '',
@@ -34,7 +35,7 @@ export class LogbookSettingsComponent implements OnInit {
       qrzPass: '',
     });
     this.logbookSettingsForm.valueChanges.subscribe(() =>
-      this.enableSaveButton()
+      this.enableSaveButton(),
     );
   }
 
@@ -66,7 +67,7 @@ export class LogbookSettingsComponent implements OnInit {
         ['qrz_username', formValue.qrzUser],
         ['qrz_password', formValue.qrzPass],
       ]),
-      this.logbookService.logbookId$.getValue()
+      this.logbookService.logbookId$.getValue(),
     );
 
     this.dialog.close(forkJoin([qthObs, secretsObs]));

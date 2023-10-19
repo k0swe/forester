@@ -1,4 +1,3 @@
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import {
   Component,
   EventEmitter,
@@ -7,12 +6,14 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { DxccRef } from '../../reference/dxcc';
-import { Observable } from 'rxjs';
-import { Station } from '../../qso';
-import { StationLocationValidator } from './station-location-validator';
-import { map } from 'rxjs/operators';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import isEqual from 'lodash/isEqual';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { Station } from '../../qso';
+import { DxccRef } from '../../reference/dxcc';
+import { StationLocationValidator } from './station-location-validator';
 
 const googleMapsSearchBase = 'https://www.google.com/maps/search/';
 
@@ -82,14 +83,14 @@ export class StationDetailComponent implements OnChanges {
   private setupCountryAutocomplete(): void {
     const countryField = this.stationDetailForm.get('country');
     this.filteredCountries$ = countryField.valueChanges.pipe(
-      map((countryInput) => this.filterCountries(countryInput))
+      map((countryInput) => this.filterCountries(countryInput)),
     );
   }
 
   private filterCountries(countryInput: string): string[] {
     const filterValue = countryInput.toUpperCase();
     return this.countries.filter((option) =>
-      option.toUpperCase().includes(filterValue)
+      option.toUpperCase().includes(filterValue),
     );
   }
 
@@ -97,7 +98,7 @@ export class StationDetailComponent implements OnChanges {
     const countryField = this.stationDetailForm.get('country');
     this.setDxccAndFlag(countryField.value);
     countryField.valueChanges.subscribe((countryInput) =>
-      this.setDxccAndFlag(countryInput)
+      this.setDxccAndFlag(countryInput),
     );
   }
 
@@ -120,7 +121,7 @@ export class StationDetailComponent implements OnChanges {
 
   private forceUpperCase(control: AbstractControl) {
     control.valueChanges.subscribe(() =>
-      control.patchValue(control.value.toUpperCase(), { emitEvent: false })
+      control.patchValue(control.value.toUpperCase(), { emitEvent: false }),
     );
   }
 

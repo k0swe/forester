@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, from, Observable, of } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AuthService } from '../../shared/auth/auth.service';
+import { BehaviorSubject, Observable, from, of } from 'rxjs';
 import { mergeMap, switchMap } from 'rxjs/operators';
-import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
+
 import { Station } from '../../qso';
+import { AuthService } from '../../shared/auth/auth.service';
+import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class LogbookService {
   constructor(
     private authService: AuthService,
     private firestore: AngularFirestore,
-    private userSettingsService: UserSettingsService
+    private userSettingsService: UserSettingsService,
   ) {}
 
   public init(): void {
@@ -34,7 +35,7 @@ export class LogbookService {
           return this.firestore
             .doc<LogbookSettings>('logbooks/' + logbookId)
             .valueChanges();
-        })
+        }),
       )
       .subscribe((settings) => {
         this.settings$.next(settings as LogbookSettings);
@@ -54,13 +55,13 @@ export class LogbookService {
     starredLogbooks.push(callsign);
     return from(
       // create the logbook
-      this.firestore.doc('logbooks/' + callsign).set({ editors: [user.uid] })
+      this.firestore.doc('logbooks/' + callsign).set({ editors: [user.uid] }),
       // TODO: handle logbook already exists
     ).pipe(
       mergeMap(
         // add the logbook to the user's starred list
-        () => this.userSettingsService.set({ starredLogbooks })
-      )
+        () => this.userSettingsService.set({ starredLogbooks }),
+      ),
     );
   }
 
@@ -77,7 +78,7 @@ export class LogbookService {
         return this.firestore
           .doc<LogbookSettings>('logbooks/' + logbookId)
           .update(values);
-      })
+      }),
     );
   }
 }

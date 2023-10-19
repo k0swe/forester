@@ -1,14 +1,15 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { LoginGuard } from './login.guard';
 import { CreditsComponent } from './pages/credits/credits.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LogbookComponent } from './pages/logbook/logbook.component';
-import { LoginComponent } from './shared/login/login.component';
-import { LoginGuard } from './login.guard';
 import { MapComponent } from './pages/map/map.component';
-import { NgModule } from '@angular/core';
 import { PrivacyAndTermsComponent } from './pages/privacy-and-terms/privacy-and-terms.component';
 import { QsoListComponent } from './pages/qso-list/qso-list.component';
-import { RouterModule, Routes } from '@angular/router';
 import { WasComponent } from './pages/was/was.component';
+import { LoginComponent } from './shared/login/login.component';
 
 const routes: Routes = [
   {

@@ -5,10 +5,10 @@
   <div class="inside" *ngIf="hamlib.rigState$ | async as rigState">
     {{ rigState.model }} <br />
     <span *ngIf="rigState.frequency / 1000 > 2000; else khz">
-      {{ rigState.frequency / 1000000 | number : '1.3-3' }} MHz
+      {{ rigState.frequency / 1000000 | number: '1.3-3' }} MHz
     </span>
     <ng-template #khz>
-      {{ rigState.frequency / 1000 | number : '1.2-2' }} kHz
+      {{ rigState.frequency / 1000 | number: '1.2-2' }} kHz
     </ng-template>
     {{ rigState.mode }}
   </div>

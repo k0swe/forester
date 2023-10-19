@@ -1,10 +1,11 @@
-import { AuthService } from '../../shared/auth/auth.service';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../shared/auth/auth.service';
 import { NewLogbookDialogComponent } from '../../shared/new-logbook-dialog/new-logbook-dialog.component';
 import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
 import { LogbookService } from '../logbook/logbook.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'kel-home',
@@ -17,7 +18,7 @@ export class HomeComponent {
     public dialog: MatDialog,
     private logbookService: LogbookService,
     private router: Router,
-    public userSettingsService: UserSettingsService
+    public userSettingsService: UserSettingsService,
   ) {}
 
   createLogbook(): void {

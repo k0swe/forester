@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Observable, of, from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, from, of } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
+
 import { environment } from '../../../environments/environment';
 import { AuthService } from '../auth/auth.service';
-import { mergeMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -11,11 +12,14 @@ import { mergeMap } from 'rxjs/operators';
 export class SecretService {
   readonly updateSecretsUrl = environment.functionsBase + 'UpdateSecret';
 
-  constructor(private authService: AuthService, private http: HttpClient) {}
+  constructor(
+    private authService: AuthService,
+    private http: HttpClient,
+  ) {}
 
   public setSecrets(
     secrets: Map<string, string>,
-    logbookId: string
+    logbookId: string,
   ): Observable<any> {
     let dataToSend = false;
     const formData = new FormData();
@@ -34,7 +38,7 @@ export class SecretService {
         return this.http.post(url, formData, {
           headers: { Authorization: 'Bearer ' + jwt },
         });
-      })
+      }),
     );
   }
 }

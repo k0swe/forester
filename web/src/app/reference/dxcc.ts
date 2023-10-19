@@ -2425,7 +2425,7 @@ export class DxccRef {
 
   public static entitiesForCallsign(call: string): DxccEntity[] {
     return this.dxcc.filter(
-      (rec) => rec.prefixRegex && rec.prefixRegex.test(call)
+      (rec) => rec.prefixRegex && rec.prefixRegex.test(call),
     );
   }
 }

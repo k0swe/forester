@@ -1,13 +1,14 @@
+import { Component, OnInit } from '@angular/core';
 import {
   AgentService,
   HamlibService,
   WsjtxQsoLogged,
   WsjtxService,
 } from 'ngx-kel-agent';
-import { Band } from '../../reference/band';
-import { Component, OnInit } from '@angular/core';
+
 import { LogbookService } from '../../pages/logbook/logbook.service';
 import { Qso } from '../../qso';
+import { Band } from '../../reference/band';
 import { QsoService } from '../qso/qso.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class AgentComponent implements OnInit {
     public hamlib: HamlibService,
     public wsjtx: WsjtxService,
     private logbookService: LogbookService,
-    private qsoService: QsoService
+    private qsoService: QsoService,
   ) {}
 
   ngOnInit(): void {
@@ -70,7 +71,7 @@ export class AgentComponent implements OnInit {
       () => {},
       (error) => {
         console.error('Failed saving WSJT-X QSO. ' + error);
-      }
+      },
     );
   }
 }

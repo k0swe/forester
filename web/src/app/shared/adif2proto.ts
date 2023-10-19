@@ -1,3 +1,5 @@
+import { SimpleAdif } from 'adif-parser-ts';
+
 import {
   Adif,
   ContestData,
@@ -9,7 +11,6 @@ import {
   Upload,
   UploadStatus,
 } from '../qso';
-import { SimpleAdif } from 'adif-parser-ts';
 
 export class Adif2Proto {
   /**
@@ -40,7 +41,7 @@ export class Adif2Proto {
 
   private static translateTopLevel(
     qso: Qso,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     qso.band = this.getLowerCase(record.band);
     qso.bandRx = this.getLowerCase(record.band_rx);
@@ -204,7 +205,7 @@ export class Adif2Proto {
 
   private static translateCreditAndAwards(
     qso: Qso,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     qso.awardSubmitted = this.translateAwards(record.award_submitted);
     qso.awardGranted = this.translateAwards(record.award_granted);
@@ -239,7 +240,7 @@ export class Adif2Proto {
 
   private static translateUploads(
     qso: Qso,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     qso.qrzcom = this.translateUpload(record, 'qrzcom');
     qso.hrdlog = this.translateUpload(record, 'hrdlog');
@@ -248,14 +249,14 @@ export class Adif2Proto {
 
   private static translateUpload(
     record: { [p: string]: string },
-    uploadProvider: string
+    uploadProvider: string,
   ): Upload {
     if (!record[uploadProvider + '_qso_upload_status']) {
       return undefined;
     }
     return {
       uploadStatus: this.getUploadStatus(
-        record[uploadProvider + '_qso_upload_status']
+        record[uploadProvider + '_qso_upload_status'],
       ),
       uploadDate: this.getDate(record[uploadProvider + '_qso_upload_date']),
     };
@@ -276,7 +277,7 @@ export class Adif2Proto {
 
   private static translateQsls(
     qso: Qso,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     qso.card = this.translateCardQsl(record);
     qso.eqsl = this.translateQsl(record, 'eqsl_');
@@ -296,7 +297,7 @@ export class Adif2Proto {
 
   private static translateQsl(
     record: { [p: string]: string },
-    qslProvider: string
+    qslProvider: string,
   ): Qsl {
     const sent = record[qslProvider + 'qsl_sent'];
     const received = record[qslProvider + 'qsl_rcvd'];
@@ -319,7 +320,7 @@ export class Adif2Proto {
     }
     return str.replace(
       /\w\S*/g,
-      (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+      (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
     );
   }
 
@@ -358,7 +359,7 @@ export class Adif2Proto {
   private static getDateTime(
     record: { [p: string]: string },
     dateField: string,
-    timeField: string
+    timeField: string,
   ): Date | undefined {
     const date = record[dateField];
     if (!date) {

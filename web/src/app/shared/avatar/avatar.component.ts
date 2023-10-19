@@ -1,12 +1,13 @@
-import firebase from 'firebase/compat/app';
-import { AuthService } from '../auth/auth.service';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { UserSettingsComponent } from '../user-settings/user-settings.component';
+import firebase from 'firebase/compat/app';
+import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+
+import { AuthService } from '../auth/auth.service';
+import { UserSettingsComponent } from '../user-settings/user-settings.component';
 
 @Component({
   selector: 'kel-avatar',
@@ -20,7 +21,7 @@ export class AvatarComponent {
     public authService: AuthService,
     private dialog: MatDialog,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
   ) {
     this.user$ = this.authService.user$;
   }
@@ -39,7 +40,7 @@ export class AvatarComponent {
     dialogRef.afterClosed().subscribe((dialogReturn) => {
       if (dialogReturn instanceof Observable) {
         (dialogReturn as Observable<void>).subscribe(() =>
-          this.snackBar.open('Saved user settings', null, { duration: 5000 })
+          this.snackBar.open('Saved user settings', null, { duration: 5000 }),
         );
       }
     });

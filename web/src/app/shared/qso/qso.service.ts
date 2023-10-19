@@ -1,14 +1,15 @@
-import firebase from 'firebase/compat/app';
+import { Injectable } from '@angular/core';
 import {
   AngularFirestore,
   DocumentChangeAction,
 } from '@angular/fire/compat/firestore';
-import { AuthService } from '../auth/auth.service';
-import { BehaviorSubject, combineLatest, from, Observable, of } from 'rxjs';
-import { Injectable } from '@angular/core';
-import { Qso } from '../../qso';
+import firebase from 'firebase/compat/app';
+import { ZonedDateTime, nativeJs } from 'js-joda';
+import { BehaviorSubject, Observable, combineLatest, from, of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
-import { nativeJs, ZonedDateTime } from 'js-joda';
+
+import { Qso } from '../../qso';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ import { nativeJs, ZonedDateTime } from 'js-joda';
 export class QsoService {
   constructor(
     private authService: AuthService,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
   ) {}
 
   private currentBook = '';
@@ -56,13 +57,13 @@ export class QsoService {
           return of([]);
         }
         const contactsCollection = this.firestore.collection<Qso>(
-          this.contactsPath()
+          this.contactsPath(),
         );
         return contactsCollection.snapshotChanges();
-      })
+      }),
     );
     const contacts = contactSnapshots.pipe(
-      map((snapshots) => this.unpackDocs(snapshots))
+      map((snapshots) => this.unpackDocs(snapshots)),
     );
     contacts.subscribe((qsos) => this.qsos$.next(qsos));
   }
@@ -85,13 +86,13 @@ export class QsoService {
 
   getFilteredQsos(): Observable<FirebaseQso[]> {
     return combineLatest([this.qsos$, this.filterCriteria$]).pipe(
-      map(([qsos, criteria]) => this.filterQsos(qsos, criteria))
+      map(([qsos, criteria]) => this.filterQsos(qsos, criteria)),
     );
   }
 
   private filterQsos(
     fbq: FirebaseQso[],
-    criteria: FilterCriteria
+    criteria: FilterCriteria,
   ): FirebaseQso[] {
     return fbq.filter((q) => {
       if (
@@ -179,7 +180,7 @@ export class QsoService {
         }
         // No QSO whatsoever
         return undefined;
-      })
+      }),
     );
   }
 
@@ -189,7 +190,7 @@ export class QsoService {
    */
   private static fitsWASCriteria(
     q: FirebaseQso,
-    criteria: WASQsoCriteria
+    criteria: WASQsoCriteria,
   ): boolean {
     // if band is anything but 'mixed', it should match
     if (criteria.band !== 'mixed') {
@@ -296,7 +297,7 @@ export class QsoService {
           fbq.qso.timeOn.getTime() === qso.timeOn.getTime() &&
           fbq.qso.contactedStation.stationCall ===
             qso.contactedStation.stationCall &&
-          fbq.qso.loggingStation.stationCall === qso.loggingStation.stationCall
+          fbq.qso.loggingStation.stationCall === qso.loggingStation.stationCall,
       );
     return match !== undefined;
   }
@@ -307,7 +308,7 @@ export class QsoService {
       return of(null);
     }
     const contactDoc = this.firestore.doc(
-      this.contactsPath() + '/' + firebaseId
+      this.contactsPath() + '/' + firebaseId,
     );
     return from(contactDoc.delete());
   }

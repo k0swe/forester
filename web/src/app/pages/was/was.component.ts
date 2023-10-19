@@ -5,14 +5,16 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
 import { GoogleMap } from '@angular/google-maps';
-import { LogbookService } from '../logbook/logbook.service';
-import { Observable } from 'rxjs';
-import { Qso } from '../../qso';
-import ControlPosition = google.maps.ControlPosition;
 // @ts-ignore
 import moment from 'moment';
+import { Observable } from 'rxjs';
+
+import { Qso } from '../../qso';
+import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
+import { LogbookService } from '../logbook/logbook.service';
+
+import ControlPosition = google.maps.ControlPosition;
 
 interface State {
   name: string;
@@ -100,7 +102,7 @@ export class WasComponent implements OnInit, AfterViewInit {
 
   constructor(
     private logbookService: LogbookService,
-    private qsoService: QsoService
+    private qsoService: QsoService,
   ) {}
 
   ngOnInit(): void {
@@ -131,7 +133,7 @@ export class WasComponent implements OnInit, AfterViewInit {
     // TODO: why can't I see select option list when map is fullscreen, maybe z-index?
     this.filterSelectors.nativeElement.remove();
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
-      this.filterSelectors.nativeElement
+      this.filterSelectors.nativeElement,
     );
   }
 
@@ -195,7 +197,7 @@ export class WasComponent implements OnInit, AfterViewInit {
 
   private static makeQsoMarkerOptions(
     state: State,
-    qso: Qso
+    qso: Qso,
   ): google.maps.MarkerOptions {
     let latitude = state.lat;
     let longitude = state.lon;
@@ -220,7 +222,7 @@ export class WasComponent implements OnInit, AfterViewInit {
 
   static makeQsoInfoWindowOptions(
     state: State,
-    qso: Qso
+    qso: Qso,
   ): google.maps.InfoWindowOptions {
     const timeStr: string = moment(qso.timeOn).utc().format('YYYY-MM-DD HH:mm');
     let qsl = 'no QSL yet';
@@ -237,7 +239,7 @@ export class WasComponent implements OnInit, AfterViewInit {
   }
 
   private static makeNoQsoMarkerOptions(
-    state: State
+    state: State,
   ): google.maps.MarkerOptions {
     return {
       position: {
@@ -250,7 +252,7 @@ export class WasComponent implements OnInit, AfterViewInit {
   }
 
   static makeNoQsoInfoWindowOptions(
-    state: State
+    state: State,
   ): google.maps.InfoWindowOptions {
     return {
       content: `${state.name} not contacted`,

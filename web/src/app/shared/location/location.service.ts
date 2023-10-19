@@ -1,6 +1,6 @@
+import Maidenhead from '@amrato/maidenhead-ts';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import Maidenhead from '@amrato/maidenhead-ts';
 
 @Injectable({
   providedIn: 'root',
@@ -19,12 +19,12 @@ export class LocationService {
           loc.gridSquare = Maidenhead.fromCoordinates(
             loc.latitude,
             loc.longitude,
-            2
+            2,
           ).locator;
           obs.next(loc);
           obs.complete();
         },
-        (err) => obs.error(err)
+        (err) => obs.error(err),
       );
     });
   }

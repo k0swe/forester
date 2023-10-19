@@ -1,7 +1,7 @@
+import * as child from 'child_process';
+import * as dedent from 'dedent';
 import { writeFileSync } from 'fs';
 import { promisify } from 'util';
-import * as dedent from 'dedent';
-import * as child from 'child_process';
 
 const exec = promisify(child.exec);
 
