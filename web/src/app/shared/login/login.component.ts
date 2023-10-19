@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserCredential } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import firebase from 'firebase/compat';
 import { Observable } from 'rxjs';
 import { take, takeWhile } from 'rxjs/operators';
 
@@ -40,9 +40,7 @@ export class LoginComponent implements OnInit {
     this.handleLogin(loginObs);
   }
 
-  private handleLogin(
-    loginObs: Observable<firebase.auth.UserCredential>,
-  ): void {
+  private handleLogin(loginObs: Observable<UserCredential>): void {
     loginObs.pipe(take(1)).subscribe({
       error: (err) => {
         switch (err.code) {

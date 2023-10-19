@@ -1,11 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import {
-  AngularFirestoreModule,
-  SETTINGS as FIRESTORE_SETTINGS,
-} from '@angular/fire/compat/firestore';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -76,15 +73,15 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
     QsoDetailComponent,
     QsoListComponent,
     QsoSearchComponent,
+    StationDetailComponent,
     SwUpdateComponent,
     UserSettingsComponent,
     WasComponent,
-    StationDetailComponent,
   ],
   imports: [
-    AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule.enablePersistence(),
+    provideAuth(() => getAuth()),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
@@ -113,11 +110,11 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       registrationStrategy: 'registerImmediately',
     }),
-    ReactiveFormsModule,
   ],
   providers: [
     AuthService,
@@ -125,12 +122,6 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
     QsoService,
     SecretService,
     UserSettingsService,
-    {
-      provide: FIRESTORE_SETTINGS,
-      useValue: {
-        ignoreUndefinedProperties: true,
-      },
-    },
   ],
   bootstrap: [AppComponent],
 })

@@ -1,5 +1,11 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Injectable, inject } from '@angular/core';
+import {
+  Firestore,
+  doc,
+  docData,
+  setDoc,
+  updateDoc,
+} from '@angular/fire/firestore';
 import { BehaviorSubject, Observable, from, of } from 'rxjs';
 import { mergeMap, switchMap } from 'rxjs/operators';
 
@@ -11,13 +17,13 @@ import { UserSettingsService } from '../../shared/user-settings/user-settings.se
   providedIn: 'root',
 })
 export class LogbookService {
+  private firestore: Firestore = inject(Firestore);
   logbookId$ = new BehaviorSubject<string>(null);
   settings$ = new BehaviorSubject<LogbookSettings>({} as LogbookSettings);
   started = false;
 
   constructor(
     private authService: AuthService,
-    private firestore: AngularFirestore,
     private userSettingsService: UserSettingsService,
   ) {}
 
@@ -32,9 +38,7 @@ export class LogbookService {
           if (logbookId == null) {
             return of({});
           }
-          return this.firestore
-            .doc<LogbookSettings>('logbooks/' + logbookId)
-            .valueChanges();
+          return docData(doc(this.firestore, 'logbooks', logbookId));
         }),
       )
       .subscribe((settings) => {
@@ -55,7 +59,9 @@ export class LogbookService {
     starredLogbooks.push(callsign);
     return from(
       // create the logbook
-      this.firestore.doc('logbooks/' + callsign).set({ editors: [user.uid] }),
+      setDoc(doc(this.firestore, 'logbooks' + callsign), {
+        editors: [user.uid],
+      }),
       // TODO: handle logbook already exists
     ).pipe(
       mergeMap(
@@ -75,9 +81,9 @@ export class LogbookService {
         if (logbookId == null) {
           return of(null);
         }
-        return this.firestore
-          .doc<LogbookSettings>('logbooks/' + logbookId)
-          .update(values);
+        return updateDoc(doc(this.firestore, 'logbooks', logbookId), {
+          ...values,
+        });
       }),
     );
   }

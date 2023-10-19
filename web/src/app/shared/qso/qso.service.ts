@@ -1,9 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { User } from '@angular/fire/auth';
 import {
-  AngularFirestore,
-  DocumentChangeAction,
-} from '@angular/fire/compat/firestore';
-import firebase from 'firebase/compat/app';
+  Firestore,
+  QueryDocumentSnapshot,
+  addDoc,
+  collection,
+  collectionSnapshots,
+  deleteDoc,
+  doc,
+  updateDoc,
+} from '@angular/fire/firestore';
 import { ZonedDateTime, nativeJs } from 'js-joda';
 import { BehaviorSubject, Observable, combineLatest, from, of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
@@ -15,13 +21,12 @@ import { AuthService } from '../auth/auth.service';
   providedIn: 'root',
 })
 export class QsoService {
-  constructor(
-    private authService: AuthService,
-    private firestore: AngularFirestore,
-  ) {}
+  private firestore: Firestore = inject(Firestore);
+
+  constructor(private authService: AuthService) {}
 
   private currentBook = '';
-  private user$ = new BehaviorSubject<firebase.User | null>(null);
+  private user$ = new BehaviorSubject<User | null>(null);
   private qsos$ = new BehaviorSubject<FirebaseQso[]>([]);
   private filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
 
@@ -52,14 +57,15 @@ export class QsoService {
     this.currentBook = bookCall;
     this.user$ = this.authService.user$;
     const contactSnapshots = this.user$.pipe(
-      mergeMap((u: firebase.User) => {
+      mergeMap((u: User) => {
         if (u == null) {
           return of([]);
         }
-        const contactsCollection = this.firestore.collection<Qso>(
+        const contactsCollection = collection(
+          this.firestore,
           this.contactsPath(),
         );
-        return contactsCollection.snapshotChanges();
+        return collectionSnapshots(contactsCollection);
       }),
     );
     const contacts = contactSnapshots.pipe(
@@ -76,11 +82,11 @@ export class QsoService {
     return 'logbooks/' + this.currentBook + '/contacts';
   }
 
-  private unpackDocs(snapshots: DocumentChangeAction<Qso>[]): FirebaseQso[] {
+  private unpackDocs(snapshots: QueryDocumentSnapshot<Qso>[]): FirebaseQso[] {
     return snapshots.map((snapshot) => {
-      const qso = snapshot.payload.doc.data();
+      const qso = snapshot.data();
       QsoService.unmarshalDates(qso);
-      return { id: snapshot.payload.doc.id, qso };
+      return { id: snapshot.id, qso };
     });
   }
 
@@ -278,11 +284,14 @@ export class QsoService {
       return of(null);
     }
     if (fbq.id == null) {
-      const contactsCollection = this.firestore.collection(this.contactsPath());
-      return from(contactsCollection.add(fbq.qso));
+      const contactsCollection = collection(
+        this.firestore,
+        this.contactsPath(),
+      );
+      return of(addDoc(contactsCollection, fbq.qso));
     } else {
-      const contactDoc = this.firestore.doc(this.contactsPath() + '/' + fbq.id);
-      return from(contactDoc.update(fbq.qso));
+      const contactDoc = doc(this.firestore, this.contactsPath(), fbq.id);
+      return from(updateDoc(contactDoc, { ...fbq.qso }));
     }
   }
 
@@ -307,10 +316,8 @@ export class QsoService {
     if (u == null) {
       return of(null);
     }
-    const contactDoc = this.firestore.doc(
-      this.contactsPath() + '/' + firebaseId,
-    );
-    return from(contactDoc.delete());
+    const contactDoc = doc(this.firestore, this.contactsPath(), firebaseId);
+    return from(deleteDoc(contactDoc));
   }
 }
 
