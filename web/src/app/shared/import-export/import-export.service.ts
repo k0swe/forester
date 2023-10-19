@@ -1,18 +1,22 @@
-import { Adif2Proto } from '../adif2proto';
-import { AdifFormatter, AdifParser } from 'adif-parser-ts';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Proto2Adif } from '../proto2adif';
-import { Qso } from '../../qso';
-import { FirebaseQso, QsoService } from '../qso/qso.service';
-import { forkJoin, Observable } from 'rxjs';
+import { AdifFormatter, AdifParser } from 'adif-parser-ts';
+import { Observable, forkJoin } from 'rxjs';
 import { map, take } from 'rxjs/operators';
+
+import { Qso } from '../../qso';
+import { Adif2Proto } from '../adif2proto';
+import { Proto2Adif } from '../proto2adif';
+import { FirebaseQso, QsoService } from '../qso/qso.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ImportExportService {
-  constructor(private qsoService: QsoService, private snackBar: MatSnackBar) {}
+  constructor(
+    private qsoService: QsoService,
+    private snackBar: MatSnackBar,
+  ) {}
 
   public importAdi(file: File): void {
     const fileReader = new FileReader();
@@ -26,7 +30,7 @@ export class ImportExportService {
         this.snackBar.open(
           'There was a problem importing the ADIF file',
           null,
-          { duration: 10000 }
+          { duration: 10000 },
         );
         console.log('There was a problem importing the ADIF file. ', e);
       }
@@ -46,10 +50,10 @@ export class ImportExportService {
       });
     }
     const upsertObservables = toSave.map((qso) =>
-      this.qsoService.addOrUpdate({ qso }).pipe(take(1))
+      this.qsoService.addOrUpdate({ qso }).pipe(take(1)),
     );
     forkJoin(upsertObservables).subscribe(() =>
-      this.snackBar.open('Finished import', null, { duration: 5000 })
+      this.snackBar.open('Finished import', null, { duration: 5000 }),
     );
   }
 
@@ -78,7 +82,7 @@ export class ImportExportService {
         const simpleAdif = Proto2Adif.translateAdi(qsos);
         const fileContent = AdifFormatter.formatAdi(simpleAdif);
         return new Blob([fileContent], { type: 'text/plain' });
-      })
+      }),
     );
   }
 }

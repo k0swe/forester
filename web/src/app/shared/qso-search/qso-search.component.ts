@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { LogbookService } from '../../pages/logbook/logbook.service';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { Observable, Subscription } from 'rxjs';
-import { QsoService } from '../qso/qso.service';
 import { WsjtxService } from 'ngx-kel-agent';
+import { Observable, Subscription } from 'rxjs';
+
+import { LogbookService } from '../../pages/logbook/logbook.service';
+import { QsoService } from '../qso/qso.service';
 
 @Component({
   selector: 'kel-qso-search',
@@ -19,7 +20,7 @@ export class QsoSearchComponent implements OnInit {
   constructor(
     public wsjtx: WsjtxService,
     private logbookService: LogbookService,
-    private qsoService: QsoService
+    private qsoService: QsoService,
   ) {
     this.wsjtxConnected$ = wsjtx.connected$;
   }

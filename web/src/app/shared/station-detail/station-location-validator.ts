@@ -1,6 +1,6 @@
+import Maidenhead from '@amrato/maidenhead-ts';
 import { Injectable } from '@angular/core';
 import { FormGroup, ValidatorFn } from '@angular/forms';
-import Maidenhead from '@amrato/maidenhead-ts';
 
 @Injectable({ providedIn: 'root' })
 export class StationLocationValidator {
@@ -35,7 +35,7 @@ export class StationLocationValidator {
   public static latLonInsideGrid(
     latitude: number,
     longitude: number,
-    grid: string
+    grid: string,
   ): boolean {
     const gridFromLatLong = Maidenhead.fromCoordinates(latitude, longitude);
     return gridFromLatLong.locator.toLowerCase().startsWith(grid.toLowerCase());

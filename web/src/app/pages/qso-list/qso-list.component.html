@@ -70,7 +70,7 @@
           Date/Time
         </th>
         <td mat-cell class="timeOn" *matCellDef="let fbq">
-          {{ fbq.qso.timeOn | date : 'yyyy-MM-dd HH:mm' : 'UTC' }}
+          {{ fbq.qso.timeOn | date: 'yyyy-MM-dd HH:mm' : 'UTC' }}
         </td>
       </ng-container>
       <ng-container matColumnDef="shortTimeOn">
@@ -78,7 +78,7 @@
           Date
         </th>
         <td mat-cell *matCellDef="let fbq">
-          {{ fbq.qso.timeOn | date : 'yyyy-MM-dd' : 'UTC' }}
+          {{ fbq.qso.timeOn | date: 'yyyy-MM-dd' : 'UTC' }}
         </td>
       </ng-container>
       <ng-container matColumnDef="contactedCall">
@@ -106,7 +106,7 @@
       <ng-container matColumnDef="freq">
         <th mat-header-cell *matHeaderCellDef>Freq</th>
         <td mat-cell class="freq" *matCellDef="let fbq">
-          {{ fbq.qso.freq | number : '1.3-3' }}
+          {{ fbq.qso.freq | number: '1.3-3' }}
         </td>
       </ng-container>
       <ng-container matColumnDef="mode">

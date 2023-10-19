@@ -1,11 +1,12 @@
-import { AuthService } from '../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserSettingsService } from '../user-settings/user-settings.service';
-import { Observable } from 'rxjs';
-import firebase from 'firebase/compat';
-import { take, takeWhile } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
+import firebase from 'firebase/compat';
+import { Observable } from 'rxjs';
+import { take, takeWhile } from 'rxjs/operators';
+
+import { AuthService } from '../auth/auth.service';
+import { UserSettingsService } from '../user-settings/user-settings.service';
 
 @Component({
   selector: 'kel-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private snackBarService: MatSnackBar,
-    private userSettingsService: UserSettingsService
+    private userSettingsService: UserSettingsService,
   ) {}
 
   ngOnInit() {
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   private handleLogin(
-    loginObs: Observable<firebase.auth.UserCredential>
+    loginObs: Observable<firebase.auth.UserCredential>,
   ): void {
     loginObs.pipe(take(1)).subscribe({
       error: (err) => {
@@ -59,7 +60,7 @@ export class LoginComponent implements OnInit {
                     providers[0] +
                     '.',
                   null,
-                  { duration: 10000 }
+                  { duration: 10000 },
                 );
               });
             break;
@@ -68,7 +69,7 @@ export class LoginComponent implements OnInit {
             this.snackBarService.open(
               'There was a problem logging in, see the JavaScript console for details.',
               null,
-              { duration: 10000 }
+              { duration: 10000 },
             );
         }
       },

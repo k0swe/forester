@@ -1,3 +1,4 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import {
   Component,
   ElementRef,
@@ -5,9 +6,6 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { DxccRef } from '../../reference/dxcc';
-import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
-import { LogbookService } from '../logbook/logbook.service';
 import { MatButton } from '@angular/material/button';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,11 +13,14 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { from, Observable, toArray } from 'rxjs';
-import { QsoDetailComponent } from '../../shared/qso-detail/qso-detail.component';
-import { SelectionModel } from '@angular/cdk/collections';
+import { Observable, from, toArray } from 'rxjs';
 import { map, mergeAll } from 'rxjs/operators';
+
+import { DxccRef } from '../../reference/dxcc';
 import { ImportExportService } from '../../shared/import-export/import-export.service';
+import { QsoDetailComponent } from '../../shared/qso-detail/qso-detail.component';
+import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
+import { LogbookService } from '../logbook/logbook.service';
 
 @Component({
   selector: 'kel-qso-list',
@@ -52,7 +53,7 @@ export class QsoListComponent implements OnInit {
     private logbookService: LogbookService,
     private importExportService: ImportExportService,
     private qsoService: QsoService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
   ) {}
 
   ngOnInit(): void {
@@ -168,7 +169,7 @@ export class QsoListComponent implements OnInit {
 
   getPageData(): FirebaseQso[] {
     return this.dataSource._pageData(
-      this.dataSource._orderData(this.dataSource.filteredData)
+      this.dataSource._orderData(this.dataSource.filteredData),
     );
   }
 
@@ -197,7 +198,7 @@ export class QsoListComponent implements OnInit {
     this.importExportService.exportAdiFor(source).subscribe({
       next: (blob) => {
         const objectURL = (window.URL || window.webkitURL).createObjectURL(
-          blob
+          blob,
         );
         this.download.nativeElement.setAttribute('href', objectURL);
         this.download.nativeElement.setAttribute('download', 'forester.adi');
@@ -207,7 +208,7 @@ export class QsoListComponent implements OnInit {
         this.snackBar.open(
           'There was a problem exporting, see the Javascript console for details',
           null,
-          { duration: 5000 }
+          { duration: 5000 },
         );
         console.warn(error);
       },
@@ -223,14 +224,14 @@ export class QsoListComponent implements OnInit {
     const deleteObservables = source.pipe(
       map((fbq) => fbq.id),
       map((id) => this.qsoService.delete(id)),
-      mergeAll()
+      mergeAll(),
     );
     deleteObservables.subscribe({
       error: (error) => {
         this.snackBar.open(
           'There was a problem deleting, see the Javascript console for details',
           null,
-          { duration: 5000 }
+          { duration: 5000 },
         );
         console.warn(error);
       },

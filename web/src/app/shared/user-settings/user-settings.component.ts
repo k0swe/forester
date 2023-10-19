@@ -1,11 +1,12 @@
-import { AgentService } from 'ngx-kel-agent';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
-import { UserSettingsService } from './user-settings.service';
+import { AgentService } from 'ngx-kel-agent';
 import { forkJoin } from 'rxjs';
 import { take } from 'rxjs/operators';
+
+import { UserSettingsService } from './user-settings.service';
 
 @Component({
   selector: 'kel-user-settings',
@@ -20,7 +21,7 @@ export class UserSettingsComponent implements OnInit {
     public agentService: AgentService,
     private dialog: MatDialogRef<any>,
     private fb: FormBuilder,
-    public settingsService: UserSettingsService
+    public settingsService: UserSettingsService,
   ) {
     this.userSettingsForm = fb.group({
       callsign: '',
@@ -34,7 +35,7 @@ export class UserSettingsComponent implements OnInit {
       this.userSettingsForm.get('callsign').setValue(settings.callsign);
     });
     this.userSettingsForm.valueChanges.subscribe(
-      () => (this.saveButton.disabled = false)
+      () => (this.saveButton.disabled = false),
     );
   }
 

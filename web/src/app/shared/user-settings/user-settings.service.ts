@@ -1,8 +1,9 @@
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AuthService } from '../auth/auth.service';
-import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class UserSettingsService {
 
   constructor(
     private authService: AuthService,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
   ) {}
 
   public init(): void {
@@ -30,7 +31,7 @@ export class UserSettingsService {
           return this.firestore
             .doc<UserSettings>('users/' + user.uid)
             .valueChanges();
-        })
+        }),
       )
       .subscribe((settings) => {
         if (settings) {
@@ -61,7 +62,7 @@ export class UserSettingsService {
         return this.firestore
           .doc<UserSettings>('users/' + user.uid)
           .update(values);
-      })
+      }),
     );
   }
 }

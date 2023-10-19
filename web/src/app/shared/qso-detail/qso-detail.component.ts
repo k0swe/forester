@@ -1,17 +1,18 @@
-import { Band } from '../../reference/band';
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { DxccRef } from '../../reference/dxcc';
-import { FirebaseQso, QsoService } from '../qso/qso.service';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HamlibService } from 'ngx-kel-agent';
-import { LocationService } from '../location/location.service';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
-import { Modes } from '../../reference/mode';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { HamlibService } from 'ngx-kel-agent';
 import { Observable } from 'rxjs';
-import { Qso, Station } from '../../qso';
 import { map } from 'rxjs/operators';
+
+import { Qso, Station } from '../../qso';
+import { Band } from '../../reference/band';
+import { DxccRef } from '../../reference/dxcc';
+import { Modes } from '../../reference/mode';
+import { LocationService } from '../location/location.service';
+import { FirebaseQso, QsoService } from '../qso/qso.service';
 
 @Component({
   selector: 'kel-qso-detail',
@@ -27,7 +28,7 @@ export class QsoDetailComponent implements OnInit {
     private qsoService: QsoService,
     private locationService: LocationService,
     private hamlib: HamlibService,
-    private dialog: MatDialogRef<any>
+    private dialog: MatDialogRef<any>,
   ) {
     this.firebaseId = data.id;
     const model: Qso = {
@@ -115,14 +116,14 @@ export class QsoDetailComponent implements OnInit {
     const modeField = this.qsoDetailForm.get('mode');
     modeField.setValue(displayMode);
     this.filteredModes$ = modeField.valueChanges.pipe(
-      map((modeInput) => this.filterModes(modeInput))
+      map((modeInput) => this.filterModes(modeInput)),
     );
   }
 
   private filterModes(modeInput: string): string[] {
     const filterValue = modeInput.toUpperCase();
     return this.modeNames.filter((option) =>
-      option.toUpperCase().includes(filterValue)
+      option.toUpperCase().includes(filterValue),
     );
   }
 

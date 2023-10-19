@@ -1,3 +1,5 @@
+import { SimpleAdif } from 'adif-parser-ts';
+
 import {
   ContestData,
   Credit,
@@ -8,7 +10,6 @@ import {
   Upload,
   UploadStatus,
 } from '../qso';
-import { SimpleAdif } from 'adif-parser-ts';
 
 export class Proto2Adif {
   /**
@@ -53,7 +54,7 @@ export class Proto2Adif {
 
   private static translateTopLevel(
     qso: Qso,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     record.band = this.getString(qso.band);
     record.band_rx = this.getString(qso.bandRx);
@@ -78,7 +79,7 @@ export class Proto2Adif {
 
   private static translateAppDefined(
     qso: Qso,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     if (!qso.appDefined) {
       return;
@@ -90,7 +91,7 @@ export class Proto2Adif {
 
   private static translateLoggingStation(
     loggingStation: Station,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     record.ant_az = this.getNumber(loggingStation.antennaAzimuth);
     record.ant_el = this.getNumber(loggingStation.antennaElevation);
@@ -125,7 +126,7 @@ export class Proto2Adif {
 
   private static translateContactedStation(
     contactedStation: Station,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     record.address = contactedStation.address;
     record.age = this.getNumber(contactedStation.age);
@@ -169,7 +170,7 @@ export class Proto2Adif {
 
   private static translateContest(
     contest: ContestData,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     if (!contest) {
       return;
@@ -185,7 +186,7 @@ export class Proto2Adif {
 
   private static translatePropagation(
     prop: Propagation,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     if (!prop) {
       return;
@@ -206,7 +207,7 @@ export class Proto2Adif {
 
   private static translateCreditAndAwards(
     qso: Qso,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     record.award_submitted = this.translateAwards(qso.awardSubmitted);
     record.award_granted = this.translateAwards(qso.awardGranted);
@@ -238,7 +239,7 @@ export class Proto2Adif {
 
   private static translateUploads(
     qso: Qso,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     this.translateUpload(qso.qrzcom, 'qrzcom', record);
     this.translateUpload(qso.hrdlog, 'hrdlog', record);
@@ -248,7 +249,7 @@ export class Proto2Adif {
   private static translateUpload(
     upload: Upload,
     uploadProvider: string,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     if (!upload) {
       return;
@@ -270,13 +271,13 @@ export class Proto2Adif {
         break;
     }
     record[uploadProvider + '_qso_upload_date'] = this.getDate(
-      upload.uploadDate
+      upload.uploadDate,
     );
   }
 
   private static translateQsls(
     qso: Qso,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     this.translateCardQsl(qso.card, record);
     this.translateQsl(qso.eqsl, 'eqsl_', record);
@@ -285,7 +286,7 @@ export class Proto2Adif {
 
   private static translateCardQsl(
     qsl: Qsl,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     if (qsl == null) {
       return undefined;
@@ -299,7 +300,7 @@ export class Proto2Adif {
   private static translateQsl(
     qsl: Qsl,
     qslProvider: string,
-    record: { [p: string]: string }
+    record: { [p: string]: string },
   ): void {
     if (!qsl) {
       return;

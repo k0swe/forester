@@ -1,14 +1,15 @@
-import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../../shared/auth/auth.service';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ImportExportService } from '../../shared/import-export/import-export.service';
-import { LogbookService } from './logbook.service';
-import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-settings.component';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 import { environment } from '../../../environments/environment';
+import { AuthService } from '../../shared/auth/auth.service';
+import { ImportExportService } from '../../shared/import-export/import-export.service';
+import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-settings.component';
+import { LogbookService } from './logbook.service';
 
 @Component({
   selector: 'kel-logbook',
@@ -34,12 +35,12 @@ export class LogbookComponent implements OnInit {
     private importExportService: ImportExportService,
     private snackBar: MatSnackBar,
     public logbookService: LogbookService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) =>
-      this.logbookService.logbookId$.next(params.callsign)
+      this.logbookService.logbookId$.next(params.callsign),
     );
     this.authService.user$.subscribe((user) => {
       if (user != null) {
@@ -57,7 +58,9 @@ export class LogbookComponent implements OnInit {
     dialogRef.afterClosed().subscribe((dialogReturn) => {
       if (dialogReturn instanceof Observable) {
         (dialogReturn as Observable<void>).subscribe(() =>
-          this.snackBar.open('Saved logbook settings', null, { duration: 5000 })
+          this.snackBar.open('Saved logbook settings', null, {
+            duration: 5000,
+          }),
         );
       }
     });
@@ -94,7 +97,7 @@ export class LogbookComponent implements OnInit {
             `Finished ${provider} import: ` +
               `${created} QSOs created, ${modified} modified and ${noDiff} with no difference`,
             null,
-            { duration: 5000 }
+            { duration: 5000 },
           );
         },
         (error) => {
@@ -102,7 +105,7 @@ export class LogbookComponent implements OnInit {
             duration: 5000,
           });
           console.warn(`Error importing from ${provider}:`, error);
-        }
+        },
       );
   }
 
