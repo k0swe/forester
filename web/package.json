@@ -51,14 +51,14 @@
     "zone.js": "0.13.3"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "0.1602.6",
-    "@angular-devkit/build-angular": "16.2.6",
+    "@angular-devkit/architect": "0.1602.7",
+    "@angular-devkit/build-angular": "16.2.7",
     "@angular-eslint/builder": "16.2.0",
     "@angular-eslint/eslint-plugin": "16.2.0",
     "@angular-eslint/eslint-plugin-template": "16.2.0",
     "@angular-eslint/schematics": "16.2.0",
     "@angular-eslint/template-parser": "16.2.0",
-    "@angular/cli": "16.2.6",
+    "@angular/cli": "16.2.7",
     "@angular/compiler-cli": "16.2.10",
     "@trivago/prettier-plugin-sort-imports": "4.2.0",
     "@types/jasmine": "5.1.1",
