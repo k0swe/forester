@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "firebase --project=k0swe-kellog emulators:exec 'mocha --exit firestore.spec.js'"
+    "test": "firebase --project=k0swe-kellog --only=firestore emulators:exec 'mocha --exit firestore.spec.js'"
   },
   "engines": {
     "node": ">= 18"
