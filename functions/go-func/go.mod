@@ -3,7 +3,7 @@ module github.com/k0swe/forester-func
 go 1.19
 
 require (
-	cloud.google.com/go/firestore v1.13.0
+	cloud.google.com/go/firestore v1.14.0
 	cloud.google.com/go/pubsub v1.33.0
 	cloud.google.com/go/secretmanager v1.11.3
 	dario.cat/mergo v1.0.0
