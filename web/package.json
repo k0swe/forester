@@ -20,6 +20,9 @@
     "path": false,
     "tls": false
   },
+  "engines": {
+    "node": "20"
+  },
   "dependencies": {
     "@amrato/maidenhead-ts": "2.0.0",
     "@angular/animations": "16.2.11",
