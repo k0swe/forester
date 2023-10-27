@@ -5,7 +5,7 @@ go 1.19
 require (
 	cloud.google.com/go/firestore v1.13.0
 	cloud.google.com/go/pubsub v1.33.0
-	cloud.google.com/go/secretmanager v1.11.2
+	cloud.google.com/go/secretmanager v1.11.3
 	dario.cat/mergo v1.0.0
 	firebase.google.com/go/v4 v4.12.1
 	github.com/Matir/adifparser v0.0.0-20230124172935-2c465737f437
@@ -49,5 +49,5 @@ require (
 	google.golang.org/appengine/v2 v2.0.5 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20231012201019-e917dd12ba7a // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20231012201019-e917dd12ba7a // indirect
-	google.golang.org/grpc v1.58.3 // indirect
+	google.golang.org/grpc v1.59.0 // indirect
 )
