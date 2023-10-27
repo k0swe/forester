@@ -12,7 +12,7 @@ button.avatar {
 }
 
 img.avatar {
-  border-radius: $avatar-size / 2;
+  border-radius: calc($avatar-size / 2);
   height: $avatar-size;
   width: $avatar-size;
 }
