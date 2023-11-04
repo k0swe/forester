@@ -5,6 +5,7 @@ import {
   OnChanges,
   Output,
   SimpleChanges,
+  inject,
 } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import isEqual from 'lodash/isEqual';
@@ -13,9 +14,10 @@ import { map } from 'rxjs/operators';
 
 import { Station } from '../../qso';
 import { DxccRef } from '../../reference/dxcc';
+import { GeocodeService } from '../geocode/geocode.service';
 import { StationLocationValidator } from './station-location-validator';
 
-const googleMapsSearchBase = 'https://www.google.com/maps/search/';
+const googleMapsSearchBase = new URL('https://www.google.com/maps/search/');
 
 @Component({
   selector: 'kel-station-detail',
@@ -27,6 +29,7 @@ export class StationDetailComponent implements OnChanges {
   @Output() stationChange = new EventEmitter<Station>();
   @Input() showRig: boolean = true;
   @Input() showTxPower: boolean = true;
+  private geocodeService = inject(GeocodeService);
   stationDetailForm: FormGroup;
   countries = DxccRef.getNames();
   filteredCountries$: Observable<string[]>;
@@ -40,6 +43,7 @@ export class StationDetailComponent implements OnChanges {
     latitude: undefined,
     longitude: undefined,
     city: undefined,
+    county: undefined,
     state: undefined,
     country: undefined,
     dxcc: undefined,
@@ -132,7 +136,8 @@ export class StationDetailComponent implements OnChanges {
     const state: string = this.stationDetailForm.get('state').value;
     const country: string = this.stationDetailForm.get('country').value;
     if (latitude && longitude) {
-      this.mapLink = googleMapsSearchBase + latitude + ',' + longitude;
+      this.mapLink =
+        googleMapsSearchBase.toString() + latitude + ',' + longitude;
     } else if (city || state || country) {
       this.mapLink =
         googleMapsSearchBase +
@@ -144,5 +149,13 @@ export class StationDetailComponent implements OnChanges {
     } else {
       this.mapLink = '';
     }
+  }
+
+  geocode() {
+    this.geocodeService
+      .geocode(this.stationDetailForm.value)
+      .then((station) => {
+        this.stationDetailForm.patchValue(station);
+      });
   }
 }

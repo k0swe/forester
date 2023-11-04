@@ -86,6 +86,17 @@
     </div>
     <div>
       <mat-form-field>
+        <mat-label>County</mat-label>
+        <input
+          matInput
+          formControlName="county"
+          autocapitalize="characters"
+          autocomplete="dummy"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
         <mat-label>State/Province</mat-label>
         <input
           matInput
@@ -131,6 +142,7 @@
         </mat-select>
       </mat-form-field>
     </div>
+    <a mat-stroked-button color="primary" (click)="geocode()">Geocode</a>
   </div>
 
   <div *ngIf="showRig || showTxPower" class="row">
