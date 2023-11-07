@@ -24,14 +24,19 @@ export class GeocodeService {
     await this.loader.importLibrary('geocoding');
     const geocoder = new google.maps.Geocoder();
 
-    const address =
-      (station.city ?? '') +
-      ',' +
-      (station.county ?? '') +
-      ',' +
-      (station.state ?? '') +
-      ',' +
-      (station.country ?? '');
+    let address: string;
+    if (station.latitude && station.longitude) {
+      address = station.latitude + ',' + station.longitude;
+    } else {
+      address =
+        (station.city ?? '') +
+        ',' +
+        (station.county ?? '') +
+        ',' +
+        (station.state ?? '') +
+        ',' +
+        (station.country ?? '');
+    }
     const response = geocoder.geocode({
       address: address,
       bounds: {
