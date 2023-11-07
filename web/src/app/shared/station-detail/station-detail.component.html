@@ -33,6 +33,7 @@
           formControlName="latitude"
           type="number"
           autocomplete="dummy"
+          (paste)="pasteLatOrLon($event)"
         />
         <mat-hint>+N/-S</mat-hint>
       </mat-form-field>
@@ -46,6 +47,7 @@
           formControlName="longitude"
           type="number"
           autocomplete="dummy"
+          (paste)="pasteLatOrLon($event)"
         />
         <mat-hint>+E/-W</mat-hint>
       </mat-form-field>
@@ -80,6 +82,17 @@
           matInput
           formControlName="city"
           autocapitalize="words"
+          autocomplete="dummy"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>County</mat-label>
+        <input
+          matInput
+          formControlName="county"
+          autocapitalize="characters"
           autocomplete="dummy"
         />
       </mat-form-field>
@@ -131,6 +144,7 @@
         </mat-select>
       </mat-form-field>
     </div>
+    <a mat-stroked-button color="primary" (click)="geocode()">Geocode</a>
   </div>
 
   <div *ngIf="showRig || showTxPower" class="row">
