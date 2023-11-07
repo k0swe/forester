@@ -158,4 +158,22 @@ export class StationDetailComponent implements OnChanges {
         this.stationDetailForm.patchValue(station);
       });
   }
+
+  pasteLatOrLon($event: ClipboardEvent) {
+    if ($event.clipboardData.getData('text/plain').includes(',')) {
+      // might be "latitude, longitude"
+      const [latStr, lonStr] = $event.clipboardData
+        .getData('text/plain')
+        .split(',');
+      const latitude = Number(latStr);
+      const longitude = Number(lonStr);
+      if (!isNaN(latitude) && !isNaN(longitude)) {
+        this.stationDetailForm.patchValue({
+          latitude: latitude.toFixed(4),
+          longitude: longitude.toFixed(4),
+        });
+        $event.preventDefault();
+      }
+    }
+  }
 }

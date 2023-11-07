@@ -33,6 +33,7 @@
           formControlName="latitude"
           type="number"
           autocomplete="dummy"
+          (paste)="pasteLatOrLon($event)"
         />
         <mat-hint>+N/-S</mat-hint>
       </mat-form-field>
@@ -46,6 +47,7 @@
           formControlName="longitude"
           type="number"
           autocomplete="dummy"
+          (paste)="pasteLatOrLon($event)"
         />
         <mat-hint>+E/-W</mat-hint>
       </mat-form-field>
