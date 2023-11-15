@@ -1,4 +1,5 @@
 import { Injectable, inject } from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
 import {
   Firestore,
   doc,
@@ -6,27 +7,24 @@ import {
   setDoc,
   updateDoc,
 } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, from, mergeMap, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-
-import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserSettingsService {
   private firestore: Firestore = inject(Firestore);
+  private auth: Auth = inject(Auth);
   settings$ = new BehaviorSubject<UserSettings>({});
   started = false;
-
-  constructor(private authService: AuthService) {}
 
   public init(): void {
     if (this.started === true) {
       return;
     }
     this.started = true;
-    this.authService.user$
+    user(this.auth)
       .pipe(
         switchMap((user) => {
           if (user == null) {
@@ -45,10 +43,17 @@ export class UserSettingsService {
   }
 
   private createUserDocument(): void {
-    const u = this.authService.user$.getValue();
-    setDoc(doc(this.firestore, 'users', u.uid), <UserSettings>{
-      starredLogbooks: [],
-    });
+    user(this.auth)
+      .pipe(
+        mergeMap((u) => {
+          return from(
+            setDoc(doc(this.firestore, 'users', u.uid), <UserSettings>{
+              starredLogbooks: [],
+            }),
+          );
+        }),
+      )
+      .subscribe();
   }
 
   public settings(): Observable<UserSettings> {
@@ -56,7 +61,7 @@ export class UserSettingsService {
   }
 
   set(values: UserSettings): Observable<void> {
-    return this.authService.user$.pipe(
+    return user(this.auth).pipe(
       switchMap((user) => {
         if (user == null) {
           return of(null);

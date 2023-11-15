@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { User } from '@angular/fire/auth';
+import { Auth, User, user } from '@angular/fire/auth';
 import {
   Firestore,
   QueryDocumentSnapshot,
@@ -15,18 +15,16 @@ import { BehaviorSubject, Observable, combineLatest, from, of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 
 import { Qso } from '../../qso';
-import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QsoService {
   private firestore: Firestore = inject(Firestore);
-
-  constructor(private authService: AuthService) {}
+  private auth: Auth = inject(Auth);
 
   private currentBook = '';
-  private user$ = new BehaviorSubject<User | null>(null);
+  private user$ = new Observable<User | null>(null);
   private qsos$ = new BehaviorSubject<FirebaseQso[]>([]);
   private filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
 
@@ -55,7 +53,7 @@ export class QsoService {
       return;
     }
     this.currentBook = bookCall;
-    this.user$ = this.authService.user$;
+    this.user$ = user(this.auth);
     const contactSnapshots = this.user$.pipe(
       mergeMap((u: User) => {
         if (u == null) {
@@ -275,24 +273,25 @@ export class QsoService {
   /**
    * Insert or update the given QSO into the datastore. If `fbq.id` is null, insert; otherwise, update.
    */
-  public;
-
-  addOrUpdate(fbq: FirebaseQso): Observable<any> {
+  public addOrUpdate(fbq: FirebaseQso): Observable<any> {
     QsoService.marshalDates(fbq.qso);
-    const u = this.user$.getValue();
-    if (u == null) {
-      return of(null);
-    }
-    if (fbq.id == null) {
-      const contactsCollection = collection(
-        this.firestore,
-        this.contactsPath(),
-      );
-      return of(addDoc(contactsCollection, fbq.qso));
-    } else {
-      const contactDoc = doc(this.firestore, this.contactsPath(), fbq.id);
-      return from(updateDoc(contactDoc, { ...fbq.qso }));
-    }
+    return this.user$.pipe(
+      mergeMap((u) => {
+        if (u == null) {
+          return of(null);
+        }
+        if (fbq.id == null) {
+          const contactsCollection = collection(
+            this.firestore,
+            this.contactsPath(),
+          );
+          return of(addDoc(contactsCollection, fbq.qso));
+        } else {
+          const contactDoc = doc(this.firestore, this.contactsPath(), fbq.id);
+          return from(updateDoc(contactDoc, { ...fbq.qso }));
+        }
+      }),
+    );
   }
 
   /**
@@ -312,12 +311,15 @@ export class QsoService {
   }
 
   delete(firebaseId: string): Observable<any> {
-    const u = this.user$.getValue();
-    if (u == null) {
-      return of(null);
-    }
-    const contactDoc = doc(this.firestore, this.contactsPath(), firebaseId);
-    return from(deleteDoc(contactDoc));
+    return this.user$.pipe(
+      mergeMap((u) => {
+        if (u == null) {
+          return of(null);
+        }
+        const contactDoc = doc(this.firestore, this.contactsPath(), firebaseId);
+        return from(deleteDoc(contactDoc));
+      }),
+    );
   }
 }
 

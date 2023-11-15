@@ -1,4 +1,5 @@
 import { Injectable, inject } from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
 import {
   Firestore,
   doc,
@@ -10,7 +11,6 @@ import { BehaviorSubject, Observable, from, of } from 'rxjs';
 import { mergeMap, switchMap } from 'rxjs/operators';
 
 import { Station } from '../../qso';
-import { AuthService } from '../../shared/auth/auth.service';
 import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
 
 @Injectable({
@@ -23,7 +23,7 @@ export class LogbookService {
   started = false;
 
   constructor(
-    private authService: AuthService,
+    private auth: Auth,
     private userSettingsService: UserSettingsService,
   ) {}
 
@@ -47,27 +47,30 @@ export class LogbookService {
   }
 
   public createLogbook(callsign: string): Observable<void> {
-    const user = this.authService.user$.getValue();
-    if (!user) {
-      return;
-    }
-    const userSettings = this.userSettingsService.settings$.getValue();
-    let starredLogbooks = userSettings.starredLogbooks;
-    if (!starredLogbooks) {
-      starredLogbooks = [];
-    }
-    starredLogbooks.push(callsign);
-    return from(
-      // create the logbook
-      setDoc(doc(this.firestore, 'logbooks' + callsign), {
-        editors: [user.uid],
+    return user(this.auth).pipe(
+      mergeMap((u) => {
+        if (!u) {
+          return;
+        }
+        const userSettings = this.userSettingsService.settings$.getValue();
+        let starredLogbooks = userSettings.starredLogbooks;
+        if (!starredLogbooks) {
+          starredLogbooks = [];
+        }
+        starredLogbooks.push(callsign);
+        return from(
+          // create the logbook
+          setDoc(doc(this.firestore, 'logbooks' + callsign), {
+            editors: [u.uid],
+          }),
+          // TODO: handle logbook already exists
+        ).pipe(
+          mergeMap(
+            // add the logbook to the user's starred list
+            () => this.userSettingsService.set({ starredLogbooks }),
+          ),
+        );
       }),
-      // TODO: handle logbook already exists
-    ).pipe(
-      mergeMap(
-        // add the logbook to the user's starred list
-        () => this.userSettingsService.set({ starredLogbooks }),
-      ),
     );
   }
 

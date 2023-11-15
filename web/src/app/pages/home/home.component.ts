@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
@@ -13,6 +14,8 @@ import { LogbookService } from '../logbook/logbook.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  auth = inject(Auth);
+
   constructor(
     public authService: AuthService,
     public dialog: MatDialog,
@@ -32,4 +35,6 @@ export class HomeComponent {
       });
     });
   }
+
+  protected readonly user = user;
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UserCredential } from '@angular/fire/auth';
+import { Component, OnInit, inject } from '@angular/core';
+import { Auth, UserCredential, user } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -14,6 +14,8 @@ import { UserSettingsService } from '../user-settings/user-settings.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  private auth: Auth = inject(Auth);
+
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
@@ -23,7 +25,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authService.user$.subscribe((user) => {
+    user(this.auth).subscribe((user) => {
       if (user != null) {
         this.redirectAfterLogin();
       }
