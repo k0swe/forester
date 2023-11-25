@@ -58,6 +58,8 @@ firebase.google.com/go/v4 v4.12.0 h1:I6dCkcWUMFNkFdWgzlf8SLWecQnKdFgJhMv5fT9l1qI
 firebase.google.com/go/v4 v4.12.0/go.mod h1:60c36dWLK4+j05Vw5XMllek3b3PCynU3BfI46OSwsUE=
 firebase.google.com/go/v4 v4.12.1 h1:tDNvobifGsx/1HSFLnM0fmNfx/CDZSgsTO2KhZtgpcs=
 firebase.google.com/go/v4 v4.12.1/go.mod h1:60c36dWLK4+j05Vw5XMllek3b3PCynU3BfI46OSwsUE=
+firebase.google.com/go/v4 v4.13.0 h1:meFz9nvDNh/FDyrEykoAzSfComcQbmnQSjoHrePRqeI=
+firebase.google.com/go/v4 v4.13.0/go.mod h1:e1/gaR6EnbQfsmTnAMx1hnz+ninJIrrr/RAh59Tpfn8=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/Matir/adifparser v0.0.0-20230124172935-2c465737f437 h1:bravWZ8akTqGcbN8CiYXQ74WVRvv5HfUUuHVQ34s6Xg=
 github.com/Matir/adifparser v0.0.0-20230124172935-2c465737f437/go.mod h1:FrRQMGHkxX+CKufTY3SM7WM395NhLiOdx5//5Yi6+aI=
