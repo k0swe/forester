@@ -227,8 +227,9 @@ export class Proto2Adif {
       return undefined;
     }
 
-    return credits
-      .map((c) => {
+    return Object.keys(credits)
+      .map((k) => {
+        const c = credits[k];
         if (c.qslMedium) {
           return `${c.credit}:${c.qslMedium}`;
         }
