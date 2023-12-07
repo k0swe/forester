@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, User, user } from '@angular/fire/auth';
+import { Auth, user } from '@angular/fire/auth';
 import {
   CollectionReference,
   Firestore,
@@ -8,15 +8,18 @@ import {
   collection,
   deleteDoc,
   doc,
-  getDocs,
+  onSnapshot,
   updateDoc,
 } from '@angular/fire/firestore';
+import firebase from 'firebase/compat';
 import { ZonedDateTime, nativeJs } from 'js-joda';
 import { BehaviorSubject, Observable, combineLatest, from, of } from 'rxjs';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { map, mergeMap } from 'rxjs/operators';
 
 import { Qso } from '../../qso';
+
+import Unsubscribe = firebase.Unsubscribe;
 
 @Injectable({
   providedIn: 'root',
@@ -26,9 +29,9 @@ export class QsoService {
   private auth: Auth = inject(Auth);
 
   private currentBook = '';
-  private user$ = new Observable<User | null>(null);
   private qsos$ = new BehaviorSubject<FirebaseQso[]>([]);
   private filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
+  private unsubscribe: Unsubscribe;
 
   private static unmarshalDates(qso: Qso): void {
     if (qso.timeOn != null) {
@@ -55,20 +58,18 @@ export class QsoService {
       return;
     }
     this.currentBook = bookCall;
-    this.user$ = user(this.auth);
-    const contactSnapshots = this.user$.pipe(
-      mergeMap((u: User) => {
-        const contactsCollection = collection(
-          this.firestore,
-          this.contactsPath(),
-        ) as CollectionReference<Qso>;
-        return fromPromise(getDocs(contactsCollection));
-      }),
-    );
-    const contacts = contactSnapshots.pipe(
-      map((snapshots) => this.unpackDocs(snapshots)),
-    );
-    contacts.subscribe((qsos) => this.qsos$.next(qsos));
+    user(this.auth).subscribe((_) => {
+      if (!!this.unsubscribe) {
+        this.unsubscribe();
+      }
+      const contactsCollection = collection(
+        this.firestore,
+        this.contactsPath(),
+      ) as CollectionReference<Qso>;
+      this.unsubscribe = onSnapshot(contactsCollection, (qsosSnapshot) => {
+        this.qsos$.next(this.unpackDocs(qsosSnapshot));
+      });
+    });
   }
 
   public book(): string {
@@ -274,7 +275,7 @@ export class QsoService {
    */
   public addOrUpdate(fbq: FirebaseQso): Observable<any> {
     QsoService.marshalDates(fbq.qso);
-    return this.user$.pipe(
+    return user(this.auth).pipe(
       mergeMap((u) => {
         if (u == null) {
           return of(null);
@@ -310,7 +311,7 @@ export class QsoService {
   }
 
   delete(firebaseId: string): Observable<any> {
-    return this.user$.pipe(
+    return user(this.auth).pipe(
       mergeMap((u) => {
         if (u == null) {
           return of(null);
