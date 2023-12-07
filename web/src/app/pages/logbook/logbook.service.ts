@@ -1,13 +1,15 @@
 import { Injectable, inject } from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
 import {
+  DocumentReference,
   Firestore,
   doc,
-  docData,
+  getDoc,
   setDoc,
   updateDoc,
 } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, from, of } from 'rxjs';
+import { BehaviorSubject, Observable, filter, from, of } from 'rxjs';
+import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { mergeMap, switchMap } from 'rxjs/operators';
 
 import { Station } from '../../qso';
@@ -34,24 +36,25 @@ export class LogbookService {
     this.started = true;
     this.logbookId$
       .pipe(
+        filter((v) => !!v),
         switchMap((logbookId) => {
-          if (logbookId == null) {
-            return of({});
-          }
-          return docData(doc(this.firestore, 'logbooks', logbookId));
+          const docRef = doc(
+            this.firestore,
+            'logbooks',
+            logbookId,
+          ) as DocumentReference<LogbookSettings>;
+          return fromPromise(getDoc(docRef));
         }),
       )
-      .subscribe((settings) => {
-        this.settings$.next(settings as LogbookSettings);
+      .subscribe((settingsSnap) => {
+        this.settings$.next(settingsSnap.data());
       });
   }
 
   public createLogbook(callsign: string): Observable<void> {
     return user(this.auth).pipe(
+      filter((v) => !!v),
       mergeMap((u) => {
-        if (!u) {
-          return;
-        }
         const userSettings = this.userSettingsService.settings$.getValue();
         let starredLogbooks = userSettings.starredLogbooks;
         if (!starredLogbooks) {
@@ -80,10 +83,8 @@ export class LogbookService {
 
   set(values: LogbookSettings): Observable<void> {
     return this.logbookId$.pipe(
+      filter((v) => !!v),
       switchMap((logbookId) => {
-        if (logbookId == null) {
-          return of(null);
-        }
         return updateDoc(doc(this.firestore, 'logbooks', logbookId), {
           ...values,
         });

@@ -1,13 +1,16 @@
 import { Injectable, inject } from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
 import {
+  DocumentReference,
+  DocumentSnapshot,
   Firestore,
   doc,
-  docData,
+  getDoc,
   setDoc,
   updateDoc,
 } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, from, mergeMap, of } from 'rxjs';
+import { BehaviorSubject, Observable, filter, from, mergeMap, of } from 'rxjs';
+import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { switchMap } from 'rxjs/operators';
 
 @Injectable({
@@ -26,16 +29,19 @@ export class UserSettingsService {
     this.started = true;
     user(this.auth)
       .pipe(
+        filter((v) => !!v),
         switchMap((user) => {
-          if (user == null) {
-            return of({});
-          }
-          return docData(doc(this.firestore, 'users', user.uid));
+          const docRef = doc(
+            this.firestore,
+            'users',
+            user.uid,
+          ) as DocumentReference<UserSettings>;
+          return fromPromise(getDoc(docRef));
         }),
       )
-      .subscribe((settings) => {
-        if (settings) {
-          this.settings$.next(settings);
+      .subscribe((settingsSnap: DocumentSnapshot<UserSettings>) => {
+        if (settingsSnap.exists()) {
+          this.settings$.next(settingsSnap.data());
         } else {
           this.createUserDocument();
         }

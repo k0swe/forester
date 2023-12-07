@@ -1,17 +1,19 @@
 import { Injectable, inject } from '@angular/core';
 import { Auth, User, user } from '@angular/fire/auth';
 import {
+  CollectionReference,
   Firestore,
-  QueryDocumentSnapshot,
+  QuerySnapshot,
   addDoc,
   collection,
-  collectionSnapshots,
   deleteDoc,
   doc,
+  getDocs,
   updateDoc,
 } from '@angular/fire/firestore';
 import { ZonedDateTime, nativeJs } from 'js-joda';
 import { BehaviorSubject, Observable, combineLatest, from, of } from 'rxjs';
+import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { map, mergeMap } from 'rxjs/operators';
 
 import { Qso } from '../../qso';
@@ -56,14 +58,11 @@ export class QsoService {
     this.user$ = user(this.auth);
     const contactSnapshots = this.user$.pipe(
       mergeMap((u: User) => {
-        if (u == null) {
-          return of([]);
-        }
         const contactsCollection = collection(
           this.firestore,
           this.contactsPath(),
-        );
-        return collectionSnapshots(contactsCollection);
+        ) as CollectionReference<Qso>;
+        return fromPromise(getDocs(contactsCollection));
       }),
     );
     const contacts = contactSnapshots.pipe(
@@ -80,8 +79,8 @@ export class QsoService {
     return 'logbooks/' + this.currentBook + '/contacts';
   }
 
-  private unpackDocs(snapshots: QueryDocumentSnapshot<Qso>[]): FirebaseQso[] {
-    return snapshots.map((snapshot) => {
+  private unpackDocs(snapshots: QuerySnapshot<Qso>): FirebaseQso[] {
+    return snapshots.docs.map((snapshot) => {
       const qso = snapshot.data();
       QsoService.unmarshalDates(qso);
       return { id: snapshot.id, qso };
@@ -285,10 +284,10 @@ export class QsoService {
             this.firestore,
             this.contactsPath(),
           );
-          return of(addDoc(contactsCollection, fbq.qso));
+          return fromPromise(addDoc(contactsCollection, fbq.qso));
         } else {
           const contactDoc = doc(this.firestore, this.contactsPath(), fbq.id);
-          return from(updateDoc(contactDoc, { ...fbq.qso }));
+          return fromPromise(updateDoc(contactDoc, { ...fbq.qso }));
         }
       }),
     );
