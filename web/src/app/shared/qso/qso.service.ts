@@ -1,34 +1,37 @@
 import { Injectable, inject } from '@angular/core';
-import { User } from '@angular/fire/auth';
+import { Auth, user } from '@angular/fire/auth';
 import {
+  CollectionReference,
   Firestore,
-  QueryDocumentSnapshot,
+  QuerySnapshot,
   addDoc,
   collection,
-  collectionSnapshots,
   deleteDoc,
   doc,
+  onSnapshot,
   updateDoc,
 } from '@angular/fire/firestore';
+import firebase from 'firebase/compat';
 import { ZonedDateTime, nativeJs } from 'js-joda';
 import { BehaviorSubject, Observable, combineLatest, from, of } from 'rxjs';
+import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { map, mergeMap } from 'rxjs/operators';
 
 import { Qso } from '../../qso';
-import { AuthService } from '../auth/auth.service';
+
+import Unsubscribe = firebase.Unsubscribe;
 
 @Injectable({
   providedIn: 'root',
 })
 export class QsoService {
   private firestore: Firestore = inject(Firestore);
-
-  constructor(private authService: AuthService) {}
+  private auth: Auth = inject(Auth);
 
   private currentBook = '';
-  private user$ = new BehaviorSubject<User | null>(null);
   private qsos$ = new BehaviorSubject<FirebaseQso[]>([]);
   private filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
+  private unsubscribe: Unsubscribe;
 
   private static unmarshalDates(qso: Qso): void {
     if (qso.timeOn != null) {
@@ -55,23 +58,18 @@ export class QsoService {
       return;
     }
     this.currentBook = bookCall;
-    this.user$ = this.authService.user$;
-    const contactSnapshots = this.user$.pipe(
-      mergeMap((u: User) => {
-        if (u == null) {
-          return of([]);
-        }
-        const contactsCollection = collection(
-          this.firestore,
-          this.contactsPath(),
-        );
-        return collectionSnapshots(contactsCollection);
-      }),
-    );
-    const contacts = contactSnapshots.pipe(
-      map((snapshots) => this.unpackDocs(snapshots)),
-    );
-    contacts.subscribe((qsos) => this.qsos$.next(qsos));
+    user(this.auth).subscribe((_) => {
+      if (!!this.unsubscribe) {
+        this.unsubscribe();
+      }
+      const contactsCollection = collection(
+        this.firestore,
+        this.contactsPath(),
+      ) as CollectionReference<Qso>;
+      this.unsubscribe = onSnapshot(contactsCollection, (qsosSnapshot) => {
+        this.qsos$.next(this.unpackDocs(qsosSnapshot));
+      });
+    });
   }
 
   public book(): string {
@@ -82,8 +80,8 @@ export class QsoService {
     return 'logbooks/' + this.currentBook + '/contacts';
   }
 
-  private unpackDocs(snapshots: QueryDocumentSnapshot<Qso>[]): FirebaseQso[] {
-    return snapshots.map((snapshot) => {
+  private unpackDocs(snapshots: QuerySnapshot<Qso>): FirebaseQso[] {
+    return snapshots.docs.map((snapshot) => {
       const qso = snapshot.data();
       QsoService.unmarshalDates(qso);
       return { id: snapshot.id, qso };
@@ -275,24 +273,25 @@ export class QsoService {
   /**
    * Insert or update the given QSO into the datastore. If `fbq.id` is null, insert; otherwise, update.
    */
-  public;
-
-  addOrUpdate(fbq: FirebaseQso): Observable<any> {
+  public addOrUpdate(fbq: FirebaseQso): Observable<any> {
     QsoService.marshalDates(fbq.qso);
-    const u = this.user$.getValue();
-    if (u == null) {
-      return of(null);
-    }
-    if (fbq.id == null) {
-      const contactsCollection = collection(
-        this.firestore,
-        this.contactsPath(),
-      );
-      return of(addDoc(contactsCollection, fbq.qso));
-    } else {
-      const contactDoc = doc(this.firestore, this.contactsPath(), fbq.id);
-      return from(updateDoc(contactDoc, { ...fbq.qso }));
-    }
+    return user(this.auth).pipe(
+      mergeMap((u) => {
+        if (u == null) {
+          return of(null);
+        }
+        if (fbq.id == null) {
+          const contactsCollection = collection(
+            this.firestore,
+            this.contactsPath(),
+          );
+          return fromPromise(addDoc(contactsCollection, fbq.qso));
+        } else {
+          const contactDoc = doc(this.firestore, this.contactsPath(), fbq.id);
+          return fromPromise(updateDoc(contactDoc, { ...fbq.qso }));
+        }
+      }),
+    );
   }
 
   /**
@@ -312,12 +311,15 @@ export class QsoService {
   }
 
   delete(firebaseId: string): Observable<any> {
-    const u = this.user$.getValue();
-    if (u == null) {
-      return of(null);
-    }
-    const contactDoc = doc(this.firestore, this.contactsPath(), firebaseId);
-    return from(deleteDoc(contactDoc));
+    return user(this.auth).pipe(
+      mergeMap((u) => {
+        if (u == null) {
+          return of(null);
+        }
+        const contactDoc = doc(this.firestore, this.contactsPath(), firebaseId);
+        return from(deleteDoc(contactDoc));
+      }),
+    );
   }
 }
 

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { User } from '@angular/fire/auth';
+import { Component, inject } from '@angular/core';
+import { Auth, User, user } from '@angular/fire/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -15,6 +15,7 @@ import { UserSettingsComponent } from '../user-settings/user-settings.component'
   styleUrls: ['./avatar.component.scss'],
 })
 export class AvatarComponent {
+  private auth: Auth = inject(Auth);
   user$: Observable<User>;
 
   constructor(
@@ -23,7 +24,7 @@ export class AvatarComponent {
     private router: Router,
     private snackBar: MatSnackBar,
   ) {
-    this.user$ = this.authService.user$;
+    this.user$ = user(this.auth);
   }
 
   logout(): void {

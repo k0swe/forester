@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
 import { Observable, from, of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 
@@ -11,6 +12,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class SecretService {
   readonly updateSecretsUrl = environment.functionsBase + 'UpdateSecret';
+  private auth: Auth = inject(Auth);
 
   constructor(
     private authService: AuthService,
@@ -33,12 +35,15 @@ export class SecretService {
       return of(null);
     }
     const url = this.updateSecretsUrl + '?logbookId=' + logbookId;
-    return from(this.authService.user$.getValue().getIdToken(false)).pipe(
-      mergeMap((jwt) => {
-        return this.http.post(url, formData, {
-          headers: { Authorization: 'Bearer ' + jwt },
-        });
-      }),
+    return from(
+      user(this.auth).pipe(
+        mergeMap((u) => u.getIdToken(false)),
+        mergeMap((jwt) => {
+          return this.http.post(url, formData, {
+            headers: { Authorization: 'Bearer ' + jwt },
+          });
+        }),
+      ),
     );
   }
 }

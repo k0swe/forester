@@ -31,7 +31,7 @@
 </mat-card>
 
 <kel-login
-  *ngIf="(authService.user$ | async) === null; else loggedIn"
+  *ngIf="(user(this.auth) | async) === null; else loggedIn"
 ></kel-login>
 
 <ng-template #loggedIn>

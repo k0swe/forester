@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
 import {
   ActivatedRouteSnapshot,
   Router,
@@ -8,16 +9,13 @@ import {
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-import { AuthService } from './shared/auth/auth.service';
-
 @Injectable({
   providedIn: 'root',
 })
 export class LoginGuard {
-  constructor(
-    private router: Router,
-    private authService: AuthService,
-  ) {}
+  private auth: Auth = inject(Auth);
+
+  constructor(private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -27,7 +25,7 @@ export class LoginGuard {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authService.user$.pipe(
+    return user(this.auth).pipe(
       switchMap((u) => {
         if (u != null) {
           return of(true);

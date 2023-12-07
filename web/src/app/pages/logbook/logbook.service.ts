@@ -1,16 +1,18 @@
 import { Injectable, inject } from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
 import {
+  DocumentReference,
   Firestore,
   doc,
-  docData,
+  getDoc,
   setDoc,
   updateDoc,
 } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, from, of } from 'rxjs';
+import { BehaviorSubject, Observable, filter, from, of } from 'rxjs';
+import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { mergeMap, switchMap } from 'rxjs/operators';
 
 import { Station } from '../../qso';
-import { AuthService } from '../../shared/auth/auth.service';
 import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
 
 @Injectable({
@@ -23,7 +25,7 @@ export class LogbookService {
   started = false;
 
   constructor(
-    private authService: AuthService,
+    private auth: Auth,
     private userSettingsService: UserSettingsService,
   ) {}
 
@@ -34,40 +36,44 @@ export class LogbookService {
     this.started = true;
     this.logbookId$
       .pipe(
+        filter((v) => !!v),
         switchMap((logbookId) => {
-          if (logbookId == null) {
-            return of({});
-          }
-          return docData(doc(this.firestore, 'logbooks', logbookId));
+          const docRef = doc(
+            this.firestore,
+            'logbooks',
+            logbookId,
+          ) as DocumentReference<LogbookSettings>;
+          return fromPromise(getDoc(docRef));
         }),
       )
-      .subscribe((settings) => {
-        this.settings$.next(settings as LogbookSettings);
+      .subscribe((settingsSnap) => {
+        this.settings$.next(settingsSnap.data());
       });
   }
 
   public createLogbook(callsign: string): Observable<void> {
-    const user = this.authService.user$.getValue();
-    if (!user) {
-      return;
-    }
-    const userSettings = this.userSettingsService.settings$.getValue();
-    let starredLogbooks = userSettings.starredLogbooks;
-    if (!starredLogbooks) {
-      starredLogbooks = [];
-    }
-    starredLogbooks.push(callsign);
-    return from(
-      // create the logbook
-      setDoc(doc(this.firestore, 'logbooks' + callsign), {
-        editors: [user.uid],
+    return user(this.auth).pipe(
+      filter((v) => !!v),
+      mergeMap((u) => {
+        const userSettings = this.userSettingsService.settings$.getValue();
+        let starredLogbooks = userSettings.starredLogbooks;
+        if (!starredLogbooks) {
+          starredLogbooks = [];
+        }
+        starredLogbooks.push(callsign);
+        return from(
+          // create the logbook
+          setDoc(doc(this.firestore, 'logbooks' + callsign), {
+            editors: [u.uid],
+          }),
+          // TODO: handle logbook already exists
+        ).pipe(
+          mergeMap(
+            // add the logbook to the user's starred list
+            () => this.userSettingsService.set({ starredLogbooks }),
+          ),
+        );
       }),
-      // TODO: handle logbook already exists
-    ).pipe(
-      mergeMap(
-        // add the logbook to the user's starred list
-        () => this.userSettingsService.set({ starredLogbooks }),
-      ),
     );
   }
 
@@ -77,10 +83,8 @@ export class LogbookService {
 
   set(values: LogbookSettings): Observable<void> {
     return this.logbookId$.pipe(
+      filter((v) => !!v),
       switchMap((logbookId) => {
-        if (logbookId == null) {
-          return of(null);
-        }
         return updateDoc(doc(this.firestore, 'logbooks', logbookId), {
           ...values,
         });

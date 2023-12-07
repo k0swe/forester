@@ -1,43 +1,47 @@
 import { Injectable, inject } from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
 import {
+  DocumentReference,
+  DocumentSnapshot,
   Firestore,
   doc,
-  docData,
+  getDoc,
   setDoc,
   updateDoc,
 } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, filter, from, mergeMap, of } from 'rxjs';
+import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { switchMap } from 'rxjs/operators';
-
-import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserSettingsService {
   private firestore: Firestore = inject(Firestore);
+  private auth: Auth = inject(Auth);
   settings$ = new BehaviorSubject<UserSettings>({});
   started = false;
-
-  constructor(private authService: AuthService) {}
 
   public init(): void {
     if (this.started === true) {
       return;
     }
     this.started = true;
-    this.authService.user$
+    user(this.auth)
       .pipe(
+        filter((v) => !!v),
         switchMap((user) => {
-          if (user == null) {
-            return of({});
-          }
-          return docData(doc(this.firestore, 'users', user.uid));
+          const docRef = doc(
+            this.firestore,
+            'users',
+            user.uid,
+          ) as DocumentReference<UserSettings>;
+          return fromPromise(getDoc(docRef));
         }),
       )
-      .subscribe((settings) => {
-        if (settings) {
-          this.settings$.next(settings);
+      .subscribe((settingsSnap: DocumentSnapshot<UserSettings>) => {
+        if (settingsSnap.exists()) {
+          this.settings$.next(settingsSnap.data());
         } else {
           this.createUserDocument();
         }
@@ -45,10 +49,17 @@ export class UserSettingsService {
   }
 
   private createUserDocument(): void {
-    const u = this.authService.user$.getValue();
-    setDoc(doc(this.firestore, 'users', u.uid), <UserSettings>{
-      starredLogbooks: [],
-    });
+    user(this.auth)
+      .pipe(
+        mergeMap((u) => {
+          return from(
+            setDoc(doc(this.firestore, 'users', u.uid), <UserSettings>{
+              starredLogbooks: [],
+            }),
+          );
+        }),
+      )
+      .subscribe();
   }
 
   public settings(): Observable<UserSettings> {
@@ -56,7 +67,7 @@ export class UserSettingsService {
   }
 
   set(values: UserSettings): Observable<void> {
-    return this.authService.user$.pipe(
+    return user(this.auth).pipe(
       switchMap((user) => {
         if (user == null) {
           return of(null);

@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
-import { AuthService } from '../../shared/auth/auth.service';
 import { ImportExportService } from '../../shared/import-export/import-export.service';
 import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-settings.component';
 import { LogbookService } from './logbook.service';
@@ -29,7 +29,7 @@ export class LogbookComponent implements OnInit {
   @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
 
   constructor(
-    public authService: AuthService,
+    public auth: Auth,
     private dialog: MatDialog,
     private http: HttpClient,
     private importExportService: ImportExportService,
@@ -42,7 +42,7 @@ export class LogbookComponent implements OnInit {
     this.route.params.subscribe((params) =>
       this.logbookService.logbookId$.next(params.callsign),
     );
-    this.authService.user$.subscribe((user) => {
+    user(this.auth).subscribe((user) => {
       if (user != null) {
         user.getIdToken(false).then((token) => this.userJwt$.next(token));
       } else {
