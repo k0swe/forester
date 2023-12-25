@@ -4,12 +4,11 @@ import {
   DocumentReference,
   Firestore,
   doc,
-  getDoc,
+  onSnapshot,
   setDoc,
   updateDoc,
 } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, filter, from, of } from 'rxjs';
-import { fromPromise } from 'rxjs/internal/observable/innerFrom';
+import { BehaviorSubject, Observable, filter, from } from 'rxjs';
 import { mergeMap, switchMap } from 'rxjs/operators';
 
 import { Station } from '../../qso';
@@ -20,35 +19,31 @@ import { UserSettingsService } from '../../shared/user-settings/user-settings.se
 })
 export class LogbookService {
   private firestore: Firestore = inject(Firestore);
+  private auth: Auth = inject(Auth);
+  private userSettingsService: UserSettingsService =
+    inject(UserSettingsService);
   logbookId$ = new BehaviorSubject<string>(null);
   settings$ = new BehaviorSubject<LogbookSettings>({} as LogbookSettings);
   started = false;
-
-  constructor(
-    private auth: Auth,
-    private userSettingsService: UserSettingsService,
-  ) {}
 
   public init(): void {
     if (this.started === true) {
       return;
     }
     this.started = true;
-    this.logbookId$
-      .pipe(
-        filter((v) => !!v),
-        switchMap((logbookId) => {
-          const docRef = doc(
-            this.firestore,
-            'logbooks',
-            logbookId,
-          ) as DocumentReference<LogbookSettings>;
-          return fromPromise(getDoc(docRef));
-        }),
-      )
-      .subscribe((settingsSnap) => {
-        this.settings$.next(settingsSnap.data());
+    this.logbookId$.subscribe((logbookId) => {
+      if (!logbookId) {
+        return;
+      }
+      const docRef = doc(
+        this.firestore,
+        'logbooks',
+        logbookId,
+      ) as DocumentReference<LogbookSettings>;
+      onSnapshot(docRef, (doc) => {
+        this.settings$.next(doc.data());
       });
+    });
   }
 
   public createLogbook(callsign: string): Observable<void> {
