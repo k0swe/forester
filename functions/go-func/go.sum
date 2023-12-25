@@ -146,6 +146,8 @@ github.com/k0swe/lotw-qsl v0.3.44 h1:kHQhNFffIe6wnkfpJ1zksLNIqpb0pkyVrwdZdxqJVmc
 github.com/k0swe/lotw-qsl v0.3.44/go.mod h1:WDTUj4s9OD0C5zjZUXr4uuNLVB7ZJ6Cfs57sC3CjrAI=
 github.com/k0swe/lotw-qsl v0.3.45 h1:fAIz+mZoyRRcfVQpJY/stAdmQfhwEemRnJWt9H2pkHo=
 github.com/k0swe/lotw-qsl v0.3.45/go.mod h1:9jacOcYcupiNWors93vzyy6+J7wS3abo7wLo1VYysV4=
+github.com/k0swe/lotw-qsl v0.3.46 h1:/Uv2u34I7tWyh/nOFWbRmBIXXiePZXaEX1tHusz+Vjg=
+github.com/k0swe/lotw-qsl v0.3.46/go.mod h1:u5poiJtm4QQGSpgjNbQlbbnB8g/HFrYC5jVz4i5+Sp8=
 github.com/k0swe/qrz-api v0.2.30 h1:SXt+79FhVJjo+NV3xkx23GIFslRIQY9FN9GMGLBTMB0=
 github.com/k0swe/qrz-api v0.2.30/go.mod h1:1XQJOlK2AbYhdj0LbWqZ/yPPbj3hjK+ynH4YtHb+GNQ=
 github.com/k0swe/qrz-api v0.2.31 h1:mesLv2cZqlm0YqPNcggThuEmmAg+SeKQ4vakeF5DOBE=
