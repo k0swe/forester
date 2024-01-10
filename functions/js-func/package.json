@@ -15,7 +15,7 @@
   "main": "lib/index.js",
   "dependencies": {
     "@firebase/app-types": "0.9.0",
-    "@google-cloud/pubsub": "4.1.0",
+    "@google-cloud/pubsub": "4.1.1",
     "firebase-admin": "11.11.1",
     "firebase-functions": "4.5.0"
   },
