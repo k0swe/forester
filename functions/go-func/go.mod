@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	cloud.google.com/go/firestore v1.14.0
-	cloud.google.com/go/pubsub v1.33.0
+	cloud.google.com/go/pubsub v1.34.0
 	cloud.google.com/go/secretmanager v1.11.4
 	dario.cat/mergo v1.0.0
 	firebase.google.com/go/v4 v4.13.0
