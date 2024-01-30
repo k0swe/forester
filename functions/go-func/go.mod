@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	cloud.google.com/go/firestore v1.14.0
-	cloud.google.com/go/pubsub v1.34.0
+	cloud.google.com/go/pubsub v1.36.0
 	cloud.google.com/go/secretmanager v1.11.4
 	dario.cat/mergo v1.0.0
 	firebase.google.com/go/v4 v4.13.0
@@ -55,7 +55,7 @@ require (
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/appengine/v2 v2.0.5 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20240116215550-a9fa1716bcac // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20240122161410-6c6643bf1457 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240116215550-a9fa1716bcac // indirect
 	google.golang.org/grpc v1.60.1 // indirect
 )
