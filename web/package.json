@@ -85,7 +85,7 @@
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
     "license-report": "6.5.0",
-    "lint-staged": "15.2.0",
+    "lint-staged": "15.2.1",
     "open": "10.0.3",
     "prettier": "3.2.4",
     "ts-node": "10.9.2",
