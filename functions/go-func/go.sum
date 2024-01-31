@@ -60,6 +60,8 @@ cloud.google.com/go/secretmanager v1.11.3 h1:Xk7NFAUuW9q+eX4AxwS/dDuhlNWQ1MmfxQp
 cloud.google.com/go/secretmanager v1.11.3/go.mod h1:0bA2o6FabmShrEy328i67aV+65XoUFFSmVeLBn/51jI=
 cloud.google.com/go/secretmanager v1.11.4 h1:krnX9qpG2kR2fJ+u+uNyNo+ACVhplIAS4Pu7u+4gd+k=
 cloud.google.com/go/secretmanager v1.11.4/go.mod h1:wreJlbS9Zdq21lMzWmJ0XhWW2ZxgPeahsqeV/vZoJ3w=
+cloud.google.com/go/secretmanager v1.11.5 h1:82fpF5vBBvu9XW4qj0FU2C6qVMtj1RM/XHwKXUEAfYY=
+cloud.google.com/go/secretmanager v1.11.5/go.mod h1:eAGv+DaCHkeVyQi0BeXgAHOU0RdrMeZIASKc+S7VqH4=
 cloud.google.com/go/storage v1.33.0 h1:PVrDOkIC8qQVa1P3SXGpQvfuJhN2LHOoyZvWs8D2X5M=
 cloud.google.com/go/storage v1.33.0/go.mod h1:Hhh/dogNRGca7IWv1RC2YqEn0c0G77ctA/OxflYkiD8=
 cloud.google.com/go/storage v1.36.0 h1:P0mOkAcaJxhCTvAkMhxMfrTKiNcub4YmmPBtlhAyTr8=
