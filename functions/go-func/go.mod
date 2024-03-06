@@ -12,13 +12,13 @@ require (
 	github.com/antihax/optional v1.0.0
 	github.com/jinzhu/copier v0.4.0
 	github.com/k0swe/adif-json-protobuf/go v0.0.8
-	github.com/k0swe/lotw-qsl v0.3.47
+	github.com/k0swe/lotw-qsl v0.3.48
 	github.com/k0swe/qrz-api v0.2.36
 	github.com/k0swe/qrz-logbook v0.2.36
 	golang.org/x/oauth2 v0.18.0
 	google.golang.org/api v0.168.0
 	google.golang.org/genproto v0.0.0-20240304212257-790db918fca8
-	google.golang.org/protobuf v1.32.0
+	google.golang.org/protobuf v1.33.0
 )
 
 require (

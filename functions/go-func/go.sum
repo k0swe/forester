@@ -186,6 +186,8 @@ github.com/k0swe/lotw-qsl v0.3.46 h1:/Uv2u34I7tWyh/nOFWbRmBIXXiePZXaEX1tHusz+Vjg
 github.com/k0swe/lotw-qsl v0.3.46/go.mod h1:u5poiJtm4QQGSpgjNbQlbbnB8g/HFrYC5jVz4i5+Sp8=
 github.com/k0swe/lotw-qsl v0.3.47 h1:cweNuLvRJ+f/3AxHLymPFxwkwG6J2FCpMDbUFUjdUt8=
 github.com/k0swe/lotw-qsl v0.3.47/go.mod h1:mGD4PuRTqBHq/HK5gkh+GBkYOKED5y0Q/Z5rPcdTYgA=
+github.com/k0swe/lotw-qsl v0.3.48 h1:Lbm7yE8y7AenfJymvqmHvrLGs2rN0TdhjzdTqgJZR9Y=
+github.com/k0swe/lotw-qsl v0.3.48/go.mod h1:PkcOqCCWWHg5LeyUwWbet7LbiDK0LkpgD+2t2BIPV+o=
 github.com/k0swe/qrz-api v0.2.30 h1:SXt+79FhVJjo+NV3xkx23GIFslRIQY9FN9GMGLBTMB0=
 github.com/k0swe/qrz-api v0.2.30/go.mod h1:1XQJOlK2AbYhdj0LbWqZ/yPPbj3hjK+ynH4YtHb+GNQ=
 github.com/k0swe/qrz-api v0.2.31 h1:mesLv2cZqlm0YqPNcggThuEmmAg+SeKQ4vakeF5DOBE=
@@ -591,6 +593,8 @@ google.golang.org/protobuf v1.31.0 h1:g0LDEJHgrBl9N9r17Ru3sqWhkIx2NB67okBHPwC7hs
 google.golang.org/protobuf v1.31.0/go.mod h1:HV8QOd/L58Z+nl8r43ehVNZIU/HEI6OcFqwMG9pJV4I=
 google.golang.org/protobuf v1.32.0 h1:pPC6BG5ex8PDFnkbrGU3EixyhKcQ2aDuBS36lqK/C7I=
 google.golang.org/protobuf v1.32.0/go.mod h1:c6P6GXX6sHbq/GpV6MGZEdwhWPcYBgnhAHhKbcUYpos=
+google.golang.org/protobuf v1.33.0 h1:uNO2rsAINq/JlFpSdYEKIZ0uKD/R9cpdv0T+yoGwGmI=
+google.golang.org/protobuf v1.33.0/go.mod h1:c6P6GXX6sHbq/GpV6MGZEdwhWPcYBgnhAHhKbcUYpos=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
 gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
