@@ -3,7 +3,7 @@ module github.com/k0swe/forester-func
 go 1.19
 
 require (
-	cloud.google.com/go/firestore v1.14.0
+	cloud.google.com/go/firestore v1.15.0
 	cloud.google.com/go/pubsub v1.36.2
 	cloud.google.com/go/secretmanager v1.11.5
 	dario.cat/mergo v1.0.0
@@ -55,7 +55,7 @@ require (
 	golang.org/x/xerrors v0.0.0-20231012003039-104605ab7028 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/appengine/v2 v2.0.5 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20240228224816-df926f6c8641 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20240304161311-37d4d3c04a78 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240304161311-37d4d3c04a78 // indirect
 	google.golang.org/grpc v1.62.0 // indirect
 )
