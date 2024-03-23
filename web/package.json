@@ -40,7 +40,7 @@
     "@angular/router": "17.3.1",
     "@angular/service-worker": "17.3.1",
     "@googlemaps/js-api-loader": "1.16.6",
-    "@types/long": "4.0.2",
+    "@types/long": "5.0.0",
     "adif-parser-ts": "0.5.11",
     "firebase": "10.9.0",
     "google-protobuf": "3.21.2",
