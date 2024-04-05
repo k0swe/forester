@@ -17,10 +17,10 @@
     "@firebase/app-types": "0.9.1",
     "@google-cloud/pubsub": "4.3.3",
     "firebase-admin": "11.11.1",
-    "firebase-functions": "4.8.2"
+    "firebase-functions": "4.9.0"
   },
   "devDependencies": {
-    "@types/node": "20.12.3",
+    "@types/node": "20.12.4",
     "@typescript-eslint/eslint-plugin": "7.5.0",
     "@typescript-eslint/parser": "7.5.0",
     "eslint": "8.57.0",
