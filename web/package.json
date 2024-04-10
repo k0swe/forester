@@ -41,7 +41,7 @@
     "@angular/service-worker": "17.3.3",
     "@googlemaps/js-api-loader": "1.16.6",
     "@types/long": "5.0.0",
-    "adif-parser-ts": "0.5.12",
+    "adif-parser-ts": "0.5.13",
     "firebase": "10.10.0",
     "google-protobuf": "3.21.2",
     "js-joda": "1.11.0",
