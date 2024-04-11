@@ -27,7 +27,7 @@
     "eslint-config-google": "0.14.0",
     "eslint-plugin-import": "2.29.1",
     "firebase-functions-test": "3.2.0",
-    "typescript": "5.4.4"
+    "typescript": "5.4.5"
   },
   "overrides": {
     "@types/glob": "8.1.0",
