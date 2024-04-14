@@ -33,7 +33,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: "${{ secrets.GH_PAT }}"
-          add-paths: "functions/go-func/go.mod functions/go-func/go.sum"
+          add-paths: "functions/go-func/go.{mod,sum}"
           commit-message: go get -u
           title: go get -u
           branch: update-go-func
