@@ -42,7 +42,7 @@
     "@googlemaps/js-api-loader": "1.16.6",
     "@types/long": "5.0.0",
     "adif-parser-ts": "0.5.13",
-    "firebase": "10.11.0",
+    "firebase": "10.11.1",
     "google-protobuf": "3.21.2",
     "js-joda": "1.11.0",
     "json-ptr": "3.1.1",
