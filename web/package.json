@@ -30,7 +30,7 @@
     "@angular/common": "17.3.11",
     "@angular/compiler": "17.3.11",
     "@angular/core": "17.3.11",
-    "@angular/fire": "17.0.1",
+    "@angular/fire": "18.0.1",
     "@angular/forms": "17.3.11",
     "@angular/google-maps": "17.3.10",
     "@angular/localize": "17.3.11",
