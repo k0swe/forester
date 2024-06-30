@@ -70,7 +70,7 @@ td.mat-mdc-cell {
 
 .mat-mdc-row {
   &:hover {
-    background-color: mat.get-color-from-palette($kel-background, hover);
+    background-color: mat.m2-get-color-from-palette($kel-background, hover);
   }
 }
 
@@ -79,12 +79,12 @@ td.mat-mdc-cell {
 }
 
 .callsign {
-  @include mat.typography-level($kel-mono-typography, body-2);
+  @include mat.m2-typography-level($kel-mono-typography, body-2);
   font-weight: bold;
 }
 
 .band {
-  font-size: mat.font-size($kel-mono-typography, caption);
+  font-size: mat.m2-font-size($kel-mono-typography, caption);
 }
 
 .band-2200m {
@@ -168,6 +168,6 @@ td.mat-mdc-cell {
 }
 
 .flag {
-  @include mat.typography-level($kel-emoji-typography, body-2);
+  @include mat.m2-typography-level($kel-emoji-typography, body-2);
   text-shadow: 1px 1px #ccc;
 }

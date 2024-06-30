@@ -1,4 +1,7 @@
-import { HttpClientModule } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { getApp, initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
@@ -78,6 +81,7 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
     UserSettingsComponent,
     WasComponent,
   ],
+  bootstrap: [AppComponent],
   imports: [
     provideAuth(() => getAuth()),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -89,7 +93,6 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
     BrowserModule,
     FormsModule,
     GoogleMapsModule,
-    HttpClientModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
@@ -124,7 +127,7 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
     QsoService,
     SecretService,
     UserSettingsService,
+    provideHttpClient(withInterceptorsFromDi()),
   ],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -26,9 +26,9 @@ mat-icon {
 }
 
 mat-form-field.ng-dirty {
-  color: mat.get-color-from-palette($kel-accent, 800);
+  color: mat.m2-get-color-from-palette($kel-accent, 800);
 }
 
 .callsign {
-  @include mat.typography-level($kel-mono-typography, body-1);
+  @include mat.m2-typography-level($kel-mono-typography, body-1);
 }
