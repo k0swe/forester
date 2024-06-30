@@ -1,12 +1,12 @@
 @use '@angular/material' as mat;
 
-$kel-primary: mat.define-palette(mat.$green-palette, 700, 300, 900);
-$kel-accent: mat.define-palette(mat.$deep-purple-palette);
-$kel-typography: mat.define-typography-config(
+$kel-primary: mat.m2-define-palette(mat.$m2-green-palette, 700, 300, 900);
+$kel-accent: mat.m2-define-palette(mat.$m2-deep-purple-palette);
+$kel-typography: mat.m2-define-typography-config(
   $font-family: 'Open Sans, Helvetica Neue, sans-serif',
 );
 
-$kel-theme: mat.define-light-theme(
+$kel-theme: mat.m2-define-light-theme(
   (
     color: (
       primary: $kel-primary,
@@ -19,14 +19,14 @@ $kel-theme: mat.define-light-theme(
 $kel-background: map-get($kel-theme, background);
 $kel-foreground: map-get($kel-theme, foreground);
 
-$kel-mono-typography: mat.define-typography-config(
+$kel-mono-typography: mat.m2-define-typography-config(
   $font-family: 'DM Mono, monospace',
 );
 
-$kel-serif-typography: mat.define-typography-config(
+$kel-serif-typography: mat.m2-define-typography-config(
   $font-family: 'Tinos, Times New Roman, serif',
 );
 
-$kel-emoji-typography: mat.define-typography-config(
+$kel-emoji-typography: mat.m2-define-typography-config(
   $font-family: 'Apple Color Emoji, Noto Colr Emoji Glyf',
 );

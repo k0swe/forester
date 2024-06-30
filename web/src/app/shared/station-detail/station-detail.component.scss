@@ -37,17 +37,17 @@ div.row {
 }
 
 mat-form-field.ng-dirty {
-  color: mat.get-color-from-palette($kel-accent, 900);
+  color: mat.m2-get-color-from-palette($kel-accent, 900);
 }
 
 mat-card {
-  border: 1px solid mat.get-color-from-palette($kel-primary, A100);
+  border: 1px solid mat.m2-get-color-from-palette($kel-primary, A100);
   margin-bottom: 8px;
   margin-top: 8px;
 }
 
 input.callsign {
-  @include mat.typography-level($kel-mono-typography, body-1);
+  @include mat.m2-typography-level($kel-mono-typography, body-1);
 }
 
 /* Chrome, Safari, Edge, Opera */
