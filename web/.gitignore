@@ -36,3 +36,4 @@ e2e/*.map
 # End of https://www.toptal.com/developers/gitignore/api/angular
 
 src/environments/versions.prod.ts
+.nx/cache
