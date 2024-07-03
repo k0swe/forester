@@ -28,9 +28,9 @@ html {
 body {
   color: #212121;
   background-color: #f3f3f3;
-  font-family: mat.font-family($kel-typography);
-  line-height: mat.line-height($kel-typography, body-1);
-  font-size: mat.font-size($kel-typography, body-1);
+  font-family: mat.m2-font-family($kel-typography);
+  line-height: mat.m2-line-height($kel-typography, body-1);
+  font-size: mat.m2-font-size($kel-typography, body-1);
   height: 100%;
   margin: 0;
   overflow: hidden;

@@ -17,11 +17,11 @@ div.row {
 }
 
 mat-form-field.ng-dirty {
-  color: mat.get-color-from-palette($kel-accent, 800);
+  color: mat.m2-get-color-from-palette($kel-accent, 800);
 }
 
 mat-card {
-  border: 1px solid mat.get-color-from-palette($kel-primary, A100);
+  border: 1px solid mat.m2-get-color-from-palette($kel-primary, A100);
   margin-bottom: 8px;
   margin-top: 8px;
 }
