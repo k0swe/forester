@@ -15,12 +15,13 @@
       "prefix": "kel",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/forester",
+            "outputPath": {
+              "base": "dist/forester"
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["src/polyfills.ts"],
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
@@ -30,7 +31,11 @@
               "src/robots.txt"
             ],
             "styles": ["src/styles/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "browser": "src/main.ts",
+            "stylePreprocessorOptions": {
+              "includePaths": ["."]
+            }
           },
           "configurations": {
             "production": {
@@ -49,8 +54,6 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -63,13 +66,10 @@
                   "maximumError": "10kb"
                 }
               ],
-              "serviceWorker": true,
-              "ngswConfigPath": "ngsw-config.json"
+              "serviceWorker": "ngsw-config.json"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
