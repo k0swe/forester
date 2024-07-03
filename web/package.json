@@ -26,7 +26,7 @@
   "dependencies": {
     "@amrato/maidenhead-ts": "2.0.0",
     "@angular/animations": "17.3.11",
-    "@angular/cdk": "17.3.10",
+    "@angular/cdk": "18.0.6",
     "@angular/common": "17.3.11",
     "@angular/compiler": "17.3.11",
     "@angular/core": "17.3.11",
@@ -34,7 +34,7 @@
     "@angular/forms": "17.3.11",
     "@angular/google-maps": "17.3.10",
     "@angular/localize": "17.3.11",
-    "@angular/material": "17.3.10",
+    "@angular/material": "18.0.6",
     "@angular/platform-browser": "17.3.11",
     "@angular/platform-browser-dynamic": "17.3.11",
     "@angular/router": "17.3.11",
