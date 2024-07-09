@@ -33,7 +33,7 @@
     "@types/glob": "8.1.0",
     "@types/minimatch": "5.1.2",
     "@types/rimraf": "4.0.5",
-    "glob": "10.4.3",
+    "glob": "10.4.5",
     "minimatch": "9.0.5",
     "rimraf": "5.0.8"
   },
