@@ -35,7 +35,7 @@
     "@types/rimraf": "4.0.5",
     "glob": "10.4.5",
     "minimatch": "9.0.5",
-    "rimraf": "5.0.8"
+    "rimraf": "5.0.9"
   },
   "private": true
 }
