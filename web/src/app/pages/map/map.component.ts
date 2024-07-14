@@ -131,8 +131,8 @@ export class MapComponent implements OnInit, AfterViewInit {
   ): google.maps.LatLngLiteral | null {
     if (!!station.latitude && !!station.longitude) {
       return {
-        lat: station.latitude,
-        lng: station.longitude,
+        lat: +station.latitude,
+        lng: +station.longitude,
       };
     }
     if (!!station.gridSquare) {
