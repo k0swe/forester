@@ -40,10 +40,10 @@ export class GeocodeService {
     const response = geocoder.geocode({
       address: address,
       bounds: {
-        north: station.latitude ?? 0,
-        south: station.latitude ?? 0,
-        east: station.longitude ?? 0,
-        west: station.longitude ?? 0,
+        north: +station.latitude ?? 0,
+        south: +station.latitude ?? 0,
+        east: +station.longitude ?? 0,
+        west: +station.longitude ?? 0,
       },
     });
     const { results } = await response;

@@ -147,8 +147,8 @@ export class WasComponent implements OnInit, AfterViewInit {
           markerOpts = WasComponent.makeQsoMarkerOptions(state, fbq.qso);
           iw = WasComponent.makeQsoInfoWindowOptions(state, fbq.qso);
           const loggingStationPosition: google.maps.LatLngLiteral = {
-            lat: fbq.qso.loggingStation.latitude,
-            lng: fbq.qso.loggingStation.longitude,
+            lat: +fbq.qso.loggingStation.latitude,
+            lng: +fbq.qso.loggingStation.longitude,
           };
           this.paths
             .get(state.abbrev)
@@ -202,10 +202,10 @@ export class WasComponent implements OnInit, AfterViewInit {
     let latitude = state.lat;
     let longitude = state.lon;
     if (qso.contactedStation.latitude != null) {
-      latitude = qso.contactedStation.latitude;
+      latitude = +qso.contactedStation.latitude;
     }
     if (qso.contactedStation.longitude != null) {
-      longitude = qso.contactedStation.longitude;
+      longitude = +qso.contactedStation.longitude;
     }
     const icon = QsoService.isWASQsl(qso)
       ? '/assets/map-pin-green.svg'
