@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "web/dist/forester",
+    "public": "web/dist/forester/browser",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
