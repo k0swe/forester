@@ -19,7 +19,7 @@ jobs:
     needs: test-go
     strategy:
       matrix:
-        function-name: [ImportQrz, ImportLotw, UpdateSecret]
+        function-name: [ ImportQrz, ImportLotw, UpdateSecret ]
       fail-fast: false
 
     steps:
@@ -32,13 +32,13 @@ jobs:
           credentials_json: "${{ secrets.GCP_SA_KEY }}"
 
       - name: Cloud Functions Deploy
-        uses: google-github-actions/deploy-cloud-functions@main
+        uses: google-github-actions/deploy-cloud-functions@v2
         with:
           source_dir: functions/go-func/
           name: ${{ matrix.function-name }}
           entry_point: ${{ matrix.function-name }}
           # https://cloud.google.com/functions/docs/runtime-support#go
-          runtime: go121
+          runtime: go122
           env_vars: GCP_PROJECT=k0swe-kellog
           deploy_timeout: 3600
 
@@ -67,7 +67,7 @@ jobs:
           credentials_json: "${{ secrets.GCP_SA_KEY }}"
 
       - name: Cloud Functions Deploy
-        uses: google-github-actions/deploy-cloud-functions@main
+        uses: google-github-actions/deploy-cloud-functions@v2
         with:
           source_dir: functions/go-func/
           name: ${{ matrix.function-spec.name }}
@@ -75,6 +75,6 @@ jobs:
           event_trigger_type: google.pubsub.topic.publish
           event_trigger_resource: ${{ matrix.function-spec.trigger }}
           # https://cloud.google.com/functions/docs/runtime-support#go
-          runtime: go121
+          runtime: go122
           env_vars: GCP_PROJECT=k0swe-kellog
           deploy_timeout: 3600
