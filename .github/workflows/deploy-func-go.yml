@@ -73,7 +73,7 @@ jobs:
           source_dir: functions/go-func/
           name: ${{ matrix.function-spec.name }}
           entry_point: ${{ matrix.function-spec.name }}
-          event_trigger_type: google.pubsub.topic.publish
+          event_trigger_type: google.cloud.pubsub.topic.v1.messagePublished
           event_trigger_pubsub_topic: ${{ matrix.function-spec.pubsub_topic }}
           # https://cloud.google.com/functions/docs/runtime-support#go
           runtime: go122
