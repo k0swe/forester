@@ -10,5 +10,5 @@ const topicName: string = 'contact-created';
 export const onCreateContact = onDocumentCreated(documentId, async (event) => {
   log('Contact was created', event.data?.ref.path);
   const pubsub = new PubSub({ projectId });
-  await pubsub.topic(topicName).publishMessage(event.params);
+  await pubsub.topic(topicName).publishMessage({ json: event.params });
 });
