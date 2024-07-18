@@ -1,15 +1,14 @@
-import * as functions from "firebase-functions";
-import {PubSub} from "@google-cloud/pubsub";
+import { onDocumentCreated } from 'firebase-functions/v2/firestore';
+import { PubSub } from '@google-cloud/pubsub';
+import { log } from 'firebase-functions/logger';
 
-const projectId = "k0swe-kellog";
-const topicName = "contact-created";
+const documentId: string = 'logbooks/{logbookId}/contacts/{contactId}';
+const projectId: string = 'k0swe-kellog';
+const topicName: string = 'contact-created';
 
 // noinspection JSUnusedGlobalSymbols
-export const onCreateContact = functions.firestore
-    .document("logbooks/{logbookId}/contacts/{contactId}")
-    .onCreate(async (snapshot, context) => {
-      functions.logger.info("Contact was created", snapshot.ref.path);
-      const pubsub = new PubSub({projectId});
-      return pubsub.topic(topicName)
-          .publish(Buffer.from(JSON.stringify(context.params)));
-    });
+export const onCreateContact = onDocumentCreated(documentId, async (event) => {
+  log('Contact was created', event.data?.ref.path);
+  const pubsub = new PubSub({ projectId });
+  await pubsub.topic(topicName).publishMessage(event.params);
+});
