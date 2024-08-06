@@ -18,14 +18,14 @@ require (
 	github.com/k0swe/qrz-api v0.3.0
 	github.com/k0swe/qrz-logbook v0.3.0
 	golang.org/x/oauth2 v0.21.0
-	google.golang.org/api v0.189.0
+	google.golang.org/api v0.190.0
 	google.golang.org/genproto v0.0.0-20240730163845-b1a4ccb954bf
 	google.golang.org/protobuf v1.34.2
 )
 
 require (
 	cloud.google.com/go v0.115.0 // indirect
-	cloud.google.com/go/auth v0.7.2 // indirect
+	cloud.google.com/go/auth v0.7.3 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.3 // indirect
 	cloud.google.com/go/compute/metadata v0.5.0 // indirect
 	cloud.google.com/go/iam v1.1.12 // indirect
