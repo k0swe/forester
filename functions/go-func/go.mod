@@ -7,7 +7,7 @@ toolchain go1.23.0
 require (
 	cloud.google.com/go/firestore v1.16.0
 	cloud.google.com/go/pubsub v1.42.0
-	cloud.google.com/go/secretmanager v1.13.6
+	cloud.google.com/go/secretmanager v1.14.0
 	dario.cat/mergo v1.0.1
 	firebase.google.com/go/v4 v4.14.1
 	github.com/Matir/adifparser v0.0.0-20230124172935-2c465737f437
@@ -18,8 +18,8 @@ require (
 	github.com/k0swe/qrz-api v0.3.1
 	github.com/k0swe/qrz-logbook v0.3.1
 	golang.org/x/oauth2 v0.22.0
-	google.golang.org/api v0.192.0
-	google.golang.org/genproto v0.0.0-20240823204242-4ba0660f739c
+	google.golang.org/api v0.193.0
+	google.golang.org/genproto v0.0.0-20240826202546-f6391c0de4c7
 	google.golang.org/protobuf v1.34.2
 )
 
@@ -28,8 +28,8 @@ require (
 	cloud.google.com/go/auth v0.9.0 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.4 // indirect
 	cloud.google.com/go/compute/metadata v0.5.0 // indirect
-	cloud.google.com/go/iam v1.1.13 // indirect
-	cloud.google.com/go/longrunning v0.5.12 // indirect
+	cloud.google.com/go/iam v1.2.0 // indirect
+	cloud.google.com/go/longrunning v0.6.0 // indirect
 	cloud.google.com/go/storage v1.43.0 // indirect
 	github.com/MicahParks/keyfunc v1.9.0 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
@@ -55,7 +55,7 @@ require (
 	golang.org/x/text v0.17.0 // indirect
 	golang.org/x/time v0.6.0 // indirect
 	google.golang.org/appengine/v2 v2.0.6 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20240814211410-ddb44dafa142 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240814211410-ddb44dafa142 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20240823204242-4ba0660f739c // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240823204242-4ba0660f739c // indirect
 	google.golang.org/grpc v1.65.0 // indirect
 )
