@@ -55,14 +55,14 @@
     "zone.js": "0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "0.1802.1",
-    "@angular-devkit/build-angular": "18.2.1",
+    "@angular-devkit/architect": "0.1802.2",
+    "@angular-devkit/build-angular": "18.2.2",
     "@angular-eslint/builder": "18.3.0",
     "@angular-eslint/eslint-plugin": "18.3.0",
     "@angular-eslint/eslint-plugin-template": "18.3.0",
     "@angular-eslint/schematics": "18.3.0",
     "@angular-eslint/template-parser": "18.3.0",
-    "@angular/cli": "18.2.1",
+    "@angular/cli": "18.2.2",
     "@angular/compiler-cli": "18.2.1",
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
     "@types/google.maps": "3.55.12",
