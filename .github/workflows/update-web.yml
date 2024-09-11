@@ -36,7 +36,7 @@ jobs:
 
       - name: npm update
         run: |
-          npx npm-check-updates -u -x inquirer,typescript,eslint
+          npx npm-check-updates -u -x inquirer,typescript,eslint,zone.js
           npm install -f
           npm update
           npm install
