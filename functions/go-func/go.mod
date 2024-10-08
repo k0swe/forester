@@ -19,8 +19,8 @@ require (
 	github.com/k0swe/qrz-logbook v0.3.2
 	golang.org/x/oauth2 v0.23.0
 	google.golang.org/api v0.199.0
-	google.golang.org/genproto v0.0.0-20240930140551-af27646dc61f
-	google.golang.org/protobuf v1.34.2
+	google.golang.org/genproto v0.0.0-20241007155032-5fefd90f89a9
+	google.golang.org/protobuf v1.35.1
 )
 
 require (
@@ -55,7 +55,7 @@ require (
 	golang.org/x/text v0.18.0 // indirect
 	golang.org/x/time v0.6.0 // indirect
 	google.golang.org/appengine/v2 v2.0.6 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20240924160255-9d4c2d233b61 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240924160255-9d4c2d233b61 // indirect
-	google.golang.org/grpc v1.67.0 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20240930140551-af27646dc61f // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240930140551-af27646dc61f // indirect
+	google.golang.org/grpc v1.67.1 // indirect
 )
