@@ -8,7 +8,7 @@ import {
   inject,
 } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
-import isEqual from 'lodash/isEqual';
+import { isEqual } from 'lodash-es';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -23,6 +23,7 @@ const googleMapsSearchBase = new URL('https://www.google.com/maps/search/');
   selector: 'kel-station-detail',
   templateUrl: './station-detail.component.html',
   styleUrls: ['./station-detail.component.scss'],
+  standalone: false,
 })
 export class StationDetailComponent implements OnChanges {
   @Input() station: Station;

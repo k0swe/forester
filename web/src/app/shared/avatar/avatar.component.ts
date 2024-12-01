@@ -13,6 +13,7 @@ import { UserSettingsComponent } from '../user-settings/user-settings.component'
   selector: 'kel-avatar',
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss'],
+  standalone: false,
 })
 export class AvatarComponent {
   private auth: Auth = inject(Auth);

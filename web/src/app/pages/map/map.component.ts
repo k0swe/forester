@@ -20,6 +20,7 @@ import { LogbookService } from '../logbook/logbook.service';
   selector: 'kel-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
+  standalone: false,
 })
 export class MapComponent implements OnInit, AfterViewInit {
   @ViewChild('map') map: GoogleMap;

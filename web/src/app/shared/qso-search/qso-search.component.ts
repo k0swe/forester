@@ -10,6 +10,7 @@ import { QsoService } from '../qso/qso.service';
   selector: 'kel-qso-search',
   templateUrl: './qso-search.component.html',
   styleUrls: ['./qso-search.component.scss'],
+  standalone: false,
 })
 export class QsoSearchComponent implements OnInit {
   search = '';
