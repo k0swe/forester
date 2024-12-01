@@ -1,14 +1,14 @@
 {
   "scripts": {
-    "test": "firebase --project=k0swe-kellog --only=firestore emulators:exec 'mocha --exit firestore.spec.js'"
+    "test": "firebase --project=k0swe-kellog emulators:exec 'mocha --exit firestore.spec.js'"
   },
   "engines": {
     "node": ">= 22"
   },
   "devDependencies": {
-    "@firebase/rules-unit-testing": "3.0.4",
-    "firebase-tools": "13.25.0",
-    "firebase": "10.14.1",
+    "@firebase/rules-unit-testing": "4.0.1",
+    "firebase-tools": "13.27.0",
+    "firebase": "11.0.2",
     "mocha": "10.8.2"
   }
 }
