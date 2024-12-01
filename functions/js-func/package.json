@@ -15,26 +15,23 @@
   "dependencies": {
     "@firebase/app-types": "0.9.3",
     "@google-cloud/pubsub": "4.9.0",
-    "firebase-admin": "12.7.0",
+    "firebase-admin": "13.0.1",
     "firebase-functions": "6.1.1"
   },
   "devDependencies": {
     "@types/node": "22.10.1",
     "@typescript-eslint/eslint-plugin": "8.16.0",
     "@typescript-eslint/parser": "8.16.0",
-    "eslint": "8.57.1",
+    "eslint": "9.16.0",
     "eslint-config-google": "0.14.0",
     "eslint-plugin-import": "2.31.0",
     "firebase-functions-test": "3.3.0",
     "typescript": "5.7.2"
   },
   "overrides": {
-    "@types/glob": "8.1.0",
-    "@types/minimatch": "5.1.2",
-    "@types/rimraf": "4.0.5",
-    "glob": "11.0.0",
-    "minimatch": "10.0.1",
-    "rimraf": "6.0.1"
+    "firebase-functions-test": {
+      "firebase-admin": "13.0.1"
+    }
   },
   "private": true
 }
