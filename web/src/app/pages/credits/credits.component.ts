@@ -8,6 +8,7 @@ import { versions } from '../../../environments/versions';
   selector: 'kel-credits',
   templateUrl: './credits.component.html',
   styleUrls: ['./credits.component.scss'],
+  standalone: false,
 })
 export class CreditsComponent implements OnInit {
   licenses = new BehaviorSubject<Array<LicenseInfo>>([]);

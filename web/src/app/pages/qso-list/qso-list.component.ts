@@ -26,6 +26,7 @@ import { LogbookService } from '../logbook/logbook.service';
   selector: 'kel-qso-list',
   templateUrl: './qso-list.component.html',
   styleUrls: ['./qso-list.component.scss'],
+  standalone: false,
 })
 export class QsoListComponent implements OnInit {
   dataSource = new MatTableDataSource<FirebaseQso>();

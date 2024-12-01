@@ -5,6 +5,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   selector: 'kel-new-logbook-dialog',
   templateUrl: './new-logbook-dialog.component.html',
   styleUrls: ['./new-logbook-dialog.component.scss'],
+  standalone: false,
 })
 export class NewLogbookDialogComponent {
   newLogbookCallsign: string;
