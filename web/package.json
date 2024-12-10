@@ -40,7 +40,7 @@
     "@angular/router": "19.0.3",
     "@angular/service-worker": "19.0.3",
     "@googlemaps/js-api-loader": "1.16.8",
-    "adif-parser-ts": "0.6.15",
+    "adif-parser-ts": "0.6.16",
     "firebase": "11.0.2",
     "js-joda": "1.11.0",
     "lodash-es": "4.17.21",
