@@ -7,7 +7,7 @@ toolchain go1.23.4
 require (
 	cloud.google.com/go/firestore v1.17.0
 	cloud.google.com/go/pubsub v1.45.3
-	cloud.google.com/go/secretmanager v1.14.2
+	cloud.google.com/go/secretmanager v1.14.3
 	dario.cat/mergo v1.0.1
 	firebase.google.com/go/v4 v4.15.1
 	github.com/Matir/adifparser v0.0.0-20230124172935-2c465737f437
