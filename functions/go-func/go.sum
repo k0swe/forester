@@ -130,6 +130,8 @@ github.com/k0swe/adif-json-protobuf/go v0.0.8 h1:mwNCIg3E1Zmihxinv6+C8PjUJbTDq0t
 github.com/k0swe/adif-json-protobuf/go v0.0.8/go.mod h1:HsZ/eOslVnO0QGyDeFbwyjmrXYeaRugYsLmUcet3SpA=
 github.com/k0swe/lotw-qsl v0.4.3 h1:ySoYdWd4lM3dRCatYKpCRmDCQIMSFA0Qg+R7jITkHHY=
 github.com/k0swe/lotw-qsl v0.4.3/go.mod h1:34aZB18YXQMQzHGrH9iAxpTvvTY4ARqYFtphA/5Grxg=
+github.com/k0swe/lotw-qsl v0.4.4 h1:mc8mn+0jKV6GsLguZDXQ9WgOD2CWH2ESHz8bapvPi70=
+github.com/k0swe/lotw-qsl v0.4.4/go.mod h1:uu6waMfdjerx6Z4y4OIMtV+/4cKI4x30f4kf1y1Yew4=
 github.com/k0swe/qrz-api v0.3.3 h1:ZjRmv5BCjZgoPVcaByBr/Vkti87ZtGWChyAFXCVGbR8=
 github.com/k0swe/qrz-api v0.3.3/go.mod h1:JfzfHIbMpKyaN6LcIhK0LDiAMC9Ht4MiFvxtxNbHUoo=
 github.com/k0swe/qrz-logbook v0.3.3 h1:jxLfhP7e5Gz5byO6jSEkreXkOk/Dg8vfewNxo3dRekQ=
@@ -196,6 +198,8 @@ golang.org/x/net v0.33.0/go.mod h1:HXLR5J+9DxmrqMwG9qjGCxZ+zKXxBru04zlTvWlWuN4=
 golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be/go.mod h1:N/0e6XlmueqKjAGxoOufVs8QHGRruUQn6yWY3a++T0U=
 golang.org/x/oauth2 v0.24.0 h1:KTBBxWqUa0ykRPLtV69rRto9TLXcqYkeswu48x/gvNE=
 golang.org/x/oauth2 v0.24.0/go.mod h1:XYTD2NtWslqkgxebSiOHnXEap4TF09sJSc7H1sXbhtI=
+golang.org/x/oauth2 v0.25.0 h1:CY4y7XT9v0cRI9oupztF8AgiIu99L/ksR/Xp/6jrZ70=
+golang.org/x/oauth2 v0.25.0/go.mod h1:XYTD2NtWslqkgxebSiOHnXEap4TF09sJSc7H1sXbhtI=
 golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sync v0.0.0-20181108010431-42b317875d0f/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sync v0.0.0-20190423024810-112230192c58/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
