@@ -15,7 +15,7 @@ require (
 	github.com/jinzhu/copier v0.4.0
 	github.com/k0swe/adif-json-protobuf/go v0.0.8
 	github.com/k0swe/lotw-qsl v0.4.4
-	github.com/k0swe/qrz-api v0.3.3
+	github.com/k0swe/qrz-api v0.3.4
 	github.com/k0swe/qrz-logbook v0.3.3
 	golang.org/x/oauth2 v0.25.0
 	google.golang.org/api v0.214.0
