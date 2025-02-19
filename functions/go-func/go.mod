@@ -19,7 +19,7 @@ require (
 	github.com/k0swe/qrz-logbook v0.3.5
 	golang.org/x/oauth2 v0.25.0
 	google.golang.org/api v0.214.0
-	google.golang.org/genproto v0.0.0-20241230172942-26aa7a208def
+	google.golang.org/genproto 9fdb1cabc7b2
 	google.golang.org/protobuf v1.36.5
 )
 
