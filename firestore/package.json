@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "@firebase/rules-unit-testing": "4.0.1",
-    "firebase-tools": "13.32.0",
+    "firebase-tools": "13.34.0",
     "firebase": "11.4.0",
     "mocha": "11.1.0"
   }
