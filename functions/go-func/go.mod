@@ -6,7 +6,7 @@ toolchain go1.23.6
 
 require (
 	cloud.google.com/go/firestore v1.18.0
-	cloud.google.com/go/pubsub v1.47.0
+	cloud.google.com/go/pubsub v1.48.0
 	cloud.google.com/go/secretmanager v1.14.6
 	dario.cat/mergo v1.0.1
 	firebase.google.com/go/v4 v4.15.2
@@ -25,7 +25,7 @@ require (
 
 require (
 	cel.dev/expr v0.21.2 // indirect
-	cloud.google.com/go v0.118.3 // indirect
+	cloud.google.com/go v0.119.0 // indirect
 	cloud.google.com/go/auth v0.15.0 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.7 // indirect
 	cloud.google.com/go/compute/metadata v0.6.0 // indirect
@@ -66,7 +66,7 @@ require (
 	golang.org/x/sync v0.12.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/text v0.23.0 // indirect
-	golang.org/x/time v0.10.0 // indirect
+	golang.org/x/time v0.11.0 // indirect
 	google.golang.org/appengine/v2 v2.0.6 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20250303144028-a0af3efb3deb // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250303144028-a0af3efb3deb // indirect
