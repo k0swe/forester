@@ -6,7 +6,7 @@ toolchain go1.23.6
 
 require (
 	cloud.google.com/go/firestore v1.18.0
-	cloud.google.com/go/pubsub v1.47.0
+	cloud.google.com/go/pubsub v1.49.0
 	cloud.google.com/go/secretmanager v1.14.7
 	dario.cat/mergo v1.0.1
 	firebase.google.com/go/v4 v4.15.2
@@ -19,7 +19,7 @@ require (
 	github.com/k0swe/qrz-logbook v0.3.6
 	golang.org/x/oauth2 v0.29.0
 	google.golang.org/api v0.229.0
-	google.golang.org/genproto v0.0.0-20250311190419-81fb87f6b8bf
+	google.golang.org/genproto v0.0.0-20250414145226-207652e42e2e
 	google.golang.org/protobuf v1.36.6
 )
 
@@ -31,7 +31,7 @@ require (
 	cloud.google.com/go/compute/metadata v0.6.0 // indirect
 	cloud.google.com/go/iam v1.5.0 // indirect
 	cloud.google.com/go/longrunning v0.6.6 // indirect
-	cloud.google.com/go/monitoring v1.24.0 // indirect
+	cloud.google.com/go/monitoring v1.24.1 // indirect
 	cloud.google.com/go/storage v1.50.0 // indirect
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp v1.27.0 // indirect
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric v0.51.0 // indirect
