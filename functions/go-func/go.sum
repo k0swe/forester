@@ -35,6 +35,8 @@ cloud.google.com/go/monitoring v1.24.0 h1:csSKiCJ+WVRgNkRzzz3BPoGjFhjPY23ZTcaenT
 cloud.google.com/go/monitoring v1.24.0/go.mod h1:Bd1PRK5bmQBQNnuGwHBfUamAV1ys9049oEPHnn4pcsc=
 cloud.google.com/go/pubsub v1.47.0 h1:Ou2Qu4INnf7ykrFjGv2ntFOjVo8Nloh/+OffF4mUu9w=
 cloud.google.com/go/pubsub v1.47.0/go.mod h1:LaENesmga+2u0nDtLkIOILskxsfvn/BXX9Ak1NFxOs8=
+cloud.google.com/go/pubsub v1.49.0 h1:5054IkbslnrMCgA2MAEPcsN3Ky+AyMpEZcii/DoySPo=
+cloud.google.com/go/pubsub v1.49.0/go.mod h1:K1FswTWP+C1tI/nfi3HQecoVeFvL4HUOB1tdaNXKhUY=
 cloud.google.com/go/secretmanager v1.14.5 h1:W++V0EL9iL6T2+ec24Dm++bIti0tI6Gx6sCosDBters=
 cloud.google.com/go/secretmanager v1.14.5/go.mod h1:GXznZF3qqPZDGZQqETZwZqHw4R6KCaYVvcGiRBA+aqY=
 cloud.google.com/go/secretmanager v1.14.6 h1:/ooktIMSORaWk9gm3vf8+Mg+zSrUplJFKBztP993oL0=
