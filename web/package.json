@@ -32,7 +32,7 @@
     "@angular/core": "19.2.14",
     "@angular/fire": "19.0.0",
     "@angular/forms": "19.2.14",
-    "@angular/google-maps": "19.2.15",
+    "@angular/google-maps": "19.2.19",
     "@angular/localize": "19.2.14",
     "@angular/material": "19.2.19",
     "@angular/platform-browser": "19.2.14",
