@@ -39,7 +39,7 @@
     "@angular/platform-browser-dynamic": "19.2.14",
     "@angular/router": "19.2.14",
     "@angular/service-worker": "19.2.14",
-    "@googlemaps/js-api-loader": "1.16.8",
+    "@googlemaps/js-api-loader": "1.16.10",
     "adif-parser-ts": "0.6.22",
     "firebase": "11.4.0",
     "js-joda": "1.11.0",
