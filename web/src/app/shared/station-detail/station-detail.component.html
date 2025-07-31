@@ -10,7 +10,7 @@
           autocapitalize="characters"
           autocomplete="dummy"
           spellcheck="false"
-          />
+        />
       </mat-form-field>
     </div>
     <div class="name-container">
@@ -21,7 +21,7 @@
           formControlName="opName"
           autocapitalize="words"
           autocomplete="dummy"
-          />
+        />
       </mat-form-field>
     </div>
     <div class="lat-lon-container">
@@ -34,7 +34,7 @@
           type="number"
           autocomplete="dummy"
           (paste)="pasteLatOrLon($event)"
-          />
+        />
         <mat-hint>+N/-S</mat-hint>
       </mat-form-field>
     </div>
@@ -48,7 +48,7 @@
           type="number"
           autocomplete="dummy"
           (paste)="pasteLatOrLon($event)"
-          />
+        />
         <mat-hint>+E/-W</mat-hint>
       </mat-form-field>
     </div>
@@ -60,7 +60,7 @@
           formControlName="gridSquare"
           autocapitalize="characters"
           autocomplete="dummy"
-          />
+        />
       </mat-form-field>
     </div>
     <a
@@ -69,7 +69,7 @@
       [disabled]="mapLink === null"
       target="map"
       color="primary"
-      >
+    >
       Map
     </a>
   </div>
@@ -83,7 +83,7 @@
           formControlName="city"
           autocapitalize="words"
           autocomplete="dummy"
-          />
+        />
       </mat-form-field>
     </div>
     <div>
@@ -94,7 +94,7 @@
           formControlName="county"
           autocapitalize="characters"
           autocomplete="dummy"
-          />
+        />
       </mat-form-field>
     </div>
     <div>
@@ -105,7 +105,7 @@
           formControlName="state"
           autocapitalize="characters"
           autocomplete="dummy"
-          />
+        />
       </mat-form-field>
     </div>
     <div>
@@ -117,7 +117,7 @@
           autocapitalize="words"
           autocomplete="dummy"
           [matAutocomplete]="countryAutocomplete"
-          />
+        />
         <mat-autocomplete #countryAutocomplete="matAutocomplete">
           @for (c of filteredCountries$ | async; track c) {
             <mat-option [value]="c">
@@ -160,7 +160,7 @@
               formControlName="rig"
               autocapitalize="words"
               autocomplete="dummy"
-              />
+            />
           </mat-form-field>
         }
       </div>
@@ -173,7 +173,7 @@
               formControlName="antenna"
               autocapitalize="words"
               autocomplete="dummy"
-              />
+            />
           </mat-form-field>
         }
       </div>
@@ -186,7 +186,7 @@
               formControlName="power"
               type="number"
               autocomplete="dummy"
-              />
+            />
             <span matSuffix>W</span>
           </mat-form-field>
         }
@@ -195,9 +195,7 @@
   }
   <mat-error>
     @if (stationDetailForm.errors?.locationInconsistent) {
-      <span>
-        Latitude and longitude are not within the grid
-      </span>
+      <span> Latitude and longitude are not within the grid </span>
     }
   </mat-error>
 </form>

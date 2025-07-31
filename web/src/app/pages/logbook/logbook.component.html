@@ -12,7 +12,7 @@
         routerLinkActive
         #rla="routerLinkActive"
         [active]="rla.isActive"
-        >
+      >
         {{ link.name }}
       </a>
     }
@@ -23,7 +23,7 @@
     color="accent"
     aria-label="Logbook Menu"
     [matMenuTriggerFor]="logbookMenu"
-    >
+  >
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #logbookMenu="matMenu">
@@ -56,6 +56,6 @@
   type="file"
   accept=".adi,.adif"
   (change)="importAdi($event)"
-  />
+/>
 <a #download hidden></a>
 <router-outlet></router-outlet>

@@ -1,9 +1,7 @@
 <div class="top">
   @switch (state) {
     @case ('downloading') {
-      <mat-icon
-        matTooltip="Downloading Forester update&hellip;"
-        >
+      <mat-icon matTooltip="Downloading Forester update&hellip;">
         update
       </mat-icon>
     }
@@ -13,15 +11,12 @@
         matTooltip="Forester has been updated, click to reload"
         color="accent"
         (click)="updateNow()"
-        >
+      >
         <mat-icon class="inner">update</mat-icon>
       </button>
     }
     @case ('failed') {
-      <mat-icon
-        matTooltip="Forester update failed"
-        color="warn"
-        >
+      <mat-icon matTooltip="Forester update failed" color="warn">
         update
       </mat-icon>
     }

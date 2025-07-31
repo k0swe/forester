@@ -25,38 +25,36 @@
       <a href="https://github.com/k0swe/kel-agent/releases/latest">
         kel-agent
         <mat-icon>open_in_new</mat-icon> </a
-        >.
-      </p>
-    </mat-card-content>
-  </mat-card>
+      >.
+    </p>
+  </mat-card-content>
+</mat-card>
 
-  @if ((user(this.auth) | async) === null) {
-    <kel-login
-    ></kel-login>
-  } @else {
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <mat-card-title>Your Starred Logbooks</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        @for (
-          star of (userSettingsService.settings$ | async).starredLogbooks
-          ; track
-          star) {
-          <button
-            mat-raised-button
-            color="primary"
-            [routerLink]="'/' + star + '/qsos'"
-            >
-            {{ star }}
-          </button>
-        }
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-stroked-button color="accent" (click)="createLogbook()">
-          Create New Logbook
+@if ((user(this.auth) | async) === null) {
+  <kel-login></kel-login>
+} @else {
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Your Starred Logbooks</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @for (
+        star of (userSettingsService.settings$ | async).starredLogbooks;
+        track star
+      ) {
+        <button
+          mat-raised-button
+          color="primary"
+          [routerLink]="'/' + star + '/qsos'"
+        >
+          {{ star }}
         </button>
-      </mat-card-actions>
-    </mat-card>
-  }
-
+      }
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-stroked-button color="accent" (click)="createLogbook()">
+        Create New Logbook
+      </button>
+    </mat-card-actions>
+  </mat-card>
+}

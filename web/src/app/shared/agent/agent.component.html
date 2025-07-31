@@ -1,9 +1,7 @@
 @if (agent.connectedState$ | async) {
   <div class="outside">
     @if (wsjtx.heartbeat$ | async; as heartbeat) {
-      <div class="inside">
-        {{ heartbeat.id }} {{ heartbeat.version }}
-      </div>
+      <div class="inside">{{ heartbeat.id }} {{ heartbeat.version }}</div>
     }
     @if (hamlib.rigState$ | async; as rigState) {
       <div class="inside">
@@ -21,7 +19,7 @@
     <mat-icon
       class="inside"
       [matTooltip]="'Connected to agent on ' + agent.getHost()"
-      >
+    >
       radio
     </mat-icon>
   </div>
@@ -31,7 +29,7 @@
       class="inside"
       matTooltip="Agent disconnected"
       (click)="reconnect()"
-      >
+    >
       signal_cellular_off
     </mat-icon>
   </div>

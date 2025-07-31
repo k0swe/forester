@@ -46,7 +46,7 @@
             matInput
             formControlName="mode"
             [matAutocomplete]="modeAutocomplete"
-            />
+          />
           <mat-autocomplete #modeAutocomplete="matAutocomplete">
             @for (m of filteredModes$ | async; track m) {
               <mat-option [value]="m">
@@ -131,7 +131,7 @@
     #saveButton
     disabled
     (click)="save()"
-    >
+  >
     Save
   </button>
 </mat-dialog-actions>
