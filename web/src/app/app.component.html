@@ -4,7 +4,7 @@
     mat-icon-button
     (click)="sidenav.toggle()"
     aria-label="Application Menu"
-  >
+    >
     <mat-icon>menu</mat-icon>
   </button>
   <a class="app-title" routerLink="/">
@@ -23,17 +23,19 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <mat-list-item disabled>Starred Logbooks</mat-list-item>
-      <a
-        mat-list-item
-        *ngFor="
-          let star of (userSettingsService.settings$ | async).starredLogbooks
-        "
-        [routerLink]="'/' + star + '/qsos'"
-        (click)="sidenav.close()"
-      >
-        <mat-icon>menu_book</mat-icon>
-        {{ star }}
-      </a>
+      @for (
+        star of (userSettingsService.settings$ | async).starredLogbooks
+        ; track
+        star) {
+        <a
+          mat-list-item
+          [routerLink]="'/' + star + '/qsos'"
+          (click)="sidenav.close()"
+          >
+          <mat-icon>menu_book</mat-icon>
+          {{ star }}
+        </a>
+      }
       <mat-divider></mat-divider>
       <a mat-list-item [routerLink]="'/credits'" (click)="sidenav.close()">
         <mat-icon>attribution</mat-icon>
@@ -43,7 +45,7 @@
         mat-list-item
         [routerLink]="'/privacy-and-terms'"
         (click)="sidenav.close()"
-      >
+        >
         <mat-icon>gavel</mat-icon>
         Privacy & Terms
       </a>
@@ -51,7 +53,7 @@
         mat-list-item
         href="https://github.com/k0swe/forester/issues"
         target="_blank"
-      >
+        >
         <mat-icon>bug_report</mat-icon>
         Bugs Reports and <br />
         Feature Requests

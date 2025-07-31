@@ -24,9 +24,11 @@
         <mat-form-field>
           <mat-label>Band</mat-label>
           <mat-select formControlName="band" value="10m">
-            <mat-option *ngFor="let band of bands" [value]="band">
-              {{ band }}
-            </mat-option>
+            @for (band of bands; track band) {
+              <mat-option [value]="band">
+                {{ band }}
+              </mat-option>
+            }
           </mat-select>
         </mat-form-field>
       </div>
@@ -44,11 +46,13 @@
             matInput
             formControlName="mode"
             [matAutocomplete]="modeAutocomplete"
-          />
+            />
           <mat-autocomplete #modeAutocomplete="matAutocomplete">
-            <mat-option *ngFor="let m of filteredModes$ | async" [value]="m">
-              {{ m }}
-            </mat-option>
+            @for (m of filteredModes$ | async; track m) {
+              <mat-option [value]="m">
+                {{ m }}
+              </mat-option>
+            }
           </mat-autocomplete>
         </mat-form-field>
       </div>
@@ -127,7 +131,7 @@
     #saveButton
     disabled
     (click)="save()"
-  >
+    >
     Save
   </button>
 </mat-dialog-actions>

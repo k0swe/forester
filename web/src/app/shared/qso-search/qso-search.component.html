@@ -7,15 +7,16 @@
     (ngModelChange)="changed()"
     [disabled]="syncToggle.checked"
     [ngClass]="{ accent: syncToggle.checked }"
-  />
-  <button
-    mat-icon-button
-    matSuffix
-    (click)="clear()"
-    *ngIf="search != '' && !syncToggle.checked"
-  >
-    <mat-icon color="accent">clear</mat-icon>
-  </button>
+    />
+  @if (search != '' && !syncToggle.checked) {
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clear()"
+      >
+      <mat-icon color="accent">clear</mat-icon>
+    </button>
+  }
   <mat-hint>Callsign only for now</mat-hint>
 </mat-form-field>
 
@@ -24,6 +25,6 @@
   [(ngModel)]="syncWithWsjtx"
   (change)="toggleSync($event)"
   [disabled]="!(wsjtx.connected$ | async)"
->
+  >
   Sync with WSJT-X
 </mat-slide-toggle>

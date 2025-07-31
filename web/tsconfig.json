@@ -8,13 +8,16 @@
     "declaration": false,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "target": "ES2022",
     "module": "es2020",
-    "lib": ["es2018", "dom"],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "useDefineForClassFields": false
   }
 }

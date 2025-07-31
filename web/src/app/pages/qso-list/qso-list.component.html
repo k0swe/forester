@@ -9,7 +9,7 @@
         mat-raised-button
         color="accent"
         (click)="newQso()"
-      >
+        >
         New QSO
       </button>
       <button
@@ -19,7 +19,7 @@
         #selectedButton
         disabled
         [matMenuTriggerFor]="selectedMenu"
-      >
+        >
         Selected
         <mat-icon aria-hidden="false" aria-label="Actions for selected QSOs">
           expand_more
@@ -45,7 +45,7 @@
       matSortDirection="desc"
       matSortDisableClear
       [dataSource]="dataSource"
-    >
+      >
       <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
           <mat-checkbox
@@ -61,7 +61,7 @@
             (change)="$event ? selection.toggle(row) : null"
             [checked]="selection.isSelected(row)"
             [aria-label]="checkboxLabel(row)"
-          >
+            >
           </mat-checkbox>
         </td>
       </ng-container>
@@ -151,37 +151,41 @@
       <ng-container matColumnDef="qsl">
         <th mat-header-cell mat-sort-header *matHeaderCellDef>QSL</th>
         <td mat-cell *matCellDef="let fbq">
-          <span
-            *ngIf="fbq.qso.card && fbq.qso.card.receivedStatus === 'Y'"
-            title="Paper card"
-            >C</span
-          >
-          <span
-            *ngIf="fbq.qso.lotw && fbq.qso.lotw.receivedStatus === 'Y'"
-            title="Logbook of the World"
-            >L</span
-          >
-          <span
-            *ngIf="fbq.qso.eqsl && fbq.qso.eqsl.receivedStatus === 'Y'"
-            title="eQSL.cc"
-            >E</span
-          >
-          <span
-            *ngIf="
-              fbq.qso.appDefined && fbq.qso.appDefined.app_qrzlog_status === 'C'
-            "
-            title="QRZ.com"
-            >Q</span
-          >
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-      <tr
-        mat-row
-        (click)="openDialog(fbq)"
-        *matRowDef="let fbq; columns: columnsToDisplay"
-      ></tr>
-    </table>
-    <mat-paginator></mat-paginator>
-  </mat-card-content>
-</mat-card>
+          @if (fbq.qso.card && fbq.qso.card.receivedStatus === 'Y') {
+            <span
+              title="Paper card"
+              >C</span
+              >
+            }
+            @if (fbq.qso.lotw && fbq.qso.lotw.receivedStatus === 'Y') {
+              <span
+                title="Logbook of the World"
+                >L</span
+                >
+              }
+              @if (fbq.qso.eqsl && fbq.qso.eqsl.receivedStatus === 'Y') {
+                <span
+                  title="eQSL.cc"
+                  >E</span
+                  >
+                }
+                @if (
+                  fbq.qso.appDefined && fbq.qso.appDefined.app_qrzlog_status === 'C'
+                  ) {
+                  <span
+                    title="QRZ.com"
+                    >Q</span
+                    >
+                  }
+                </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+              <tr
+                mat-row
+                (click)="openDialog(fbq)"
+                *matRowDef="let fbq; columns: columnsToDisplay"
+              ></tr>
+            </table>
+            <mat-paginator></mat-paginator>
+          </mat-card-content>
+        </mat-card>
