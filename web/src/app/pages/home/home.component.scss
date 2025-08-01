@@ -1,0 +1,18 @@
+mat-card {
+  background-color: var(--mat-sys-surface-container);
+  color: var(--mat-sys-on-surface-container);
+  margin: 8px auto;
+  max-width: 700px;
+}
+
+blockquote {
+  background-color: var(--mat-sys-tertiary-container);
+  color: var(--mat-sys-on-tertiary-container);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+mat-icon {
+  display: inline;
+  font-size: inherit;
+}
