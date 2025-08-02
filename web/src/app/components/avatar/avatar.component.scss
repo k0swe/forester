@@ -1,7 +1,28 @@
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
+
+$avatar-size: 40px;
 
 .anonymous {
-  @include mat.icon-overrides((
+  @include mat.icon-overrides(
+    (
       color: var(--mat-sys-on-primary),
-  ));
+    )
+  );
+}
+
+:host {
+  height: $avatar-size;
+  width: $avatar-size;
+}
+
+button.avatar {
+  height: $avatar-size;
+  width: $avatar-size;
+  padding: 0;
+}
+
+img.avatar {
+  border-radius: calc($avatar-size / 2);
+  height: $avatar-size;
+  width: $avatar-size;
 }

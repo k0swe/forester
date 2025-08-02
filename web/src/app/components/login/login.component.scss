@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  flex: 1 1 0;
+  margin: 8px;
+  max-width: 400px;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-bottom: 16px;
+}
+
+.button-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+img.logo {
+  height: 38px;
+  margin-right: 8px;
+}
