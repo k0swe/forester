@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
-import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
+import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 
 @Component({
   selector: 'app-root',
