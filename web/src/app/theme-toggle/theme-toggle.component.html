@@ -1,0 +1,32 @@
+<div class="theme-toggle">
+  <label>
+    <input
+      type="radio"
+      name="theme"
+      value="light"
+      [checked]="theme === 'light'"
+      (change)="setTheme('light')"
+    />
+    Light
+  </label>
+  <label>
+    <input
+      type="radio"
+      name="theme"
+      value="dark"
+      [checked]="theme === 'dark'"
+      (change)="setTheme('dark')"
+    />
+    Dark
+  </label>
+  <label>
+    <input
+      type="radio"
+      name="theme"
+      value="system"
+      [checked]="theme === 'system'"
+      (change)="setTheme('system')"
+    />
+    System
+  </label>
+</div>

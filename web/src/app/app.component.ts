@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
+import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,7 @@ import { AsyncPipe, NgOptimizedImage } from '@angular/common';
     AsyncPipe,
     MatSidenavContent,
     NgOptimizedImage,
+    ThemeToggleComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
