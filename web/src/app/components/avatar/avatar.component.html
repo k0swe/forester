@@ -6,7 +6,22 @@
       [matMenuTriggerFor]="accountMenu"
       aria-label="User Menu"
     >
-      <img class="avatar" [src]="user.photoURL" [alt]="user.displayName" />
+      @if (user.photoURL) {
+        <img
+          class="avatar"
+          [ngSrc]="user.photoURL"
+          width="40"
+          height="40"
+          [alt]="user.displayName"
+        />
+      } @else {
+        <div
+          class="avatar-letter"
+          [attr.aria-label]="user.displayName || user.email"
+        >
+          {{ (user.displayName || user.email || "?")[0] | uppercase }}
+        </div>
+      }
     </button>
     <mat-menu #accountMenu="matMenu">
       <button mat-menu-item disabled>{{ user.email }}</button>

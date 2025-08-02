@@ -3,7 +3,7 @@ import { Auth, User, user } from '@angular/fire/auth';
 import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgOptimizedImage, UpperCasePipe } from '@angular/common';
 import { AuthService } from '../../services/auth/auth.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,7 +11,15 @@ import { MatIconButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-avatar',
-  imports: [AsyncPipe, MatMenuModule, MatIconModule, RouterLink, MatIconButton],
+  imports: [
+    AsyncPipe,
+    MatMenuModule,
+    MatIconModule,
+    RouterLink,
+    MatIconButton,
+    NgOptimizedImage,
+    UpperCasePipe,
+  ],
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss',
 })
