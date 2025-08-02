@@ -19,7 +19,7 @@ jobs:
     needs: test-go
     strategy:
       matrix:
-        function-name: [ ImportQrz, ImportLotw, UpdateSecret ]
+        function-name: [ImportQrz, ImportLotw, UpdateSecret]
       fail-fast: false
 
     steps:
@@ -39,7 +39,7 @@ jobs:
           name: ${{ matrix.function-name }}
           entry_point: ${{ matrix.function-name }}
           # https://cloud.google.com/functions/docs/runtime-support#go
-          runtime: go122
+          runtime: go124
           environment_variables: GCP_PROJECT=k0swe-kellog
 
   deploy-golang-pubsub:
@@ -76,5 +76,5 @@ jobs:
           event_trigger_type: google.cloud.pubsub.topic.v1.messagePublished
           event_trigger_pubsub_topic: ${{ matrix.function-spec.pubsub_topic }}
           # https://cloud.google.com/functions/docs/runtime-support#go
-          runtime: go122
+          runtime: go124
           environment_variables: GCP_PROJECT=k0swe-kellog
