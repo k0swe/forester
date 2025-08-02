@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 export type Theme = 'light' | 'dark' | 'system';
 
 @Component({
   selector: 'app-theme-toggle',
-  imports: [],
+  imports: [MatButtonToggleModule, MatIconModule, MatTooltipModule],
   templateUrl: './theme-toggle.component.html',
   styleUrl: './theme-toggle.component.scss',
 })

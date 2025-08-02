@@ -1,32 +1,23 @@
-<div class="theme-toggle">
-  <label>
-    <input
-      type="radio"
-      name="theme"
-      value="light"
-      [checked]="theme === 'light'"
-      (change)="setTheme('light')"
-    />
-    Light
-  </label>
-  <label>
-    <input
-      type="radio"
-      name="theme"
-      value="dark"
-      [checked]="theme === 'dark'"
-      (change)="setTheme('dark')"
-    />
-    Dark
-  </label>
-  <label>
-    <input
-      type="radio"
-      name="theme"
-      value="system"
-      [checked]="theme === 'system'"
-      (change)="setTheme('system')"
-    />
-    System
-  </label>
-</div>
+<mat-button-toggle-group [value]="theme" (change)="setTheme($event.value)">
+  <mat-button-toggle
+    value="light"
+    aria-label="Light theme"
+    matTooltip="Light theme"
+  >
+    <mat-icon>light_mode</mat-icon>
+  </mat-button-toggle>
+  <mat-button-toggle
+    value="system"
+    aria-label="System theme"
+    matTooltip="System theme"
+  >
+    <mat-icon>settings_brightness</mat-icon>
+  </mat-button-toggle>
+  <mat-button-toggle
+    value="dark"
+    aria-label="Dark theme"
+    matTooltip="Dark theme"
+  >
+    <mat-icon>dark_mode</mat-icon>
+  </mat-button-toggle>
+</mat-button-toggle-group>
