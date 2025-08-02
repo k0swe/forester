@@ -30,3 +30,6 @@
     </p>
   </mat-card-content>
 </mat-card>
+@if ((user$ | async) == null) {
+  <app-login />
+}

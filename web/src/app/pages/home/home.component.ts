@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   MatCard,
   MatCardContent,
@@ -6,6 +6,9 @@ import {
   MatCardTitle,
 } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from '../../components/login/login.component';
+import { Auth, user } from '@angular/fire/auth';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +18,13 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardTitle,
     MatCardContent,
     MatIconModule,
+    LoginComponent,
+    AsyncPipe,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  auth = inject(Auth);
+  protected readonly user$ = user(this.auth);
+}
