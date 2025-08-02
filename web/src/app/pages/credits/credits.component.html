@@ -1,0 +1,67 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Forester Credits and License Information</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Forester is open-source software and stands on the shoulders of giants!
+      Many thanks to the contributors of this project, its peers and its
+      dependencies.
+    </p>
+
+    <h3>Forester Contributors</h3>
+
+    <ul>
+      <li>Chris Keller, K0SWE</li>
+    </ul>
+
+    <h3>Image Assets</h3>
+
+    <div>
+      This site's logo icon was made by
+      <a href="https://www.flaticon.com/authors/freepik">Freepik</a>
+      from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
+
+    <h3>Open Source Licenses</h3>
+
+    <table mat-table [dataSource]="licenses">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let lic">
+          <a href="{{ lic.link }}" target="_blank"> {{ lic.name }} </a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="installedVersion">
+        <th mat-header-cell *matHeaderCellDef>Version</th>
+        <td mat-cell *matCellDef="let lic">{{ lic.installedVersion }}</td>
+      </ng-container>
+      <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef>Author</th>
+        <td mat-cell *matCellDef="let lic">{{ lic.author }}</td>
+      </ng-container>
+      <ng-container matColumnDef="licenseType">
+        <th mat-header-cell *matHeaderCellDef>License</th>
+        <td mat-cell *matCellDef="let lic">
+          <a
+            href="https://opensource.org/licenses/{{ lic.licenseType }}"
+            target="_blank"
+          >
+            {{ lic.licenseType }}
+          </a>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+    </table>
+<!--    <div id="deployed">-->
+<!--      Deployed at revision-->
+<!--      <a-->
+<!--        href="https://github.com/k0swe/forester/tree/{{ gitRev }}"-->
+<!--        target="_blank"-->
+<!--        >{{ gitRev }}</a-->
+<!--      >-->
+<!--    </div>-->
+  </mat-card-content>
+</mat-card>
