@@ -1,0 +1,7 @@
+@use '@angular/material' as mat;
+
+.anonymous {
+  @include mat.icon-overrides((
+      color: var(--mat-sys-on-primary),
+  ));
+}

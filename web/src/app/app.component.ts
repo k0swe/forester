@@ -14,6 +14,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
+import { AvatarComponent } from './components/avatar/avatar.component';
 
 @Component({
   selector: 'app-root',
@@ -31,6 +32,7 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
     MatSidenavContent,
     NgOptimizedImage,
     ThemeToggleComponent,
+    AvatarComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
