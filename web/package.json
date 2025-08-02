@@ -80,7 +80,7 @@
     "lint-staged": "16.1.2",
     "prettier": "3.6.2",
     "ts-node": "10.9.2",
-    "typescript": "5.8.3"
+    "typescript": "5.9.2"
   },
   "lint-staged": {
     "*.{js,ts,json,html,css,scss,md,yml,yaml,webmanifest}": "prettier --write"
