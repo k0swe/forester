@@ -1,7 +1,7 @@
 // noinspection SpellCheckingInspection
 export const environment = {
-  production: false,
-  functionsBase: 'http://localhost:8080/',
+  production: true,
+  functionsBase: 'https://us-central1-k0swe-kellog.cloudfunctions.net/',
   firebase: {
     apiKey: 'AIzaSyCaOdT7P0gex-Wb1ga5meShIX_cDL64WF8',
     authDomain: 'k0swe-kellog.firebaseapp.com',

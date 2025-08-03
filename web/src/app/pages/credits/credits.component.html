@@ -55,13 +55,13 @@
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
       <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
     </table>
-    <!--    <div id="deployed">-->
-    <!--      Deployed at revision-->
-    <!--      <a-->
-    <!--        href="https://github.com/k0swe/forester/tree/{{ gitRev }}"-->
-    <!--        target="_blank"-->
-    <!--        >{{ gitRev }}</a-->
-    <!--      >-->
-    <!--    </div>-->
+    <div id="deployed">
+      Deployed at revision
+      <a
+        href="https://github.com/k0swe/forester/tree/{{ gitRev }}"
+        target="_blank"
+      >{{ gitRev }}</a
+      >
+    </div>
   </mat-card-content>
 </mat-card>

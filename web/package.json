@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "prebuild-prod": "ts-node -O '{\"module\": \"commonjs\"}' git-version.ts",
     "test": "ng test"
   },
   "private": true,
@@ -39,6 +40,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
     "typescript": "~5.8.2"
   }
 }

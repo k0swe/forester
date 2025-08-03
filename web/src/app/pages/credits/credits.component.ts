@@ -4,6 +4,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { BehaviorSubject } from 'rxjs';
 
+import { version } from '../../../environments/version';
+
 @Component({
   selector: 'app-credits',
   templateUrl: './credits.component.html',
@@ -13,7 +15,7 @@ import { BehaviorSubject } from 'rxjs';
 export class CreditsComponent implements OnInit {
   licenses = new BehaviorSubject<Array<LicenseInfo>>([]);
   columnsToDisplay = ['name', 'installedVersion', 'author', 'licenseType'];
-  // gitRev = versions.revision;
+  gitRev = version.revision;
 
   constructor(private http: HttpClient) {}
 
