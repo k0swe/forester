@@ -7,14 +7,14 @@
 
 html {
   @include mat.theme(
-    (
-      color: (
-        primary: mat.$green-palette,
-        tertiary: mat.$violet-palette,
-      ),
-      typography: "Open Sans",
-      density: 0,
-    )
+      (
+        color: (
+          primary: mat.$green-palette,
+          tertiary: mat.$violet-palette,
+        ),
+        typography: "Open Sans",
+        density: 0,
+      )
   );
 
   // Default the application to a light color theme. This can be changed to
@@ -45,4 +45,11 @@ body {
 body {
   margin: 0;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body mat-card,
+body .mat-mdc-card,
+body .mat-mdc-card-outlined {
+  background-color: var(--mat-sys-surface-container-lowest);
+  color: var(--mat-sys-on-surface);
 }
