@@ -2,10 +2,14 @@
 
 $avatar-size: 40px;
 
-.anonymous {
+button.anonymous {
+  background-color: var(--mat-sys-tertiary-container);
+}
+
+mat-icon.anonymous {
   @include mat.icon-overrides(
     (
-      color: var(--mat-sys-on-primary),
+      color: var(--mat-sys-on-tertiary-container),
     )
   );
 }
@@ -31,8 +35,8 @@ img.avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #789262;
-  color: #fff;
+  background-color: var(--mat-sys-tertiary-container);
+  color: var(--mat-sys-on-tertiary-container);
   font-size: 1.25rem;
   font-weight: 600;
   border-radius: 50%;
