@@ -32,8 +32,8 @@
           <div>
             <mat-icon>bug_report</mat-icon>
             <span>
-              Bugs Reports and <br />
-              Feature Requests
+              Issues &nbsp;
+              <mat-icon>open_in_new</mat-icon>
             </span>
           </div>
         </a>
@@ -53,15 +53,17 @@
         </button>
       }
 
-      <img
-        class="logo"
-        ngSrc="/pine-tree.svg"
-        alt="Forester Logo"
-        height="56"
-        width="56"
-      />
+      <a routerLink="/">
+        <img
+          class="logo"
+          ngSrc="/pine-tree.svg"
+          alt="Forester Logo"
+          height="56"
+          width="56"
+        />
+      </a>
       <div>
-        <span class="app-title">Forester</span>
+        <span class="app-title"><a routerLink="/">Forester</a></span>
         <span class="app-subtitle">sustainably manage your ham radio logs</span>
       </div>
       <div class="spacer"></div>

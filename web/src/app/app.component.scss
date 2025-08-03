@@ -35,6 +35,13 @@ mat-nav-list a[mat-list-item] div mat-icon {
 
 mat-nav-list a[mat-list-item] div span {
   flex: 4 1 0;
+  display: flex;
+  flex-direction: row;
+}
+
+span mat-icon {
+  font-size: inherit;
+  line-height: inherit;
 }
 
 div.spacer {
@@ -59,8 +66,14 @@ mat-icon {
 }
 
 .app-title {
+  color: var(--mat-sys-on-primary);
   font-size: var(--mat-sys-headline-large-size);
   margin-right: 16px;
+
+  a {
+    color: var(--mat-sys-on-primary);
+    text-decoration: none;
+  }
 }
 
 .app-subtitle {
