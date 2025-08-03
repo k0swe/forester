@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^20.1.0",
     "@angular/router": "^20.1.0",
     "adif-parser-ts": "^0.6.24",
+    "js-joda": "^1.10.1",
     "ngx-kel-agent": "^1.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
