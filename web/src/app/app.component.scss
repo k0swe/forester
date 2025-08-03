@@ -21,6 +21,10 @@ mat-sidenav.sidenav-fixed {
   height: 100%;
 }
 
+.sidenav-inner h3 {
+  margin: 8px 8px 8px 16px;
+}
+
 .sidenav-inner mat-nav-list {
   flex: 1 1 auto;
   display: flex;

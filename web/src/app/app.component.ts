@@ -1,6 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListItem, MatNavList } from '@angular/material/list';
@@ -16,6 +16,7 @@ import { map, shareReplay } from 'rxjs/operators';
 
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
+import { UserSettingsService } from './services/user-settings/user-settings.service';
 
 @Component({
   selector: 'app-root',
@@ -38,8 +39,13 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
+  protected userSettingsService = inject(UserSettingsService);
+
+  ngOnInit() {
+    this.userSettingsService.init();
+  }
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)

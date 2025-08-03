@@ -10,7 +10,18 @@
     <div class="sidenav-inner">
       <mat-toolbar>Menu</mat-toolbar>
       <mat-nav-list>
-        <!-- TODO: Logbooks -->
+        <h3>Starred Logbooks</h3>
+        @for (
+          star of (userSettingsService.settings$ | async)?.starredLogbooks;
+          track star
+        ) {
+          <a mat-list-item [routerLink]="'/' + star + '/qsos'">
+            <div>
+              <mat-icon>menu_book</mat-icon>
+              <span class="callsign">{{ star }}</span>
+            </div>
+          </a>
+        }
         <div class="spacer"></div>
         <app-theme-toggle />
         <a mat-list-item [routerLink]="'/credits'">
