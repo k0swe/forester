@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "prebuild-prod": "ts-node -O '{\"module\": \"commonjs\"}' git-version.ts",
     "license-report": "license-report --config license-report-config.json > public/license-report.json && git add public/license-report.json",
+    "prettier": "prettier -w .",
     "test": "ng test"
   },
   "private": true,

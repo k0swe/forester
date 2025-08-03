@@ -91,9 +91,9 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+ssh://git@github.com/k0swe/ngx-kel-agent.git",
-    "comment": "1.2.0",
-    "installedVersion": "1.2.0",
-    "author": "n/a"
+    "comment": "1.2.1",
+    "installedVersion": "1.2.1",
+    "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
     "name": "rxjs",
