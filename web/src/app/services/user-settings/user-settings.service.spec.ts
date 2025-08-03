@@ -2,10 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import { Auth } from '@angular/fire/auth';
 import { Firestore } from '@angular/fire/firestore';
 
-import { QsoService } from './qso.service';
+import { UserSettingsService } from './user-settings.service';
 
-describe('QsoService', () => {
-  let service: QsoService;
+describe('UserSettingsService', () => {
+  let service: UserSettingsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -20,7 +20,7 @@ describe('QsoService', () => {
         },
       ],
     });
-    service = TestBed.inject(QsoService);
+    service = TestBed.inject(UserSettingsService);
   });
 
   it('should be created', () => {
