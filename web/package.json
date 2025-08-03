@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "prebuild-prod": "ts-node -O '{\"module\": \"commonjs\"}' git-version.ts",
+    "license-report": "license-report --config license-report-config.json > public/license-report.json && git add public/license-report.json",
     "test": "ng test"
   },
   "private": true,
@@ -39,6 +40,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "license-report": "^6.8.0",
     "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.2"
