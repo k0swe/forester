@@ -19,7 +19,7 @@ export class CreditsComponent implements OnInit {
 
   ngOnInit(): void {
     this.http
-      .get<Array<LicenseInfo>>('/assets/license-report.json')
+      .get<Array<LicenseInfo>>('/license-report.json')
       .subscribe((response) => {
         response = response.map((lic) => {
           lic.link = lic.link.replace('git+', '');

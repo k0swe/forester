@@ -8,6 +8,11 @@ mat-sidenav {
   width: 200px;
   background-color: var(--mat-sys-secondary-container);
   color: var(--mat-sys-on-secondary-container);
+  border-right: none;
+}
+
+mat-sidenav.sidenav-fixed {
+  border-top-right-radius: 0;
 }
 
 .sidenav-inner {

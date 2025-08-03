@@ -46,4 +46,8 @@ export class AppComponent {
       map((result) => result.matches),
       shareReplay(),
     );
+
+  isSidenavFixed$: Observable<boolean> = this.isHandset$.pipe(
+    map((isHandset) => !isHandset),
+  );
 }

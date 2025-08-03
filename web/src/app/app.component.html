@@ -5,6 +5,7 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
+    [class.sidenav-fixed]="isSidenavFixed$ | async"
   >
     <div class="sidenav-inner">
       <mat-toolbar>Menu</mat-toolbar>
