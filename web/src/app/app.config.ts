@@ -4,8 +4,9 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getApp, initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { initializeFirestore, provideFirestore } from '@angular/fire/firestore';
 import { provideRouter } from '@angular/router';
 
 import { environment } from '../environments/environment';
@@ -16,6 +17,9 @@ export const appConfig: ApplicationConfig = {
     provideAuth(() => getAuth()),
     provideBrowserGlobalErrorListeners(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() =>
+      initializeFirestore(getApp(), { ignoreUndefinedProperties: true }),
+    ),
     provideHttpClient(),
     provideRouter(routes),
     provideZoneChangeDetection({ eventCoalescing: true }),
