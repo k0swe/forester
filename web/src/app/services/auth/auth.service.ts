@@ -1,13 +1,13 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
   Auth,
   FacebookAuthProvider,
-  fetchSignInMethodsForEmail,
   GoogleAuthProvider,
-  signInWithPopup,
   UserCredential,
+  fetchSignInMethodsForEmail,
+  signInWithPopup,
 } from '@angular/fire/auth';
-import { from, Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

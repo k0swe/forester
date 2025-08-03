@@ -7,14 +7,14 @@
 
 html {
   @include mat.theme(
-      (
-        color: (
-          primary: mat.$green-palette,
-          tertiary: mat.$violet-palette,
-        ),
-        typography: "Open Sans",
-        density: 0,
-      )
+    (
+      color: (
+        primary: mat.$green-palette,
+        tertiary: mat.$violet-palette,
+      ),
+      typography: "Open Sans",
+      density: 0,
+    )
   );
 
   // Default the application to a light color theme. This can be changed to

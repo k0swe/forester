@@ -1,20 +1,21 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconButton } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListItem, MatNavList } from '@angular/material/list';
 import {
   MatSidenav,
   MatSidenavContainer,
   MatSidenavContent,
 } from '@angular/material/sidenav';
-import { MatListItem, MatNavList } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
-import { AsyncPipe, NgOptimizedImage } from '@angular/common';
-import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
+
 import { AvatarComponent } from './components/avatar/avatar.component';
+import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 
 @Component({
   selector: 'app-root',

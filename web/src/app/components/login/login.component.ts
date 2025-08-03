@@ -1,17 +1,18 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { Auth, user, UserCredential } from '@angular/fire/auth';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
-import { AuthService } from '../../services/auth/auth.service';
+import { Component, OnInit, inject } from '@angular/core';
+import { Auth, UserCredential, user } from '@angular/fire/auth';
+import { MatButton } from '@angular/material/button';
 import {
   MatCard,
   MatCardContent,
   MatCardHeader,
   MatCardTitle,
 } from '@angular/material/card';
-import { MatButton } from '@angular/material/button';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
+
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',

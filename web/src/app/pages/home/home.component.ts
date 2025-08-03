@@ -1,4 +1,6 @@
+import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
 import {
   MatCard,
   MatCardContent,
@@ -6,9 +8,8 @@ import {
   MatCardTitle,
 } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+
 import { LoginComponent } from '../../components/login/login.component';
-import { Auth, user } from '@angular/fire/auth';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',

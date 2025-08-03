@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { AvatarComponent } from './avatar.component';
 import { Auth } from '@angular/fire/auth';
 import { ActivatedRoute } from '@angular/router';
+
+import { AvatarComponent } from './avatar.component';
 
 describe('AvatarComponent', () => {
   let component: AvatarComponent;
