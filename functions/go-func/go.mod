@@ -6,7 +6,7 @@ toolchain go1.24.5
 
 require (
 	cloud.google.com/go/firestore v1.18.0
-	cloud.google.com/go/pubsub v1.49.0
+	cloud.google.com/go/pubsub v1.50.0
 	cloud.google.com/go/pubsub/v2 v2.0.0
 	cloud.google.com/go/secretmanager v1.15.0
 	dario.cat/mergo v1.0.2
@@ -19,7 +19,7 @@ require (
 	github.com/k0swe/qrz-api v0.3.6
 	github.com/k0swe/qrz-logbook v0.3.7
 	golang.org/x/oauth2 v0.30.0
-	google.golang.org/api v0.244.0
+	google.golang.org/api v0.246.0
 	google.golang.org/genproto v0.0.0-20250804133106-a7a43d27e69b
 	google.golang.org/protobuf v1.36.6
 )
