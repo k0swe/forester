@@ -20,7 +20,7 @@ require (
 	golang.org/x/oauth2 v0.30.0
 	google.golang.org/api v0.246.0
 	google.golang.org/genproto v0.0.0-20250804133106-a7a43d27e69b
-	google.golang.org/protobuf v1.36.6
+	google.golang.org/protobuf v1.36.7
 )
 
 require (
