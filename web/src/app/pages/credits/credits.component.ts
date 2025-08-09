@@ -1,9 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, inject } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTableModule } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { versions } from '../../../environments/versions';
@@ -12,14 +8,13 @@ import { versions } from '../../../environments/versions';
   selector: 'kel-credits',
   templateUrl: './credits.component.html',
   styleUrls: ['./credits.component.scss'],
-  imports: [MatButtonModule, MatCardModule, MatIconModule, MatTableModule],
 })
 export class CreditsComponent implements OnInit {
-  private http = inject(HttpClient);
-
   licenses = new BehaviorSubject<Array<LicenseInfo>>([]);
   columnsToDisplay = ['name', 'installedVersion', 'author', 'licenseType'];
   gitRev = versions.revision;
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.http

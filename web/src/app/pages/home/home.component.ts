@@ -1,39 +1,28 @@
-import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
-import { Router, RouterModule } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
-import { AuthService } from '../../services/auth.service';
-import { LogbookService } from '../../services/logbook.service';
-import { UserSettingsService } from '../../services/user-settings.service';
-import { LoginComponent } from '../../shared/login/login.component';
+import { AuthService } from '../../shared/auth/auth.service';
 import { NewLogbookDialogComponent } from '../../shared/new-logbook-dialog/new-logbook-dialog.component';
+import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
+import { LogbookService } from '../logbook/logbook.service';
 
 @Component({
   selector: 'kel-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [
-    CommonModule,
-    LoginComponent,
-    MatButtonModule,
-    MatCardModule,
-    MatDialogModule,
-    MatIconModule,
-    RouterModule,
-  ],
 })
 export class HomeComponent {
   auth = inject(Auth);
-  authService = inject(AuthService);
-  dialog = inject(MatDialog);
-  private logbookService = inject(LogbookService);
-  private router = inject(Router);
-  userSettingsService = inject(UserSettingsService);
+
+  constructor(
+    public authService: AuthService,
+    public dialog: MatDialog,
+    private logbookService: LogbookService,
+    private router: Router,
+    public userSettingsService: UserSettingsService,
+  ) {}
 
   createLogbook(): void {
     const dialogRef = this.dialog.open(NewLogbookDialogComponent);

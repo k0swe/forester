@@ -5,30 +5,23 @@ import {
   ElementRef,
   OnInit,
   ViewChild,
-  inject,
 } from '@angular/core';
-import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { Duration, ZonedDateTime } from '@js-joda/core';
+import { GoogleMap } from '@angular/google-maps';
+import { Duration, ZonedDateTime } from 'js-joda';
+// @ts-ignore
 import moment from 'moment';
 import { Observable, switchMap } from 'rxjs';
 
 import { Qso, Station } from '../../qso';
-import { LogbookService } from '../../services/logbook.service';
-import { FirebaseQso, QsoService } from '../../services/qso.service';
+import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
+import { LogbookService } from '../logbook/logbook.service';
 
 @Component({
   selector: 'kel-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
-  imports: [GoogleMapsModule, MatButtonModule, MatCardModule, MatIconModule],
 })
 export class MapComponent implements OnInit, AfterViewInit {
-  private logbookService = inject(LogbookService);
-  private qsoService = inject(QsoService);
-
   @ViewChild('map') map: GoogleMap;
   @ViewChild('filterSelectors') filterSelectors: ElementRef;
   zoom = 3;
@@ -44,6 +37,11 @@ export class MapComponent implements OnInit, AfterViewInit {
   markers = new Map<string, google.maps.Marker>();
   paths = new Map<string, google.maps.Polyline>();
   infoWindow: google.maps.InfoWindow = new google.maps.InfoWindow();
+
+  constructor(
+    private logbookService: LogbookService,
+    private qsoService: QsoService,
+  ) {}
 
   ngOnInit(): void {
     this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
@@ -62,7 +60,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   private findQsosForPast(d: Duration): Observable<FirebaseQso> {
     this.qsoService.setFilter({
-      dateAfter: ZonedDateTime.now().minus(d),
+      dateAfter: ZonedDateTime.now().minusTemporalAmount(d),
     });
     return this.qsoService.getFilteredQsos().pipe(switchMap((fbqs) => fbqs));
   }

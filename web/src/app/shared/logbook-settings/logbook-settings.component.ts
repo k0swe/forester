@@ -1,65 +1,33 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
-import {
-  MatCard,
-  MatCardContent,
-  MatCardHeader,
-  MatCardSubtitle,
-} from '@angular/material/card';
-import {
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle,
-} from '@angular/material/dialog';
-import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
+import { MatDialogRef } from '@angular/material/dialog';
 import { forkJoin } from 'rxjs';
 
-import { Station } from '../../qso';
 import {
   LogbookService,
   LogbookSettings,
-} from '../../services/logbook.service';
-import { SecretService } from '../../services/secret.service';
-import { StationDetailComponent } from '../station-detail/station-detail.component';
+} from '../../pages/logbook/logbook.service';
+import { Station } from '../../qso';
+import { SecretService } from '../secret/secret.service';
 
 @Component({
   selector: 'kel-logbook-settings',
   templateUrl: './logbook-settings.component.html',
   styleUrls: ['./logbook-settings.component.scss'],
-  imports: [
-    MatButton,
-    MatCard,
-    MatCardContent,
-    MatCardHeader,
-    MatCardSubtitle,
-    MatDialogActions,
-    MatDialogClose,
-    MatDialogContent,
-    MatDialogTitle,
-    MatFormField,
-    MatHint,
-    MatInput,
-    MatLabel,
-    ReactiveFormsModule,
-    StationDetailComponent,
-  ],
 })
 export class LogbookSettingsComponent implements OnInit {
-  private dialog = inject<MatDialogRef<any>>(MatDialogRef);
-  private fb = inject(FormBuilder);
-  private logbookService = inject(LogbookService);
-  private secretService = inject(SecretService);
-
   logbookSettingsForm: FormGroup;
   @ViewChild('saveButton') saveButton: MatButton;
   qthProfile = {} as Station;
 
-  constructor() {
-    this.logbookSettingsForm = this.fb.group({
+  constructor(
+    private dialog: MatDialogRef<any>,
+    private fb: FormBuilder,
+    private logbookService: LogbookService,
+    private secretService: SecretService,
+  ) {
+    this.logbookSettingsForm = fb.group({
       lotwUser: '',
       lotwPass: '',
       qrzLogbookApiKey: '',

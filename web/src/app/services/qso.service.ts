@@ -11,13 +11,15 @@ import {
   onSnapshot,
   updateDoc,
 } from '@angular/fire/firestore';
-import { ZonedDateTime, nativeJs } from '@js-joda/core';
-import { Unsubscribe } from 'firebase/firestore';
+import firebase from 'firebase/compat';
+import { ZonedDateTime, nativeJs } from 'js-joda';
 import { BehaviorSubject, Observable, combineLatest, from, of } from 'rxjs';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { map, mergeMap } from 'rxjs/operators';
 
-import { Qso } from '../qso';
+import { Qso } from '../../qso';
+
+import Unsubscribe = firebase.Unsubscribe;
 
 @Injectable({
   providedIn: 'root',

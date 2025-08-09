@@ -4,18 +4,17 @@
     <span class="logbook-long-title">Logbook</span>
   </h1>
   <nav mat-tab-nav-bar backgroundColor="accent">
-    @for (link of links; track link) {
-      <a
-        mat-tab-link
-        class="logbook-tab"
-        [routerLink]="link.path"
-        routerLinkActive
-        #rla="routerLinkActive"
-        [active]="rla.isActive"
-      >
-        {{ link.name }}
-      </a>
-    }
+    <a
+      mat-tab-link
+      class="logbook-tab"
+      *ngFor="let link of links"
+      [routerLink]="link.path"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [active]="rla.isActive"
+    >
+      {{ link.name }}
+    </a>
   </nav>
   <div class="spacer"></div>
   <button

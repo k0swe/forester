@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -8,32 +7,14 @@ import {
   SimpleChanges,
   inject,
 } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import {
-  MatAutocomplete,
-  MatAutocompleteTrigger,
-  MatOption,
-} from '@angular/material/autocomplete';
-import { MatAnchor } from '@angular/material/button';
-import {
-  MatError,
-  MatFormField,
-  MatHint,
-  MatLabel,
-} from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
-import { MatSelect } from '@angular/material/select';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import isEqual from 'lodash/isEqual';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Station } from '../../qso';
 import { DxccRef } from '../../reference/dxcc';
-import { GeocodeService } from '../../services/geocode.service';
+import { GeocodeService } from '../geocode/geocode.service';
 import { StationLocationValidator } from './station-location-validator';
 
 const googleMapsSearchBase = new URL('https://www.google.com/maps/search/');
@@ -42,24 +23,8 @@ const googleMapsSearchBase = new URL('https://www.google.com/maps/search/');
   selector: 'kel-station-detail',
   templateUrl: './station-detail.component.html',
   styleUrls: ['./station-detail.component.scss'],
-  imports: [
-    AsyncPipe,
-    MatAnchor,
-    MatAutocomplete,
-    MatAutocompleteTrigger,
-    MatError,
-    MatFormField,
-    MatHint,
-    MatInput,
-    MatLabel,
-    MatOption,
-    MatSelect,
-    ReactiveFormsModule,
-  ],
 })
 export class StationDetailComponent implements OnChanges {
-  private fb = inject(FormBuilder);
-
   @Input() station: Station;
   @Output() stationChange = new EventEmitter<Station>();
   @Input() showRig: boolean = true;
@@ -89,19 +54,16 @@ export class StationDetailComponent implements OnChanges {
     power: undefined,
   };
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
     const model: Station = {
       ...this.template,
       ...this.station,
     };
-    this.stationDetailForm = this.fb.group(model);
+    this.stationDetailForm = fb.group(model);
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (
-      JSON.stringify(changes.station.currentValue) ===
-      JSON.stringify(this.stationDetailForm.value)
-    ) {
+    if (isEqual(changes.station.currentValue, this.stationDetailForm.value)) {
       return;
     }
     this.station = changes.station.currentValue;

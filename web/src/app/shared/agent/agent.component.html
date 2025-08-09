@@ -1,29 +1,25 @@
-@if (agent.connectedState$ | async) {
-  <div class="outside">
-    @if (wsjtx.heartbeat$ | async; as heartbeat) {
-      <div class="inside">{{ heartbeat.id }} {{ heartbeat.version }}</div>
-    }
-    @if (hamlib.rigState$ | async; as rigState) {
-      <div class="inside">
-        {{ rigState.model }} <br />
-        @if (rigState.frequency / 1000 > 2000) {
-          <span>
-            {{ rigState.frequency / 1000000 | number: '1.3-3' }} MHz
-          </span>
-        } @else {
-          {{ rigState.frequency / 1000 | number: '1.2-2' }} kHz
-        }
-        {{ rigState.mode }}
-      </div>
-    }
-    <mat-icon
-      class="inside"
-      [matTooltip]="'Connected to agent on ' + agent.getHost()"
-    >
-      radio
-    </mat-icon>
+<div *ngIf="agent.connectedState$ | async; else notConnected" class="outside">
+  <div class="inside" *ngIf="wsjtx.heartbeat$ | async as heartbeat">
+    {{ heartbeat.id }} {{ heartbeat.version }}
   </div>
-} @else {
+  <div class="inside" *ngIf="hamlib.rigState$ | async as rigState">
+    {{ rigState.model }} <br />
+    <span *ngIf="rigState.frequency / 1000 > 2000; else khz">
+      {{ rigState.frequency / 1000000 | number: '1.3-3' }} MHz
+    </span>
+    <ng-template #khz>
+      {{ rigState.frequency / 1000 | number: '1.2-2' }} kHz
+    </ng-template>
+    {{ rigState.mode }}
+  </div>
+  <mat-icon
+    class="inside"
+    [matTooltip]="'Connected to agent on ' + agent.getHost()"
+  >
+    radio
+  </mat-icon>
+</div>
+<ng-template #notConnected>
   <div class="outside">
     <mat-icon
       class="inside"
@@ -33,4 +29,4 @@
       signal_cellular_off
     </mat-icon>
   </div>
-}
+</ng-template>
