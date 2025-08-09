@@ -37,13 +37,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreditsComponent } from './pages/credits/credits.component';
-import { HomeComponent } from './pages/home/home.component';
 import { LogbookComponent } from './pages/logbook/logbook.component';
-import { MapComponent } from './pages/map/map.component';
-import { PrivacyAndTermsComponent } from './pages/privacy-and-terms/privacy-and-terms.component';
-import { QsoListComponent } from './pages/qso-list/qso-list.component';
-import { WasComponent } from './pages/was/was.component';
 import { AgentComponent } from './shared/agent/agent.component';
 import { AuthService } from './shared/auth/auth.service';
 import { AvatarComponent } from './shared/avatar/avatar.component';
@@ -65,21 +59,15 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
     AgentComponent,
     AppComponent,
     AvatarComponent,
-    CreditsComponent,
-    HomeComponent,
     LogbookComponent,
     LogbookSettingsComponent,
     LoginComponent,
-    MapComponent,
     NewLogbookDialogComponent,
-    PrivacyAndTermsComponent,
     QsoDetailComponent,
-    QsoListComponent,
     QsoSearchComponent,
     StationDetailComponent,
     SwUpdateComponent,
     UserSettingsComponent,
-    WasComponent,
   ],
   bootstrap: [AppComponent],
   imports: [
@@ -129,5 +117,6 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
       initializeFirestore(getApp(), { ignoreUndefinedProperties: true }),
     ),
   ],
+  exports: [LoginComponent, QsoSearchComponent],
 })
 export class AppModule {}

@@ -1,4 +1,5 @@
 import { SelectionModel } from '@angular/cdk/collections';
+import { CommonModule } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -6,16 +7,24 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { MatButton } from '@angular/material/button';
-import { MatCheckboxChange } from '@angular/material/checkbox';
-import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import {
+  MatCheckboxChange,
+  MatCheckboxModule,
+} from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Observable, from, toArray } from 'rxjs';
 import { map, mergeAll } from 'rxjs/operators';
 
+import { AppModule } from '../../app.module';
 import { DxccRef } from '../../reference/dxcc';
 import { ImportExportService } from '../../shared/import-export/import-export.service';
 import { QsoDetailComponent } from '../../shared/qso-detail/qso-detail.component';
@@ -26,6 +35,23 @@ import { LogbookService } from '../logbook/logbook.service';
   selector: 'kel-qso-list',
   templateUrl: './qso-list.component.html',
   styleUrls: ['./qso-list.component.scss'],
+  standalone: true,
+  imports: [
+    AppModule,
+    CommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatIconModule,
+    MatMenuModule,
+    MatMenuTrigger,
+    MatPaginatorModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatChipsModule,
+  ],
 })
 export class QsoListComponent implements OnInit {
   dataSource = new MatTableDataSource<FirebaseQso>();

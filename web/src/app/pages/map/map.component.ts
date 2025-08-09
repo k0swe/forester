@@ -1,4 +1,5 @@
 import Maidenhead from '@amrato/maidenhead-ts';
+import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -6,9 +7,11 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { GoogleMap } from '@angular/google-maps';
+import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { Duration, ZonedDateTime } from 'js-joda';
-// @ts-ignore
 import moment from 'moment';
 import { Observable, switchMap } from 'rxjs';
 
@@ -20,6 +23,14 @@ import { LogbookService } from '../logbook/logbook.service';
   selector: 'kel-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    GoogleMapsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+  ],
 })
 export class MapComponent implements OnInit, AfterViewInit {
   @ViewChild('map') map: GoogleMap;
