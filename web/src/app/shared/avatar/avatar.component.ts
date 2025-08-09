@@ -10,7 +10,7 @@ import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { UserSettingsComponent } from '../user-settings/user-settings.component';
 
 @Component({

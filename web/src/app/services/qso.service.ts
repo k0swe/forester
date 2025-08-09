@@ -17,7 +17,7 @@ import { BehaviorSubject, Observable, combineLatest, from, of } from 'rxjs';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { map, mergeMap } from 'rxjs/operators';
 
-import { Qso } from '../../qso';
+import { Qso } from '../qso';
 
 import Unsubscribe = firebase.Unsubscribe;
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserSettingsService } from './shared/user-settings/user-settings.service';
+import { UserSettingsService } from './services/user-settings.service';
 
 @Component({
   selector: 'kel-root',

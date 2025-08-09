@@ -12,8 +12,8 @@ import {
 import { WsjtxService } from 'ngx-kel-agent';
 import { Observable, Subscription } from 'rxjs';
 
-import { LogbookService } from '../../pages/logbook/logbook.service';
-import { QsoService } from '../qso/qso.service';
+import { LogbookService } from '../../services/logbook.service';
+import { QsoService } from '../../services/qso.service';
 
 @Component({
   selector: 'kel-qso-search',

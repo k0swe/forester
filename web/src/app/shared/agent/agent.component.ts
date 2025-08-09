@@ -9,10 +9,10 @@ import {
   WsjtxService,
 } from 'ngx-kel-agent';
 
-import { LogbookService } from '../../pages/logbook/logbook.service';
 import { Qso } from '../../qso';
 import { Band } from '../../reference/band';
-import { QsoService } from '../qso/qso.service';
+import { LogbookService } from '../../services/logbook.service';
+import { QsoService } from '../../services/qso.service';
 
 @Component({
   selector: 'kel-agent',

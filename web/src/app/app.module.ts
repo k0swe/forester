@@ -44,21 +44,21 @@ import { MapComponent } from './pages/map/map.component';
 import { PrivacyAndTermsComponent } from './pages/privacy-and-terms/privacy-and-terms.component';
 import { QsoListComponent } from './pages/qso-list/qso-list.component';
 import { WasComponent } from './pages/was/was.component';
+import { AuthService } from './services/auth.service';
+import { ImportExportService } from './services/import-export.service';
+import { QsoService } from './services/qso.service';
+import { SecretService } from './services/secret.service';
+import { UserSettingsService } from './services/user-settings.service';
 import { AgentComponent } from './shared/agent/agent.component';
-import { AuthService } from './shared/auth/auth.service';
 import { AvatarComponent } from './shared/avatar/avatar.component';
-import { ImportExportService } from './shared/import-export/import-export.service';
 import { LogbookSettingsComponent } from './shared/logbook-settings/logbook-settings.component';
 import { LoginComponent } from './shared/login/login.component';
 import { NewLogbookDialogComponent } from './shared/new-logbook-dialog/new-logbook-dialog.component';
 import { QsoDetailComponent } from './shared/qso-detail/qso-detail.component';
 import { QsoSearchComponent } from './shared/qso-search/qso-search.component';
-import { QsoService } from './shared/qso/qso.service';
-import { SecretService } from './shared/secret/secret.service';
 import { StationDetailComponent } from './shared/station-detail/station-detail.component';
 import { SwUpdateComponent } from './shared/sw-update/sw-update.component';
 import { UserSettingsComponent } from './shared/user-settings/user-settings.component';
-import { UserSettingsService } from './shared/user-settings/user-settings.service';
 
 @NgModule({
   declarations: [AppComponent],

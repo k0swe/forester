@@ -19,12 +19,12 @@ import { MatInput } from '@angular/material/input';
 import { forkJoin } from 'rxjs';
 
 import { AppModule } from '../../app.module';
+import { Station } from '../../qso';
 import {
   LogbookService,
   LogbookSettings,
-} from '../../pages/logbook/logbook.service';
-import { Station } from '../../qso';
-import { SecretService } from '../secret/secret.service';
+} from '../../services/logbook.service';
+import { SecretService } from '../../services/secret.service';
 import { StationDetailComponent } from '../station-detail/station-detail.component';
 
 @Component({

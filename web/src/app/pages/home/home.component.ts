@@ -7,11 +7,11 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 
-import { AuthService } from '../../shared/auth/auth.service';
+import { AuthService } from '../../services/auth.service';
+import { LogbookService } from '../../services/logbook.service';
+import { UserSettingsService } from '../../services/user-settings.service';
 import { LoginComponent } from '../../shared/login/login.component';
 import { NewLogbookDialogComponent } from '../../shared/new-logbook-dialog/new-logbook-dialog.component';
-import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
-import { LogbookService } from '../logbook/logbook.service';
 
 @Component({
   selector: 'kel-home',

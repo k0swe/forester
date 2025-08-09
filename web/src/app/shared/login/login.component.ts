@@ -7,8 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { take, takeWhile } from 'rxjs/operators';
 
-import { AuthService } from '../auth/auth.service';
-import { UserSettingsService } from '../user-settings/user-settings.service';
+import { AuthService } from '../../services/auth.service';
+import { UserSettingsService } from '../../services/user-settings.service';
 
 @Component({
   selector: 'kel-login',

@@ -25,11 +25,11 @@ import { Observable, from, toArray } from 'rxjs';
 import { map, mergeAll } from 'rxjs/operators';
 
 import { DxccRef } from '../../reference/dxcc';
-import { ImportExportService } from '../../shared/import-export/import-export.service';
+import { ImportExportService } from '../../services/import-export.service';
+import { LogbookService } from '../../services/logbook.service';
+import { FirebaseQso, QsoService } from '../../services/qso.service';
 import { QsoDetailComponent } from '../../shared/qso-detail/qso-detail.component';
 import { QsoSearchComponent } from '../../shared/qso-search/qso-search.component';
-import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
-import { LogbookService } from '../logbook/logbook.service';
 
 @Component({
   selector: 'kel-qso-list',
