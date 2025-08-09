@@ -12,8 +12,7 @@
 //  you can delete this line and instead use:
 //    `@include mat.legacy-typography-hierarchy($kel-typography);`
 @include mat.all-component-typographies($kel-typography);
-@include mat.elevation-classes();
-@include mat.app-background();
+@include mat.core();
 @include mat.all-component-themes($kel-theme);
 
 // Global styles.

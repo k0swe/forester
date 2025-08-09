@@ -27,7 +27,6 @@ interface State {
   selector: 'kel-was',
   templateUrl: './was.component.html',
   styleUrls: ['./was.component.scss'],
-  standalone: false,
 })
 export class WasComponent implements OnInit, AfterViewInit {
   @ViewChild('map') map: GoogleMap;

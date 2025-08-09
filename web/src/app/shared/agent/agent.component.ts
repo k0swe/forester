@@ -15,7 +15,6 @@ import { QsoService } from '../qso/qso.service';
   selector: 'kel-agent',
   templateUrl: './agent.component.html',
   styleUrls: ['./agent.component.scss'],
-  standalone: false,
 })
 export class AgentComponent implements OnInit {
   constructor(

@@ -15,7 +15,6 @@ import { LogbookService } from './logbook.service';
   selector: 'kel-logbook',
   templateUrl: './logbook.component.html',
   styleUrls: ['./logbook.component.scss'],
-  standalone: false,
 })
 export class LogbookComponent implements OnInit {
   links = [

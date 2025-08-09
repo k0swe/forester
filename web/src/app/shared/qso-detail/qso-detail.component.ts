@@ -19,7 +19,6 @@ import { FirebaseQso, QsoService } from '../qso/qso.service';
   templateUrl: './qso-detail.component.html',
   styleUrls: ['./qso-detail.component.scss'],
   providers: [DatePipe],
-  standalone: false,
 })
 export class QsoDetailComponent implements OnInit {
   constructor(

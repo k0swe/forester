@@ -1,24 +1,24 @@
-<div class="top">
-  @switch (state) {
-    @case ('downloading') {
-      <mat-icon matTooltip="Downloading Forester update&hellip;">
-        update
-      </mat-icon>
-    }
-    @case ('ready') {
-      <button
-        mat-icon-button
-        matTooltip="Forester has been updated, click to reload"
-        color="accent"
-        (click)="updateNow()"
-      >
-        <mat-icon class="inner">update</mat-icon>
-      </button>
-    }
-    @case ('failed') {
-      <mat-icon matTooltip="Forester update failed" color="warn">
-        update
-      </mat-icon>
-    }
-  }
+<div class="top" [ngSwitch]="state">
+  <mat-icon
+    *ngSwitchCase="'downloading'"
+    matTooltip="Downloading Forester update&hellip;"
+  >
+    update
+  </mat-icon>
+  <button
+    mat-icon-button
+    *ngSwitchCase="'ready'"
+    matTooltip="Forester has been updated, click to reload"
+    color="accent"
+    (click)="updateNow()"
+  >
+    <mat-icon class="inner">update</mat-icon>
+  </button>
+  <mat-icon
+    *ngSwitchCase="'failed'"
+    matTooltip="Forester update failed"
+    color="warn"
+  >
+    update
+  </mat-icon>
 </div>

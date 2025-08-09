@@ -5,7 +5,6 @@ import { SwUpdate } from '@angular/service-worker';
   selector: 'kel-sw-update',
   templateUrl: './sw-update.component.html',
   styleUrls: ['./sw-update.component.scss'],
-  standalone: false,
 })
 export class SwUpdateComponent implements OnInit {
   constructor(private updates: SwUpdate) {}

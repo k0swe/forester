@@ -23,19 +23,17 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <mat-list-item disabled>Starred Logbooks</mat-list-item>
-      @for (
-        star of (userSettingsService.settings$ | async).starredLogbooks;
-        track star
-      ) {
-        <a
-          mat-list-item
-          [routerLink]="'/' + star + '/qsos'"
-          (click)="sidenav.close()"
-        >
-          <mat-icon>menu_book</mat-icon>
-          {{ star }}
-        </a>
-      }
+      <a
+        mat-list-item
+        *ngFor="
+          let star of (userSettingsService.settings$ | async).starredLogbooks
+        "
+        [routerLink]="'/' + star + '/qsos'"
+        (click)="sidenav.close()"
+      >
+        <mat-icon>menu_book</mat-icon>
+        {{ star }}
+      </a>
       <mat-divider></mat-divider>
       <a mat-list-item [routerLink]="'/credits'" (click)="sidenav.close()">
         <mat-icon>attribution</mat-icon>

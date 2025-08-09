@@ -15,7 +15,6 @@ import { SecretService } from '../secret/secret.service';
   selector: 'kel-logbook-settings',
   templateUrl: './logbook-settings.component.html',
   styleUrls: ['./logbook-settings.component.scss'],
-  standalone: false,
 })
 export class LogbookSettingsComponent implements OnInit {
   logbookSettingsForm: FormGroup;
