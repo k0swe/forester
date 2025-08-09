@@ -1,8 +1,12 @@
+import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Auth, User, user } from '@angular/fire/auth';
+import { MatIconButton } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIcon } from '@angular/material/icon';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -13,6 +17,17 @@ import { UserSettingsComponent } from '../user-settings/user-settings.component'
   selector: 'kel-avatar',
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss'],
+  standalone: true,
+  imports: [
+    AsyncPipe,
+    MatIcon,
+    MatIconButton,
+    MatMenu,
+    MatMenuItem,
+    MatMenuTrigger,
+    NgIf,
+    RouterLink,
+  ],
 })
 export class AvatarComponent {
   private auth: Auth = inject(Auth);

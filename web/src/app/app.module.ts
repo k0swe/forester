@@ -62,20 +62,23 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
 
 @NgModule({
   declarations: [
-    AgentComponent,
     AppComponent,
-    AvatarComponent,
+
     LogbookComponent,
-    LogbookSettingsComponent,
+
     NewLogbookDialogComponent,
     QsoDetailComponent,
-    StationDetailComponent,
+
     SwUpdateComponent,
     UserSettingsComponent,
   ],
   bootstrap: [AppComponent],
   imports: [
+    AgentComponent,
     AppRoutingModule,
+    AvatarComponent,
+    LogbookSettingsComponent,
+    StationDetailComponent,
     BrowserAnimationsModule,
     BrowserModule,
     CreditsComponent,
@@ -129,5 +132,6 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
       initializeFirestore(getApp(), { ignoreUndefinedProperties: true }),
     ),
   ],
+  exports: [StationDetailComponent],
 })
 export class AppModule {}
