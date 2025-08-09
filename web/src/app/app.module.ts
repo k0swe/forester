@@ -61,30 +61,20 @@ import { UserSettingsComponent } from './shared/user-settings/user-settings.comp
 import { UserSettingsService } from './shared/user-settings/user-settings.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-
-    LogbookComponent,
-
-    NewLogbookDialogComponent,
-    QsoDetailComponent,
-
-    SwUpdateComponent,
-    UserSettingsComponent,
-  ],
+  declarations: [AppComponent],
   bootstrap: [AppComponent],
   imports: [
     AgentComponent,
     AppRoutingModule,
     AvatarComponent,
-    LogbookSettingsComponent,
-    StationDetailComponent,
     BrowserAnimationsModule,
     BrowserModule,
     CreditsComponent,
     FormsModule,
     GoogleMapsModule,
     HomeComponent,
+    LogbookComponent,
+    LogbookSettingsComponent,
     LoginComponent,
     MapComponent,
     MatAutocompleteModule,
@@ -109,7 +99,9 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    NewLogbookDialogComponent,
     PrivacyAndTermsComponent,
+    QsoDetailComponent,
     QsoListComponent,
     QsoSearchComponent,
     ReactiveFormsModule,
@@ -117,6 +109,9 @@ import { UserSettingsService } from './shared/user-settings/user-settings.servic
       enabled: environment.production,
       registrationStrategy: 'registerImmediately',
     }),
+    StationDetailComponent,
+    SwUpdateComponent,
+    UserSettingsComponent,
     WasComponent,
   ],
   providers: [

@@ -1,5 +1,5 @@
-import { AsyncPipe, DatePipe } from '@angular/common';
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { AsyncPipe, DatePipe, NgForOf } from '@angular/common';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -36,14 +36,15 @@ import { Qso, Station } from '../../qso';
 import { Band } from '../../reference/band';
 import { DxccRef } from '../../reference/dxcc';
 import { Modes } from '../../reference/mode';
-import { LocationService } from '../../services/location.service';
-import { FirebaseQso, QsoService } from '../../services/qso.service';
+import { LocationService } from '../location/location.service';
+import { FirebaseQso, QsoService } from '../qso/qso.service';
 import { StationDetailComponent } from '../station-detail/station-detail.component';
 
 @Component({
   selector: 'kel-qso-detail',
   templateUrl: './qso-detail.component.html',
   styleUrls: ['./qso-detail.component.scss'],
+  standalone: true,
   imports: [
     AsyncPipe,
     MatAutocomplete,
@@ -63,30 +64,31 @@ import { StationDetailComponent } from '../station-detail/station-detail.compone
     MatLabel,
     MatOption,
     MatSelect,
+    NgForOf,
     ReactiveFormsModule,
     StationDetailComponent,
   ],
   providers: [DatePipe],
 })
 export class QsoDetailComponent implements OnInit {
-  private fb = inject(FormBuilder);
-  data = inject<FirebaseQso>(MAT_DIALOG_DATA);
-  private datePipe = inject(DatePipe);
-  private qsoService = inject(QsoService);
-  private locationService = inject(LocationService);
-  private hamlib = inject(HamlibService);
-  private dialog = inject<MatDialogRef<any>>(MatDialogRef);
-
-  constructor() {
-    this.firebaseId = this.data.id;
+  constructor(
+    private fb: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public data: FirebaseQso,
+    private datePipe: DatePipe,
+    private qsoService: QsoService,
+    private locationService: LocationService,
+    private hamlib: HamlibService,
+    private dialog: MatDialogRef<any>,
+  ) {
+    this.firebaseId = data.id;
     const model: Qso = {
       ...this.template,
-      ...this.data.qso,
+      ...data.qso,
     };
-    this.contactedStation = this.data.qso.contactedStation;
-    this.loggingStation = this.data.qso.loggingStation;
+    this.contactedStation = data.qso.contactedStation;
+    this.loggingStation = data.qso.loggingStation;
     this.formatDates(model);
-    this.qsoDetailForm = this.fb.group({
+    this.qsoDetailForm = fb.group({
       ...model,
       ...{ timeOn: [model.timeOn, Validators.required] },
     });
