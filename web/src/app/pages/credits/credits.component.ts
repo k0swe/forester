@@ -1,5 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 import { BehaviorSubject } from 'rxjs';
 
 import { versions } from '../../../environments/versions';
@@ -8,6 +13,14 @@ import { versions } from '../../../environments/versions';
   selector: 'kel-credits',
   templateUrl: './credits.component.html',
   styleUrls: ['./credits.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatTableModule,
+  ],
 })
 export class CreditsComponent implements OnInit {
   licenses = new BehaviorSubject<Array<LicenseInfo>>([]);

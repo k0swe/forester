@@ -1,8 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { Router, RouterModule } from '@angular/router';
 
+import { AppModule } from '../../app.module';
 import { AuthService } from '../../shared/auth/auth.service';
 import { NewLogbookDialogComponent } from '../../shared/new-logbook-dialog/new-logbook-dialog.component';
 import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
@@ -12,6 +17,16 @@ import { LogbookService } from '../logbook/logbook.service';
   selector: 'kel-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  standalone: true,
+  imports: [
+    AppModule,
+    CommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
+    MatIconModule,
+    RouterModule,
+  ],
 })
 export class HomeComponent {
   auth = inject(Auth);

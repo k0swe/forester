@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -5,8 +6,12 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { GoogleMap } from '@angular/google-maps';
-// @ts-ignore
+import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import moment from 'moment';
 import { Observable } from 'rxjs';
 
@@ -27,6 +32,16 @@ interface State {
   selector: 'kel-was',
   templateUrl: './was.component.html',
   styleUrls: ['./was.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    GoogleMapsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+  ],
 })
 export class WasComponent implements OnInit, AfterViewInit {
   @ViewChild('map') map: GoogleMap;
