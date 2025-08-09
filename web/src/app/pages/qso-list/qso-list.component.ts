@@ -24,10 +24,10 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Observable, from, toArray } from 'rxjs';
 import { map, mergeAll } from 'rxjs/operators';
 
-import { AppModule } from '../../app.module';
 import { DxccRef } from '../../reference/dxcc';
 import { ImportExportService } from '../../shared/import-export/import-export.service';
 import { QsoDetailComponent } from '../../shared/qso-detail/qso-detail.component';
+import { QsoSearchComponent } from '../../shared/qso-search/qso-search.component';
 import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
 import { LogbookService } from '../logbook/logbook.service';
 
@@ -37,11 +37,11 @@ import { LogbookService } from '../logbook/logbook.service';
   styleUrls: ['./qso-list.component.scss'],
   standalone: true,
   imports: [
-    AppModule,
     CommonModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    MatChipsModule,
     MatDialogModule,
     MatIconModule,
     MatMenuModule,
@@ -50,7 +50,7 @@ import { LogbookService } from '../logbook/logbook.service';
     MatSnackBarModule,
     MatSortModule,
     MatTableModule,
-    MatChipsModule,
+    QsoSearchComponent,
   ],
 })
 export class QsoListComponent implements OnInit {
