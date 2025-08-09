@@ -1,9 +1,20 @@
+import { AsyncPipe, NgForOf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
+import { MatIconButton } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
+import { MatDivider } from '@angular/material/divider';
+import { MatIcon } from '@angular/material/icon';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { MatTabLink, MatTabNav } from '@angular/material/tabs';
+import {
+  ActivatedRoute,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
@@ -15,6 +26,22 @@ import { LogbookService } from './logbook.service';
   selector: 'kel-logbook',
   templateUrl: './logbook.component.html',
   styleUrls: ['./logbook.component.scss'],
+  standalone: true,
+  imports: [
+    AsyncPipe,
+    MatDivider,
+    MatIcon,
+    MatIconButton,
+    MatMenu,
+    MatMenuItem,
+    MatMenuTrigger,
+    MatTabLink,
+    MatTabNav,
+    NgForOf,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+  ],
 })
 export class LogbookComponent implements OnInit {
   links = [

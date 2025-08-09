@@ -1,17 +1,36 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
 import { AgentService } from 'ngx-kel-agent';
 import { forkJoin } from 'rxjs';
 import { take } from 'rxjs/operators';
 
+
+
 import { UserSettingsService } from './user-settings.service';
+
 
 @Component({
   selector: 'kel-user-settings',
   templateUrl: './user-settings.component.html',
   styleUrls: ['./user-settings.component.scss'],
+  standalone: true,
+  imports: [
+    MatDialogTitle,
+    MatDialogContent,
+    ReactiveFormsModule,
+    MatFormField,
+    MatLabel,
+    MatInput,
+    MatIcon,
+    MatDialogActions,
+    MatButton,
+    MatDialogClose,
+  ],
 })
 export class UserSettingsComponent implements OnInit {
   userSettingsForm: FormGroup;
