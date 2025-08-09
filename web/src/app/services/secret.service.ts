@@ -4,8 +4,8 @@ import { Auth, user } from '@angular/fire/auth';
 import { Observable, from, of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 
-import { environment } from '../../../environments/environment';
-import { AuthService } from '../auth/auth.service';
+import { environment } from '../../environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',

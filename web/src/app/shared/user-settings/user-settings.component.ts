@@ -1,7 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
-import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
@@ -9,10 +15,7 @@ import { AgentService } from 'ngx-kel-agent';
 import { forkJoin } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-
-
-import { UserSettingsService } from './user-settings.service';
-
+import { UserSettingsService } from '../../services/user-settings.service';
 
 @Component({
   selector: 'kel-user-settings',

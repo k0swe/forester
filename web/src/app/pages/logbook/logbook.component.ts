@@ -18,9 +18,9 @@ import {
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
-import { ImportExportService } from '../../shared/import-export/import-export.service';
+import { ImportExportService } from '../../services/import-export.service';
+import { LogbookService } from '../../services/logbook.service';
 import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-settings.component';
-import { LogbookService } from './logbook.service';
 
 @Component({
   selector: 'kel-logbook',

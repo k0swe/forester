@@ -4,10 +4,10 @@ import { AdifFormatter, AdifParser } from 'adif-parser-ts';
 import { Observable, forkJoin } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
-import { Qso } from '../../qso';
-import { Adif2Proto } from '../adif2proto';
-import { Proto2Adif } from '../proto2adif';
-import { FirebaseQso, QsoService } from '../qso/qso.service';
+import { Qso } from '../qso';
+import { Adif2Proto } from '../shared/adif2proto';
+import { Proto2Adif } from '../shared/proto2adif';
+import { FirebaseQso, QsoService } from './qso.service';
 
 @Injectable({
   providedIn: 'root',

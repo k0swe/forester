@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
 
-import { environment } from '../../../environments/environment';
-import { Station } from '../../qso';
+import { environment } from '../../environments/environment';
+import { Station } from '../qso';
 
 import GeocoderAddressComponent = google.maps.GeocoderAddressComponent;
 
@@ -57,17 +57,17 @@ export class GeocodeService {
       ) ?? emptyComponent;
     const countyComponent =
       results[0].address_components.length > 3
-        ? results[0].address_components.find((component) =>
+        ? (results[0].address_components.find((component) =>
             component.types.includes('administrative_area_level_2'),
-          ) ?? emptyComponent
+          ) ?? emptyComponent)
         : emptyComponent;
     const cityComponent =
       results[0].address_components.length > 2
-        ? results[0].address_components.find((component) =>
+        ? (results[0].address_components.find((component) =>
             component.types.includes('locality'),
           ) ??
           results[0].address_components[0] ??
-          emptyComponent
+          emptyComponent)
         : emptyComponent;
     return {
       country: countryComponent.long_name ?? countryComponent.short_name ?? '',

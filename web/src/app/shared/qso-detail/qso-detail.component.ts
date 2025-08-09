@@ -36,8 +36,8 @@ import { Qso, Station } from '../../qso';
 import { Band } from '../../reference/band';
 import { DxccRef } from '../../reference/dxcc';
 import { Modes } from '../../reference/mode';
-import { LocationService } from '../location/location.service';
-import { FirebaseQso, QsoService } from '../qso/qso.service';
+import { LocationService } from '../../services/location.service';
+import { FirebaseQso, QsoService } from '../../services/qso.service';
 import { StationDetailComponent } from '../station-detail/station-detail.component';
 
 @Component({

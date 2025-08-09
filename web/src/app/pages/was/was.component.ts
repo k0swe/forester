@@ -16,8 +16,8 @@ import moment from 'moment';
 import { Observable } from 'rxjs';
 
 import { Qso } from '../../qso';
-import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
-import { LogbookService } from '../logbook/logbook.service';
+import { LogbookService } from '../../services/logbook.service';
+import { FirebaseQso, QsoService } from '../../services/qso.service';
 
 import ControlPosition = google.maps.ControlPosition;
 
