@@ -1,3 +1,4 @@
+import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -7,7 +8,26 @@ import {
   SimpleChanges,
   inject,
 } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import {
+  MatAutocomplete,
+  MatAutocompleteTrigger,
+  MatOption,
+} from '@angular/material/autocomplete';
+import { MatAnchor } from '@angular/material/button';
+import {
+  MatError,
+  MatFormField,
+  MatHint,
+  MatLabel,
+} from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatSelect } from '@angular/material/select';
 import isEqual from 'lodash/isEqual';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -23,6 +43,23 @@ const googleMapsSearchBase = new URL('https://www.google.com/maps/search/');
   selector: 'kel-station-detail',
   templateUrl: './station-detail.component.html',
   styleUrls: ['./station-detail.component.scss'],
+  standalone: true,
+  imports: [
+    AsyncPipe,
+    MatAnchor,
+    MatAutocomplete,
+    MatAutocompleteTrigger,
+    MatError,
+    MatFormField,
+    MatHint,
+    MatInput,
+    MatLabel,
+    MatOption,
+    MatSelect,
+    NgForOf,
+    NgIf,
+    ReactiveFormsModule,
+  ],
 })
 export class StationDetailComponent implements OnChanges {
   @Input() station: Station;

@@ -1,20 +1,54 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
-import { MatDialogRef } from '@angular/material/dialog';
+import {
+  MatCard,
+  MatCardContent,
+  MatCardHeader,
+  MatCardSubtitle,
+} from '@angular/material/card';
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
 import { forkJoin } from 'rxjs';
 
+import { AppModule } from '../../app.module';
 import {
   LogbookService,
   LogbookSettings,
 } from '../../pages/logbook/logbook.service';
 import { Station } from '../../qso';
 import { SecretService } from '../secret/secret.service';
+import { StationDetailComponent } from '../station-detail/station-detail.component';
 
 @Component({
   selector: 'kel-logbook-settings',
   templateUrl: './logbook-settings.component.html',
   styleUrls: ['./logbook-settings.component.scss'],
+  standalone: true,
+  imports: [
+    MatButton,
+    MatCard,
+    MatCardContent,
+    MatCardHeader,
+    MatCardSubtitle,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle,
+    MatFormField,
+    MatHint,
+    MatInput,
+    MatLabel,
+    ReactiveFormsModule,
+    StationDetailComponent,
+  ],
 })
 export class LogbookSettingsComponent implements OnInit {
   logbookSettingsForm: FormGroup;

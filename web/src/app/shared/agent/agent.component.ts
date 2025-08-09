@@ -1,4 +1,7 @@
+import { AsyncPipe, DecimalPipe, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
+import { MatTooltip } from '@angular/material/tooltip';
 import {
   AgentService,
   HamlibService,
@@ -15,6 +18,8 @@ import { QsoService } from '../qso/qso.service';
   selector: 'kel-agent',
   templateUrl: './agent.component.html',
   styleUrls: ['./agent.component.scss'],
+  standalone: true,
+  imports: [MatIcon, MatTooltip, DecimalPipe, NgIf, AsyncPipe],
 })
 export class AgentComponent implements OnInit {
   constructor(
