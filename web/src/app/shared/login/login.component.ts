@@ -1,5 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Auth, UserCredential, user } from '@angular/fire/auth';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -12,6 +14,8 @@ import { UserSettingsService } from '../user-settings/user-settings.service';
   selector: 'kel-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  standalone: true,
+  imports: [MatCardModule, MatButtonModule],
 })
 export class LoginComponent implements OnInit {
   private auth: Auth = inject(Auth);

@@ -1,5 +1,14 @@
+import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
+import { MatIconButton } from '@angular/material/button';
+import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import {
+  MatSlideToggle,
+  MatSlideToggleChange,
+} from '@angular/material/slide-toggle';
 import { WsjtxService } from 'ngx-kel-agent';
 import { Observable, Subscription } from 'rxjs';
 
@@ -10,6 +19,20 @@ import { QsoService } from '../qso/qso.service';
   selector: 'kel-qso-search',
   templateUrl: './qso-search.component.html',
   styleUrls: ['./qso-search.component.scss'],
+  standalone: true,
+  imports: [
+    AsyncPipe,
+    FormsModule,
+    MatFormField,
+    MatHint,
+    MatIcon,
+    MatIconButton,
+    MatInput,
+    MatLabel,
+    MatSlideToggle,
+    NgClass,
+    NgIf,
+  ],
 })
 export class QsoSearchComponent implements OnInit {
   search = '';

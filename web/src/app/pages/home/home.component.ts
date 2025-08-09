@@ -7,8 +7,8 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 
-import { AppModule } from '../../app.module';
 import { AuthService } from '../../shared/auth/auth.service';
+import { LoginComponent } from '../../shared/login/login.component';
 import { NewLogbookDialogComponent } from '../../shared/new-logbook-dialog/new-logbook-dialog.component';
 import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
 import { LogbookService } from '../logbook/logbook.service';
@@ -19,8 +19,8 @@ import { LogbookService } from '../logbook/logbook.service';
   styleUrls: ['./home.component.scss'],
   standalone: true,
   imports: [
-    AppModule,
     CommonModule,
+    LoginComponent,
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
