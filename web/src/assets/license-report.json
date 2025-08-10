@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "10.12.4",
-    "installedVersion": "10.12.4",
+    "comment": "12.1.0",
+    "installedVersion": "12.1.0",
     "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
@@ -203,8 +203,8 @@
     "name": "rxjs",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/reactivex/rxjs.git",
-    "comment": "7.8.1",
-    "installedVersion": "7.8.1",
+    "comment": "7.8.2",
+    "installedVersion": "7.8.2",
     "author": "Ben Lesh <ben@benlesh.com>"
   },
   {
@@ -379,8 +379,8 @@
     "name": "inquirer",
     "licenseType": "MIT",
     "link": "https://github.com/SBoudrias/Inquirer.js.git",
-    "comment": "9.3.6",
-    "installedVersion": "9.3.6",
+    "comment": "9.3.7",
+    "installedVersion": "9.3.7",
     "author": "Simon Boudrias <admin@simonboudrias.com>"
   },
   {
