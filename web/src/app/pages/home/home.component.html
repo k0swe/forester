@@ -31,26 +31,26 @@
   </mat-card-content>
 </mat-card>
 
-<kel-login
-  *ngIf="(user(this.auth) | async) === null; else loggedIn"
-></kel-login>
-
-<ng-template #loggedIn>
+@if ((user(this.auth) | async) === null) {
+  <kel-login></kel-login>
+} @else {
   <mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title>Your Starred Logbooks</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <button
-        mat-raised-button
-        color="primary"
-        *ngFor="
-          let star of (userSettingsService.settings$ | async).starredLogbooks
-        "
-        [routerLink]="'/' + star + '/qsos'"
-      >
-        {{ star }}
-      </button>
+      @for (
+        star of (userSettingsService.settings$ | async).starredLogbooks;
+        track star
+      ) {
+        <button
+          mat-raised-button
+          color="primary"
+          [routerLink]="'/' + star + '/qsos'"
+        >
+          {{ star }}
+        </button>
+      }
     </mat-card-content>
     <mat-card-actions>
       <button mat-stroked-button color="accent" (click)="createLogbook()">
@@ -58,4 +58,4 @@
       </button>
     </mat-card-actions>
   </mat-card>
-</ng-template>
+}

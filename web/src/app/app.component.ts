@@ -1,4 +1,4 @@
-import { AsyncPipe, NgForOf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
@@ -29,7 +29,6 @@ import { SwUpdateComponent } from './shared/sw-update/sw-update.component';
     MatSidenav,
     MatNavList,
     MatListItem,
-    NgForOf,
     MatDivider,
     AsyncPipe,
     RouterOutlet,

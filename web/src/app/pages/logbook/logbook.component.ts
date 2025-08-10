@@ -1,4 +1,4 @@
-import { AsyncPipe, NgForOf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {
   Component,
@@ -42,7 +42,6 @@ import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-
     MatMenuTrigger,
     MatTabLink,
     MatTabNav,
-    NgForOf,
     RouterLink,
     RouterLinkActive,
     RouterOutlet,

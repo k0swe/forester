@@ -1,5 +1,4 @@
 import Maidenhead from '@amrato/maidenhead-ts';
-import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -24,13 +23,7 @@ import { FirebaseQso, QsoService } from '../../services/qso.service';
   selector: 'kel-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
-  imports: [
-    CommonModule,
-    GoogleMapsModule,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-  ],
+  imports: [GoogleMapsModule, MatButtonModule, MatCardModule, MatIconModule],
 })
 export class MapComponent implements OnInit, AfterViewInit {
   private logbookService = inject(LogbookService);

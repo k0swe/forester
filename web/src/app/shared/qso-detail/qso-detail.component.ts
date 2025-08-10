@@ -1,4 +1,4 @@
-import { AsyncPipe, DatePipe, NgForOf } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -63,7 +63,6 @@ import { StationDetailComponent } from '../station-detail/station-detail.compone
     MatLabel,
     MatOption,
     MatSelect,
-    NgForOf,
     ReactiveFormsModule,
     StationDetailComponent,
   ],
