@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass, NgIf } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconButton } from '@angular/material/button';
@@ -30,7 +30,6 @@ import { QsoService } from '../../services/qso.service';
     MatLabel,
     MatSlideToggle,
     NgClass,
-    NgIf,
   ],
 })
 export class QsoSearchComponent implements OnInit {
