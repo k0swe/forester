@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import '../styles/theme';
+@use 'src/styles/theme';
 
 :host {
   display: flex;
@@ -9,10 +9,14 @@
 }
 
 .toolbar {
-  background-color: mat.m2-get-color-from-palette($kel-primary, 'default');
-  color: mat.m2-get-color-from-palette($kel-primary, 'default-contrast');
+  background-color: mat.m2-get-color-from-palette(
+    theme.$kel-primary,
+    'default'
+  );
+  color: mat.m2-get-color-from-palette(theme.$kel-primary, 'default-contrast');
   z-index: 2;
-  box-shadow: 0 1px mat.m2-get-color-from-palette($kel-foreground, divider);
+  box-shadow: 0 1px
+    mat.m2-get-color-from-palette(theme.$kel-foreground, divider);
   display: flex;
 }
 
@@ -35,15 +39,21 @@ a.app-title {
 }
 
 h1.app-title {
-  background-color: mat.m2-get-color-from-palette($kel-primary, 'default');
-  color: mat.m2-get-color-from-palette($kel-primary, 'default-contrast');
+  background-color: mat.m2-get-color-from-palette(
+    theme.$kel-primary,
+    'default'
+  );
+  color: mat.m2-get-color-from-palette(theme.$kel-primary, 'default-contrast');
   margin: 0 0 0 0;
 }
 
 .app-subtitle {
-  @include mat.m2-typography-level($kel-typography, subtitle-1);
-  background-color: mat.m2-get-color-from-palette($kel-primary, 'default');
-  color: mat.m2-get-color-from-palette($kel-primary, 'default-contrast');
+  @include mat.m2-typography-level(theme.$kel-typography, subtitle-1);
+  background-color: mat.m2-get-color-from-palette(
+    theme.$kel-primary,
+    'default'
+  );
+  color: mat.m2-get-color-from-palette(theme.$kel-primary, 'default-contrast');
   margin: 16px 0 0 16px;
   @media screen and (max-width: 959px) {
     display: none;
@@ -55,8 +65,11 @@ h1.app-title {
 }
 
 .toolbar__menu-button {
-  background-color: mat.m2-get-color-from-palette($kel-primary, 'default');
-  color: mat.m2-get-color-from-palette($kel-primary, 'default-contrast');
+  background-color: mat.m2-get-color-from-palette(
+    theme.$kel-primary,
+    'default'
+  );
+  color: mat.m2-get-color-from-palette(theme.$kel-primary, 'default-contrast');
   margin-right: 8px;
 }
 

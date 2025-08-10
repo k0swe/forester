@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import 'src/styles/theme';
+@use 'src/styles/theme';
 
 div.row,
 mat-dialog-actions {
@@ -26,17 +26,17 @@ mat-dialog-actions {
 }
 
 input.ng-dirty {
-  color: mat.m2-get-color-from-palette($kel-accent, 900) !important;
+  color: mat.m2-get-color-from-palette(theme.$kel-accent, 900) !important;
 }
 
 mat-card {
-  border: 1px solid mat.m2-get-color-from-palette($kel-primary, A100);
+  border: 1px solid mat.m2-get-color-from-palette(theme.$kel-primary, A100);
   margin-bottom: 8px;
   margin-top: 8px;
 }
 
 input.callsign {
-  font-family: mat.m2-font-family($kel-mono-typography);
+  font-family: mat.m2-font-family(theme.$kel-mono-typography);
 }
 
 /* Chrome, Safari, Edge, Opera */

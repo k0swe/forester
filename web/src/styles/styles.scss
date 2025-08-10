@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import './theme';
+@use './theme';
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 // Be sure that you only ever include this mixin once!
@@ -10,11 +10,11 @@
 //  If you specify typography styles for the components you use elsewhere, you should delete this line.
 //  If you don't need the default component typographies but still want the hierarchy styles,
 //  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy($kel-typography);`
-@include mat.all-component-typographies($kel-typography);
+//    `@include mat.legacy-typography-hierarchy(theme.$kel-typography);`
+@include mat.all-component-typographies(theme.$kel-typography);
 @include mat.elevation-classes();
 @include mat.app-background();
-@include mat.all-component-themes($kel-theme);
+@include mat.all-component-themes(theme.$kel-theme);
 
 // Global styles.
 html {
@@ -29,9 +29,9 @@ html {
 body {
   color: #212121;
   background-color: #f3f3f3;
-  font-family: mat.m2-font-family($kel-typography);
-  line-height: mat.m2-line-height($kel-typography, body-1);
-  font-size: mat.m2-font-size($kel-typography, body-1);
+  font-family: mat.m2-font-family(theme.$kel-typography);
+  line-height: mat.m2-line-height(theme.$kel-typography, body-1);
+  font-size: mat.m2-font-size(theme.$kel-typography, body-1);
   height: 100%;
   margin: 0;
   overflow: hidden;

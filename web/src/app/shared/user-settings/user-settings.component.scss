@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import 'src/styles/theme';
+@use 'src/styles/theme';
 
 div.row {
   display: flex;
@@ -26,9 +26,9 @@ mat-icon {
 }
 
 mat-form-field.ng-dirty {
-  color: mat.m2-get-color-from-palette($kel-accent, 800);
+  color: mat.m2-get-color-from-palette(theme.$kel-accent, 800);
 }
 
 .callsign {
-  @include mat.m2-typography-level($kel-mono-typography, body-1);
+  @include mat.m2-typography-level(theme.$kel-mono-typography, body-1);
 }

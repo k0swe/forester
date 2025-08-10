@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import 'src/styles/theme';
+@use 'src/styles/theme';
 
 :host {
   width: 100%;
@@ -12,5 +12,5 @@ mat-form-field {
 }
 
 .accent {
-  color: mat.m2-get-color-from-palette($kel-accent, 800);
+  color: mat.m2-get-color-from-palette(theme.$kel-accent, 800);
 }
