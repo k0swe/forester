@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -34,7 +33,6 @@ interface State {
   templateUrl: './was.component.html',
   styleUrls: ['./was.component.scss'],
   imports: [
-    CommonModule,
     GoogleMapsModule,
     MatButtonModule,
     MatCardModule,

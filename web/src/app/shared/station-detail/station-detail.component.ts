@@ -1,4 +1,4 @@
-import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -55,8 +55,6 @@ const googleMapsSearchBase = new URL('https://www.google.com/maps/search/');
     MatLabel,
     MatOption,
     MatSelect,
-    NgForOf,
-    NgIf,
     ReactiveFormsModule,
   ],
 })

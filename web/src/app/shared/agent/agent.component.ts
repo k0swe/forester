@@ -1,4 +1,4 @@
-import { AsyncPipe, DecimalPipe, NgIf } from '@angular/common';
+import { AsyncPipe, DecimalPipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -18,7 +18,7 @@ import { QsoService } from '../../services/qso.service';
   selector: 'kel-agent',
   templateUrl: './agent.component.html',
   styleUrls: ['./agent.component.scss'],
-  imports: [MatIcon, MatTooltip, DecimalPipe, NgIf, AsyncPipe],
+  imports: [MatIcon, MatTooltip, DecimalPipe, AsyncPipe],
 })
 export class AgentComponent implements OnInit {
   agent = inject(AgentService);
