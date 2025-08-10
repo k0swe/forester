@@ -3,7 +3,7 @@
     {{ logbookService.logbookId$ | async }}
     <span class="logbook-long-title">Logbook</span>
   </h1>
-  <nav mat-tab-nav-bar backgroundColor="accent">
+  <nav mat-tab-nav-bar [tabPanel]="tabPanel" backgroundColor="accent">
     @for (link of links; track link) {
       <a
         mat-tab-link
@@ -58,4 +58,7 @@
   (change)="importAdi($event)"
 />
 <a #download hidden></a>
-<router-outlet></router-outlet>
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>
+
