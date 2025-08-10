@@ -4,20 +4,18 @@ import { Auth, user } from '@angular/fire/auth';
 import { Observable, from, of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 
-import { environment } from '../../../environments/environment';
-import { AuthService } from '../auth/auth.service';
+import { environment } from '../../environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SecretService {
-  readonly updateSecretsUrl = environment.functionsBase + 'UpdateSecret';
   private auth: Auth = inject(Auth);
+  private authService = inject(AuthService);
+  private http = inject(HttpClient);
 
-  constructor(
-    private authService: AuthService,
-    private http: HttpClient,
-  ) {}
+  readonly updateSecretsUrl = environment.functionsBase + 'UpdateSecret';
 
   public setSecrets(
     secrets: Map<string, string>,

@@ -1,14 +1,14 @@
 @use '@angular/material' as mat;
-@import 'src/styles/theme';
+@use 'src/styles/theme';
 
 .logbook-header {
-  background-color: mat.m2-get-color-from-palette($kel-accent, 'default');
+  background-color: mat.m2-get-color-from-palette(theme.$kel-accent, 'default');
   display: flex;
   flex-direction: row;
 }
 
 h1 {
-  color: mat.m2-get-color-from-palette($kel-primary, 'default-contrast');
+  color: mat.m2-get-color-from-palette(theme.$kel-primary, 'default-contrast');
   padding: 8px 24px;
   margin: 0;
 }
@@ -20,9 +20,9 @@ h1 {
 }
 
 .logbook-tab {
-  background-color: mat.m2-get-color-from-palette($kel-accent, 'default');
-  color: mat.m2-get-color-from-palette($kel-primary, 'default-contrast');
-  font-size: mat.m2-font-size($kel-typography, subtitle-1);
+  background-color: mat.m2-get-color-from-palette(theme.$kel-accent, 'default');
+  color: mat.m2-get-color-from-palette(theme.$kel-primary, 'default-contrast');
+  font-size: mat.m2-font-size(theme.$kel-typography, subtitle-1);
 }
 
 .spacer {
@@ -30,5 +30,5 @@ h1 {
 }
 
 mat-icon {
-  color: mat.m2-get-color-from-palette($kel-primary, 'default-contrast');
+  color: mat.m2-get-color-from-palette(theme.$kel-primary, 'default-contrast');
 }

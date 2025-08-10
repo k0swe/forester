@@ -4,15 +4,20 @@ import {
   ElementRef,
   OnInit,
   ViewChild,
+  inject,
 } from '@angular/core';
-import { GoogleMap } from '@angular/google-maps';
-// @ts-ignore
+import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import moment from 'moment';
 import { Observable } from 'rxjs';
 
 import { Qso } from '../../qso';
-import { FirebaseQso, QsoService } from '../../shared/qso/qso.service';
-import { LogbookService } from '../logbook/logbook.service';
+import { LogbookService } from '../../services/logbook.service';
+import { FirebaseQso, QsoService } from '../../services/qso.service';
 
 import ControlPosition = google.maps.ControlPosition;
 
@@ -27,9 +32,19 @@ interface State {
   selector: 'kel-was',
   templateUrl: './was.component.html',
   styleUrls: ['./was.component.scss'],
-  standalone: false,
+  imports: [
+    GoogleMapsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+  ],
 })
 export class WasComponent implements OnInit, AfterViewInit {
+  private logbookService = inject(LogbookService);
+  private qsoService = inject(QsoService);
+
   @ViewChild('map') map: GoogleMap;
   @ViewChild('filterSelectors') filterSelectors: ElementRef;
   mode = 'mixed';
@@ -100,11 +115,6 @@ export class WasComponent implements OnInit, AfterViewInit {
   markers = new Map<string, google.maps.Marker>();
   paths = new Map<string, google.maps.Polyline>();
   infoWindow: google.maps.InfoWindow = new google.maps.InfoWindow();
-
-  constructor(
-    private logbookService: LogbookService,
-    private qsoService: QsoService,
-  ) {}
 
   ngOnInit(): void {
     this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));

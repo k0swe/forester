@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AsyncPipe, DecimalPipe } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
+import { MatTooltip } from '@angular/material/tooltip';
 import {
   AgentService,
   HamlibService,
@@ -6,25 +9,23 @@ import {
   WsjtxService,
 } from 'ngx-kel-agent';
 
-import { LogbookService } from '../../pages/logbook/logbook.service';
 import { Qso } from '../../qso';
 import { Band } from '../../reference/band';
-import { QsoService } from '../qso/qso.service';
+import { LogbookService } from '../../services/logbook.service';
+import { QsoService } from '../../services/qso.service';
 
 @Component({
   selector: 'kel-agent',
   templateUrl: './agent.component.html',
   styleUrls: ['./agent.component.scss'],
-  standalone: false,
+  imports: [MatIcon, MatTooltip, DecimalPipe, AsyncPipe],
 })
 export class AgentComponent implements OnInit {
-  constructor(
-    public agent: AgentService,
-    public hamlib: HamlibService,
-    public wsjtx: WsjtxService,
-    private logbookService: LogbookService,
-    private qsoService: QsoService,
-  ) {}
+  agent = inject(AgentService);
+  hamlib = inject(HamlibService);
+  wsjtx = inject(WsjtxService);
+  private logbookService = inject(LogbookService);
+  private qsoService = inject(QsoService);
 
   ngOnInit(): void {
     this.agent.init();

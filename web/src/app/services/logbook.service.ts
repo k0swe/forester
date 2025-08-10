@@ -11,8 +11,8 @@ import {
 import { BehaviorSubject, Observable, filter, from } from 'rxjs';
 import { mergeMap, switchMap } from 'rxjs/operators';
 
-import { Station } from '../../qso';
-import { UserSettingsService } from '../../shared/user-settings/user-settings.service';
+import { Station } from '../qso';
+import { UserSettingsService } from './user-settings.service';
 
 @Injectable({
   providedIn: 'root',

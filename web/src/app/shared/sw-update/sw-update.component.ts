@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatTooltip } from '@angular/material/tooltip';
 import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'kel-sw-update',
   templateUrl: './sw-update.component.html',
   styleUrls: ['./sw-update.component.scss'],
-  standalone: false,
+  imports: [MatIcon, MatTooltip, MatIconButton],
 })
 export class SwUpdateComponent implements OnInit {
-  constructor(private updates: SwUpdate) {}
+  private updates = inject(SwUpdate);
 
   state: 'none' | 'downloading' | 'ready' | 'failed' = 'none';
 

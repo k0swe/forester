@@ -14,8 +14,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class LoginGuard {
   private auth: Auth = inject(Auth);
-
-  constructor(private router: Router) {}
+  private router = inject(Router);
 
   canActivate(
     route: ActivatedRouteSnapshot,

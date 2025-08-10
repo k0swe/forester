@@ -1,29 +1,49 @@
-import { Component, OnInit } from '@angular/core';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { AsyncPipe, NgClass } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatIconButton } from '@angular/material/button';
+import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import {
+  MatSlideToggle,
+  MatSlideToggleChange,
+} from '@angular/material/slide-toggle';
 import { WsjtxService } from 'ngx-kel-agent';
 import { Observable, Subscription } from 'rxjs';
 
-import { LogbookService } from '../../pages/logbook/logbook.service';
-import { QsoService } from '../qso/qso.service';
+import { LogbookService } from '../../services/logbook.service';
+import { QsoService } from '../../services/qso.service';
 
 @Component({
   selector: 'kel-qso-search',
   templateUrl: './qso-search.component.html',
   styleUrls: ['./qso-search.component.scss'],
-  standalone: false,
+  imports: [
+    AsyncPipe,
+    FormsModule,
+    MatFormField,
+    MatHint,
+    MatIcon,
+    MatIconButton,
+    MatInput,
+    MatLabel,
+    MatSlideToggle,
+    NgClass,
+  ],
 })
 export class QsoSearchComponent implements OnInit {
+  wsjtx = inject(WsjtxService);
+  private logbookService = inject(LogbookService);
+  private qsoService = inject(QsoService);
+
   search = '';
   wsjtxConnected$: Observable<boolean>;
   private wsjtxSub: Subscription;
   syncWithWsjtx: boolean;
 
-  constructor(
-    public wsjtx: WsjtxService,
-    private logbookService: LogbookService,
-    private qsoService: QsoService,
-  ) {
-    this.wsjtxConnected$ = wsjtx.connected$;
+  constructor() {
+    this.wsjtxConnected$ = this.wsjtx.connected$;
   }
 
   ngOnInit(): void {

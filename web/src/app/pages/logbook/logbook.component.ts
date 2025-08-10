@@ -1,23 +1,61 @@
+import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
+import { MatIconButton } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
+import { MatDivider } from '@angular/material/divider';
+import { MatIcon } from '@angular/material/icon';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { MatTabLink, MatTabNav } from '@angular/material/tabs';
+import {
+  ActivatedRoute,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
-import { ImportExportService } from '../../shared/import-export/import-export.service';
+import { ImportExportService } from '../../services/import-export.service';
+import { LogbookService } from '../../services/logbook.service';
 import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-settings.component';
-import { LogbookService } from './logbook.service';
 
 @Component({
   selector: 'kel-logbook',
   templateUrl: './logbook.component.html',
   styleUrls: ['./logbook.component.scss'],
-  standalone: false,
+  imports: [
+    AsyncPipe,
+    MatDivider,
+    MatIcon,
+    MatIconButton,
+    MatMenu,
+    MatMenuItem,
+    MatMenuTrigger,
+    MatTabLink,
+    MatTabNav,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+  ],
 })
 export class LogbookComponent implements OnInit {
+  auth = inject(Auth);
+  private dialog = inject(MatDialog);
+  private http = inject(HttpClient);
+  private importExportService = inject(ImportExportService);
+  private snackBar = inject(MatSnackBar);
+  logbookService = inject(LogbookService);
+  private route = inject(ActivatedRoute);
+
   links = [
     { name: 'QSO List', path: 'qsos' },
     { name: 'Map', path: 'map' },
@@ -28,16 +66,6 @@ export class LogbookComponent implements OnInit {
   lotwImportUrl = environment.functionsBase + 'ImportLotw';
   userJwt$ = new BehaviorSubject<string>('N0CALL');
   @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
-
-  constructor(
-    public auth: Auth,
-    private dialog: MatDialog,
-    private http: HttpClient,
-    private importExportService: ImportExportService,
-    private snackBar: MatSnackBar,
-    public logbookService: LogbookService,
-    private route: ActivatedRoute,
-  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) =>

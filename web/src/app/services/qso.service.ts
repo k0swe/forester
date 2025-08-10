@@ -11,12 +11,13 @@ import {
   onSnapshot,
   updateDoc,
 } from '@angular/fire/firestore';
-import { ZonedDateTime, nativeJs } from 'js-joda';
+import { ZonedDateTime, nativeJs } from '@js-joda/core';
+import { Unsubscribe } from 'firebase/firestore';
 import { BehaviorSubject, Observable, combineLatest, from, of } from 'rxjs';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { map, mergeMap } from 'rxjs/operators';
 
-import { Qso } from '../../qso';
+import { Qso } from '../qso';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +29,7 @@ export class QsoService {
   private currentBook = '';
   private qsos$ = new BehaviorSubject<FirebaseQso[]>([]);
   private filterCriteria$ = new BehaviorSubject<FilterCriteria>({});
-  private unsubscribe: (() => void) | undefined;
+  private unsubscribe: Unsubscribe;
 
   private static unmarshalDates(qso: Qso): void {
     if (qso.timeOn != null) {

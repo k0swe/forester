@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
 
-import { environment } from '../../../environments/environment';
-import { Station } from '../../qso';
+import { environment } from '../../environments/environment';
+import { Station } from '../qso';
 
 import GeocoderAddressComponent = google.maps.GeocoderAddressComponent;
 

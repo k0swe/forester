@@ -1,29 +1,29 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Auth, UserCredential, user } from '@angular/fire/auth';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { take, takeWhile } from 'rxjs/operators';
 
-import { AuthService } from '../auth/auth.service';
-import { UserSettingsService } from '../user-settings/user-settings.service';
+import { AuthService } from '../../services/auth.service';
+import { UserSettingsService } from '../../services/user-settings.service';
 
 @Component({
   selector: 'kel-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  standalone: false,
+  imports: [MatCardModule, MatButtonModule],
 })
 export class LoginComponent implements OnInit {
-  private auth: Auth = inject(Auth);
+  private authService = inject(AuthService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private snackBarService = inject(MatSnackBar);
+  private userSettingsService = inject(UserSettingsService);
 
-  constructor(
-    private authService: AuthService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private snackBarService: MatSnackBar,
-    private userSettingsService: UserSettingsService,
-  ) {}
+  private auth: Auth = inject(Auth);
 
   ngOnInit() {
     user(this.auth).subscribe((user) => {
