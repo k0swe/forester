@@ -11,13 +11,11 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class SecretService {
-  readonly updateSecretsUrl = environment.functionsBase + 'UpdateSecret';
   private auth: Auth = inject(Auth);
+  private authService = inject(AuthService);
+  private http = inject(HttpClient);
 
-  constructor(
-    private authService: AuthService,
-    private http: HttpClient,
-  ) {}
+  readonly updateSecretsUrl = environment.functionsBase + 'UpdateSecret';
 
   public setSecrets(
     secrets: Map<string, string>,

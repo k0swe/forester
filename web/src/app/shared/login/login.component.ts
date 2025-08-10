@@ -17,15 +17,13 @@ import { UserSettingsService } from '../../services/user-settings.service';
   imports: [MatCardModule, MatButtonModule],
 })
 export class LoginComponent implements OnInit {
-  private auth: Auth = inject(Auth);
+  private authService = inject(AuthService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private snackBarService = inject(MatSnackBar);
+  private userSettingsService = inject(UserSettingsService);
 
-  constructor(
-    private authService: AuthService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private snackBarService: MatSnackBar,
-    private userSettingsService: UserSettingsService,
-  ) {}
+  private auth: Auth = inject(Auth);
 
   ngOnInit() {
     user(this.auth).subscribe((user) => {

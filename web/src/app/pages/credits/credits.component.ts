@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,11 +22,11 @@ import { versions } from '../../../environments/versions';
   ],
 })
 export class CreditsComponent implements OnInit {
+  private http = inject(HttpClient);
+
   licenses = new BehaviorSubject<Array<LicenseInfo>>([]);
   columnsToDisplay = ['name', 'installedVersion', 'author', 'licenseType'];
   gitRev = versions.revision;
-
-  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.http

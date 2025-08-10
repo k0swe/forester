@@ -5,6 +5,7 @@ import {
   ElementRef,
   OnInit,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { MatButtonModule } from '@angular/material/button';
@@ -43,6 +44,9 @@ interface State {
   ],
 })
 export class WasComponent implements OnInit, AfterViewInit {
+  private logbookService = inject(LogbookService);
+  private qsoService = inject(QsoService);
+
   @ViewChild('map') map: GoogleMap;
   @ViewChild('filterSelectors') filterSelectors: ElementRef;
   mode = 'mixed';
@@ -113,11 +117,6 @@ export class WasComponent implements OnInit, AfterViewInit {
   markers = new Map<string, google.maps.Marker>();
   paths = new Map<string, google.maps.Polyline>();
   infoWindow: google.maps.InfoWindow = new google.maps.InfoWindow();
-
-  constructor(
-    private logbookService: LogbookService,
-    private qsoService: QsoService,
-  ) {}
 
   ngOnInit(): void {
     this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));

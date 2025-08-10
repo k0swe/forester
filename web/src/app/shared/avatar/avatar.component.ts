@@ -29,15 +29,15 @@ import { UserSettingsComponent } from '../user-settings/user-settings.component'
   ],
 })
 export class AvatarComponent {
+  authService = inject(AuthService);
+  private dialog = inject(MatDialog);
+  private router = inject(Router);
+  private snackBar = inject(MatSnackBar);
+
   private auth: Auth = inject(Auth);
   user$: Observable<User>;
 
-  constructor(
-    public authService: AuthService,
-    private dialog: MatDialog,
-    private router: Router,
-    private snackBar: MatSnackBar,
-  ) {
+  constructor() {
     this.user$ = user(this.auth);
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import {
@@ -49,17 +49,17 @@ import { StationDetailComponent } from '../station-detail/station-detail.compone
   ],
 })
 export class LogbookSettingsComponent implements OnInit {
+  private dialog = inject<MatDialogRef<any>>(MatDialogRef);
+  private fb = inject(FormBuilder);
+  private logbookService = inject(LogbookService);
+  private secretService = inject(SecretService);
+
   logbookSettingsForm: FormGroup;
   @ViewChild('saveButton') saveButton: MatButton;
   qthProfile = {} as Station;
 
-  constructor(
-    private dialog: MatDialogRef<any>,
-    private fb: FormBuilder,
-    private logbookService: LogbookService,
-    private secretService: SecretService,
-  ) {
-    this.logbookSettingsForm = fb.group({
+  constructor() {
+    this.logbookSettingsForm = this.fb.group({
       lotwUser: '',
       lotwPass: '',
       qrzLogbookApiKey: '',

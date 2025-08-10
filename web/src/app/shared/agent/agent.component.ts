@@ -1,5 +1,5 @@
 import { AsyncPipe, DecimalPipe, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
 import {
@@ -21,13 +21,11 @@ import { QsoService } from '../../services/qso.service';
   imports: [MatIcon, MatTooltip, DecimalPipe, NgIf, AsyncPipe],
 })
 export class AgentComponent implements OnInit {
-  constructor(
-    public agent: AgentService,
-    public hamlib: HamlibService,
-    public wsjtx: WsjtxService,
-    private logbookService: LogbookService,
-    private qsoService: QsoService,
-  ) {}
+  agent = inject(AgentService);
+  hamlib = inject(HamlibService);
+  wsjtx = inject(WsjtxService);
+  private logbookService = inject(LogbookService);
+  private qsoService = inject(QsoService);
 
   ngOnInit(): void {
     this.agent.init();

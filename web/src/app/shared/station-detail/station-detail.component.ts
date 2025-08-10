@@ -61,6 +61,8 @@ const googleMapsSearchBase = new URL('https://www.google.com/maps/search/');
   ],
 })
 export class StationDetailComponent implements OnChanges {
+  private fb = inject(FormBuilder);
+
   @Input() station: Station;
   @Output() stationChange = new EventEmitter<Station>();
   @Input() showRig: boolean = true;
@@ -90,12 +92,12 @@ export class StationDetailComponent implements OnChanges {
     power: undefined,
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
     const model: Station = {
       ...this.template,
       ...this.station,
     };
-    this.stationDetailForm = fb.group(model);
+    this.stationDetailForm = this.fb.group(model);
   }
 
   ngOnChanges(changes: SimpleChanges) {

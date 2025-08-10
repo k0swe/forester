@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdifFormatter, AdifParser } from 'adif-parser-ts';
 import { Observable, forkJoin } from 'rxjs';
@@ -13,10 +13,8 @@ import { FirebaseQso, QsoService } from './qso.service';
   providedIn: 'root',
 })
 export class ImportExportService {
-  constructor(
-    private qsoService: QsoService,
-    private snackBar: MatSnackBar,
-  ) {}
+  private qsoService = inject(QsoService);
+  private snackBar = inject(MatSnackBar);
 
   public importAdi(file: File): void {
     const fileReader = new FileReader();

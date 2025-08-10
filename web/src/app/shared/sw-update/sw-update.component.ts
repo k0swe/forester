@@ -1,5 +1,5 @@
 import { NgSwitch, NgSwitchCase } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -12,7 +12,7 @@ import { SwUpdate } from '@angular/service-worker';
   imports: [NgSwitch, MatIcon, NgSwitchCase, MatTooltip, MatIconButton],
 })
 export class SwUpdateComponent implements OnInit {
-  constructor(private updates: SwUpdate) {}
+  private updates = inject(SwUpdate);
 
   state: 'none' | 'downloading' | 'ready' | 'failed' = 'none';
 

@@ -1,6 +1,12 @@
 import { AsyncPipe, NgForOf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
 import { MatIconButton } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
@@ -43,6 +49,14 @@ import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-
   ],
 })
 export class LogbookComponent implements OnInit {
+  auth = inject(Auth);
+  private dialog = inject(MatDialog);
+  private http = inject(HttpClient);
+  private importExportService = inject(ImportExportService);
+  private snackBar = inject(MatSnackBar);
+  logbookService = inject(LogbookService);
+  private route = inject(ActivatedRoute);
+
   links = [
     { name: 'QSO List', path: 'qsos' },
     { name: 'Map', path: 'map' },
@@ -53,16 +67,6 @@ export class LogbookComponent implements OnInit {
   lotwImportUrl = environment.functionsBase + 'ImportLotw';
   userJwt$ = new BehaviorSubject<string>('N0CALL');
   @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
-
-  constructor(
-    public auth: Auth,
-    private dialog: MatDialog,
-    private http: HttpClient,
-    private importExportService: ImportExportService,
-    private snackBar: MatSnackBar,
-    public logbookService: LogbookService,
-    private route: ActivatedRoute,
-  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) =>
