@@ -21,7 +21,7 @@
     "tls": false
   },
   "engines": {
-    "node": "20"
+    "node": "22"
   },
   "dependencies": {
     "@amrato/maidenhead-ts": "2.0.0",
