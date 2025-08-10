@@ -119,11 +119,9 @@
           [matAutocomplete]="countryAutocomplete"
         />
         <mat-autocomplete #countryAutocomplete="matAutocomplete">
-          @for (c of filteredCountries$ | async; track c) {
-            <mat-option [value]="c">
-              {{ c }}
-            </mat-option>
-          }
+          <mat-option *ngFor="let c of filteredCountries$ | async" [value]="c">
+            {{ c }}
+          </mat-option>
         </mat-autocomplete>
         <span matSuffix [title]="stationDetailForm.get('dxcc').value">
           {{ flag }}
@@ -149,53 +147,45 @@
     <a mat-stroked-button color="primary" (click)="geocode()">Geocode</a>
   </div>
 
-  @if (showRig || showTxPower) {
-    <div class="row">
-      <div>
-        @if (showRig) {
-          <mat-form-field>
-            <mat-label>Rig</mat-label>
-            <input
-              matInput
-              formControlName="rig"
-              autocapitalize="words"
-              autocomplete="dummy"
-            />
-          </mat-form-field>
-        }
-      </div>
-      <div>
-        @if (showRig) {
-          <mat-form-field>
-            <mat-label>Antenna</mat-label>
-            <input
-              matInput
-              formControlName="antenna"
-              autocapitalize="words"
-              autocomplete="dummy"
-            />
-          </mat-form-field>
-        }
-      </div>
-      <div>
-        @if (showTxPower) {
-          <mat-form-field>
-            <mat-label>TX Power</mat-label>
-            <input
-              matInput
-              formControlName="power"
-              type="number"
-              autocomplete="dummy"
-            />
-            <span matSuffix>W</span>
-          </mat-form-field>
-        }
-      </div>
+  <div *ngIf="showRig || showTxPower" class="row">
+    <div>
+      <mat-form-field *ngIf="showRig">
+        <mat-label>Rig</mat-label>
+        <input
+          matInput
+          formControlName="rig"
+          autocapitalize="words"
+          autocomplete="dummy"
+        />
+      </mat-form-field>
     </div>
-  }
+    <div>
+      <mat-form-field *ngIf="showRig">
+        <mat-label>Antenna</mat-label>
+        <input
+          matInput
+          formControlName="antenna"
+          autocapitalize="words"
+          autocomplete="dummy"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field *ngIf="showTxPower">
+        <mat-label>TX Power</mat-label>
+        <input
+          matInput
+          formControlName="power"
+          type="number"
+          autocomplete="dummy"
+        />
+        <span matSuffix>W</span>
+      </mat-form-field>
+    </div>
+  </div>
   <mat-error>
-    @if (stationDetailForm.errors?.locationInconsistent) {
-      <span> Latitude and longitude are not within the grid </span>
-    }
+    <span *ngIf="stationDetailForm.errors?.locationInconsistent">
+      Latitude and longitude are not within the grid
+    </span>
   </mat-error>
 </form>

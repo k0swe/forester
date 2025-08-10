@@ -1,4 +1,4 @@
-import { AsyncPipe, DatePipe } from '@angular/common';
+import { AsyncPipe, DatePipe, NgForOf } from '@angular/common';
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -44,6 +44,7 @@ import { StationDetailComponent } from '../station-detail/station-detail.compone
   selector: 'kel-qso-detail',
   templateUrl: './qso-detail.component.html',
   styleUrls: ['./qso-detail.component.scss'],
+  standalone: true,
   imports: [
     AsyncPipe,
     MatAutocomplete,
@@ -63,6 +64,7 @@ import { StationDetailComponent } from '../station-detail/station-detail.compone
     MatLabel,
     MatOption,
     MatSelect,
+    NgForOf,
     ReactiveFormsModule,
     StationDetailComponent,
   ],

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -6,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'kel-privacy-and-terms',
   templateUrl: './privacy-and-terms.component.html',
   styleUrls: ['./privacy-and-terms.component.scss'],
-  imports: [MatCardModule, MatIconModule],
+  standalone: true,
+  imports: [CommonModule, MatCardModule, MatIconModule],
 })
 export class PrivacyAndTermsComponent {}

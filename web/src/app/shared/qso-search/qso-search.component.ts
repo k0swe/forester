@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass } from '@angular/common';
+import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconButton } from '@angular/material/button';
@@ -19,6 +19,7 @@ import { QsoService } from '../../services/qso.service';
   selector: 'kel-qso-search',
   templateUrl: './qso-search.component.html',
   styleUrls: ['./qso-search.component.scss'],
+  standalone: true,
   imports: [
     AsyncPipe,
     FormsModule,
@@ -30,6 +31,7 @@ import { QsoService } from '../../services/qso.service';
     MatLabel,
     MatSlideToggle,
     NgClass,
+    NgIf,
   ],
 })
 export class QsoSearchComponent implements OnInit {

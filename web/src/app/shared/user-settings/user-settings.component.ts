@@ -21,6 +21,7 @@ import { UserSettingsService } from '../../services/user-settings.service';
   selector: 'kel-user-settings',
   templateUrl: './user-settings.component.html',
   styleUrls: ['./user-settings.component.scss'],
+  standalone: true,
   imports: [
     MatDialogTitle,
     MatDialogContent,

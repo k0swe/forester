@@ -1,4 +1,4 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgForOf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {
   Component,
@@ -32,6 +32,7 @@ import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-
   selector: 'kel-logbook',
   templateUrl: './logbook.component.html',
   styleUrls: ['./logbook.component.scss'],
+  standalone: true,
   imports: [
     AsyncPipe,
     MatDivider,
@@ -42,6 +43,7 @@ import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-
     MatMenuTrigger,
     MatTabLink,
     MatTabNav,
+    NgForOf,
     RouterLink,
     RouterLinkActive,
     RouterOutlet,

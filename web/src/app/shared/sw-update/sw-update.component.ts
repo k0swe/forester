@@ -1,3 +1,4 @@
+import { NgSwitch, NgSwitchCase } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
@@ -8,7 +9,8 @@ import { SwUpdate } from '@angular/service-worker';
   selector: 'kel-sw-update',
   templateUrl: './sw-update.component.html',
   styleUrls: ['./sw-update.component.scss'],
-  imports: [MatIcon, MatTooltip, MatIconButton],
+  standalone: true,
+  imports: [NgSwitch, MatIcon, NgSwitchCase, MatTooltip, MatIconButton],
 })
 export class SwUpdateComponent implements OnInit {
   private updates = inject(SwUpdate);

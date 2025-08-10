@@ -1,4 +1,5 @@
 import Maidenhead from '@amrato/maidenhead-ts';
+import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -11,7 +12,7 @@ import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { Duration, ZonedDateTime } from '@js-joda/core';
+import { Duration, ZonedDateTime } from 'js-joda';
 import moment from 'moment';
 import { Observable, switchMap } from 'rxjs';
 
@@ -23,7 +24,14 @@ import { FirebaseQso, QsoService } from '../../services/qso.service';
   selector: 'kel-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
-  imports: [GoogleMapsModule, MatButtonModule, MatCardModule, MatIconModule],
+  standalone: true,
+  imports: [
+    CommonModule,
+    GoogleMapsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+  ],
 })
 export class MapComponent implements OnInit, AfterViewInit {
   private logbookService = inject(LogbookService);
@@ -62,7 +70,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   private findQsosForPast(d: Duration): Observable<FirebaseQso> {
     this.qsoService.setFilter({
-      dateAfter: ZonedDateTime.now().minus(d),
+      dateAfter: ZonedDateTime.now().minusTemporalAmount(d),
     });
     return this.qsoService.getFilteredQsos().pipe(switchMap((fbqs) => fbqs));
   }

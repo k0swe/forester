@@ -13,6 +13,7 @@ import { MatInput } from '@angular/material/input';
   selector: 'kel-new-logbook-dialog',
   templateUrl: './new-logbook-dialog.component.html',
   styleUrls: ['./new-logbook-dialog.component.scss'],
+  standalone: true,
   imports: [
     FormsModule,
     MatButton,

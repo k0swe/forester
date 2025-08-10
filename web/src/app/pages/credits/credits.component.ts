@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,7 +13,14 @@ import { versions } from '../../../environments/versions';
   selector: 'kel-credits',
   templateUrl: './credits.component.html',
   styleUrls: ['./credits.component.scss'],
-  imports: [MatButtonModule, MatCardModule, MatIconModule, MatTableModule],
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatTableModule,
+  ],
 })
 export class CreditsComponent implements OnInit {
   private http = inject(HttpClient);

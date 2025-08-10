@@ -36,6 +36,7 @@ import { QsoSearchComponent } from '../../shared/qso-search/qso-search.component
   selector: 'kel-qso-list',
   templateUrl: './qso-list.component.html',
   styleUrls: ['./qso-list.component.scss'],
+  standalone: true,
   imports: [
     CommonModule,
     MatButtonModule,

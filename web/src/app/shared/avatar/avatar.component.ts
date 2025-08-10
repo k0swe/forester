@@ -1,4 +1,4 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Auth, User, user } from '@angular/fire/auth';
 import { MatIconButton } from '@angular/material/button';
@@ -17,6 +17,7 @@ import { UserSettingsComponent } from '../user-settings/user-settings.component'
   selector: 'kel-avatar',
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss'],
+  standalone: true,
   imports: [
     AsyncPipe,
     MatIcon,
@@ -24,6 +25,7 @@ import { UserSettingsComponent } from '../user-settings/user-settings.component'
     MatMenu,
     MatMenuItem,
     MatMenuTrigger,
+    NgIf,
     RouterLink,
   ],
 })

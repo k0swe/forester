@@ -1,4 +1,4 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -28,6 +28,7 @@ import {
 } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatSelect } from '@angular/material/select';
+import isEqual from 'lodash/isEqual';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -42,6 +43,7 @@ const googleMapsSearchBase = new URL('https://www.google.com/maps/search/');
   selector: 'kel-station-detail',
   templateUrl: './station-detail.component.html',
   styleUrls: ['./station-detail.component.scss'],
+  standalone: true,
   imports: [
     AsyncPipe,
     MatAnchor,
@@ -54,6 +56,8 @@ const googleMapsSearchBase = new URL('https://www.google.com/maps/search/');
     MatLabel,
     MatOption,
     MatSelect,
+    NgForOf,
+    NgIf,
     ReactiveFormsModule,
   ],
 })
@@ -98,10 +102,7 @@ export class StationDetailComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (
-      JSON.stringify(changes.station.currentValue) ===
-      JSON.stringify(this.stationDetailForm.value)
-    ) {
+    if (isEqual(changes.station.currentValue, this.stationDetailForm.value)) {
       return;
     }
     this.station = changes.station.currentValue;
