@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Auth, user } from '@angular/fire/auth';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -35,6 +36,8 @@ export class HomeComponent {
   private router = inject(Router);
   userSettingsService = inject(UserSettingsService);
 
+  protected readonly user = toSignal(user(this.auth));
+
   createLogbook(): void {
     const dialogRef = this.dialog.open(NewLogbookDialogComponent);
     dialogRef.afterClosed().subscribe((result) => {
@@ -46,6 +49,4 @@ export class HomeComponent {
       });
     });
   }
-
-  protected readonly user = user;
 }
