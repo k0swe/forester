@@ -18,7 +18,6 @@ import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { forkJoin } from 'rxjs';
 
-import { AppModule } from '../../app.module';
 import { Station } from '../../qso';
 import {
   LogbookService,
