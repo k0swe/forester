@@ -60,7 +60,7 @@
     "@angular-eslint/eslint-plugin-template": "18.1.0",
     "@angular-eslint/schematics": "18.1.0",
     "@angular-eslint/template-parser": "18.1.0",
-    "@angular/build": "18.2.20",
+    "@angular/build": "20.1.5",
     "@angular/cli": "18.1.2",
     "@angular/compiler-cli": "18.1.2",
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
