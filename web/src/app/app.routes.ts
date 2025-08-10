@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { LoginGuard } from './login.guard';
 import { CreditsComponent } from './pages/credits/credits.component';
@@ -11,7 +10,7 @@ import { QsoListComponent } from './pages/qso-list/qso-list.component';
 import { WasComponent } from './pages/was/was.component';
 import { LoginComponent } from './shared/login/login.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
@@ -39,9 +38,3 @@ const routes: Routes = [
     ],
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
