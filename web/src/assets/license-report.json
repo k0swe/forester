@@ -123,8 +123,8 @@
     "name": "@googlemaps/js-api-loader",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/googlemaps/js-api-loader.git",
-    "comment": "1.16.8",
-    "installedVersion": "1.16.8",
+    "comment": "1.16.10",
+    "installedVersion": "1.16.10",
     "author": "Justin Poehnelt"
   },
   {
@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.6.1",
-    "installedVersion": "0.6.1",
+    "comment": "0.6.24",
+    "installedVersion": "0.6.24",
     "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
@@ -194,10 +194,10 @@
   {
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
-    "link": "git+https://github.com/k0swe/ngx-kel-agent.git",
-    "comment": "0.7.1",
-    "installedVersion": "0.7.1",
-    "author": "n/a"
+    "link": "git+ssh://git@github.com/k0swe/ngx-kel-agent.git",
+    "comment": "1.2.2",
+    "installedVersion": "1.2.2",
+    "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
     "name": "rxjs",
@@ -219,8 +219,8 @@
     "name": "tslib",
     "licenseType": "0BSD",
     "link": "git+https://github.com/Microsoft/tslib.git",
-    "comment": "2.6.3",
-    "installedVersion": "2.6.3",
+    "comment": "2.8.1",
+    "installedVersion": "2.8.1",
     "author": "Microsoft Corp."
   },
   {
@@ -299,24 +299,24 @@
     "name": "@trivago/prettier-plugin-sort-imports",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/trivago/prettier-plugin-sort-imports.git",
-    "comment": "4.3.0",
-    "installedVersion": "4.3.0",
+    "comment": "5.2.2",
+    "installedVersion": "5.2.2",
     "author": "Ayush Sharma ayush.sharma@trivago.com https://github.com/ayusharma"
   },
   {
     "name": "@types/google.maps",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "3.55.12",
-    "installedVersion": "3.55.12",
+    "comment": "3.58.1",
+    "installedVersion": "3.58.1",
     "author": "n/a"
   },
   {
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "5.1.4",
-    "installedVersion": "5.1.4",
+    "comment": "5.1.8",
+    "installedVersion": "5.1.8",
     "author": "n/a"
   },
   {
@@ -339,32 +339,32 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "22.0.0",
-    "installedVersion": "22.0.0",
+    "comment": "24.2.1",
+    "installedVersion": "24.2.1",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "7.18.0",
-    "installedVersion": "7.18.0",
+    "comment": "8.39.0",
+    "installedVersion": "8.39.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
-    "licenseType": "BSD-2-Clause",
+    "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "7.18.0",
-    "installedVersion": "7.18.0",
+    "comment": "8.39.0",
+    "installedVersion": "8.39.0",
     "author": "n/a"
   },
   {
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "8.57.0",
-    "installedVersion": "8.57.0",
+    "comment": "9.33.0",
+    "installedVersion": "9.33.0",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
@@ -395,8 +395,8 @@
     "name": "jasmine-core",
     "licenseType": "MIT",
     "link": "git+https://github.com/jasmine/jasmine.git",
-    "comment": "5.2.0",
-    "installedVersion": "5.2.0",
+    "comment": "5.9.0",
+    "installedVersion": "5.9.0",
     "author": "n/a"
   },
   {
@@ -450,33 +450,33 @@
   {
     "name": "license-report",
     "licenseType": "MIT",
-    "link": "git+https://github.com/ironSource/license-report.git",
-    "comment": "6.5.0",
-    "installedVersion": "6.5.0",
+    "link": "git+https://github.com/kessler/license-report.git",
+    "comment": "6.8.0",
+    "installedVersion": "6.8.0",
     "author": "Yaniv Kessler"
   },
   {
     "name": "lint-staged",
     "licenseType": "MIT",
-    "link": "git+https://github.com/okonet/lint-staged.git",
-    "comment": "15.2.7",
-    "installedVersion": "15.2.7",
+    "link": "git+https://github.com/lint-staged/lint-staged.git",
+    "comment": "16.1.5",
+    "installedVersion": "16.1.5",
     "author": "Andrey Okonetchnikov <andrey@okonet.ru>"
   },
   {
     "name": "open",
     "licenseType": "MIT",
     "link": "git+https://github.com/sindresorhus/open.git",
-    "comment": "10.1.0",
-    "installedVersion": "10.1.0",
+    "comment": "10.2.0",
+    "installedVersion": "10.2.0",
     "author": "Sindre Sorhus sindresorhus@gmail.com https://sindresorhus.com"
   },
   {
     "name": "prettier",
     "licenseType": "MIT",
     "link": "git+https://github.com/prettier/prettier.git",
-    "comment": "3.3.3",
-    "installedVersion": "3.3.3",
+    "comment": "3.6.2",
+    "installedVersion": "3.6.2",
     "author": "James Long"
   },
   {
