@@ -18,7 +18,6 @@ import { QsoService } from '../../services/qso.service';
   selector: 'kel-agent',
   templateUrl: './agent.component.html',
   styleUrls: ['./agent.component.scss'],
-  standalone: true,
   imports: [MatIcon, MatTooltip, DecimalPipe, NgIf, AsyncPipe],
 })
 export class AgentComponent implements OnInit {

@@ -32,7 +32,6 @@ import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-
   selector: 'kel-logbook',
   templateUrl: './logbook.component.html',
   styleUrls: ['./logbook.component.scss'],
-  standalone: true,
   imports: [
     AsyncPipe,
     MatDivider,

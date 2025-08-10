@@ -43,7 +43,6 @@ const googleMapsSearchBase = new URL('https://www.google.com/maps/search/');
   selector: 'kel-station-detail',
   templateUrl: './station-detail.component.html',
   styleUrls: ['./station-detail.component.scss'],
-  standalone: true,
   imports: [
     AsyncPipe,
     MatAnchor,

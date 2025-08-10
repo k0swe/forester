@@ -13,7 +13,6 @@ import { versions } from '../../../environments/versions';
   selector: 'kel-credits',
   templateUrl: './credits.component.html',
   styleUrls: ['./credits.component.scss'],
-  standalone: true,
   imports: [
     CommonModule,
     MatButtonModule,

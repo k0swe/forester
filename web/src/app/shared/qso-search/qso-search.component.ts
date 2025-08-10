@@ -19,7 +19,6 @@ import { QsoService } from '../../services/qso.service';
   selector: 'kel-qso-search',
   templateUrl: './qso-search.component.html',
   styleUrls: ['./qso-search.component.scss'],
-  standalone: true,
   imports: [
     AsyncPipe,
     FormsModule,

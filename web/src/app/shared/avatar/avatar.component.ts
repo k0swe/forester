@@ -17,7 +17,6 @@ import { UserSettingsComponent } from '../user-settings/user-settings.component'
   selector: 'kel-avatar',
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss'],
-  standalone: true,
   imports: [
     AsyncPipe,
     MatIcon,
