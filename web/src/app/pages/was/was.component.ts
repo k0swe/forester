@@ -32,7 +32,6 @@ interface State {
   selector: 'kel-was',
   templateUrl: './was.component.html',
   styleUrls: ['./was.component.scss'],
-  standalone: true,
   imports: [
     CommonModule,
     GoogleMapsModule,

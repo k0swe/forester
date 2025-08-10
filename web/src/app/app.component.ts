@@ -8,19 +8,15 @@ import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 import { MatToolbar } from '@angular/material/toolbar';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
-
-
 import { UserSettingsService } from './services/user-settings.service';
 import { AgentComponent } from './shared/agent/agent.component';
 import { AvatarComponent } from './shared/avatar/avatar.component';
 import { SwUpdateComponent } from './shared/sw-update/sw-update.component';
 
-
 @Component({
   selector: 'kel-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: true,
   imports: [
     MatToolbar,
     MatIconButton,

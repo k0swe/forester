@@ -79,14 +79,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "forester:build"
+            "buildTarget": "forester:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "forester:build:production"
+              "buildTarget": "forester:build:production"
             },
             "development": {
-              "browserTarget": "forester:build:development"
+              "buildTarget": "forester:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "forester:build"
+            "buildTarget": "forester:build"
           }
         },
         "test": {

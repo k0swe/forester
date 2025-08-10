@@ -17,7 +17,6 @@ import { NewLogbookDialogComponent } from '../../shared/new-logbook-dialog/new-l
   selector: 'kel-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  standalone: true,
   imports: [
     CommonModule,
     LoginComponent,

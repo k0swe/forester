@@ -23,7 +23,6 @@ import { FirebaseQso, QsoService } from '../../services/qso.service';
   selector: 'kel-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
-  standalone: true,
   imports: [
     CommonModule,
     GoogleMapsModule,

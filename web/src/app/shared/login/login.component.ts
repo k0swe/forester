@@ -14,7 +14,6 @@ import { UserSettingsService } from '../../services/user-settings.service';
   selector: 'kel-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  standalone: true,
   imports: [MatCardModule, MatButtonModule],
 })
 export class LoginComponent implements OnInit {
