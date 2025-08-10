@@ -34,7 +34,7 @@ export const appConfig: ApplicationConfig = {
       BrowserAnimationsModule,
       ServiceWorkerModule.register('ngsw-worker.js', {
         enabled: environment.production,
-        registrationStrategy: 'registerImmediately',
+        registrationStrategy: 'registerWhenStable:30000',
       }),
     ),
   ],
