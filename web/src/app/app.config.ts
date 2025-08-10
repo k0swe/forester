@@ -7,6 +7,7 @@ import {
   enableProdMode,
   importProvidersFrom,
 } from '@angular/core';
+import { LogLevel, setLogLevel } from '@angular/fire';
 import { getApp, initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { initializeFirestore, provideFirestore } from '@angular/fire/firestore';
@@ -20,6 +21,8 @@ import { routes } from './app.routes';
 if (environment.production) {
   enableProdMode();
 }
+
+setLogLevel(LogLevel.VERBOSE);
 
 export const appConfig: ApplicationConfig = {
   providers: [

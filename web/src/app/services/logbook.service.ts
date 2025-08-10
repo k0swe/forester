@@ -24,13 +24,8 @@ export class LogbookService {
     inject(UserSettingsService);
   logbookId$ = new BehaviorSubject<string>(null);
   settings$ = new BehaviorSubject<LogbookSettings>({} as LogbookSettings);
-  started = false;
 
-  public init(): void {
-    if (this.started === true) {
-      return;
-    }
-    this.started = true;
+  constructor() {
     this.logbookId$.subscribe((logbookId) => {
       if (!logbookId) {
         return;

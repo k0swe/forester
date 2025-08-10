@@ -72,7 +72,6 @@ export class LogbookSettingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.logbookService.init();
     this.logbookService.settings$.subscribe((settings) => {
       this.qthProfile = settings.qthProfile;
     });

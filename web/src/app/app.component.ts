@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
@@ -34,10 +34,6 @@ import { SwUpdateComponent } from './shared/sw-update/sw-update.component';
     RouterOutlet,
   ],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   userSettingsService = inject(UserSettingsService);
-
-  ngOnInit(): void {
-    this.userSettingsService.init();
-  }
 }
