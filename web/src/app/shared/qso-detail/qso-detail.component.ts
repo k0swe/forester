@@ -44,7 +44,6 @@ import { StationDetailComponent } from '../station-detail/station-detail.compone
   selector: 'kel-qso-detail',
   templateUrl: './qso-detail.component.html',
   styleUrls: ['./qso-detail.component.scss'],
-  standalone: true,
   imports: [
     AsyncPipe,
     MatAutocomplete,

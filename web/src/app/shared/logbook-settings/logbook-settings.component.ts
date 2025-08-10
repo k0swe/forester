@@ -30,7 +30,6 @@ import { StationDetailComponent } from '../station-detail/station-detail.compone
   selector: 'kel-logbook-settings',
   templateUrl: './logbook-settings.component.html',
   styleUrls: ['./logbook-settings.component.scss'],
-  standalone: true,
   imports: [
     MatButton,
     MatCard,

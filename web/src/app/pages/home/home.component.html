@@ -31,11 +31,7 @@
   </mat-card-content>
 </mat-card>
 
-<kel-login
-  *ngIf="(user(this.auth) | async) === null; else loggedIn"
-></kel-login>
-
-<ng-template #loggedIn>
+@if (!!user()) {
   <mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title>Your Starred Logbooks</mat-card-title>
@@ -58,4 +54,6 @@
       </button>
     </mat-card-actions>
   </mat-card>
-</ng-template>
+} @else {
+  <kel-login />
+}
