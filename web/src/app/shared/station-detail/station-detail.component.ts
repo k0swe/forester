@@ -28,7 +28,6 @@ import {
 } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatSelect } from '@angular/material/select';
-import isEqual from 'lodash/isEqual';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -99,7 +98,10 @@ export class StationDetailComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (isEqual(changes.station.currentValue, this.stationDetailForm.value)) {
+    if (
+      JSON.stringify(changes.station.currentValue) ===
+      JSON.stringify(this.stationDetailForm.value)
+    ) {
       return;
     }
     this.station = changes.station.currentValue;

@@ -11,7 +11,7 @@ import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { Duration, ZonedDateTime } from 'js-joda';
+import { Duration, ZonedDateTime } from '@js-joda/core';
 import moment from 'moment';
 import { Observable, switchMap } from 'rxjs';
 
@@ -62,7 +62,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   private findQsosForPast(d: Duration): Observable<FirebaseQso> {
     this.qsoService.setFilter({
-      dateAfter: ZonedDateTime.now().minusTemporalAmount(d),
+      dateAfter: ZonedDateTime.now().minus(d),
     });
     return this.qsoService.getFilteredQsos().pipe(switchMap((fbqs) => fbqs));
   }

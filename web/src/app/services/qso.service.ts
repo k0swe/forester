@@ -11,8 +11,8 @@ import {
   onSnapshot,
   updateDoc,
 } from '@angular/fire/firestore';
+import { ZonedDateTime, nativeJs } from '@js-joda/core';
 import { Unsubscribe } from 'firebase/firestore';
-import { ZonedDateTime, nativeJs } from 'js-joda';
 import { BehaviorSubject, Observable, combineLatest, from, of } from 'rxjs';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { map, mergeMap } from 'rxjs/operators';
