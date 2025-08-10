@@ -6,6 +6,7 @@ import {
   HostListener,
   OnInit,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -54,6 +55,12 @@ import { QsoSearchComponent } from '../../shared/qso-search/qso-search.component
   ],
 })
 export class QsoListComponent implements OnInit {
+  private dialog = inject(MatDialog);
+  private logbookService = inject(LogbookService);
+  private importExportService = inject(ImportExportService);
+  private qsoService = inject(QsoService);
+  private snackBar = inject(MatSnackBar);
+
   dataSource = new MatTableDataSource<FirebaseQso>();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -73,14 +80,6 @@ export class QsoListComponent implements OnInit {
     'contactedState',
     'contactedCountry',
   ];
-
-  constructor(
-    private dialog: MatDialog,
-    private logbookService: LogbookService,
-    private importExportService: ImportExportService,
-    private qsoService: QsoService,
-    private snackBar: MatSnackBar,
-  ) {}
 
   ngOnInit(): void {
     this.logbookService.init();

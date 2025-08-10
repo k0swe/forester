@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import {
@@ -36,24 +36,24 @@ import { UserSettingsService } from '../../services/user-settings.service';
   ],
 })
 export class UserSettingsComponent implements OnInit {
+  agentService = inject(AgentService);
+  private dialog = inject<MatDialogRef<any>>(MatDialogRef);
+  private fb = inject(FormBuilder);
+  settingsService = inject(UserSettingsService);
+
   userSettingsForm: FormGroup;
   @ViewChild('saveButton') saveButton: MatButton;
 
-  constructor(
-    public agentService: AgentService,
-    private dialog: MatDialogRef<any>,
-    private fb: FormBuilder,
-    public settingsService: UserSettingsService,
-  ) {
-    this.userSettingsForm = fb.group({
+  constructor() {
+    this.userSettingsForm = this.fb.group({
       callsign: '',
       qrzLogbookApiKey: '',
-      agentHost: agentService.getHost(),
-      agentPort: agentService.getPort(),
+      agentHost: this.agentService.getHost(),
+      agentPort: this.agentService.getPort(),
       lotwUser: '',
       lotwPass: '',
     });
-    settingsService.settings().subscribe((settings) => {
+    this.settingsService.settings().subscribe((settings) => {
       this.userSettingsForm.get('callsign').setValue(settings.callsign);
     });
     this.userSettingsForm.valueChanges.subscribe(

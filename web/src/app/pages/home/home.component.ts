@@ -30,14 +30,11 @@ import { NewLogbookDialogComponent } from '../../shared/new-logbook-dialog/new-l
 })
 export class HomeComponent {
   auth = inject(Auth);
-
-  constructor(
-    public authService: AuthService,
-    public dialog: MatDialog,
-    private logbookService: LogbookService,
-    private router: Router,
-    public userSettingsService: UserSettingsService,
-  ) {}
+  authService = inject(AuthService);
+  dialog = inject(MatDialog);
+  private logbookService = inject(LogbookService);
+  private router = inject(Router);
+  userSettingsService = inject(UserSettingsService);
 
   createLogbook(): void {
     const dialogRef = this.dialog.open(NewLogbookDialogComponent);

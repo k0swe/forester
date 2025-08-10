@@ -1,5 +1,5 @@
 import { AsyncPipe, NgForOf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
@@ -37,7 +37,7 @@ import { SwUpdateComponent } from './shared/sw-update/sw-update.component';
   ],
 })
 export class AppComponent implements OnInit {
-  constructor(public userSettingsService: UserSettingsService) {}
+  userSettingsService = inject(UserSettingsService);
 
   ngOnInit(): void {
     this.userSettingsService.init();

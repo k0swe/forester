@@ -1,5 +1,5 @@
 import { AsyncPipe, DatePipe, NgForOf } from '@angular/common';
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -71,24 +71,24 @@ import { StationDetailComponent } from '../station-detail/station-detail.compone
   providers: [DatePipe],
 })
 export class QsoDetailComponent implements OnInit {
-  constructor(
-    private fb: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: FirebaseQso,
-    private datePipe: DatePipe,
-    private qsoService: QsoService,
-    private locationService: LocationService,
-    private hamlib: HamlibService,
-    private dialog: MatDialogRef<any>,
-  ) {
-    this.firebaseId = data.id;
+  private fb = inject(FormBuilder);
+  data = inject<FirebaseQso>(MAT_DIALOG_DATA);
+  private datePipe = inject(DatePipe);
+  private qsoService = inject(QsoService);
+  private locationService = inject(LocationService);
+  private hamlib = inject(HamlibService);
+  private dialog = inject<MatDialogRef<any>>(MatDialogRef);
+
+  constructor() {
+    this.firebaseId = this.data.id;
     const model: Qso = {
       ...this.template,
-      ...data.qso,
+      ...this.data.qso,
     };
-    this.contactedStation = data.qso.contactedStation;
-    this.loggingStation = data.qso.loggingStation;
+    this.contactedStation = this.data.qso.contactedStation;
+    this.loggingStation = this.data.qso.loggingStation;
     this.formatDates(model);
-    this.qsoDetailForm = fb.group({
+    this.qsoDetailForm = this.fb.group({
       ...model,
       ...{ timeOn: [model.timeOn, Validators.required] },
     });

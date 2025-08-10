@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import {
@@ -25,9 +25,9 @@ import { MatInput } from '@angular/material/input';
   ],
 })
 export class NewLogbookDialogComponent {
-  newLogbookCallsign: string;
+  dialogRef = inject<MatDialogRef<NewLogbookDialogComponent>>(MatDialogRef);
 
-  constructor(public dialogRef: MatDialogRef<NewLogbookDialogComponent>) {}
+  newLogbookCallsign: string;
 
   create(): void {
     this.dialogRef.close({ data: this.newLogbookCallsign });
