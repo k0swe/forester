@@ -14,7 +14,7 @@ import { MatDivider } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatTabLink, MatTabNav } from '@angular/material/tabs';
+import { MatTabLink, MatTabNav, MatTabNavPanel } from '@angular/material/tabs';
 import {
   ActivatedRoute,
   RouterLink,
@@ -42,6 +42,7 @@ import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-
     MatMenuTrigger,
     MatTabLink,
     MatTabNav,
+    MatTabNavPanel,
     RouterLink,
     RouterLinkActive,
     RouterOutlet,
