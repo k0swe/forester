@@ -13,9 +13,9 @@ import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { Duration, ZonedDateTime } from 'js-joda';
+import { Duration, ZonedDateTime, nativeJs } from 'js-joda';
 import moment from 'moment';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 
 import { Qso, Station } from '../../qso';
 import { LogbookService } from '../../services/logbook.service';
@@ -33,7 +33,6 @@ export class MapComponent implements OnInit, AfterViewInit {
   private destroyRef = inject(DestroyRef);
 
   @ViewChild('map') map: GoogleMap;
-  @ViewChild('filterSelectors') filterSelectors: ElementRef;
   zoom = 3;
   center: google.maps.LatLngLiteral = { lat: 40, lng: -105 };
   options: google.maps.MapOptions = {
@@ -59,19 +58,30 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   private updateMarkers(): void {
-    this.findQsosForPast(Duration.ofHours(24))
-      .pipe(takeUntilDestroyed(this.destroyRef))
+    this.qsoService
+      .getMostRecentQsoDate()
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        switchMap((mostRecentDate) => {
+          if (!mostRecentDate) {
+            return of([]);
+          }
+          const sessionEnd = ZonedDateTime.from(nativeJs(mostRecentDate));
+          const sessionStart = sessionEnd.minusTemporalAmount(
+            Duration.ofHours(24),
+          );
+          this.qsoService.setFilter({
+            dateAfter: sessionStart,
+            dateBefore: sessionEnd,
+          });
+          return this.qsoService.getFilteredQsos();
+        }),
+        switchMap((fbqs) => fbqs),
+      )
       .subscribe((fbq) => {
         this.renderContactedMarker(fbq);
         this.renderQsoPath(fbq);
       });
-  }
-
-  private findQsosForPast(d: Duration): Observable<FirebaseQso> {
-    this.qsoService.setFilter({
-      dateAfter: ZonedDateTime.now().minusTemporalAmount(d),
-    });
-    return this.qsoService.getFilteredQsos().pipe(switchMap((fbqs) => fbqs));
   }
 
   private renderContactedMarker(fbq: FirebaseQso): void {

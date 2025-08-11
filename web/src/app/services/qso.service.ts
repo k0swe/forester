@@ -18,6 +18,11 @@ import { map, mergeMap } from 'rxjs/operators';
 
 import { Qso } from '../qso';
 
+type FirestoreQso = Omit<Qso, 'timeOn' | 'timeOff'> & {
+  timeOn?: string;
+  timeOff?: string;
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -62,7 +67,7 @@ export class QsoService {
       const contactsCollection = collection(
         this.firestore,
         this.contactsPath(),
-      ) as CollectionReference<Qso>;
+      ) as CollectionReference<FirestoreQso>;
       this.unsubscribe = onSnapshot(contactsCollection, (qsosSnapshot) => {
         this.qsos$.next(this.unpackDocs(qsosSnapshot));
       });
@@ -77,9 +82,9 @@ export class QsoService {
     return 'logbooks/' + this.currentBook + '/contacts';
   }
 
-  private unpackDocs(snapshots: QuerySnapshot<Qso>): FirebaseQso[] {
+  private unpackDocs(snapshots: QuerySnapshot<FirestoreQso>): FirebaseQso[] {
     return snapshots.docs.map((snapshot) => {
-      const qso = snapshot.data();
+      const qso = snapshot.data() as unknown as Qso;
       QsoService.unmarshalDates(qso);
       return { id: snapshot.id, qso };
     });
@@ -146,13 +151,13 @@ export class QsoService {
         }
       }
       if (criteria.dateBefore) {
-        const qsoDate = ZonedDateTime.from(nativeJs(q.qso.timeOn));
+        const qsoDate = ZonedDateTime.from(nativeJs(q.qso.timeOn as Date));
         if (!qsoDate.isBefore(criteria.dateBefore)) {
           return false;
         }
       }
       if (criteria.dateAfter) {
-        const qsoDate = ZonedDateTime.from(nativeJs(q.qso.timeOn));
+        const qsoDate = ZonedDateTime.from(nativeJs(q.qso.timeOn as Date));
         if (!qsoDate.isAfter(criteria.dateAfter)) {
           return false;
         }
@@ -169,7 +174,11 @@ export class QsoService {
     return this.qsos$.pipe(
       map((qsos) => {
         const matches = Array.from(qsos.values())
-          .sort((a, b) => a.qso.timeOn.getTime() - b.qso.timeOn.getTime())
+          .sort(
+            (a, b) =>
+              (a.qso.timeOn as Date).getTime() -
+              (b.qso.timeOn as Date).getTime(),
+          )
           .filter((q) => QsoService.fitsWASCriteria(q, criteria));
         const qslMatch = matches.find((q) => QsoService.isWASQsl(q.qso));
         if (qslMatch !== undefined) {
@@ -282,7 +291,7 @@ export class QsoService {
             this.firestore,
             this.contactsPath(),
           );
-          return fromPromise(addDoc(contactsCollection, fbq.qso));
+          return fromPromise(addDoc(contactsCollection, fbq.qso as any));
         } else {
           const contactDoc = doc(this.firestore, this.contactsPath(), fbq.id);
           return fromPromise(updateDoc(contactDoc, { ...fbq.qso }));
@@ -299,7 +308,8 @@ export class QsoService {
       .getValue()
       .find(
         (fbq) =>
-          fbq.qso.timeOn.getTime() === qso.timeOn.getTime() &&
+          (fbq.qso.timeOn as Date).getTime() ===
+            (qso.timeOn as Date).getTime() &&
           fbq.qso.contactedStation.stationCall ===
             qso.contactedStation.stationCall &&
           fbq.qso.loggingStation.stationCall === qso.loggingStation.stationCall,
@@ -318,11 +328,38 @@ export class QsoService {
       }),
     );
   }
+
+  getMostRecentQsoDate(): Observable<Date | null> {
+    return this.qsos$.pipe(
+      map((qsos) => {
+        if (!qsos || qsos.length === 0) {
+          return null;
+        }
+        return qsos.reduce((latest: Date | null, fbq: FirebaseQso) => {
+          if (!fbq.qso.timeOff) {
+            return latest;
+          }
+          const qsoDate = fbq.qso.timeOff as Date;
+          if (!latest || qsoDate > latest) {
+            return qsoDate;
+          }
+          return latest;
+        }, null);
+      }),
+    );
+  }
+
+  getQsos(filterCriteria$: Observable<FilterCriteria>): Observable<Qso[]> {
+    this.filterCriteria$ = filterCriteria$ as BehaviorSubject<FilterCriteria>;
+    return this.getFilteredQsos().pipe(
+      map((qsos) => qsos.map((fbq) => fbq.qso)),
+    );
+  }
 }
 
 export interface FirebaseQso {
   id?: string;
-  qso?: Qso;
+  qso: Qso;
 }
 
 export enum CriteriaOperator {
