@@ -81,7 +81,6 @@ export class QsoListComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.logbookService.init();
     this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
     this.paginator.pageSize = 25;
     this.paginator.pageSizeOptions = [10, 25, 50, 100];

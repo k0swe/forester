@@ -20,13 +20,8 @@ export class UserSettingsService {
   private firestore: Firestore = inject(Firestore);
   private auth: Auth = inject(Auth);
   settings$ = new BehaviorSubject<UserSettings>({});
-  started = false;
 
-  public init(): void {
-    if (this.started === true) {
-      return;
-    }
-    this.started = true;
+  constructor() {
     user(this.auth)
       .pipe(
         filter((v) => !!v),

@@ -91,7 +91,6 @@ export class LoginComponent implements OnInit {
   }
 
   private redirectToLogbook(): void {
-    this.userSettingsService.init();
     this.userSettingsService.settings$
       .pipe(takeWhile((settings) => settings.callsign == null, true))
       .subscribe((settings) => {

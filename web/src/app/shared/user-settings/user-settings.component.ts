@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import {
@@ -34,7 +34,7 @@ import { UserSettingsService } from '../../services/user-settings.service';
     MatDialogClose,
   ],
 })
-export class UserSettingsComponent implements OnInit {
+export class UserSettingsComponent {
   agentService = inject(AgentService);
   private dialog = inject<MatDialogRef<any>>(MatDialogRef);
   private fb = inject(FormBuilder);
@@ -58,10 +58,6 @@ export class UserSettingsComponent implements OnInit {
     this.userSettingsForm.valueChanges.subscribe(
       () => (this.saveButton.disabled = false),
     );
-  }
-
-  ngOnInit(): void {
-    this.settingsService.init();
   }
 
   save(): void {

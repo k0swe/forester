@@ -29,7 +29,6 @@ export class AgentComponent implements OnInit {
 
   ngOnInit(): void {
     this.agent.init();
-    this.logbookService.init();
     // When WSJT-X sends a QSO, log it right away
     this.wsjtx.qsoLogged$.subscribe((qsoLogged) => {
       // Dates come across as strings; convert to objects
