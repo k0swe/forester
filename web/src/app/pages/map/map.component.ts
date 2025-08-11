@@ -2,11 +2,13 @@ import Maidenhead from '@amrato/maidenhead-ts';
 import {
   AfterViewInit,
   Component,
+  DestroyRef,
   ElementRef,
   OnInit,
   ViewChild,
   inject,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -28,6 +30,7 @@ import { FirebaseQso, QsoService } from '../../services/qso.service';
 export class MapComponent implements OnInit, AfterViewInit {
   private logbookService = inject(LogbookService);
   private qsoService = inject(QsoService);
+  private destroyRef = inject(DestroyRef);
 
   @ViewChild('map') map: GoogleMap;
   @ViewChild('filterSelectors') filterSelectors: ElementRef;
@@ -46,7 +49,9 @@ export class MapComponent implements OnInit, AfterViewInit {
   infoWindow: google.maps.InfoWindow = new google.maps.InfoWindow();
 
   ngOnInit(): void {
-    this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
+    this.logbookService.logbookId$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((id) => this.qsoService.init(id));
   }
 
   ngAfterViewInit(): void {
@@ -54,10 +59,12 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   private updateMarkers(): void {
-    this.findQsosForPast(Duration.ofHours(24)).subscribe((fbq) => {
-      this.renderContactedMarker(fbq);
-      this.renderQsoPath(fbq);
-    });
+    this.findQsosForPast(Duration.ofHours(24))
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((fbq) => {
+        this.renderContactedMarker(fbq);
+        this.renderQsoPath(fbq);
+      });
   }
 
   private findQsosForPast(d: Duration): Observable<FirebaseQso> {

@@ -1,11 +1,13 @@
 import {
   AfterViewInit,
   Component,
+  DestroyRef,
   ElementRef,
   OnInit,
   ViewChild,
   inject,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -44,6 +46,7 @@ interface State {
 export class WasComponent implements OnInit, AfterViewInit {
   private logbookService = inject(LogbookService);
   private qsoService = inject(QsoService);
+  private destroyRef = inject(DestroyRef);
 
   @ViewChild('map') map: GoogleMap;
   @ViewChild('filterSelectors') filterSelectors: ElementRef;
@@ -117,7 +120,9 @@ export class WasComponent implements OnInit, AfterViewInit {
   infoWindow: google.maps.InfoWindow = new google.maps.InfoWindow();
 
   ngOnInit(): void {
-    this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
+    this.logbookService.logbookId$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((id) => this.qsoService.init(id));
   }
 
   ngAfterViewInit(): void {
@@ -150,32 +155,34 @@ export class WasComponent implements OnInit, AfterViewInit {
 
   private updateMarkers(): void {
     this.states.forEach((state) => {
-      this.findQsoForState(state.abbrev).subscribe((fbq) => {
-        const marker = this.markers.get(state.abbrev);
-        let markerOpts: google.maps.MarkerOptions;
-        let iw: google.maps.InfoWindowOptions;
-        if (fbq !== undefined) {
-          markerOpts = WasComponent.makeQsoMarkerOptions(state, fbq.qso);
-          iw = WasComponent.makeQsoInfoWindowOptions(state, fbq.qso);
-          const loggingStationPosition: google.maps.LatLngLiteral = {
-            lat: +fbq.qso.loggingStation.latitude,
-            lng: +fbq.qso.loggingStation.longitude,
-          };
-          this.paths
-            .get(state.abbrev)
-            .setPath([loggingStationPosition, markerOpts.position]);
-        } else {
-          markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
-          iw = WasComponent.makeNoQsoInfoWindowOptions(state);
-          this.paths.get(state.abbrev).setPath([{ lat: 0, lng: 0 }]);
-        }
-        markerOpts.map = this.map.googleMap;
-        marker.setOptions(markerOpts);
-        marker.addListener('click', () => {
-          this.infoWindow.setOptions(iw);
-          this.infoWindow.open(this.map.googleMap, marker);
+      this.findQsoForState(state.abbrev)
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe((fbq) => {
+          const marker = this.markers.get(state.abbrev);
+          let markerOpts: google.maps.MarkerOptions;
+          let iw: google.maps.InfoWindowOptions;
+          if (fbq !== undefined) {
+            markerOpts = WasComponent.makeQsoMarkerOptions(state, fbq.qso);
+            iw = WasComponent.makeQsoInfoWindowOptions(state, fbq.qso);
+            const loggingStationPosition: google.maps.LatLngLiteral = {
+              lat: +fbq.qso.loggingStation.latitude,
+              lng: +fbq.qso.loggingStation.longitude,
+            };
+            this.paths
+              .get(state.abbrev)
+              .setPath([loggingStationPosition, markerOpts.position]);
+          } else {
+            markerOpts = WasComponent.makeNoQsoMarkerOptions(state);
+            iw = WasComponent.makeNoQsoInfoWindowOptions(state);
+            this.paths.get(state.abbrev).setPath([{ lat: 0, lng: 0 }]);
+          }
+          markerOpts.map = this.map.googleMap;
+          marker.setOptions(markerOpts);
+          marker.addListener('click', () => {
+            this.infoWindow.setOptions(iw);
+            this.infoWindow.open(this.map.googleMap, marker);
+          });
         });
-      });
     });
   }
 

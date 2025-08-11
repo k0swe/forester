@@ -2,12 +2,14 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { CommonModule } from '@angular/common';
 import {
   Component,
+  DestroyRef,
   ElementRef,
   HostListener,
   OnInit,
   ViewChild,
   inject,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import {
@@ -59,6 +61,7 @@ export class QsoListComponent implements OnInit {
   private importExportService = inject(ImportExportService);
   private qsoService = inject(QsoService);
   private snackBar = inject(MatSnackBar);
+  private destroyRef = inject(DestroyRef);
 
   dataSource = new MatTableDataSource<FirebaseQso>();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -81,17 +84,24 @@ export class QsoListComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
+    this.logbookService.logbookId$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((id) => this.qsoService.init(id));
     this.paginator.pageSize = 25;
     this.paginator.pageSizeOptions = [10, 25, 50, 100];
-    this.selection.changed.subscribe((sel) => {
-      this.selectedButton.disabled = sel.source.isEmpty();
-    });
-    this.qsoService.getFilteredQsos().subscribe((qsos) => {
-      this.dataSource.data = qsos;
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    });
+    this.selection.changed
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((sel) => {
+        this.selectedButton.disabled = sel.source.isEmpty();
+      });
+    this.qsoService
+      .getFilteredQsos()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((qsos) => {
+        this.dataSource.data = qsos;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
     this.dataSource.sortingDataAccessor = (fbq, property) => {
       switch (property) {
         case 'timeOn':
@@ -168,11 +178,16 @@ export class QsoListComponent implements OnInit {
       data: qso,
     });
 
-    dialogRef.afterClosed().subscribe((dialogReturn) => {
-      if (dialogReturn instanceof Observable) {
-        (dialogReturn as Observable<void>).subscribe();
-      }
-    });
+    dialogRef
+      .afterClosed()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((dialogReturn) => {
+        if (dialogReturn instanceof Observable) {
+          (dialogReturn as Observable<void>)
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe();
+        }
+      });
   }
 
   newQso(): void {
