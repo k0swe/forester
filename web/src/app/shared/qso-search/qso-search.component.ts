@@ -1,5 +1,5 @@
 import { AsyncPipe, NgClass } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconButton } from '@angular/material/button';
 import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
@@ -32,10 +32,11 @@ import { QsoService } from '../../services/qso.service';
     NgClass,
   ],
 })
-export class QsoSearchComponent implements OnInit {
+export class QsoSearchComponent implements OnInit, OnDestroy {
   wsjtx = inject(WsjtxService);
   private logbookService = inject(LogbookService);
   private qsoService = inject(QsoService);
+  private active: boolean;
 
   search = '';
   wsjtxConnected$: Observable<boolean>;
@@ -44,6 +45,7 @@ export class QsoSearchComponent implements OnInit {
 
   constructor() {
     this.wsjtxConnected$ = this.wsjtx.connected$;
+    this.active = true;
   }
 
   ngOnInit(): void {
@@ -56,7 +58,18 @@ export class QsoSearchComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.clear();
+    if (this.wsjtxSub) {
+      this.wsjtxSub.unsubscribe();
+    }
+    this.active = false;
+  }
+
   changed(): void {
+    if (!this.active) {
+      return;
+    }
     const callsign = this.search.toUpperCase();
     this.qsoService.setFilter({
       call: callsign,
