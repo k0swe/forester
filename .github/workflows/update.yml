@@ -16,3 +16,8 @@ jobs:
     uses: k0swe/forester/.github/workflows/update-func-go.yml@main
     secrets:
       GH_PAT: ${{ secrets.GH_PAT }}
+
+  update-web-license:
+    uses: k0swe/forester/.github/workflows/update-web-license.yml@main
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}
