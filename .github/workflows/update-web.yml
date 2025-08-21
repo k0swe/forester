@@ -41,11 +41,19 @@ jobs:
           npm update
           npm install
 
+      - name: Update license report
+        run: npm run license-report
+
+      - name: Format license report
+        run: npx prettier --write src/assets/license-report.json
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
           token: "${{ secrets.GH_PAT }}"
-          add-paths: "web/package*.json"
+          add-paths: |
+            web/package*.json
+            web/src/assets/license-report.json
           commit-message: npm update (web)
           title: npm update (web)
           branch: update-web
