@@ -11,40 +11,40 @@
     "name": "@angular/animations",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.1.6",
-    "installedVersion": "20.1.6",
+    "comment": "20.1.7",
+    "installedVersion": "20.1.7",
     "author": "angular"
   },
   {
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "20.1.5",
-    "installedVersion": "20.1.5",
+    "comment": "20.1.6",
+    "installedVersion": "20.1.6",
     "author": "n/a"
   },
   {
     "name": "@angular/common",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.1.6",
-    "installedVersion": "20.1.6",
+    "comment": "20.1.7",
+    "installedVersion": "20.1.7",
     "author": "angular"
   },
   {
     "name": "@angular/compiler",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.1.6",
-    "installedVersion": "20.1.6",
+    "comment": "20.1.7",
+    "installedVersion": "20.1.7",
     "author": "angular"
   },
   {
     "name": "@angular/core",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.1.6",
-    "installedVersion": "20.1.6",
+    "comment": "20.1.7",
+    "installedVersion": "20.1.7",
     "author": "angular"
   },
   {
@@ -59,64 +59,64 @@
     "name": "@angular/forms",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.1.6",
-    "installedVersion": "20.1.6",
+    "comment": "20.1.7",
+    "installedVersion": "20.1.7",
     "author": "angular"
   },
   {
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "20.1.5",
-    "installedVersion": "20.1.5",
+    "comment": "20.1.6",
+    "installedVersion": "20.1.6",
     "author": "n/a"
   },
   {
     "name": "@angular/localize",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.1.6",
-    "installedVersion": "20.1.6",
+    "comment": "20.1.7",
+    "installedVersion": "20.1.7",
     "author": "angular"
   },
   {
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "20.1.5",
-    "installedVersion": "20.1.5",
+    "comment": "20.1.6",
+    "installedVersion": "20.1.6",
     "author": "n/a"
   },
   {
     "name": "@angular/platform-browser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.1.6",
-    "installedVersion": "20.1.6",
+    "comment": "20.1.7",
+    "installedVersion": "20.1.7",
     "author": "angular"
   },
   {
     "name": "@angular/platform-browser-dynamic",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.1.6",
-    "installedVersion": "20.1.6",
+    "comment": "20.1.7",
+    "installedVersion": "20.1.7",
     "author": "angular"
   },
   {
     "name": "@angular/router",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.1.6",
-    "installedVersion": "20.1.6",
+    "comment": "20.1.7",
+    "installedVersion": "20.1.7",
     "author": "angular"
   },
   {
     "name": "@angular/service-worker",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.1.6",
-    "installedVersion": "20.1.6",
+    "comment": "20.1.7",
+    "installedVersion": "20.1.7",
     "author": "angular"
   },
   {
@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.6.24",
-    "installedVersion": "0.6.24",
+    "comment": "0.6.25",
+    "installedVersion": "0.6.25",
     "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
@@ -155,8 +155,8 @@
     "name": "google-protobuf",
     "licenseType": "(BSD-3-Clause AND Apache-2.0)",
     "link": "git+https://github.com/protocolbuffers/protobuf-javascript.git",
-    "comment": "3.21.4",
-    "installedVersion": "3.21.4",
+    "comment": "4.0.0",
+    "installedVersion": "4.0.0",
     "author": "Google Protocol Buffers Team"
   },
   {
@@ -195,8 +195,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+ssh://git@github.com/k0swe/ngx-kel-agent.git",
-    "comment": "1.2.2",
-    "installedVersion": "1.2.2",
+    "comment": "1.2.3",
+    "installedVersion": "1.2.3",
     "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
@@ -275,24 +275,24 @@
     "name": "@angular/build",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "20.1.5",
-    "installedVersion": "20.1.5",
+    "comment": "20.2.0",
+    "installedVersion": "20.1.6",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "20.1.5",
-    "installedVersion": "20.1.5",
+    "comment": "20.1.6",
+    "installedVersion": "20.1.6",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/compiler-cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.1.6",
-    "installedVersion": "20.1.6",
+    "comment": "20.1.7",
+    "installedVersion": "20.1.7",
     "author": "n/a"
   },
   {
@@ -315,8 +315,8 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "5.1.8",
-    "installedVersion": "5.1.8",
+    "comment": "5.1.9",
+    "installedVersion": "5.1.9",
     "author": "n/a"
   },
   {
@@ -339,24 +339,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "24.2.1",
-    "installedVersion": "24.2.1",
+    "comment": "24.3.0",
+    "installedVersion": "24.3.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.39.0",
-    "installedVersion": "8.39.0",
+    "comment": "8.40.0",
+    "installedVersion": "8.40.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.39.0",
-    "installedVersion": "8.39.0",
+    "comment": "8.40.0",
+    "installedVersion": "8.40.0",
     "author": "n/a"
   },
   {
@@ -366,30 +366,6 @@
     "comment": "9.33.0",
     "installedVersion": "9.33.0",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
-  },
-  {
-    "name": "fuzzy",
-    "licenseType": "MIT",
-    "link": "git://github.com/mattyork/fuzzy.git",
-    "comment": "0.1.3",
-    "installedVersion": "0.1.3",
-    "author": "Matt York york.matt@gmail.com mattyork.org"
-  },
-  {
-    "name": "inquirer",
-    "licenseType": "MIT",
-    "link": "https://github.com/SBoudrias/Inquirer.js.git",
-    "comment": "9.3.7",
-    "installedVersion": "9.3.7",
-    "author": "Simon Boudrias <admin@simonboudrias.com>"
-  },
-  {
-    "name": "inquirer-autocomplete-prompt",
-    "licenseType": "ISC",
-    "link": "git+ssh://git@github.com/mokkabonna/inquirer-autocomplete-prompt.git",
-    "comment": "3.0.1",
-    "installedVersion": "3.0.1",
-    "author": "Martin Hansen <martin@martinhansen.no>"
   },
   {
     "name": "jasmine-core",
