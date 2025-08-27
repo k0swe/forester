@@ -235,40 +235,40 @@
     "name": "@angular-eslint/builder",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "20.1.1",
-    "installedVersion": "20.1.1",
+    "comment": "20.2.0",
+    "installedVersion": "20.2.0",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "20.1.1",
-    "installedVersion": "20.1.1",
+    "comment": "20.2.0",
+    "installedVersion": "20.2.0",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "20.1.1",
-    "installedVersion": "20.1.1",
+    "comment": "20.2.0",
+    "installedVersion": "20.2.0",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/schematics",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "20.1.1",
-    "installedVersion": "20.1.1",
+    "comment": "20.2.0",
+    "installedVersion": "20.2.0",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/template-parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "20.1.1",
-    "installedVersion": "20.1.1",
+    "comment": "20.2.0",
+    "installedVersion": "20.2.0",
     "author": "n/a"
   },
   {
@@ -347,24 +347,24 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.40.0",
-    "installedVersion": "8.40.0",
+    "comment": "8.41.0",
+    "installedVersion": "8.41.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.40.0",
-    "installedVersion": "8.40.0",
+    "comment": "8.41.0",
+    "installedVersion": "8.41.0",
     "author": "n/a"
   },
   {
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "9.33.0",
-    "installedVersion": "9.33.0",
+    "comment": "9.34.0",
+    "installedVersion": "9.34.0",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
