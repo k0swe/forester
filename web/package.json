@@ -32,7 +32,7 @@
     "@angular/core": "20.3.3",
     "@angular/fire": "20.0.1",
     "@angular/forms": "20.3.3",
-    "@angular/google-maps": "20.2.5",
+    "@angular/google-maps": "20.2.7",
     "@angular/localize": "20.3.3",
     "@angular/material": "20.2.7",
     "@angular/platform-browser": "20.3.3",
