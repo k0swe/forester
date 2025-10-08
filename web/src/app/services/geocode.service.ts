@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Loader } from '@googlemaps/js-api-loader';
+import { importLibrary, setOptions } from '@googlemaps/js-api-loader';
 
 import { environment } from '../../environments/environment';
 import { Station } from '../qso';
@@ -12,17 +12,13 @@ const emptyComponent = {} as GeocoderAddressComponent;
   providedIn: 'root',
 })
 export class GeocodeService {
-  private loader: Loader;
-
   constructor() {
-    this.loader = new Loader({
-      apiKey: environment.firebase.apiKey,
-    });
+    setOptions({ key: environment.firebase.apiKey });
   }
 
   async geocode(station: Station): Promise<Station> {
-    await this.loader.importLibrary('geocoding');
-    const geocoder = new google.maps.Geocoder();
+    const geocodingLibrary = await importLibrary('geocoding');
+    const geocoder = new geocodingLibrary.Geocoder();
 
     let address: string;
     if (station.latitude && station.longitude) {
