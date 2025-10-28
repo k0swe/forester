@@ -9,7 +9,7 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "22"
+    "node": "24"
   },
   "main": "lib/index.js",
   "dependencies": {
@@ -19,7 +19,7 @@
     "firebase-functions": "6.4.0"
   },
   "devDependencies": {
-    "@types/node": "24.7.2",
+    "@types/node": "24.9.2",
     "@typescript-eslint/eslint-plugin": "8.46.2",
     "@typescript-eslint/parser": "8.46.2",
     "eslint": "9.37.0",

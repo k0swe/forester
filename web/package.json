@@ -21,7 +21,7 @@
     "tls": false
   },
   "engines": {
-    "node": "22"
+    "node": "24"
   },
   "dependencies": {
     "@amrato/maidenhead-ts": "2.0.0",
@@ -68,7 +68,7 @@
     "@types/jasmine": "5.1.12",
     "@types/jasminewd2": "2.0.13",
     "@types/lodash.isequal": "4.5.8",
-    "@types/node": "24.7.2",
+    "@types/node": "24.9.2",
     "@typescript-eslint/eslint-plugin": "8.46.2",
     "@typescript-eslint/parser": "8.46.2",
     "eslint": "9.37.0",
