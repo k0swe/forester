@@ -39,7 +39,7 @@
     "@angular/platform-browser-dynamic": "20.3.9",
     "@angular/router": "20.3.9",
     "@angular/service-worker": "20.3.9",
-    "@googlemaps/js-api-loader": "2.0.1",
+    "@googlemaps/js-api-loader": "2.0.2",
     "@types/long": "5.0.0",
     "adif-parser-ts": "0.6.27",
     "firebase": "12.3.0",
