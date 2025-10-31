@@ -11,40 +11,40 @@
     "name": "@angular/animations",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.3.4",
-    "installedVersion": "20.3.4",
+    "comment": "20.3.9",
+    "installedVersion": "20.3.9",
     "author": "angular"
   },
   {
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "20.2.8",
-    "installedVersion": "20.2.8",
+    "comment": "20.2.11",
+    "installedVersion": "20.2.11",
     "author": "n/a"
   },
   {
     "name": "@angular/common",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.3.4",
-    "installedVersion": "20.3.4",
+    "comment": "20.3.9",
+    "installedVersion": "20.3.9",
     "author": "angular"
   },
   {
     "name": "@angular/compiler",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.3.4",
-    "installedVersion": "20.3.4",
+    "comment": "20.3.9",
+    "installedVersion": "20.3.9",
     "author": "angular"
   },
   {
     "name": "@angular/core",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.3.4",
-    "installedVersion": "20.3.4",
+    "comment": "20.3.9",
+    "installedVersion": "20.3.9",
     "author": "angular"
   },
   {
@@ -59,72 +59,72 @@
     "name": "@angular/forms",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.3.4",
-    "installedVersion": "20.3.4",
+    "comment": "20.3.9",
+    "installedVersion": "20.3.9",
     "author": "angular"
   },
   {
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "20.2.8",
-    "installedVersion": "20.2.8",
+    "comment": "20.2.11",
+    "installedVersion": "20.2.11",
     "author": "n/a"
   },
   {
     "name": "@angular/localize",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.3.4",
-    "installedVersion": "20.3.4",
+    "comment": "20.3.9",
+    "installedVersion": "20.3.9",
     "author": "angular"
   },
   {
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "20.2.8",
-    "installedVersion": "20.2.8",
+    "comment": "20.2.11",
+    "installedVersion": "20.2.11",
     "author": "n/a"
   },
   {
     "name": "@angular/platform-browser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.3.4",
-    "installedVersion": "20.3.4",
+    "comment": "20.3.9",
+    "installedVersion": "20.3.9",
     "author": "angular"
   },
   {
     "name": "@angular/platform-browser-dynamic",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.3.4",
-    "installedVersion": "20.3.4",
+    "comment": "20.3.9",
+    "installedVersion": "20.3.9",
     "author": "angular"
   },
   {
     "name": "@angular/router",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.3.4",
-    "installedVersion": "20.3.4",
+    "comment": "20.3.9",
+    "installedVersion": "20.3.9",
     "author": "angular"
   },
   {
     "name": "@angular/service-worker",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.3.4",
-    "installedVersion": "20.3.4",
+    "comment": "20.3.9",
+    "installedVersion": "20.3.9",
     "author": "angular"
   },
   {
     "name": "@googlemaps/js-api-loader",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/googlemaps/js-api-loader.git",
-    "comment": "2.0.1",
-    "installedVersion": "2.0.1",
+    "comment": "2.0.2",
+    "installedVersion": "2.0.2",
     "author": "n/a"
   },
   {
@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "12.3.0",
-    "installedVersion": "12.3.0",
+    "comment": "12.5.0",
+    "installedVersion": "12.5.0",
     "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
@@ -235,64 +235,64 @@
     "name": "@angular-eslint/builder",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "20.3.0",
-    "installedVersion": "20.3.0",
+    "comment": "20.5.0",
+    "installedVersion": "20.5.0",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "20.3.0",
-    "installedVersion": "20.3.0",
+    "comment": "20.5.0",
+    "installedVersion": "20.5.0",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/eslint-plugin-template",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "20.3.0",
-    "installedVersion": "20.3.0",
+    "comment": "20.5.0",
+    "installedVersion": "20.5.0",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/schematics",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "20.3.0",
-    "installedVersion": "20.3.0",
+    "comment": "20.5.0",
+    "installedVersion": "20.5.0",
     "author": "n/a"
   },
   {
     "name": "@angular-eslint/template-parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular-eslint/angular-eslint.git",
-    "comment": "20.3.0",
-    "installedVersion": "20.3.0",
+    "comment": "20.5.0",
+    "installedVersion": "20.5.0",
     "author": "n/a"
   },
   {
     "name": "@angular/build",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "20.3.5",
-    "installedVersion": "20.3.5",
+    "comment": "20.3.8",
+    "installedVersion": "20.3.8",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "20.3.5",
-    "installedVersion": "20.3.5",
+    "comment": "20.3.8",
+    "installedVersion": "20.3.8",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/compiler-cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "20.3.4",
-    "installedVersion": "20.3.4",
+    "comment": "20.3.9",
+    "installedVersion": "20.3.9",
     "author": "n/a"
   },
   {
@@ -315,8 +315,8 @@
     "name": "@types/jasmine",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "5.1.9",
-    "installedVersion": "5.1.9",
+    "comment": "5.1.12",
+    "installedVersion": "5.1.12",
     "author": "n/a"
   },
   {
@@ -339,40 +339,40 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "24.7.0",
-    "installedVersion": "24.7.0",
+    "comment": "24.9.2",
+    "installedVersion": "24.9.2",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.46.0",
-    "installedVersion": "8.46.0",
+    "comment": "8.46.2",
+    "installedVersion": "8.46.2",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.46.0",
-    "installedVersion": "8.46.0",
+    "comment": "8.46.2",
+    "installedVersion": "8.46.2",
     "author": "n/a"
   },
   {
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "9.37.0",
-    "installedVersion": "9.37.0",
+    "comment": "9.38.0",
+    "installedVersion": "9.38.0",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
     "name": "jasmine-core",
     "licenseType": "MIT",
     "link": "git+https://github.com/jasmine/jasmine.git",
-    "comment": "5.12.0",
-    "installedVersion": "5.12.0",
+    "comment": "5.12.1",
+    "installedVersion": "5.12.1",
     "author": "n/a"
   },
   {
@@ -427,16 +427,16 @@
     "name": "license-report",
     "licenseType": "MIT",
     "link": "git+https://github.com/kessler/license-report.git",
-    "comment": "6.8.0",
-    "installedVersion": "6.8.0",
+    "comment": "6.8.1",
+    "installedVersion": "6.8.1",
     "author": "Yaniv Kessler"
   },
   {
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/lint-staged/lint-staged.git",
-    "comment": "16.2.3",
-    "installedVersion": "16.2.3",
+    "comment": "16.2.6",
+    "installedVersion": "16.2.6",
     "author": "Andrey Okonetchnikov <andrey@okonet.ru>"
   },
   {
