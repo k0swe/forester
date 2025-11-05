@@ -9,6 +9,6 @@
     "@firebase/rules-unit-testing": "5.0.0",
     "firebase-tools": "14.23.0",
     "firebase": "12.5.0",
-    "mocha": "11.7.4"
+    "mocha": "11.7.5"
   }
 }
