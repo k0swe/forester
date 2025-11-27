@@ -27,7 +27,7 @@
     "@amrato/maidenhead-ts": "2.0.0",
     "@angular/animations": "20.3.12",
     "@angular/cdk": "20.2.14",
-    "@angular/common": "20.3.12",
+    "@angular/common": "20.3.14",
     "@angular/compiler": "20.3.12",
     "@angular/core": "20.3.12",
     "@angular/fire": "20.0.1",
