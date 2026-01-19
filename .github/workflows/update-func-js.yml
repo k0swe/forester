@@ -15,14 +15,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
       - name: Setup node
         uses: actions/setup-node@v6
         with:
-          # https://cloud.google.com/functions/docs/runtime-support#node.js
-          node-version: "22"
-
-      - name: Checkout code
-        uses: actions/checkout@v5
+          node-version-file: .nvmrc
 
       - name: npm update
         run: |
