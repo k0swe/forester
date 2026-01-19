@@ -1,1 +1,3 @@
+# Make sure Cloud Run functions runtime supports our node version
+# https://cloud.google.com/functions/docs/runtime-support#node.js
 24

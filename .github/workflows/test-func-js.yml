@@ -19,13 +19,13 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('functions/js-func/package-lock.json') }}
 
+      - name: Checkout code
+        uses: actions/checkout@v5
+
       - name: Install node
         uses: actions/setup-node@v6
         with:
-          node-version: "24"
-
-      - name: Checkout code
-        uses: actions/checkout@v5
+          node-version-file: .nvmrc
 
       - name: Test
         run: |

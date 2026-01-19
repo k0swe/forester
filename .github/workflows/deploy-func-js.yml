@@ -25,8 +25,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v6
         with:
-          # https://cloud.google.com/functions/docs/runtime-support#node.js
-          node-version: "24"
+          node-version-file: .nvmrc
 
       - name: Setup Firebase CLI
         run: npm i -g firebase-tools
