@@ -19,6 +19,12 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
       - name: Cache node deps
         uses: actions/cache@v4
         env:
