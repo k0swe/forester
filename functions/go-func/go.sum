@@ -129,6 +129,8 @@ github.com/k0swe/adif-json-protobuf/go v0.0.8 h1:mwNCIg3E1Zmihxinv6+C8PjUJbTDq0t
 github.com/k0swe/adif-json-protobuf/go v0.0.8/go.mod h1:HsZ/eOslVnO0QGyDeFbwyjmrXYeaRugYsLmUcet3SpA=
 github.com/k0swe/lotw-qsl v0.4.9 h1:fQUlm+7h/uix22whebL5o9Rk9I249S07mCNvIhNJVLI=
 github.com/k0swe/lotw-qsl v0.4.9/go.mod h1:hyTOtdnGIXtrji951oUWqzkBbpLurOW1Wv1gZgYBlU8=
+github.com/k0swe/lotw-qsl v0.4.10 h1:bjDscYtZPnyVMg1cTdBB2jq0x2lrsOKlytL0MehxMkA=
+github.com/k0swe/lotw-qsl v0.4.10/go.mod h1:VRBp4qfv/jju8w74E2liksIH996+9H0a19JJf4K2yT4=
 github.com/k0swe/qrz-api v0.3.9 h1:I100uGZteK1325dozX2dDFTZyoUTxiQlEEf1DE99eoM=
 github.com/k0swe/qrz-api v0.3.9/go.mod h1:ii3nO7ThRcplaBHWMZvwb6tegsuARpK0Y39yLKHP5z8=
 github.com/k0swe/qrz-logbook v0.3.10 h1:Olk4eIyef1yM184ZhLLltRl4GQ+U7fraJNkREpH9jbI=
