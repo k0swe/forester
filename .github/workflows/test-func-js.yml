@@ -20,7 +20,7 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('functions/js-func/package-lock.json') }}
 
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install node
         uses: actions/setup-node@v6
