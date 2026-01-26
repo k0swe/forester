@@ -20,7 +20,7 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Cache node deps
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         env:
           cache-name: cache-web-node-deps
         with:
@@ -28,7 +28,7 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('web/package-lock.json') }}
 
       - name: Cache emulator
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         env:
           cache-name: cache-firebase-emulator
         with:
@@ -36,7 +36,7 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}
 
       - name: Cache build artifacts
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         env:
           cache-name: cache-web-build-artifacts
         with:

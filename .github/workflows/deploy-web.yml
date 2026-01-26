@@ -32,7 +32,7 @@ jobs:
 
       - name: Read cached build artifacts
         id: read-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         env:
           cache-name: cache-web-build-artifacts
         with:
