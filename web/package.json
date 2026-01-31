@@ -68,7 +68,7 @@
     "@types/jasmine": "5.1.15",
     "@types/jasminewd2": "2.0.13",
     "@types/lodash.isequal": "4.5.8",
-    "@types/node": "25.0.10",
+    "@types/node": "25.1.0",
     "@typescript-eslint/eslint-plugin": "8.54.0",
     "@typescript-eslint/parser": "8.54.0",
     "eslint": "9.39.2",
