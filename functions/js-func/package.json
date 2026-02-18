@@ -22,7 +22,7 @@
     "@types/node": "25.2.3",
     "@typescript-eslint/eslint-plugin": "8.56.0",
     "@typescript-eslint/parser": "8.56.0",
-    "eslint": "9.39.2",
+    "eslint": "10.0.0",
     "eslint-config-google": "0.14.0",
     "eslint-plugin-import": "2.32.0",
     "firebase-functions-test": "3.4.1",
