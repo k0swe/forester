@@ -2,7 +2,7 @@ package forester
 
 import (
 	"cloud.google.com/go/firestore"
-	"cloud.google.com/go/pubsub"
+	"cloud.google.com/go/pubsub/v2"
 	"context"
 	"encoding/json"
 	"fmt"
