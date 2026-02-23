@@ -1,7 +1,7 @@
 package forester
 
 import (
-	"cloud.google.com/go/pubsub"
+	"cloud.google.com/go/pubsub/v2"
 	"context"
 )
 
