@@ -14,12 +14,12 @@ require (
 	github.com/antihax/optional v1.0.0
 	github.com/jinzhu/copier v0.4.0
 	github.com/k0swe/adif-json-protobuf/go v0.0.8
-	github.com/k0swe/lotw-qsl v0.4.10
-	github.com/k0swe/qrz-api v0.3.10
+	github.com/k0swe/lotw-qsl v0.4.11
+	github.com/k0swe/qrz-api v0.3.11
 	github.com/k0swe/qrz-logbook v0.3.12
 	golang.org/x/oauth2 v0.35.0
-	google.golang.org/api v0.268.0
-	google.golang.org/genproto v0.0.0-20260223185530-2f722ef697dc
+	google.golang.org/api v0.269.0
+	google.golang.org/genproto v0.0.0-20260226221140-a57be14db171
 	google.golang.org/protobuf v1.36.11
 )
 
@@ -64,13 +64,13 @@ require (
 	go.opentelemetry.io/otel/sdk/metric v1.40.0 // indirect
 	go.opentelemetry.io/otel/trace v1.40.0 // indirect
 	golang.org/x/crypto v0.48.0 // indirect
-	golang.org/x/net v0.50.0 // indirect
+	golang.org/x/net v0.51.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
 	golang.org/x/sys v0.41.0 // indirect
 	golang.org/x/text v0.34.0 // indirect
 	golang.org/x/time v0.14.0 // indirect
 	google.golang.org/appengine/v2 v2.0.6 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20260223185530-2f722ef697dc // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20260223185530-2f722ef697dc // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20260226221140-a57be14db171 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260226221140-a57be14db171 // indirect
 	google.golang.org/grpc v1.79.1 // indirect
 )
