@@ -79,7 +79,7 @@
     "karma-coverage-istanbul-reporter": "3.0.3",
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.2.0",
-    "license-report": "6.8.1",
+    "license-report": "6.8.2",
     "lint-staged": "16.2.7",
     "open": "11.0.0",
     "prettier": "3.8.1",
