@@ -152,7 +152,7 @@ export class QsoService {
       }
       if (criteria.dateBefore) {
         const qsoDate = ZonedDateTime.from(nativeJs(q.qso.timeOn as Date));
-        if (!qsoDate.isBefore(criteria.dateBefore)) {
+        if (qsoDate.isAfter(criteria.dateBefore)) {
           return false;
         }
       }
