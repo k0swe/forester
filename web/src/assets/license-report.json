@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.6.36",
-    "installedVersion": "0.6.36",
+    "comment": "0.6.37",
+    "installedVersion": "0.6.37",
     "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
@@ -347,16 +347,16 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.57.2",
-    "installedVersion": "8.57.2",
+    "comment": "8.58.0",
+    "installedVersion": "8.58.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.57.2",
-    "installedVersion": "8.57.2",
+    "comment": "8.58.0",
+    "installedVersion": "8.58.0",
     "author": "n/a"
   },
   {
