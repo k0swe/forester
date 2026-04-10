@@ -32,10 +32,3 @@ jobs:
           git tag deployed --force
           git push --tags --force
 
-      - name: Google Chat Notification
-        uses: Co-qn/google-chat-notification@v1
-        with:
-          name: Forester Deploy
-          url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
-          status: ${{ job.status }}
-        if: always()
