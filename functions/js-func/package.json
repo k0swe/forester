@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "@types/node": "25.5.2",
-    "@typescript-eslint/eslint-plugin": "8.58.1",
-    "@typescript-eslint/parser": "8.58.1",
+    "@typescript-eslint/eslint-plugin": "8.58.2",
+    "@typescript-eslint/parser": "8.58.2",
     "eslint": "9.39.4",
     "eslint-config-google": "0.14.0",
     "eslint-plugin-import": "2.32.0",
