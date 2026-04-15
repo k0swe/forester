@@ -23,6 +23,8 @@ cloud.google.com/go/pubsub/v2 v2.5.1 h1:+TwXJr78P9RrMV3S8lKHIhJo2E99jI7ta65e+ujJ
 cloud.google.com/go/pubsub/v2 v2.5.1/go.mod h1:Pd+qeabMX+576vQJhTN7TelE4k6kJh15dLU/ptOQ/UA=
 cloud.google.com/go/secretmanager v1.18.0 h1:VA/ynUUapUF3+xrm0R1dMx8i21p2jfRAWFpokYPncKU=
 cloud.google.com/go/secretmanager v1.18.0/go.mod h1:9OmSuOeiiUicANglrbdKWSnT3gYkRcXuUQDk7dDW0zU=
+cloud.google.com/go/secretmanager v1.19.0 h1:dm9BK06xl+hrxp2unT2psjZeypPj5c6uPiABb6fmicE=
+cloud.google.com/go/secretmanager v1.19.0/go.mod h1:9OmSuOeiiUicANglrbdKWSnT3gYkRcXuUQDk7dDW0zU=
 cloud.google.com/go/storage v1.62.0 h1:w2pQJhpUqVerMON45vatE2FpCYsNTf7OHjkn6ux5mMU=
 cloud.google.com/go/storage v1.62.0/go.mod h1:T5hz3qzcpnxZ5LdKc7y8Tw7lh4v9zeeVyrD/cLJAzZU=
 cloud.google.com/go/trace v1.12.0 h1:XvWHYfr9q88cX4pZyou6qCcSagnuASyUq2ej1dB6NzQ=
