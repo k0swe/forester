@@ -31,6 +31,7 @@ export class AgentComponent implements OnInit {
     this.agent.init();
     // When WSJT-X sends a QSO, log it right away
     this.wsjtx.qsoLogged$.subscribe((qsoLogged) => {
+      console.log('Received WSJT-X QsoLogged message', qsoLogged);
       // Dates come across as strings; convert to objects
       qsoLogged.dateTimeOn = new Date(qsoLogged.dateTimeOn);
       qsoLogged.dateTimeOff = new Date(qsoLogged.dateTimeOff);
@@ -68,6 +69,19 @@ export class AgentComponent implements OnInit {
       rstReceived: qsoLogged.reportReceived,
       rstSent: qsoLogged.reportSent,
     };
+    if (this.qsoService.findMatch(qso)) {
+      console.warn(
+        'Received duplicate WSJT-X QSO, skipping save',
+        qso.timeOn,
+        qso.contactedStation.stationCall,
+      );
+      return;
+    }
+    console.log(
+      'Saving new WSJT-X QSO',
+      qso.timeOn,
+      qso.contactedStation.stationCall,
+    );
     this.qsoService.addOrUpdate({ qso }).subscribe(
       () => {},
       (error) => {
