@@ -48,9 +48,29 @@ export const routes: Routes = [
           import('./pages/map/map.component').then((m) => m.MapComponent),
       },
       {
+        path: 'awards',
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'was',
+          },
+          {
+            path: 'was',
+            loadComponent: () =>
+              import('./pages/was/was.component').then((m) => m.WasComponent),
+          },
+          {
+            path: 'dxcc',
+            loadComponent: () =>
+              import('./pages/dxcc/dxcc.component').then((m) => m.DxccComponent),
+          },
+        ],
+      },
+      {
         path: 'was',
-        loadComponent: () =>
-          import('./pages/was/was.component').then((m) => m.WasComponent),
+        pathMatch: 'full',
+        redirectTo: 'awards/was',
       },
     ],
   },

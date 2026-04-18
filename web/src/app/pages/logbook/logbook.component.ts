@@ -60,7 +60,7 @@ export class LogbookComponent implements OnInit {
   links = [
     { name: 'QSO List', path: 'qsos' },
     { name: 'Map', path: 'map' },
-    { name: 'Awards', path: 'was' },
+    { name: 'Awards', path: 'awards' },
   ];
 
   qrzImportUrl = environment.functionsBase + 'ImportQrz';
