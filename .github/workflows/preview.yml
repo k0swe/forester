@@ -6,7 +6,9 @@ on:
     types: [opened, synchronize, reopened]
 
 permissions:
+  checks: write
   contents: read
+  pull-requests: write
 
 env:
   FIREBASE_PROJECT_ID: k0swe-kellog
@@ -29,14 +31,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Setup node
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: .nvmrc
-
-      - name: Setup Firebase CLI
-        run: npm i -g firebase-tools
-
       - name: Read cached build artifacts
         uses: actions/cache@v5
         env:
@@ -46,10 +40,10 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ github.sha }}
 
       - name: Deploy preview channel
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: |
-          npx firebase hosting:channel:deploy "pr-${{ github.event.pull_request.number }}" \
-            --project "$FIREBASE_PROJECT_ID" \
-            --expires 7d \
-            --token "$FIREBASE_TOKEN"
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.GCP_SA_KEY }}
+          projectId: ${{ env.FIREBASE_PROJECT_ID }}
+          channelId: pr-${{ github.event.pull_request.number }}
+          expires: 7d
