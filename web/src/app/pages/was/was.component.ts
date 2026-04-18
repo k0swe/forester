@@ -30,6 +30,8 @@ interface State {
   lon: number;
 }
 
+type TimeRange = 'all-time' | 'america-250';
+
 @Component({
   selector: 'kel-was',
   templateUrl: './was.component.html',
@@ -52,6 +54,7 @@ export class WasComponent implements OnInit, AfterViewInit {
   @ViewChild('filterSelectors') filterSelectors: ElementRef;
   mode = 'mixed';
   band = 'mixed';
+  timeRange: TimeRange = 'all-time';
   zoom = 3;
   center: google.maps.LatLngLiteral = { lat: 40, lng: -105 };
   options: google.maps.MapOptions = {
@@ -187,11 +190,13 @@ export class WasComponent implements OnInit, AfterViewInit {
   }
 
   private findQsoForState(abbrev: string): Observable<FirebaseQso | undefined> {
+    const timeRange = this.getTimeRangeCriteria();
     if (abbrev === 'AK') {
       return this.qsoService.findWASQso({
         country: 'Alaska',
         mode: this.mode,
         band: this.band,
+        ...timeRange,
       });
     }
     if (abbrev === 'HI') {
@@ -199,6 +204,7 @@ export class WasComponent implements OnInit, AfterViewInit {
         country: 'Hawaii',
         mode: this.mode,
         band: this.band,
+        ...timeRange,
       });
     }
     return this.qsoService.findWASQso({
@@ -206,11 +212,25 @@ export class WasComponent implements OnInit, AfterViewInit {
       state: abbrev,
       mode: this.mode,
       band: this.band,
+      ...timeRange,
     });
   }
 
   changeFilters(): void {
     this.updateMarkers();
+  }
+
+  private getTimeRangeCriteria(): {
+    startTimeOn?: Date;
+    endTimeOn?: Date;
+  } {
+    if (this.timeRange !== 'america-250') {
+      return {};
+    }
+    return {
+      startTimeOn: new Date(Date.UTC(2026, 0, 1, 0, 0, 0, 0)),
+      endTimeOn: new Date(Date.UTC(2026, 11, 31, 23, 59, 59, 999)),
+    };
   }
 
   private static makeQsoMarkerOptions(

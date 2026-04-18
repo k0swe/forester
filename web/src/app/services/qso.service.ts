@@ -202,6 +202,22 @@ export class QsoService {
     q: FirebaseQso,
     criteria: WASQsoCriteria,
   ): boolean {
+    if (!q.qso.timeOn) {
+      return false;
+    }
+    const timeOn = (q.qso.timeOn as Date).getTime();
+
+    if (criteria.startTimeOn) {
+      if (timeOn < criteria.startTimeOn.getTime()) {
+        return false;
+      }
+    }
+    if (criteria.endTimeOn) {
+      if (timeOn > criteria.endTimeOn.getTime()) {
+        return false;
+      }
+    }
+
     // if band is anything but 'mixed', it should match
     if (criteria.band !== 'mixed') {
       if (
@@ -384,4 +400,6 @@ interface WASQsoCriteria {
   state?: string;
   mode?: string;
   band?: string;
+  startTimeOn?: Date;
+  endTimeOn?: Date;
 }

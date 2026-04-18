@@ -1,6 +1,19 @@
 <mat-card appearance="outlined">
   <mat-card-header>
-    <mat-card-title>ARRL Worked All States Progress</mat-card-title>
+    <div class="header-content">
+      <mat-card-title>ARRL Worked All States Progress</mat-card-title>
+      <mat-form-field
+        class="time-range-field"
+        color="accent"
+        subscriptSizing="dynamic"
+      >
+        <mat-label>Time Range</mat-label>
+        <mat-select [(value)]="timeRange" (valueChange)="changeFilters()">
+          <mat-option value="all-time">All Time</mat-option>
+          <mat-option value="america-250">America 250</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </mat-card-header>
   <mat-card-content>
     <google-map

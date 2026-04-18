@@ -13,6 +13,18 @@ mat-form-field:not(:last-child) {
   padding-right: 8px;
 }
 
+.header-content {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.time-range-field {
+  width: 170px;
+}
+
 mat-card-content {
   height: calc(100% - 30px);
 }
