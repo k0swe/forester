@@ -5,6 +5,9 @@ on:
     branches: ['main']
     types: [closed]
 
+env:
+  FIREBASE_PROJECT_ID: k0swe-kellog
+
 concurrency:
   group: cleanup-preview-${{ github.event.pull_request.number }}
   cancel-in-progress: true
@@ -34,6 +37,6 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
           npx firebase hosting:channel:delete "pr-${{ github.event.pull_request.number }}" \
-            --project k0swe-kellog \
+            --project "$FIREBASE_PROJECT_ID" \
             --token "$FIREBASE_TOKEN" \
             --force || echo "Channel may have already expired or been deleted"

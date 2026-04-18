@@ -5,6 +5,12 @@ on:
     branches: ['main']
     types: [opened, synchronize, reopened]
 
+permissions:
+  contents: read
+
+env:
+  FIREBASE_PROJECT_ID: k0swe-kellog
+
 concurrency:
   group: preview-${{ github.event.pull_request.number }}
   cancel-in-progress: true
@@ -46,6 +52,6 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
           npx firebase hosting:channel:deploy "pr-${{ github.event.pull_request.number }}" \
-            --project k0swe-kellog \
+            --project "$FIREBASE_PROJECT_ID" \
             --expires 7d \
             --token "$FIREBASE_TOKEN"
