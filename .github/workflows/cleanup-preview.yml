@@ -1,0 +1,39 @@
+name: Cleanup Preview Channel
+
+on:
+  pull_request:
+    branches: ['main']
+    types: [closed]
+
+concurrency:
+  group: cleanup-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  cleanup-preview:
+    name: Delete Firebase Hosting Preview Channel
+    if: github.actor != 'dependabot[bot]' && github.event.pull_request.head.repo.fork == false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+
+      - name: Setup Firebase CLI
+        run: npm i -g firebase-tools
+
+      - name: Delete preview channel
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          npx firebase hosting:channel:delete "pr-${{ github.event.pull_request.number }}" \
+            --project k0swe-kellog \
+            --token "$FIREBASE_TOKEN" \
+            --force || echo "Channel may have already expired or been deleted"
