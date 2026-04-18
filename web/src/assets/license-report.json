@@ -19,8 +19,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "21.2.6",
-    "installedVersion": "21.2.6",
+    "comment": "21.2.7",
+    "installedVersion": "21.2.7",
     "author": "n/a"
   },
   {
@@ -67,8 +67,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "21.2.6",
-    "installedVersion": "21.2.6",
+    "comment": "21.2.7",
+    "installedVersion": "21.2.7",
     "author": "n/a"
   },
   {
@@ -83,8 +83,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "21.2.6",
-    "installedVersion": "21.2.6",
+    "comment": "21.2.7",
+    "installedVersion": "21.2.7",
     "author": "n/a"
   },
   {
@@ -139,8 +139,8 @@
     "name": "adif-parser-ts",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/k0swe/adif-parser-ts.git",
-    "comment": "0.6.39",
-    "installedVersion": "0.6.39",
+    "comment": "0.7.0",
+    "installedVersion": "0.7.0",
     "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
