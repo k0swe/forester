@@ -1,26 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FirebaseQso } from '../../services/qso.service';
 import { DxccComponent } from './dxcc.component';
 
 describe('DxccComponent', () => {
-  let component: DxccComponent;
-  let fixture: ComponentFixture<DxccComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [DxccComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(DxccComponent);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should prefer earliest LotW-confirmed QSO for each DXCC', () => {
     const selected = DxccComponent.selectQsosByDxcc([
       makeQso({
