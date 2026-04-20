@@ -96,6 +96,10 @@ export class QsoService {
     );
   }
 
+  getAllQsos(): Observable<FirebaseQso[]> {
+    return this.qsos$;
+  }
+
   private filterQsos(
     fbq: FirebaseQso[],
     criteria: FilterCriteria,
