@@ -63,6 +63,14 @@ describe('DxccComponent', () => {
     expect(location!.lat).toBeCloseTo(35.5);
     expect(location!.lng).toBeCloseTo(-107);
   });
+
+  it('should return undefined for invalid grid square', () => {
+    expect(
+      (DxccComponent as any).getStationLocation({
+        gridSquare: 'not-a-grid',
+      }),
+    ).toBeUndefined();
+  });
 });
 
 function makeQso({
