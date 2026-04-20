@@ -167,12 +167,12 @@ export class DxccComponent implements OnInit, AfterViewInit {
     if (
       station?.latitude != null &&
       station?.longitude != null &&
-      Number.isFinite(+station.latitude) &&
-      Number.isFinite(+station.longitude)
+      Number.isFinite(station.latitude) &&
+      Number.isFinite(station.longitude)
     ) {
       return {
-        lat: +station.latitude,
-        lng: +station.longitude,
+        lat: station.latitude,
+        lng: station.longitude,
       };
     }
     if (station?.gridSquare) {
