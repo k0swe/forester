@@ -41,6 +41,36 @@ describe('DxccComponent', () => {
       '2025-01-01T00:00:00.000Z',
     );
   });
+
+  it('should resolve station location from latitude and longitude', () => {
+    expect(
+      (DxccComponent as any).getStationLocation({
+        latitude: 35.0844,
+        longitude: -106.6504,
+      }),
+    ).toEqual({
+      lat: 35.0844,
+      lng: -106.6504,
+    });
+  });
+
+  it('should resolve station location from grid square', () => {
+    const location = (DxccComponent as any).getStationLocation({
+      gridSquare: 'DM65',
+    });
+
+    expect(location).toBeDefined();
+    expect(location!.lat).toBeCloseTo(35.5);
+    expect(location!.lng).toBeCloseTo(-107);
+  });
+
+  it('should return undefined for invalid grid square', () => {
+    expect(
+      (DxccComponent as any).getStationLocation({
+        gridSquare: 'not-a-grid',
+      }),
+    ).toBeUndefined();
+  });
 });
 
 function makeQso({
