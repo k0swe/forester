@@ -59,8 +59,9 @@ describe('DxccComponent', () => {
       gridSquare: 'DM65',
     });
 
-    expect(location.lat).toBeCloseTo(35.5);
-    expect(location.lng).toBeCloseTo(-107);
+    expect(location).toBeDefined();
+    expect(location!.lat).toBeCloseTo(35.5);
+    expect(location!.lng).toBeCloseTo(-107);
   });
 });
 
