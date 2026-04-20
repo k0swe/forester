@@ -44,7 +44,7 @@ describe('DxccComponent', () => {
 
   it('should resolve station location from latitude and longitude', () => {
     expect(
-      DxccComponent.getStationLocation({
+      (DxccComponent as any).getStationLocation({
         latitude: 35.0844,
         longitude: -106.6504,
       }),
@@ -55,7 +55,7 @@ describe('DxccComponent', () => {
   });
 
   it('should resolve station location from grid square', () => {
-    const location = DxccComponent.getStationLocation({
+    const location = (DxccComponent as any).getStationLocation({
       gridSquare: 'DM65',
     });
 

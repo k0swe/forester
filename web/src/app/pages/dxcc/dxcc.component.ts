@@ -161,7 +161,7 @@ export class DxccComponent implements OnInit, AfterViewInit {
     return [loggingLocation, contactedLocation];
   }
 
-  static getStationLocation(
+  private static getStationLocation(
     station?: Station,
   ): google.maps.LatLngLiteral | undefined {
     if (
@@ -176,8 +176,12 @@ export class DxccComponent implements OnInit, AfterViewInit {
       };
     }
     if (station?.gridSquare) {
-      const loc = Maidenhead.fromLocator(station.gridSquare);
-      return { lat: loc.latitude, lng: loc.longitude };
+      try {
+        const loc = Maidenhead.fromLocator(station.gridSquare);
+        return { lat: loc.latitude, lng: loc.longitude };
+      } catch {
+        return undefined;
+      }
     }
     return undefined;
   }
