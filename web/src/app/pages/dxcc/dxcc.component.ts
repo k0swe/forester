@@ -1,9 +1,139 @@
-import { Component } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  DestroyRef,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
+import { MatCardModule } from '@angular/material/card';
+import moment from 'moment';
+
+import { Qso } from '../../qso';
+import { DxccRef } from '../../reference/dxcc';
+import { LogbookService } from '../../services/logbook.service';
+import { FirebaseQso, QsoService } from '../../services/qso.service';
 
 @Component({
   selector: 'kel-dxcc',
-  imports: [],
+  imports: [GoogleMapsModule, MatCardModule],
   templateUrl: './dxcc.component.html',
-  styleUrl: './dxcc.component.scss',
+  styleUrls: ['./dxcc.component.scss'],
 })
-export class DxccComponent {}
+export class DxccComponent implements OnInit, AfterViewInit {
+  private logbookService = inject(LogbookService);
+  private qsoService = inject(QsoService);
+  private destroyRef = inject(DestroyRef);
+
+  @ViewChild('map') map: GoogleMap;
+  zoom = 2;
+  center: google.maps.LatLngLiteral = { lat: 20, lng: 0 };
+  options: google.maps.MapOptions = {
+    minZoom: 2,
+    maxZoom: 9,
+    streetViewControl: false,
+  };
+  markers = new Map<number, google.maps.Marker>();
+  private infoWindow?: google.maps.InfoWindow;
+
+  ngOnInit(): void {
+    this.logbookService.logbookId$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((id) => this.qsoService.init(id));
+  }
+
+  ngAfterViewInit(): void {
+    this.infoWindow = new google.maps.InfoWindow();
+    this.qsoService
+      .getAllQsos()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((qsos) => this.updateMarkers(DxccComponent.selectQsosByDxcc(qsos)));
+  }
+
+  static selectQsosByDxcc(qsos: FirebaseQso[]): Map<number, FirebaseQso> {
+    const byDxcc = new Map<number, FirebaseQso>();
+    Array.from(qsos.values())
+      .filter((fbq) => fbq.qso.timeOn && fbq.qso.contactedStation.dxcc)
+      .sort(
+        (a, b) =>
+          (a.qso.timeOn as Date).getTime() - (b.qso.timeOn as Date).getTime(),
+      )
+      .forEach((fbq) => {
+        const dxcc = fbq.qso.contactedStation.dxcc;
+        const existing = byDxcc.get(dxcc);
+        if (!existing) {
+          byDxcc.set(dxcc, fbq);
+          return;
+        }
+        if (!DxccComponent.isLotwConfirmed(existing.qso)) {
+          if (DxccComponent.isLotwConfirmed(fbq.qso)) {
+            byDxcc.set(dxcc, fbq);
+          }
+        }
+      });
+    return byDxcc;
+  }
+
+  private updateMarkers(qsosByDxcc: Map<number, FirebaseQso>): void {
+    const current = new Set<number>(this.markers.keys());
+    qsosByDxcc.forEach((fbq, dxcc) => {
+      current.delete(dxcc);
+      const marker = this.markers.get(dxcc) ?? new google.maps.Marker();
+      const markerOpts = DxccComponent.makeQsoMarkerOptions(fbq.qso, dxcc);
+      markerOpts.map = this.map.googleMap;
+      marker.setOptions(markerOpts);
+      marker.addListener('click', () => {
+        if (!this.infoWindow) {
+          return;
+        }
+        this.infoWindow.setOptions(DxccComponent.makeInfoWindowOptions(fbq.qso));
+        this.infoWindow.open(this.map.googleMap, marker);
+      });
+      this.markers.set(dxcc, marker);
+    });
+    current.forEach((dxcc) => {
+      this.markers.get(dxcc)?.setMap(null);
+      this.markers.delete(dxcc);
+    });
+  }
+
+  private static makeQsoMarkerOptions(
+    qso: Qso,
+    dxcc: number,
+  ): google.maps.MarkerOptions {
+    const icon = DxccComponent.isLotwConfirmed(qso)
+      ? '/assets/map-pin-green.svg'
+      : '/assets/map-pin-yellow.svg';
+    return {
+      position: {
+        lat: +(qso.contactedStation.latitude ?? 0),
+        lng: +(qso.contactedStation.longitude ?? 0),
+      },
+      icon: icon,
+      title: DxccRef.getById(dxcc)?.name ?? qso.contactedStation.country,
+    };
+  }
+
+  private static makeInfoWindowOptions(qso: Qso): google.maps.InfoWindowOptions {
+    const timeStr: string = moment(qso.timeOn).utc().format('YYYY-MM-DD HH:mm');
+    const dxcc = qso.contactedStation.dxcc;
+    const entityName =
+      DxccRef.getById(dxcc)?.name ??
+      qso.contactedStation.country ??
+      `DXCC ${dxcc}`;
+    const qsl = DxccComponent.isLotwConfirmed(qso)
+      ? 'QSL via LotW'
+      : 'No LotW confirmation yet';
+    const msg = `Contacted ${qso.contactedStation.stationCall} in ${entityName}
+              <br>on ${timeStr}<br>via ${qso.band} ${qso.mode}<br>${qsl}`;
+    return {
+      content: msg,
+    };
+  }
+
+  private static isLotwConfirmed(q: Qso): boolean {
+    return q.lotw != null && q.lotw.receivedStatus == 'Y';
+  }
+}
