@@ -58,9 +58,11 @@ function makeQso({
       contactedStation: {
         dxcc,
       },
-      lotw: {
-        receivedStatus: lotwConfirmed ? 'Y' : 'N',
-      },
+      lotw: lotwConfirmed
+        ? {
+            receivedStatus: 'Y',
+          }
+        : undefined,
     },
   };
 }

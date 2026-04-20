@@ -27,7 +27,7 @@ export class DxccComponent implements OnInit, AfterViewInit {
   private qsoService = inject(QsoService);
   private destroyRef = inject(DestroyRef);
 
-  @ViewChild('map') map: GoogleMap;
+  @ViewChild('map') map!: GoogleMap;
   zoom = 2;
   center: google.maps.LatLngLiteral = { lat: 20, lng: 0 };
   options: google.maps.MapOptions = {
@@ -77,19 +77,24 @@ export class DxccComponent implements OnInit, AfterViewInit {
   }
 
   private updateMarkers(qsosByDxcc: Map<number, FirebaseQso>): void {
+    const googleMap = this.map?.googleMap;
+    if (!googleMap) {
+      return;
+    }
     const current = new Set<number>(this.markers.keys());
     qsosByDxcc.forEach((fbq, dxcc) => {
       current.delete(dxcc);
       const marker = this.markers.get(dxcc) ?? new google.maps.Marker();
       const markerOpts = DxccComponent.makeQsoMarkerOptions(fbq.qso, dxcc);
-      markerOpts.map = this.map.googleMap;
+      markerOpts.map = googleMap;
       marker.setOptions(markerOpts);
+      google.maps.event.clearListeners(marker, 'click');
       marker.addListener('click', () => {
         if (!this.infoWindow) {
           return;
         }
         this.infoWindow.setOptions(DxccComponent.makeInfoWindowOptions(fbq.qso));
-        this.infoWindow.open(this.map.googleMap, marker);
+        this.infoWindow.open(googleMap, marker);
       });
       this.markers.set(dxcc, marker);
     });
@@ -134,6 +139,6 @@ export class DxccComponent implements OnInit, AfterViewInit {
   }
 
   private static isLotwConfirmed(q: Qso): boolean {
-    return q.lotw != null && q.lotw.receivedStatus == 'Y';
+    return q.lotw != null && q.lotw.receivedStatus === 'Y';
   }
 }
