@@ -41,6 +41,27 @@ describe('DxccComponent', () => {
       '2025-01-01T00:00:00.000Z',
     );
   });
+
+  it('should resolve station location from latitude and longitude', () => {
+    expect(
+      DxccComponent.getStationLocation({
+        latitude: 35.0844,
+        longitude: -106.6504,
+      }),
+    ).toEqual({
+      lat: 35.0844,
+      lng: -106.6504,
+    });
+  });
+
+  it('should resolve station location from grid square', () => {
+    const location = DxccComponent.getStationLocation({
+      gridSquare: 'DM65',
+    });
+
+    expect(location.lat).toBeCloseTo(35.5);
+    expect(location.lng).toBeCloseTo(-106);
+  });
 });
 
 function makeQso({

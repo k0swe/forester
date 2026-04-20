@@ -9,9 +9,10 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { MatCardModule } from '@angular/material/card';
+import Maidenhead from '@amrato/maidenhead-ts';
 import moment from 'moment';
 
-import { Qso } from '../../qso';
+import { Qso, Station } from '../../qso';
 import { DxccRef } from '../../reference/dxcc';
 import { LogbookService } from '../../services/logbook.service';
 import { FirebaseQso, QsoService } from '../../services/qso.service';
@@ -36,6 +37,7 @@ export class DxccComponent implements OnInit, AfterViewInit {
     streetViewControl: false,
   };
   markers = new Map<number, google.maps.Marker>();
+  paths = new Map<number, google.maps.Polyline>();
   private infoWindow?: google.maps.InfoWindow;
 
   ngOnInit(): void {
@@ -97,10 +99,17 @@ export class DxccComponent implements OnInit, AfterViewInit {
         this.infoWindow.open(googleMap, marker);
       });
       this.markers.set(dxcc, marker);
+
+      const polyline = this.paths.get(dxcc) ?? DxccComponent.makeQsoPolyline();
+      polyline.setMap(googleMap);
+      polyline.setPath(DxccComponent.makeQsoPath(fbq.qso, markerOpts.position));
+      this.paths.set(dxcc, polyline);
     });
     current.forEach((dxcc) => {
       this.markers.get(dxcc)?.setMap(null);
       this.markers.delete(dxcc);
+      this.paths.get(dxcc)?.setMap(null);
+      this.paths.delete(dxcc);
     });
   }
 
@@ -136,6 +145,62 @@ export class DxccComponent implements OnInit, AfterViewInit {
     return {
       content: msg,
     };
+  }
+
+  private static makeQsoPath(
+    qso: Qso,
+    fallbackContactedPosition?: google.maps.LatLng | google.maps.LatLngLiteral,
+  ): google.maps.LatLngLiteral[] {
+    const loggingLocation = DxccComponent.getStationLocation(qso.loggingStation);
+    const contactedLocation =
+      DxccComponent.getStationLocation(qso.contactedStation) ??
+      DxccComponent.toLiteral(fallbackContactedPosition);
+    if (!loggingLocation || !contactedLocation) {
+      return [];
+    }
+    return [loggingLocation, contactedLocation];
+  }
+
+  static getStationLocation(
+    station?: Station,
+  ): google.maps.LatLngLiteral | undefined {
+    if (
+      station?.latitude != null &&
+      station?.longitude != null &&
+      Number.isFinite(+station.latitude) &&
+      Number.isFinite(+station.longitude)
+    ) {
+      return {
+        lat: +station.latitude,
+        lng: +station.longitude,
+      };
+    }
+    if (station?.gridSquare) {
+      const loc = Maidenhead.fromLocator(station.gridSquare);
+      return { lat: loc.latitude, lng: loc.longitude };
+    }
+    return undefined;
+  }
+
+  private static toLiteral(
+    position?: google.maps.LatLng | google.maps.LatLngLiteral,
+  ): google.maps.LatLngLiteral | undefined {
+    if (!position) {
+      return undefined;
+    }
+    if (position instanceof google.maps.LatLng) {
+      return { lat: position.lat(), lng: position.lng() };
+    }
+    return position;
+  }
+
+  private static makeQsoPolyline(): google.maps.Polyline {
+    return new google.maps.Polyline({
+      strokeColor: 'darkgreen',
+      strokeOpacity: 0.5,
+      strokeWeight: 1,
+      geodesic: true,
+    });
   }
 
   private static isLotwConfirmed(q: Qso): boolean {
