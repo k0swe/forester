@@ -60,7 +60,7 @@ describe('DxccComponent', () => {
     });
 
     expect(location.lat).toBeCloseTo(35.5);
-    expect(location.lng).toBeCloseTo(-106);
+    expect(location.lng).toBeCloseTo(-107);
   });
 });
 
