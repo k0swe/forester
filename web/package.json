@@ -61,7 +61,7 @@
     "@angular-eslint/schematics": "21.3.1",
     "@angular-eslint/template-parser": "21.3.1",
     "@angular/build": "^21.2.7",
-    "@angular/cli": "21.2.7",
+    "@angular/cli": "21.2.8",
     "@angular/compiler-cli": "21.2.10",
     "@trivago/prettier-plugin-sort-imports": "6.0.2",
     "@types/google.maps": "3.64.0",
