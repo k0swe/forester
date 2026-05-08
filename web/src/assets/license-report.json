@@ -11,40 +11,40 @@
     "name": "@angular/animations",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "21.2.10",
-    "installedVersion": "21.2.10",
+    "comment": "21.2.12",
+    "installedVersion": "21.2.12",
     "author": "angular"
   },
   {
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "21.2.8",
-    "installedVersion": "21.2.8",
+    "comment": "21.2.10",
+    "installedVersion": "21.2.10",
     "author": "n/a"
   },
   {
     "name": "@angular/common",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "21.2.10",
-    "installedVersion": "21.2.10",
+    "comment": "21.2.12",
+    "installedVersion": "21.2.12",
     "author": "angular"
   },
   {
     "name": "@angular/compiler",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "21.2.10",
-    "installedVersion": "21.2.10",
+    "comment": "21.2.12",
+    "installedVersion": "21.2.12",
     "author": "angular"
   },
   {
     "name": "@angular/core",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "21.2.10",
-    "installedVersion": "21.2.10",
+    "comment": "21.2.12",
+    "installedVersion": "21.2.12",
     "author": "angular"
   },
   {
@@ -59,64 +59,64 @@
     "name": "@angular/forms",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "21.2.10",
-    "installedVersion": "21.2.10",
+    "comment": "21.2.12",
+    "installedVersion": "21.2.12",
     "author": "angular"
   },
   {
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "21.2.8",
-    "installedVersion": "21.2.8",
+    "comment": "21.2.10",
+    "installedVersion": "21.2.10",
     "author": "n/a"
   },
   {
     "name": "@angular/localize",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "21.2.10",
-    "installedVersion": "21.2.10",
+    "comment": "21.2.12",
+    "installedVersion": "21.2.12",
     "author": "angular"
   },
   {
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "21.2.8",
-    "installedVersion": "21.2.8",
+    "comment": "21.2.10",
+    "installedVersion": "21.2.10",
     "author": "n/a"
   },
   {
     "name": "@angular/platform-browser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "21.2.10",
-    "installedVersion": "21.2.10",
+    "comment": "21.2.12",
+    "installedVersion": "21.2.12",
     "author": "angular"
   },
   {
     "name": "@angular/platform-browser-dynamic",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "21.2.10",
-    "installedVersion": "21.2.10",
+    "comment": "21.2.12",
+    "installedVersion": "21.2.12",
     "author": "angular"
   },
   {
     "name": "@angular/router",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "21.2.10",
-    "installedVersion": "21.2.10",
+    "comment": "21.2.12",
+    "installedVersion": "21.2.12",
     "author": "angular"
   },
   {
     "name": "@angular/service-worker",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "21.2.10",
-    "installedVersion": "21.2.10",
+    "comment": "21.2.12",
+    "installedVersion": "21.2.12",
     "author": "angular"
   },
   {
@@ -147,8 +147,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "12.12.1",
-    "installedVersion": "12.12.1",
+    "comment": "12.13.0",
+    "installedVersion": "12.13.0",
     "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
@@ -227,8 +227,8 @@
     "name": "zone.js",
     "licenseType": "MIT",
     "link": "git://github.com/angular/angular.git",
-    "comment": "0.16.1",
-    "installedVersion": "0.16.1",
+    "comment": "0.16.2",
+    "installedVersion": "0.16.2",
     "author": "Brian Ford"
   },
   {
@@ -275,24 +275,24 @@
     "name": "@angular/build",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "21.2.8",
-    "installedVersion": "21.2.8",
+    "comment": "21.2.10",
+    "installedVersion": "21.2.10",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "21.2.8",
-    "installedVersion": "21.2.8",
+    "comment": "21.2.10",
+    "installedVersion": "21.2.10",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/compiler-cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "21.2.10",
-    "installedVersion": "21.2.10",
+    "comment": "21.2.12",
+    "installedVersion": "21.2.12",
     "author": "n/a"
   },
   {
@@ -339,24 +339,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "25.6.0",
-    "installedVersion": "25.6.0",
+    "comment": "25.6.2",
+    "installedVersion": "25.6.2",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.59.0",
-    "installedVersion": "8.59.0",
+    "comment": "8.59.2",
+    "installedVersion": "8.59.2",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.59.0",
-    "installedVersion": "8.59.0",
+    "comment": "8.59.2",
+    "installedVersion": "8.59.2",
     "author": "n/a"
   },
   {
@@ -435,8 +435,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/lint-staged/lint-staged.git",
-    "comment": "16.4.0",
-    "installedVersion": "16.4.0",
+    "comment": "17.0.3",
+    "installedVersion": "17.0.3",
     "author": "Andrey Okonetchnikov <andrey@okonet.ru>"
   },
   {
