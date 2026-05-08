@@ -13,13 +13,13 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "@firebase/app-types": "0.9.4",
+    "@firebase/app-types": "0.9.5",
     "@google-cloud/pubsub": "5.3.0",
     "firebase-admin": "13.8.0",
     "firebase-functions": "7.2.5"
   },
   "devDependencies": {
-    "@types/node": "25.6.0",
+    "@types/node": "25.6.2",
     "@typescript-eslint/eslint-plugin": "8.59.2",
     "@typescript-eslint/parser": "8.59.2",
     "eslint": "9.39.4",
