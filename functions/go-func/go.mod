@@ -19,7 +19,7 @@ require (
 	github.com/k0swe/qrz-logbook v0.3.12
 	golang.org/x/oauth2 v0.36.0
 	google.golang.org/api v0.278.0
-	google.golang.org/genproto v0.0.0-20260420184626-e10c466a9529
+	google.golang.org/genproto v0.0.0-20260504160031-60b97b32f348
 	google.golang.org/protobuf v1.36.11
 )
 
@@ -29,9 +29,9 @@ require (
 	cloud.google.com/go/auth v0.20.0 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.8 // indirect
 	cloud.google.com/go/compute/metadata v0.9.0 // indirect
-	cloud.google.com/go/iam v1.9.0 // indirect
-	cloud.google.com/go/longrunning v0.11.0 // indirect
-	cloud.google.com/go/monitoring v1.27.0 // indirect
+	cloud.google.com/go/iam v1.10.0 // indirect
+	cloud.google.com/go/longrunning v0.12.0 // indirect
+	cloud.google.com/go/monitoring v1.28.0 // indirect
 	cloud.google.com/go/storage v1.62.1 // indirect
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp v1.32.0 // indirect
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric v0.56.0 // indirect
@@ -70,7 +70,7 @@ require (
 	golang.org/x/text v0.36.0 // indirect
 	golang.org/x/time v0.15.0 // indirect
 	google.golang.org/appengine/v2 v2.0.6 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20260420184626-e10c466a9529 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20260427160629-7cedc36a6bc4 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260427160629-7cedc36a6bc4 // indirect
 	google.golang.org/grpc v1.80.0 // indirect
 )
