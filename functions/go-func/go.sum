@@ -129,6 +129,8 @@ github.com/k0swe/lotw-qsl v0.4.13 h1:pgZyuaevZPZFbWlYxj2XYFkzmczrGrHD9Y2Mt7WWu4Y
 github.com/k0swe/lotw-qsl v0.4.13/go.mod h1:wBKdKxK+5pT+Lil7q74HR3dS3O0Z8PlAuXiGffffRmM=
 github.com/k0swe/qrz-api v0.3.11 h1:AeFDGcBGQqv25PJ3jYMX3RS7b8MrwowpNdu27Y24qk8=
 github.com/k0swe/qrz-api v0.3.11/go.mod h1:v4o5LU3avWmhCwsGXmVGztZMjomHbVhdYvypyulz3ek=
+github.com/k0swe/qrz-api v0.3.12 h1:q7IMTUEoCHX3GStpEAMAwAJofZZFcqiIznIYeu2pKoM=
+github.com/k0swe/qrz-api v0.3.12/go.mod h1:g0py9ip4ueT9ARssMv0z2B9qnTAth+L+TV6bg4VoV5o=
 github.com/k0swe/qrz-logbook v0.3.12 h1:s55oOS6uglXXuOfekvt16FXDPDols/uUqizW0NYU0y8=
 github.com/k0swe/qrz-logbook v0.3.12/go.mod h1:iK6lY+3z3SYQuEhluGnC9qzncUTGtE1tXIS59mEqY8I=
 github.com/planetscale/vtprotobuf v0.6.1-0.20240319094008-0393e58bdf10 h1:GFCKgmp0tecUJ0sJuv4pzYCqS9+RGSn52M3FUwPs+uo=
