@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, user } from '@angular/fire/auth';
+import { Auth } from 'firebase/auth';
 import {
   DocumentReference,
   Firestore,
@@ -7,10 +7,13 @@ import {
   onSnapshot,
   setDoc,
   updateDoc,
-} from '@angular/fire/firestore';
+} from 'firebase/firestore';
 import { BehaviorSubject, Observable, filter, from } from 'rxjs';
 import { mergeMap, switchMap } from 'rxjs/operators';
 
+import { authUser } from '../firebase/auth-user';
+import { FIREBASE_AUTH } from '../firebase/firebase-auth.token';
+import { FIREBASE_FIRESTORE } from '../firebase/firebase-firestore.token';
 import { Station } from '../qso';
 import { UserSettingsService } from './user-settings.service';
 
@@ -18,8 +21,8 @@ import { UserSettingsService } from './user-settings.service';
   providedIn: 'root',
 })
 export class LogbookService {
-  private firestore: Firestore = inject(Firestore);
-  private auth: Auth = inject(Auth);
+  private firestore: Firestore = inject(FIREBASE_FIRESTORE);
+  private auth: Auth = inject(FIREBASE_AUTH);
   private userSettingsService: UserSettingsService =
     inject(UserSettingsService);
   logbookId$ = new BehaviorSubject<string>(null);
@@ -42,7 +45,7 @@ export class LogbookService {
   }
 
   public createLogbook(callsign: string): Observable<void> {
-    return user(this.auth).pipe(
+    return authUser(this.auth).pipe(
       filter((v) => !!v),
       mergeMap((u) => {
         const userSettings = this.userSettingsService.settings$.getValue();

@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, user } from '@angular/fire/auth';
+import { Auth } from 'firebase/auth';
 import {
   CollectionReference,
   Firestore,
@@ -10,12 +10,15 @@ import {
   doc,
   onSnapshot,
   updateDoc,
-} from '@angular/fire/firestore';
+} from 'firebase/firestore';
 import { ZonedDateTime, nativeJs } from 'js-joda';
 import { BehaviorSubject, Observable, combineLatest, from, of } from 'rxjs';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { map, mergeMap } from 'rxjs/operators';
 
+import { authUser } from '../firebase/auth-user';
+import { FIREBASE_AUTH } from '../firebase/firebase-auth.token';
+import { FIREBASE_FIRESTORE } from '../firebase/firebase-firestore.token';
 import { Qso } from '../qso';
 
 type FirestoreQso = Omit<Qso, 'timeOn' | 'timeOff'> & {
@@ -27,8 +30,8 @@ type FirestoreQso = Omit<Qso, 'timeOn' | 'timeOff'> & {
   providedIn: 'root',
 })
 export class QsoService {
-  private firestore: Firestore = inject(Firestore);
-  private auth: Auth = inject(Auth);
+  private firestore: Firestore = inject(FIREBASE_FIRESTORE);
+  private auth: Auth = inject(FIREBASE_AUTH);
 
   private currentBook = '';
   private qsos$ = new BehaviorSubject<FirebaseQso[]>([]);
@@ -60,7 +63,7 @@ export class QsoService {
       return;
     }
     this.currentBook = bookCall;
-    user(this.auth).subscribe((_) => {
+    authUser(this.auth).subscribe((_) => {
       if (!!this.unsubscribe) {
         this.unsubscribe();
       }
@@ -301,7 +304,7 @@ export class QsoService {
    */
   public addOrUpdate(fbq: FirebaseQso): Observable<any> {
     QsoService.marshalDates(fbq.qso);
-    return user(this.auth).pipe(
+    return authUser(this.auth).pipe(
       mergeMap((u) => {
         if (u == null) {
           return of(null);
@@ -338,7 +341,7 @@ export class QsoService {
   }
 
   delete(firebaseId: string): Observable<any> {
-    return user(this.auth).pipe(
+    return authUser(this.auth).pipe(
       mergeMap((u) => {
         if (u == null) {
           return of(null);

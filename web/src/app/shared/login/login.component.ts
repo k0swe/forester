@@ -1,12 +1,14 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Auth, UserCredential, user } from '@angular/fire/auth';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Auth, UserCredential } from 'firebase/auth';
 import { Observable } from 'rxjs';
 import { take, takeWhile } from 'rxjs/operators';
 
+import { authUser } from '../../firebase/auth-user';
+import { FIREBASE_AUTH } from '../../firebase/firebase-auth.token';
 import { AuthService } from '../../services/auth.service';
 import { UserSettingsService } from '../../services/user-settings.service';
 
@@ -23,10 +25,10 @@ export class LoginComponent implements OnInit {
   private snackBarService = inject(MatSnackBar);
   private userSettingsService = inject(UserSettingsService);
 
-  private auth: Auth = inject(Auth);
+  private auth: Auth = inject(FIREBASE_AUTH);
 
   ngOnInit() {
-    user(this.auth).subscribe((user) => {
+    authUser(this.auth).subscribe((user) => {
       if (user != null) {
         this.redirectAfterLogin();
       }

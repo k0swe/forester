@@ -6,14 +6,16 @@ import {
   UserCredential,
   fetchSignInMethodsForEmail,
   signInWithPopup,
-} from '@angular/fire/auth';
+} from 'firebase/auth';
 import { Observable, from } from 'rxjs';
+
+import { FIREBASE_AUTH } from '../firebase/firebase-auth.token';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private auth: Auth = inject(Auth);
+  private auth: Auth = inject(FIREBASE_AUTH);
 
   public loginGoogle(): Observable<UserCredential> {
     return from(signInWithPopup(this.auth, new GoogleAuthProvider()));

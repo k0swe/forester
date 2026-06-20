@@ -7,7 +7,6 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import { Auth, user } from '@angular/fire/auth';
 import { MatIconButton } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDivider } from '@angular/material/divider';
@@ -21,9 +20,12 @@ import {
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
+import { Auth } from 'firebase/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
+import { authUser } from '../../firebase/auth-user';
+import { FIREBASE_AUTH } from '../../firebase/firebase-auth.token';
 import { ImportExportService } from '../../services/import-export.service';
 import { LogbookService } from '../../services/logbook.service';
 import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-settings.component';
@@ -49,7 +51,7 @@ import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-
   ],
 })
 export class LogbookComponent implements OnInit {
-  auth = inject(Auth);
+  auth = inject(FIREBASE_AUTH);
   private dialog = inject(MatDialog);
   private http = inject(HttpClient);
   private importExportService = inject(ImportExportService);
@@ -72,7 +74,7 @@ export class LogbookComponent implements OnInit {
     this.route.params.subscribe((params) =>
       this.logbookService.logbookId$.next(params.callsign),
     );
-    user(this.auth).subscribe((user) => {
+    authUser(this.auth).subscribe((user) => {
       if (user != null) {
         user.getIdToken(false).then((token) => this.userJwt$.next(token));
       } else {

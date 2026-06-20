@@ -1,17 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Auth, user } from '@angular/fire/auth';
+import { Auth } from 'firebase/auth';
 import { Observable, from, of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
+import { authUser } from '../firebase/auth-user';
+import { FIREBASE_AUTH } from '../firebase/firebase-auth.token';
 import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SecretService {
-  private auth: Auth = inject(Auth);
+  private auth: Auth = inject(FIREBASE_AUTH);
   private authService = inject(AuthService);
   private http = inject(HttpClient);
 
@@ -34,7 +36,7 @@ export class SecretService {
     }
     const url = this.updateSecretsUrl + '?logbookId=' + logbookId;
     return from(
-      user(this.auth).pipe(
+      authUser(this.auth).pipe(
         mergeMap((u) => u.getIdToken(false)),
         mergeMap((jwt) => {
           return this.http.post(url, formData, {

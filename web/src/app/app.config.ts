@@ -7,32 +7,56 @@ import {
   enableProdMode,
   importProvidersFrom,
 } from '@angular/core';
-import { LogLevel, setLogLevel } from '@angular/fire';
-import { getApp, initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
-import { initializeFirestore, provideFirestore } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { FirebaseApp, getApps, initializeApp, setLogLevel } from 'firebase/app';
+import { Auth, getAuth } from 'firebase/auth';
+import { Firestore, initializeFirestore } from 'firebase/firestore';
 
 import { environment } from '../environments/environment';
+import { FIREBASE_AUTH } from './firebase/firebase-auth.token';
+import { FIREBASE_FIRESTORE } from './firebase/firebase-firestore.token';
 import { routes } from './app.routes';
 
 if (environment.production) {
   enableProdMode();
 }
 
-setLogLevel(LogLevel.VERBOSE);
+setLogLevel('verbose');
+
+let firebaseApp: FirebaseApp | undefined;
+let firestore: Firestore | undefined;
+
+function getOrInitFirebaseApp(): FirebaseApp {
+  if (firebaseApp) {
+    return firebaseApp;
+  }
+  const apps = getApps();
+  firebaseApp = apps.length > 0 ? apps[0] : initializeApp(environment.firebase);
+  return firebaseApp;
+}
+
+function getFirebaseAuth(): Auth {
+  return getAuth(getOrInitFirebaseApp());
+}
+
+function getFirebaseFirestore(): Firestore {
+  if (firestore) {
+    return firestore;
+  }
+  firestore = initializeFirestore(getOrInitFirebaseApp(), {
+    ignoreUndefinedProperties: true,
+  });
+  return firestore;
+}
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(withInterceptorsFromDi()),
-    provideAuth(() => getAuth()),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() =>
-      initializeFirestore(getApp(), { ignoreUndefinedProperties: true }),
-    ),
+    { provide: FIREBASE_AUTH, useFactory: getFirebaseAuth },
+    { provide: FIREBASE_FIRESTORE, useFactory: getFirebaseFirestore },
     importProvidersFrom(
       BrowserAnimationsModule,
       ServiceWorkerModule.register('ngsw-worker.js', {
