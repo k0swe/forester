@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import {
@@ -30,6 +36,7 @@ import { StationDetailComponent } from '../station-detail/station-detail.compone
   selector: 'kel-logbook-settings',
   templateUrl: './logbook-settings.component.html',
   styleUrls: ['./logbook-settings.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     MatButton,
     MatCard,

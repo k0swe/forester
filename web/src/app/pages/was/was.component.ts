@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   DestroyRef,
   ElementRef,
@@ -36,6 +37,7 @@ type TimeRange = 'all-time' | 'america-250';
   selector: 'kel-was',
   templateUrl: './was.component.html',
   styleUrls: ['./was.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     GoogleMapsModule,
     MatButtonModule,

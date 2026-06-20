@@ -1,5 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -43,6 +44,7 @@ const googleMapsSearchBase = new URL('https://www.google.com/maps/search/');
   selector: 'kel-station-detail',
   templateUrl: './station-detail.component.html',
   styleUrls: ['./station-detail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     AsyncPipe,
     MatAnchor,

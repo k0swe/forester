@@ -1,11 +1,12 @@
 import Maidenhead from '@amrato/maidenhead-ts';
 import { Injectable } from '@angular/core';
-import { FormGroup, ValidatorFn } from '@angular/forms';
+import { AbstractControl, FormGroup, ValidatorFn } from '@angular/forms';
 
 @Injectable({ providedIn: 'root' })
 export class StationLocationValidator {
   public static consistentLocation(): ValidatorFn {
-    return (formGroup: FormGroup) => {
+    return (control: AbstractControl) => {
+      const formGroup = control as FormGroup;
       const latControl = formGroup.get('latitude');
       const lonControl = formGroup.get('longitude');
       const gridControl = formGroup.get('gridSquare');

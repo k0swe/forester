@@ -1,6 +1,7 @@
 import Maidenhead from '@amrato/maidenhead-ts';
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   DestroyRef,
   ElementRef,
@@ -25,6 +26,7 @@ import { FirebaseQso, QsoService } from '../../services/qso.service';
   selector: 'kel-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [GoogleMapsModule, MatButtonModule, MatCardModule, MatIconModule],
 })
 export class MapComponent implements OnInit, AfterViewInit {

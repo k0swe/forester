@@ -1,6 +1,7 @@
 import {
   provideHttpClient,
   withInterceptorsFromDi,
+  withXhr,
 } from '@angular/common/http';
 import {
   ApplicationConfig,
@@ -15,9 +16,9 @@ import { Auth, getAuth } from 'firebase/auth';
 import { Firestore, initializeFirestore } from 'firebase/firestore';
 
 import { environment } from '../environments/environment';
+import { routes } from './app.routes';
 import { FIREBASE_AUTH } from './firebase/firebase-auth.token';
 import { FIREBASE_FIRESTORE } from './firebase/firebase-firestore.token';
-import { routes } from './app.routes';
 
 if (environment.production) {
   enableProdMode();
@@ -54,7 +55,7 @@ function getFirebaseFirestore(): Firestore {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withXhr(), withInterceptorsFromDi()),
     { provide: FIREBASE_AUTH, useFactory: getFirebaseAuth },
     { provide: FIREBASE_FIRESTORE, useFactory: getFirebaseFirestore },
     importProvidersFrom(

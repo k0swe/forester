@@ -1,5 +1,7 @@
+import Maidenhead from '@amrato/maidenhead-ts';
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   DestroyRef,
   OnInit,
@@ -9,7 +11,6 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { MatCardModule } from '@angular/material/card';
-import Maidenhead from '@amrato/maidenhead-ts';
 import moment from 'moment';
 
 import { Qso, Station } from '../../qso';
@@ -21,6 +22,7 @@ import { FirebaseQso, QsoService } from '../../services/qso.service';
   selector: 'kel-dxcc',
   imports: [GoogleMapsModule, MatCardModule],
   templateUrl: './dxcc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./dxcc.component.scss'],
 })
 export class DxccComponent implements OnInit, AfterViewInit {
@@ -51,7 +53,9 @@ export class DxccComponent implements OnInit, AfterViewInit {
     this.qsoService
       .getAllQsos()
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((qsos) => this.updateMarkers(DxccComponent.selectQsosByDxcc(qsos)));
+      .subscribe((qsos) =>
+        this.updateMarkers(DxccComponent.selectQsosByDxcc(qsos)),
+      );
   }
 
   static selectQsosByDxcc(qsos: FirebaseQso[]): Map<number, FirebaseQso> {
@@ -95,7 +99,9 @@ export class DxccComponent implements OnInit, AfterViewInit {
         if (!this.infoWindow) {
           return;
         }
-        this.infoWindow.setOptions(DxccComponent.makeInfoWindowOptions(fbq.qso));
+        this.infoWindow.setOptions(
+          DxccComponent.makeInfoWindowOptions(fbq.qso),
+        );
         this.infoWindow.open(googleMap, marker);
       });
       this.markers.set(dxcc, marker);
@@ -130,7 +136,9 @@ export class DxccComponent implements OnInit, AfterViewInit {
     };
   }
 
-  private static makeInfoWindowOptions(qso: Qso): google.maps.InfoWindowOptions {
+  private static makeInfoWindowOptions(
+    qso: Qso,
+  ): google.maps.InfoWindowOptions {
     const timeStr: string = moment(qso.timeOn).utc().format('YYYY-MM-DD HH:mm');
     const dxcc = qso.contactedStation.dxcc;
     const entityName =
@@ -151,7 +159,9 @@ export class DxccComponent implements OnInit, AfterViewInit {
     qso: Qso,
     fallbackContactedPosition?: google.maps.LatLng | google.maps.LatLngLiteral,
   ): google.maps.LatLngLiteral[] {
-    const loggingLocation = DxccComponent.getStationLocation(qso.loggingStation);
+    const loggingLocation = DxccComponent.getStationLocation(
+      qso.loggingStation,
+    );
     const contactedLocation =
       DxccComponent.getStationLocation(qso.contactedStation) ??
       DxccComponent.toLiteral(fallbackContactedPosition);

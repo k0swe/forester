@@ -1,5 +1,11 @@
 import { AsyncPipe, NgClass } from '@angular/common';
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconButton } from '@angular/material/button';
 import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
@@ -19,6 +25,7 @@ import { QsoService } from '../../services/qso.service';
   selector: 'kel-qso-search',
   templateUrl: './qso-search.component.html',
   styleUrls: ['./qso-search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     AsyncPipe,
     FormsModule,

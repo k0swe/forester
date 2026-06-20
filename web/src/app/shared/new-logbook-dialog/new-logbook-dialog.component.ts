@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import {
@@ -13,6 +13,7 @@ import { MatInput } from '@angular/material/input';
   selector: 'kel-new-logbook-dialog',
   templateUrl: './new-logbook-dialog.component.html',
   styleUrls: ['./new-logbook-dialog.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     FormsModule,
     MatButton,

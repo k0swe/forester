@@ -1,4 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -8,6 +13,7 @@ import { SwUpdate } from '@angular/service-worker';
   selector: 'kel-sw-update',
   templateUrl: './sw-update.component.html',
   styleUrls: ['./sw-update.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [MatIcon, MatTooltip, MatIconButton],
 })
 export class SwUpdateComponent implements OnInit {
