@@ -1,5 +1,11 @@
 import { AsyncPipe, DatePipe } from '@angular/common';
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -66,6 +72,7 @@ import { StationDetailComponent } from '../station-detail/station-detail.compone
     ReactiveFormsModule,
     StationDetailComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [DatePipe],
 })
 export class QsoDetailComponent implements OnInit {

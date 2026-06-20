@@ -1,5 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,6 +17,7 @@ import { versions } from '../../../environments/versions';
   selector: 'kel-credits',
   templateUrl: './credits.component.html',
   styleUrls: ['./credits.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [MatButtonModule, MatCardModule, MatIconModule, MatTableModule],
 })
 export class CreditsComponent implements OnInit {

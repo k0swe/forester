@@ -1,6 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   OnInit,
@@ -34,6 +35,7 @@ import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-
   selector: 'kel-logbook',
   templateUrl: './logbook.component.html',
   styleUrls: ['./logbook.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     AsyncPipe,
     MatDivider,

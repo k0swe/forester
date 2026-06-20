@@ -1,5 +1,10 @@
 import { AsyncPipe, DecimalPipe } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
 import {
@@ -18,6 +23,7 @@ import { QsoService } from '../../services/qso.service';
   selector: 'kel-agent',
   templateUrl: './agent.component.html',
   styleUrls: ['./agent.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [MatIcon, MatTooltip, DecimalPipe, AsyncPipe],
 })
 export class AgentComponent implements OnInit {

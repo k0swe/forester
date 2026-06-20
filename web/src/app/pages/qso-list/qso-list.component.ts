@@ -1,6 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { CommonModule } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   Component,
   DestroyRef,
   ElementRef,
@@ -38,6 +39,7 @@ import { QsoSearchComponent } from '../../shared/qso-search/qso-search.component
   selector: 'kel-qso-list',
   templateUrl: './qso-list.component.html',
   styleUrls: ['./qso-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     CommonModule,
     MatButtonModule,
