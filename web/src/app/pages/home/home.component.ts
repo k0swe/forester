@@ -1,13 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { Auth, user } from '@angular/fire/auth';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
+import { Auth } from 'firebase/auth';
 
+import { authUser } from '../../firebase/auth-user';
+import { FIREBASE_AUTH } from '../../firebase/firebase-auth.token';
 import { AuthService } from '../../services/auth.service';
 import { LogbookService } from '../../services/logbook.service';
 import { UserSettingsService } from '../../services/user-settings.service';
@@ -29,14 +31,14 @@ import { NewLogbookDialogComponent } from '../../shared/new-logbook-dialog/new-l
   ],
 })
 export class HomeComponent {
-  auth = inject(Auth);
+  auth = inject(FIREBASE_AUTH);
   authService = inject(AuthService);
   dialog = inject(MatDialog);
   private logbookService = inject(LogbookService);
   private router = inject(Router);
   userSettingsService = inject(UserSettingsService);
 
-  protected readonly user = toSignal(user(this.auth));
+  protected readonly user = toSignal(authUser(this.auth));
 
   createLogbook(): void {
     const dialogRef = this.dialog.open(NewLogbookDialogComponent);

@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, user } from '@angular/fire/auth';
+import { Auth } from 'firebase/auth';
 import {
   DocumentReference,
   DocumentSnapshot,
@@ -8,21 +8,25 @@ import {
   getDoc,
   setDoc,
   updateDoc,
-} from '@angular/fire/firestore';
+} from 'firebase/firestore';
 import { BehaviorSubject, Observable, filter, from, mergeMap, of } from 'rxjs';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { switchMap } from 'rxjs/operators';
+
+import { authUser } from '../firebase/auth-user';
+import { FIREBASE_AUTH } from '../firebase/firebase-auth.token';
+import { FIREBASE_FIRESTORE } from '../firebase/firebase-firestore.token';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserSettingsService {
-  private firestore: Firestore = inject(Firestore);
-  private auth: Auth = inject(Auth);
+  private firestore: Firestore = inject(FIREBASE_FIRESTORE);
+  private auth: Auth = inject(FIREBASE_AUTH);
   settings$ = new BehaviorSubject<UserSettings>({});
 
   constructor() {
-    user(this.auth)
+    authUser(this.auth)
       .pipe(
         filter((v) => !!v),
         switchMap((user) => {
@@ -44,7 +48,7 @@ export class UserSettingsService {
   }
 
   private createUserDocument(): void {
-    user(this.auth)
+    authUser(this.auth)
       .pipe(
         mergeMap((u) => {
           return from(
@@ -62,7 +66,7 @@ export class UserSettingsService {
   }
 
   set(values: UserSettings): Observable<void> {
-    return user(this.auth).pipe(
+    return authUser(this.auth).pipe(
       switchMap((user) => {
         if (user == null) {
           return of(null);

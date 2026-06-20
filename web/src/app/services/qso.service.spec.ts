@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { Auth } from '@angular/fire/auth';
-import { Firestore } from '@angular/fire/firestore';
 import { ZonedDateTime, nativeJs } from 'js-joda';
 import { firstValueFrom } from 'rxjs';
 
+import { FIREBASE_AUTH } from '../firebase/firebase-auth.token';
+import { FIREBASE_FIRESTORE } from '../firebase/firebase-firestore.token';
 import { FilterCriteria, FirebaseQso, QsoService } from './qso.service';
 
 function makeQso(timeOn: Date): FirebaseQso {
@@ -45,8 +45,8 @@ describe('QsoService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        { provide: Firestore, useValue: {} },
-        { provide: Auth, useValue: {} },
+        { provide: FIREBASE_FIRESTORE, useValue: {} },
+        { provide: FIREBASE_AUTH, useValue: {} },
       ],
     });
     service = TestBed.inject(QsoService);
