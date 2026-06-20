@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "prebuild-prod": "ts-node -O '{\"module\": \"commonjs\"}' git-version.ts",
+    "prebuild-prod": "ts-node -O '{\"module\": \"commonjs\", \"moduleResolution\": \"node\", \"types\": [\"node\"]}' git-version.ts",
     "build-prod": "ng build --configuration production",
     "test": "firebase emulators:exec --project k0swe-kellog 'ng test'",
     "test-ci": "firebase emulators:exec --project k0swe-kellog --only firestore 'ng test --no-watch --no-progress --browsers=ChromeHeadlessCI'",
