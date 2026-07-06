@@ -193,7 +193,9 @@ export class QsoListComponent implements OnInit {
   }
 
   newQso(): void {
-    const loggingStation = this.logbookService.settings$.getValue().qthProfile;
+    const loggingStation = LogbookService.activeQthProfile(
+      this.logbookService.settings$.getValue(),
+    );
     this.openDialog({
       qso: { contactedStation: {}, loggingStation: loggingStation },
     });

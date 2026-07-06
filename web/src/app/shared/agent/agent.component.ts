@@ -51,7 +51,9 @@ export class AgentComponent implements OnInit {
 
   private saveWsjtxQso(qsoLogged: WsjtxQsoLogged): void {
     // TODO: do something with "exchange sent/received"; contest fields?
-    const qthProfile = this.logbookService.settings$.getValue().qthProfile;
+    const qthProfile = LogbookService.activeQthProfile(
+      this.logbookService.settings$.getValue(),
+    );
     const freqMhz = qsoLogged.txFrequency / 1000000;
     const qso: Qso = {
       band: Band.freqToBand(freqMhz),

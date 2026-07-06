@@ -84,10 +84,31 @@ export class LogbookService {
       }),
     );
   }
+
+  /** Returns the active QTH profile's station data, with fallback to legacy and empty object. */
+  static activeQthProfile(settings: LogbookSettings): Station {
+    if (settings?.qthProfiles?.length > 0) {
+      const active = settings.qthProfiles.find(
+        (p) => p.id === settings.activeQthProfileId,
+      );
+      return active?.station ?? settings.qthProfiles[0].station ?? {};
+    }
+    // Legacy single-profile fallback
+    return settings?.qthProfile ?? {};
+  }
+}
+
+export interface QthProfile {
+  id: string;
+  name: string;
+  station: Station;
 }
 
 export interface LogbookSettings {
   lotwLastFetchedDate: Date;
   qrzLogbookApiKeyLastSet: Date;
-  qthProfile: Station;
+  /** @deprecated Use qthProfiles and activeQthProfileId instead */
+  qthProfile?: Station;
+  qthProfiles?: QthProfile[];
+  activeQthProfileId?: string;
 }

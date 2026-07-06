@@ -5,6 +5,7 @@ div.row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .row mat-form-field {
@@ -28,4 +29,20 @@ mat-card {
 
 h3 {
   margin: 16px 0 0 8px;
+}
+
+.profile-selector {
+  align-items: center;
+  gap: 4px;
+}
+
+.active-label {
+  font-weight: 500;
+  color: mat.m2-get-color-from-palette(theme.$kel-accent, 800);
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.active-badge {
+  color: mat.m2-get-color-from-palette(theme.$kel-accent, 800);
 }

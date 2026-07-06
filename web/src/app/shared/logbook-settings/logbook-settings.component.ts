@@ -6,7 +6,7 @@ import {
   inject,
 } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatIconButton } from '@angular/material/button';
 import {
   MatCard,
   MatCardContent,
@@ -21,13 +21,16 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
+import { MatOption, MatSelect } from '@angular/material/select';
 import { forkJoin } from 'rxjs';
 
 import { Station } from '../../qso';
 import {
   LogbookService,
   LogbookSettings,
+  QthProfile,
 } from '../../services/logbook.service';
 import { SecretService } from '../../services/secret.service';
 import { StationDetailComponent } from '../station-detail/station-detail.component';
@@ -49,8 +52,12 @@ import { StationDetailComponent } from '../station-detail/station-detail.compone
     MatDialogTitle,
     MatFormField,
     MatHint,
+    MatIcon,
+    MatIconButton,
     MatInput,
     MatLabel,
+    MatOption,
+    MatSelect,
     ReactiveFormsModule,
     StationDetailComponent,
   ],
@@ -63,7 +70,10 @@ export class LogbookSettingsComponent implements OnInit {
 
   logbookSettingsForm: FormGroup;
   @ViewChild('saveButton') saveButton: MatButton;
-  qthProfile = {} as Station;
+
+  qthProfiles: QthProfile[] = [];
+  activeQthProfileId: string = null;
+  selectedProfileIndex = 0;
 
   constructor() {
     this.logbookSettingsForm = this.fb.group({
@@ -80,8 +90,49 @@ export class LogbookSettingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.logbookService.settings$.subscribe((settings) => {
-      this.qthProfile = settings.qthProfile;
+      this.qthProfiles = this.migrateProfiles(settings);
+      // Prefer saved activeQthProfileId; fall back to first profile
+      const savedActive = settings?.activeQthProfileId;
+      if (savedActive && this.qthProfiles.some((p) => p.id === savedActive)) {
+        this.activeQthProfileId = savedActive;
+      } else if (this.qthProfiles.length > 0) {
+        this.activeQthProfileId = this.qthProfiles[0].id;
+      }
+      this.selectedProfileIndex = Math.max(
+        0,
+        this.qthProfiles.findIndex((p) => p.id === this.activeQthProfileId),
+      );
     });
+  }
+
+  get selectedProfile(): QthProfile | null {
+    return this.qthProfiles[this.selectedProfileIndex] ?? null;
+  }
+
+  get selectedStation(): Station {
+    return this.selectedProfile?.station ?? {};
+  }
+
+  set selectedStation(station: Station) {
+    if (this.selectedProfile) {
+      this.qthProfiles[this.selectedProfileIndex] = {
+        ...this.selectedProfile,
+        station,
+      };
+    }
+  }
+
+  get selectedProfileName(): string {
+    return this.selectedProfile?.name ?? '';
+  }
+
+  set selectedProfileName(name: string) {
+    if (this.selectedProfile) {
+      this.qthProfiles[this.selectedProfileIndex] = {
+        ...this.selectedProfile,
+        name,
+      };
+    }
   }
 
   enableSaveButton(): void {
@@ -91,10 +142,52 @@ export class LogbookSettingsComponent implements OnInit {
     this.saveButton.disabled = false;
   }
 
+  onProfileSelectionChange(index: number): void {
+    this.selectedProfileIndex = index;
+  }
+
+  setActiveProfile(): void {
+    if (this.selectedProfile) {
+      this.activeQthProfileId = this.selectedProfile.id;
+      this.enableSaveButton();
+    }
+  }
+
+  addProfile(): void {
+    const newProfile: QthProfile = {
+      id: this.generateId(),
+      name: 'New Profile',
+      station: {},
+    };
+    this.qthProfiles = [...this.qthProfiles, newProfile];
+    this.selectedProfileIndex = this.qthProfiles.length - 1;
+    if (!this.activeQthProfileId) {
+      this.activeQthProfileId = newProfile.id;
+    }
+    this.enableSaveButton();
+  }
+
+  deleteSelectedProfile(): void {
+    if (this.qthProfiles.length <= 1) {
+      return;
+    }
+    const deletedId = this.selectedProfile?.id;
+    this.qthProfiles = this.qthProfiles.filter((p) => p.id !== deletedId);
+    this.selectedProfileIndex = Math.min(
+      this.selectedProfileIndex,
+      this.qthProfiles.length - 1,
+    );
+    if (this.activeQthProfileId === deletedId) {
+      this.activeQthProfileId = this.qthProfiles[0]?.id ?? null;
+    }
+    this.enableSaveButton();
+  }
+
   save(): void {
     const qthObs = this.logbookService.set({
-      qthProfile: this.qthProfile,
-    } as LogbookSettings);
+      qthProfiles: this.qthProfiles,
+      activeQthProfileId: this.activeQthProfileId,
+    } as unknown as LogbookSettings);
 
     const formValue = this.logbookSettingsForm.value;
     const secretsObs = this.secretService.setSecrets(
@@ -109,5 +202,26 @@ export class LogbookSettingsComponent implements OnInit {
     );
 
     this.dialog.close(forkJoin([qthObs, secretsObs]));
+  }
+
+  private migrateProfiles(settings: LogbookSettings): QthProfile[] {
+    if (settings?.qthProfiles?.length > 0) {
+      return settings.qthProfiles;
+    }
+    // Migration: wrap legacy qthProfile
+    if (settings?.qthProfile) {
+      return [
+        {
+          id: 'default',
+          name: 'Default',
+          station: settings.qthProfile,
+        },
+      ];
+    }
+    return [{ id: 'default', name: 'Default', station: {} }];
+  }
+
+  private generateId(): string {
+    return Math.random().toString(36).slice(2, 10);
   }
 }
