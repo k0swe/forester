@@ -107,7 +107,9 @@ export interface QthProfile {
 export interface LogbookSettings {
   lotwLastFetchedDate: Date;
   qrzLogbookApiKeyLastSet: Date;
-  /** @deprecated Use qthProfiles and activeQthProfileId instead */
+  /** @deprecated Use qthProfiles and activeQthProfileId instead. Legacy field kept for
+   *  backward-compatible migration of existing logbooks; will be removed once all
+   *  logbooks have been migrated to the qthProfiles structure. */
   qthProfile?: Station;
   qthProfiles?: QthProfile[];
   activeQthProfileId?: string;

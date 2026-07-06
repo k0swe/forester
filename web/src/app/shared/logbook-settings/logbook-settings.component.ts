@@ -72,8 +72,10 @@ export class LogbookSettingsComponent implements OnInit {
   @ViewChild('saveButton') saveButton: MatButton;
 
   qthProfiles: QthProfile[] = [];
-  activeQthProfileId: string = null;
+  activeQthProfileId: string | null = null;
   selectedProfileIndex = 0;
+
+  private static readonly DEFAULT_PROFILE_ID = 'default';
 
   constructor() {
     this.logbookSettingsForm = this.fb.group({
@@ -154,9 +156,10 @@ export class LogbookSettingsComponent implements OnInit {
   }
 
   addProfile(): void {
+    const newIndex = this.qthProfiles.length + 1;
     const newProfile: QthProfile = {
       id: this.generateId(),
-      name: 'New Profile',
+      name: `New Profile ${newIndex}`,
       station: {},
     };
     this.qthProfiles = [...this.qthProfiles, newProfile];
@@ -217,13 +220,19 @@ export class LogbookSettingsComponent implements OnInit {
     if (settings?.qthProfile) {
       return [
         {
-          id: 'default',
+          id: LogbookSettingsComponent.DEFAULT_PROFILE_ID,
           name: 'Default',
           station: settings.qthProfile,
         },
       ];
     }
-    return [{ id: 'default', name: 'Default', station: {} }];
+    return [
+      {
+        id: LogbookSettingsComponent.DEFAULT_PROFILE_ID,
+        name: 'Default',
+        station: {},
+      },
+    ];
   }
 
   private generateId(): string {
