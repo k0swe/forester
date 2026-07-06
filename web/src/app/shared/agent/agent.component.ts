@@ -13,6 +13,8 @@ import {
   WsjtxQsoLogged,
   WsjtxService,
 } from 'ngx-kel-agent';
+import { EMPTY } from 'rxjs';
+import { switchMap, take } from 'rxjs/operators';
 
 import { Qso } from '../../qso';
 import { Band } from '../../reference/band';
@@ -51,50 +53,54 @@ export class AgentComponent implements OnInit {
 
   private saveWsjtxQso(qsoLogged: WsjtxQsoLogged): void {
     // TODO: do something with "exchange sent/received"; contest fields?
-    const qthProfile = LogbookService.activeQthProfile(
-      this.logbookService.settings$.getValue(),
-    );
-    const freqMhz = qsoLogged.txFrequency / 1000000;
-    const qso: Qso = {
-      band: Band.freqToBand(freqMhz),
-      comment: qsoLogged.comments,
-      timeOn: qsoLogged.dateTimeOn,
-      timeOff: qsoLogged.dateTimeOff,
-      contactedStation: {
-        stationCall: qsoLogged.dxCall,
-        gridSquare: qsoLogged.dxGrid,
-        opCall: qsoLogged.operatorCall,
-        opName: qsoLogged.name,
-      },
-      loggingStation: {
-        ...qthProfile,
-        stationCall: qsoLogged.myCall,
-        gridSquare: qsoLogged.myGrid,
-        power: Number(qsoLogged.txPower),
-      },
-      freq: freqMhz,
-      mode: qsoLogged.mode,
-      rstReceived: qsoLogged.reportReceived,
-      rstSent: qsoLogged.reportSent,
-    };
-    if (this.qsoService.findMatch(qso)) {
-      console.warn(
-        'Received duplicate WSJT-X QSO, skipping save',
-        qso.timeOn,
-        qso.contactedStation.stationCall,
-      );
-      return;
-    }
-    console.log(
-      'Saving new WSJT-X QSO',
-      qso.timeOn,
-      qso.contactedStation.stationCall,
-    );
-    this.qsoService.addOrUpdate({ qso }).subscribe(
-      () => {},
-      (error) => {
-        console.error('Failed saving WSJT-X QSO. ' + error);
-      },
-    );
+    this.logbookService
+      .activeQthProfile()
+      .pipe(
+        take(1),
+        switchMap((qthProfile) => {
+          const freqMhz = qsoLogged.txFrequency / 1000000;
+          const qso: Qso = {
+            band: Band.freqToBand(freqMhz),
+            comment: qsoLogged.comments,
+            timeOn: qsoLogged.dateTimeOn,
+            timeOff: qsoLogged.dateTimeOff,
+            contactedStation: {
+              stationCall: qsoLogged.dxCall,
+              gridSquare: qsoLogged.dxGrid,
+              opCall: qsoLogged.operatorCall,
+              opName: qsoLogged.name,
+            },
+            loggingStation: {
+              ...qthProfile,
+              stationCall: qsoLogged.myCall,
+              gridSquare: qsoLogged.myGrid,
+              power: Number(qsoLogged.txPower),
+            },
+            freq: freqMhz,
+            mode: qsoLogged.mode,
+            rstReceived: qsoLogged.reportReceived,
+            rstSent: qsoLogged.reportSent,
+          };
+          if (this.qsoService.findMatch(qso)) {
+            console.warn(
+              'Received duplicate WSJT-X QSO, skipping save',
+              qso.timeOn,
+              qso.contactedStation.stationCall,
+            );
+            return EMPTY;
+          }
+          console.log(
+            'Saving new WSJT-X QSO',
+            qso.timeOn,
+            qso.contactedStation.stationCall,
+          );
+          return this.qsoService.addOrUpdate({ qso });
+        }),
+      )
+      .subscribe({
+        error: (error) => {
+          console.error('Failed saving WSJT-X QSO. ' + error);
+        },
+      });
   }
 }

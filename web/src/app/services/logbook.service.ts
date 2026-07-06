@@ -9,7 +9,7 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import { BehaviorSubject, Observable, filter, from } from 'rxjs';
-import { mergeMap, switchMap } from 'rxjs/operators';
+import { map, mergeMap, switchMap } from 'rxjs/operators';
 
 import { authUser } from '../firebase/auth-user';
 import { FIREBASE_AUTH } from '../firebase/firebase-auth.token';
@@ -85,16 +85,20 @@ export class LogbookService {
     );
   }
 
-  /** Returns the active QTH profile's station data, with fallback to legacy and empty object. */
-  static activeQthProfile(settings: LogbookSettings): Station {
-    if (settings?.qthProfiles?.length > 0) {
-      const active = settings.qthProfiles.find(
-        (p) => p.id === settings.activeQthProfileId,
-      );
-      return active?.station ?? settings.qthProfiles[0].station ?? {};
-    }
-    // Legacy single-profile fallback
-    return settings?.qthProfile ?? {};
+  /** Returns an Observable of the active QTH profile's station data, with fallback to legacy and empty object. */
+  activeQthProfile(): Observable<Station> {
+    return this.settings$.pipe(
+      map((settings) => {
+        if (settings?.qthProfiles?.length > 0) {
+          const active = settings.qthProfiles.find(
+            (p) => p.id === settings.activeQthProfileId,
+          );
+          return active?.station ?? settings.qthProfiles[0].station ?? {};
+        }
+        // Legacy single-profile fallback
+        return settings?.qthProfile ?? {};
+      }),
+    );
   }
 }
 
