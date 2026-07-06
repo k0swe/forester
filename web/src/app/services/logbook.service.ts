@@ -74,7 +74,7 @@ export class LogbookService {
     return this.settings$;
   }
 
-  set(values: LogbookSettings): Observable<void> {
+  set(values: Partial<LogbookSettings>): Observable<void> {
     return this.logbookId$.pipe(
       filter((v) => !!v),
       switchMap((logbookId) => {

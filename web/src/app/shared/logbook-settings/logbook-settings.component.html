@@ -47,7 +47,7 @@
             <input
               matInput
               [value]="selectedProfileName"
-              (input)="selectedProfileName = $any($event.target).value; enableSaveButton()"
+              (input)="onProfileNameChange($event)"
             />
           </mat-form-field>
           @if (selectedProfile.id !== activeQthProfileId) {

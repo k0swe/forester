@@ -187,7 +187,7 @@ export class LogbookSettingsComponent implements OnInit {
     const qthObs = this.logbookService.set({
       qthProfiles: this.qthProfiles,
       activeQthProfileId: this.activeQthProfileId,
-    } as unknown as LogbookSettings);
+    });
 
     const formValue = this.logbookSettingsForm.value;
     const secretsObs = this.secretService.setSecrets(
@@ -202,6 +202,11 @@ export class LogbookSettingsComponent implements OnInit {
     );
 
     this.dialog.close(forkJoin([qthObs, secretsObs]));
+  }
+
+  onProfileNameChange(event: Event): void {
+    this.selectedProfileName = (event.target as HTMLInputElement).value;
+    this.enableSaveButton();
   }
 
   private migrateProfiles(settings: LogbookSettings): QthProfile[] {
@@ -222,6 +227,6 @@ export class LogbookSettingsComponent implements OnInit {
   }
 
   private generateId(): string {
-    return Math.random().toString(36).slice(2, 10);
+    return crypto.randomUUID();
   }
 }
