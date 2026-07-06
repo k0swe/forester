@@ -2,14 +2,72 @@
 <mat-dialog-content>
   <mat-card appearance="outlined">
     <mat-card-header>
-      <mat-card-subtitle>QTH Profile</mat-card-subtitle>
+      <mat-card-subtitle>QTH Profiles</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <kel-station-detail
-        [(station)]="qthProfile"
-        (stationChange)="enableSaveButton()"
-        [showTxPower]="false"
-      ></kel-station-detail>
+      <div class="row profile-selector">
+        <mat-form-field>
+          <mat-label>QTH Profile</mat-label>
+          <mat-select
+            [value]="selectedProfileIndex"
+            (valueChange)="onProfileSelectionChange($event)"
+          >
+            @for (profile of qthProfiles; track profile.id; let i = $index) {
+              <mat-option [value]="i">
+                {{ profile.name }}
+                @if (profile.id === activeQthProfileId) {
+                  <span class="active-badge"> ★</span>
+                }
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <button
+          mat-icon-button
+          type="button"
+          aria-label="Add profile"
+          (click)="addProfile()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          type="button"
+          aria-label="Delete profile"
+          [disabled]="qthProfiles.length <= 1"
+          (click)="deleteSelectedProfile()"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      @if (selectedProfile) {
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Profile Name</mat-label>
+            <input
+              matInput
+              [value]="selectedProfileName"
+              (input)="onProfileNameChange($event)"
+            />
+          </mat-form-field>
+          @if (selectedProfile.id !== activeQthProfileId) {
+            <button
+              mat-raised-button
+              type="button"
+              (click)="setActiveProfile()"
+            >
+              Set as Active
+            </button>
+          } @else {
+            <span class="active-label">Active Profile ★</span>
+          }
+        </div>
+        <kel-station-detail
+          [(station)]="selectedStation"
+          (stationChange)="enableSaveButton()"
+          [showTxPower]="false"
+        ></kel-station-detail>
+      }
     </mat-card-content>
   </mat-card>
   <mat-card appearance="outlined">

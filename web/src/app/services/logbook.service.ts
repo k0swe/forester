@@ -9,7 +9,7 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import { BehaviorSubject, Observable, filter, from } from 'rxjs';
-import { mergeMap, switchMap } from 'rxjs/operators';
+import { map, mergeMap, switchMap } from 'rxjs/operators';
 
 import { authUser } from '../firebase/auth-user';
 import { FIREBASE_AUTH } from '../firebase/firebase-auth.token';
@@ -74,7 +74,7 @@ export class LogbookService {
     return this.settings$;
   }
 
-  set(values: LogbookSettings): Observable<void> {
+  set(values: Partial<LogbookSettings>): Observable<void> {
     return this.logbookId$.pipe(
       filter((v) => !!v),
       switchMap((logbookId) => {
@@ -84,10 +84,37 @@ export class LogbookService {
       }),
     );
   }
+
+  /** Returns an Observable of the active QTH profile's station data, with fallback to legacy and empty object. */
+  activeQthProfile(): Observable<Station> {
+    return this.settings$.pipe(
+      map((settings) => {
+        if (settings?.qthProfiles?.length > 0) {
+          const active = settings.qthProfiles.find(
+            (p) => p.id === settings.activeQthProfileId,
+          );
+          return active?.station ?? settings.qthProfiles[0].station ?? {};
+        }
+        // Legacy single-profile fallback
+        return settings?.qthProfile ?? {};
+      }),
+    );
+  }
+}
+
+export interface QthProfile {
+  id: string;
+  name: string;
+  station: Station;
 }
 
 export interface LogbookSettings {
   lotwLastFetchedDate: Date;
   qrzLogbookApiKeyLastSet: Date;
-  qthProfile: Station;
+  /** @deprecated Use qthProfiles and activeQthProfileId instead. Legacy field kept for
+   *  backward-compatible migration of existing logbooks; will be removed once all
+   *  logbooks have been migrated to the qthProfiles structure. */
+  qthProfile?: Station;
+  qthProfiles?: QthProfile[];
+  activeQthProfileId?: string;
 }

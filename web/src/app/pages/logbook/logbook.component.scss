@@ -29,6 +29,13 @@ h1 {
   flex: 1 1 0;
 }
 
+.active-qth-profile {
+  color: mat.m2-get-color-from-palette(theme.$kel-primary, 'default-contrast');
+  align-self: center;
+  padding: 0 8px;
+  font-size: mat.m2-font-size(theme.$kel-typography, subtitle-1);
+}
+
 mat-icon {
   color: mat.m2-get-color-from-palette(theme.$kel-primary, 'default-contrast');
 }

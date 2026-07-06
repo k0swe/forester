@@ -26,7 +26,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Observable, from, toArray } from 'rxjs';
-import { map, mergeAll } from 'rxjs/operators';
+import { map, mergeAll, take } from 'rxjs/operators';
 
 import { DxccRef } from '../../reference/dxcc';
 import { ImportExportService } from '../../services/import-export.service';
@@ -193,10 +193,14 @@ export class QsoListComponent implements OnInit {
   }
 
   newQso(): void {
-    const loggingStation = this.logbookService.settings$.getValue().qthProfile;
-    this.openDialog({
-      qso: { contactedStation: {}, loggingStation: loggingStation },
-    });
+    this.logbookService
+      .activeQthProfile()
+      .pipe(take(1))
+      .subscribe((loggingStation) => {
+        this.openDialog({
+          qso: { contactedStation: {}, loggingStation: loggingStation },
+        });
+      });
   }
 
   flagFor(dxcc: number): string {
