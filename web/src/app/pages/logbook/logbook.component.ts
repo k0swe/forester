@@ -23,6 +23,7 @@ import {
 } from '@angular/router';
 import { Auth } from 'firebase/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 import { authUser } from '../../firebase/auth-user';
@@ -71,6 +72,22 @@ export class LogbookComponent implements OnInit {
   lotwImportUrl = environment.functionsBase + 'ImportLotw';
   userJwt$ = new BehaviorSubject<string>('N0CALL');
   @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
+
+  /** Emits the active QTH profile name when there are multiple profiles; null otherwise. */
+  activeQthProfileName$: Observable<string | null> =
+    this.logbookService.settings$.pipe(
+      map((settings) => {
+        const profiles = settings?.qthProfiles;
+        if (!profiles || profiles.length <= 1) {
+          return null;
+        }
+        // Multiple profiles: show the active one, falling back to first (mirrors service logic)
+        const active =
+          profiles.find((p) => p.id === settings.activeQthProfileId) ??
+          profiles[0];
+        return active.name;
+      }),
+    );
 
   ngOnInit(): void {
     this.route.params.subscribe((params) =>

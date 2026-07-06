@@ -18,6 +18,9 @@
     }
   </nav>
   <div class="spacer"></div>
+  @if (activeQthProfileName$ | async; as profileName) {
+    <span class="active-qth-profile">QTH {{ profileName }}</span>
+  }
   <button
     mat-icon-button
     color="accent"
