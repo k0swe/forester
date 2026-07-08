@@ -339,16 +339,16 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.62.1",
-    "installedVersion": "8.62.1",
+    "comment": "8.63.0",
+    "installedVersion": "8.63.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "MIT",
     "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.62.1",
-    "installedVersion": "8.62.1",
+    "comment": "8.63.0",
+    "installedVersion": "8.63.0",
     "author": "n/a"
   },
   {
@@ -363,8 +363,8 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "10.5.0",
-    "installedVersion": "10.5.0",
+    "comment": "10.6.0",
+    "installedVersion": "10.6.0",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
