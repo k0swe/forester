@@ -12,10 +12,10 @@ Expand QSO search from the current callsign-only filter into a query language th
 
 ## Current State
 
-- `/home/runner/work/forester/forester/web/src/app/shared/qso-search/qso-search.component.ts` sends a single `call` filter based on the text box.
-- `/home/runner/work/forester/forester/web/src/app/services/qso.service.ts` subscribes to the entire `logbooks/{logbookId}/contacts` collection and filters the in-memory QSO list.
+- `web/src/app/shared/qso-search/qso-search.component.ts` sends a single `call` filter based on the text box.
+- `web/src/app/services/qso.service.ts` subscribes to the entire `logbooks/{logbookId}/contacts` collection and filters the in-memory QSO list.
 - The current filter model already includes a few exact-match fields (`state`, `country`, `mode`, and date bounds), but the search box only drives callsign matching.
-- `/home/runner/work/forester/forester/firestore/firestore.indexes.json` is empty, so there is no existing Firestore indexing strategy for advanced search.
+- `firestore/firestore.indexes.json` is empty, so there is no existing Firestore indexing strategy for advanced search.
 
 ## Main Constraint: Firestore Is Not a Full Text Search Engine
 
