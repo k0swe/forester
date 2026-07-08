@@ -22,11 +22,10 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { Auth } from 'firebase/auth';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, from } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
-import { authUser } from '../../firebase/auth-user';
 import { FIREBASE_AUTH } from '../../firebase/firebase-auth.token';
 import { ImportExportService } from '../../services/import-export.service';
 import { LogbookService } from '../../services/logbook.service';
@@ -70,7 +69,6 @@ export class LogbookComponent implements OnInit {
 
   qrzImportUrl = environment.functionsBase + 'ImportQrz';
   lotwImportUrl = environment.functionsBase + 'ImportLotw';
-  userJwt$ = new BehaviorSubject<string>('N0CALL');
   @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
 
   /** Emits the active QTH profile name when there are multiple profiles; null otherwise. */
@@ -93,13 +91,6 @@ export class LogbookComponent implements OnInit {
     this.route.params.subscribe((params) =>
       this.logbookService.logbookId$.next(params.callsign),
     );
-    authUser(this.auth).subscribe((user) => {
-      if (user != null) {
-        user.getIdToken(false).then((token) => this.userJwt$.next(token));
-      } else {
-        this.userJwt$.next(null);
-      }
-    });
   }
 
   logbookSettings(): void {
@@ -134,11 +125,21 @@ export class LogbookComponent implements OnInit {
   }
 
   private importWithCloudFunc(provider: string, importUrl: string): void {
+    if (!this.auth.currentUser) {
+      this.snackBar.open(`Error importing from ${provider}: not signed in`, null, {
+        duration: 5000,
+      });
+      return;
+    }
     this.snackBar.open(`Importing from ${provider}...`, null);
-    this.http
-      .get<ImportResponse>(importUrl, {
-        headers: { Authorization: 'Bearer ' + this.userJwt$.getValue() },
-      })
+    from(this.auth.currentUser.getIdToken(true))
+      .pipe(
+        mergeMap((token) =>
+          this.http.get<ImportResponse>(importUrl, {
+            headers: { Authorization: 'Bearer ' + token },
+          }),
+        ),
+      )
       .subscribe(
         (response) => {
           const created = response.created;
