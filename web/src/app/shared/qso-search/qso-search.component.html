@@ -5,6 +5,7 @@
     matInput
     [(ngModel)]="search"
     (ngModelChange)="changed()"
+    (keydown.escape)="clear()"
     [disabled]="syncToggle.checked"
     [ngClass]="{ accent: syncToggle.checked }"
   />
