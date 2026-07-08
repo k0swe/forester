@@ -27,5 +27,8 @@
     "firebase-functions-test": "3.5.0",
     "typescript": "5.9.3"
   },
+  "overrides": {
+    "firebase-admin": "14.1.0"
+  },
   "private": true
 }
