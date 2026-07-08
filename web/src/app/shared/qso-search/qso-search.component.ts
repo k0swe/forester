@@ -8,7 +8,12 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconButton } from '@angular/material/button';
-import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
+import {
+  MatFormField,
+  MatHint,
+  MatLabel,
+  MatSuffix,
+} from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import {
@@ -36,6 +41,7 @@ import { QsoService } from '../../services/qso.service';
     MatInput,
     MatLabel,
     MatSlideToggle,
+    MatSuffix,
     NgClass,
   ],
 })
