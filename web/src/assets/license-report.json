@@ -11,104 +11,104 @@
     "name": "@angular/animations",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "angular"
   },
   {
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.0.3",
-    "installedVersion": "22.0.3",
+    "comment": "22.0.4",
+    "installedVersion": "22.0.4",
     "author": "n/a"
   },
   {
     "name": "@angular/common",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "angular"
   },
   {
     "name": "@angular/compiler",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "angular"
   },
   {
     "name": "@angular/core",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "angular"
   },
   {
     "name": "@angular/forms",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "angular"
   },
   {
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.0.3",
-    "installedVersion": "22.0.3",
+    "comment": "22.0.4",
+    "installedVersion": "22.0.4",
     "author": "n/a"
   },
   {
     "name": "@angular/localize",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "angular"
   },
   {
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.0.3",
-    "installedVersion": "22.0.3",
+    "comment": "22.0.4",
+    "installedVersion": "22.0.4",
     "author": "n/a"
   },
   {
     "name": "@angular/platform-browser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "angular"
   },
   {
     "name": "@angular/platform-browser-dynamic",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "angular"
   },
   {
     "name": "@angular/router",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "angular"
   },
   {
     "name": "@angular/service-worker",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "angular"
   },
   {
@@ -139,8 +139,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "12.15.0",
-    "installedVersion": "12.15.0",
+    "comment": "12.16.0",
+    "installedVersion": "12.16.0",
     "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
@@ -267,24 +267,24 @@
     "name": "@angular/build",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/compiler-cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.0.5",
-    "installedVersion": "22.0.5",
+    "comment": "22.0.6",
+    "installedVersion": "22.0.6",
     "author": "n/a"
   },
   {
@@ -331,8 +331,8 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "26.1.0",
-    "installedVersion": "26.1.0",
+    "comment": "26.1.1",
+    "installedVersion": "26.1.1",
     "author": "n/a"
   },
   {
@@ -459,8 +459,8 @@
     "name": "prettier",
     "licenseType": "MIT",
     "link": "git+https://github.com/prettier/prettier.git",
-    "comment": "3.9.4",
-    "installedVersion": "3.9.4",
+    "comment": "3.9.5",
+    "installedVersion": "3.9.5",
     "author": "James Long"
   },
   {
