@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "@types/node": "26.1.1",
-    "@typescript-eslint/eslint-plugin": "8.63.0",
-    "@typescript-eslint/parser": "8.63.0",
+    "@typescript-eslint/eslint-plugin": "8.65.0",
+    "@typescript-eslint/parser": "8.65.0",
     "eslint": "10.6.0",
     "eslint-config-google": "0.14.0",
     "firebase-functions-test": "3.5.0",
