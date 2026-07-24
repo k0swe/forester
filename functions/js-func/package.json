@@ -25,7 +25,7 @@
     "eslint": "10.6.0",
     "eslint-config-google": "0.14.0",
     "firebase-functions-test": "3.5.0",
-    "typescript": "5.9.3"
+    "typescript": "7.0.2"
   },
   "overrides": {
     "firebase-admin": "14.2.0"
