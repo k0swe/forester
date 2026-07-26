@@ -63,7 +63,7 @@
     "@angular/cli": "22.0.8",
     "@angular/compiler-cli": "22.0.8",
     "@trivago/prettier-plugin-sort-imports": "6.0.2",
-    "@types/google.maps": "3.65.2",
+    "@types/google.maps": "3.65.3",
     "@types/jasmine": "6.0.0",
     "@types/jasminewd2": "2.0.13",
     "@types/lodash.isequal": "4.5.8",
