@@ -18,6 +18,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTabLink, MatTabNav, MatTabNavPanel } from '@angular/material/tabs';
 import {
   ActivatedRoute,
+  Params,
   RouterLink,
   RouterLinkActive,
   RouterOutlet,
@@ -71,10 +72,10 @@ export class LogbookComponent {
   lotwImportUrl = environment.functionsBase + 'ImportLotw';
   @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
   protected readonly logbookId = toSignal(this.logbookService.logbookId$, {
-    initialValue: null,
+    requireSync: true,
   });
   private readonly settings = toSignal(this.logbookService.settings$, {
-    initialValue: {},
+    requireSync: true,
   });
 
   /** Emits the active QTH profile name when there are multiple profiles; null otherwise. */
@@ -91,7 +92,9 @@ export class LogbookComponent {
   });
 
   constructor() {
-    const routeParams = toSignal(this.route.params, { initialValue: {} });
+    const routeParams = toSignal(this.route.params, {
+      initialValue: {} as Params,
+    });
     effect(() => {
       const callsign = routeParams().callsign;
       if (callsign != null) {

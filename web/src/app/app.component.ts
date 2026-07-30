@@ -37,7 +37,7 @@ import { SwUpdateComponent } from './shared/sw-update/sw-update.component';
 export class AppComponent {
   userSettingsService = inject(UserSettingsService);
   private readonly userSettings = toSignal(this.userSettingsService.settings$, {
-    initialValue: {},
+    requireSync: true,
   });
   protected readonly starredLogbooks = computed(
     () => this.userSettings()?.starredLogbooks ?? [],
