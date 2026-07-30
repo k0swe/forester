@@ -1,13 +1,14 @@
-import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
+  effect,
   ElementRef,
-  OnInit,
   ViewChild,
   inject,
 } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatIconButton } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDivider } from '@angular/material/divider';
@@ -17,13 +18,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTabLink, MatTabNav, MatTabNavPanel } from '@angular/material/tabs';
 import {
   ActivatedRoute,
+  Params,
   RouterLink,
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
 import { Auth } from 'firebase/auth';
 import { Observable, from } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 import { FIREBASE_AUTH } from '../../firebase/firebase-auth.token';
@@ -37,7 +39,6 @@ import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-
   styleUrls: ['./logbook.component.scss'],
   changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
-    AsyncPipe,
     MatDivider,
     MatIcon,
     MatIconButton,
@@ -52,7 +53,7 @@ import { LogbookSettingsComponent } from '../../shared/logbook-settings/logbook-
     RouterOutlet,
   ],
 })
-export class LogbookComponent implements OnInit {
+export class LogbookComponent {
   auth = inject(FIREBASE_AUTH);
   private dialog = inject(MatDialog);
   private http = inject(HttpClient);
@@ -70,27 +71,36 @@ export class LogbookComponent implements OnInit {
   qrzImportUrl = environment.functionsBase + 'ImportQrz';
   lotwImportUrl = environment.functionsBase + 'ImportLotw';
   @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
+  protected readonly logbookId = toSignal(this.logbookService.logbookId$, {
+    requireSync: true,
+  });
+  private readonly settings = toSignal(this.logbookService.settings$, {
+    requireSync: true,
+  });
 
   /** Emits the active QTH profile name when there are multiple profiles; null otherwise. */
-  activeQthProfileName$: Observable<string | null> =
-    this.logbookService.settings$.pipe(
-      map((settings) => {
-        const profiles = settings?.qthProfiles;
-        if (!profiles || profiles.length <= 1) {
-          return null;
-        }
-        // Multiple profiles: show the active one, falling back to first (mirrors service logic)
-        const active =
-          profiles.find((p) => p.id === settings.activeQthProfileId) ??
-          profiles[0];
-        return active.name;
-      }),
-    );
+  protected readonly activeQthProfileName = computed(() => {
+    const settings = this.settings();
+    const profiles = settings?.qthProfiles;
+    if (!profiles || profiles.length <= 1) {
+      return null;
+    }
+    // Multiple profiles: show the active one, falling back to first (mirrors service logic)
+    const active =
+      profiles.find((p) => p.id === settings.activeQthProfileId) ?? profiles[0];
+    return active.name;
+  });
 
-  ngOnInit(): void {
-    this.route.params.subscribe((params) =>
-      this.logbookService.logbookId$.next(params.callsign),
-    );
+  constructor() {
+    const routeParams = toSignal(this.route.params, {
+      initialValue: {} as Params,
+    });
+    effect(() => {
+      const callsign = routeParams().callsign;
+      if (callsign != null) {
+        this.logbookService.logbookId$.next(callsign);
+      }
+    });
   }
 
   logbookSettings(): void {
@@ -126,39 +136,39 @@ export class LogbookComponent implements OnInit {
 
   private importWithCloudFunc(provider: string, importUrl: string): void {
     if (!this.auth.currentUser) {
-      this.snackBar.open(`Error importing from ${provider}: not signed in`, null, {
-        duration: 5000,
-      });
-      return;
+    this.snackBar.open(`Error importing from ${provider}: not signed in`, null, {
+      duration: 5000,
+    });
+    return;
     }
     this.snackBar.open(`Importing from ${provider}...`, null);
     from(this.auth.currentUser.getIdToken(true))
-      .pipe(
-        mergeMap((token) =>
-          this.http.get<ImportResponse>(importUrl, {
-            headers: { Authorization: 'Bearer ' + token },
-          }),
-        ),
-      )
-      .subscribe(
-        (response) => {
-          const created = response.created;
-          const modified = response.modified;
-          const noDiff = response.noDiff;
-          this.snackBar.open(
-            `Finished ${provider} import: ` +
-              `${created} QSOs created, ${modified} modified and ${noDiff} with no difference`,
-            null,
-            { duration: 5000 },
-          );
-        },
-        (error) => {
-          this.snackBar.open(`Error importing from ${provider}`, null, {
-            duration: 5000,
-          });
-          console.warn(`Error importing from ${provider}:`, error);
-        },
-      );
+    .pipe(
+      mergeMap((token) =>
+        this.http.get<ImportResponse>(importUrl, {
+          headers: { Authorization: 'Bearer ' + token },
+        }),
+      ),
+    )
+    .subscribe(
+      (response) => {
+        const created = response.created;
+        const modified = response.modified;
+        const noDiff = response.noDiff;
+        this.snackBar.open(
+          `Finished ${provider} import: ` +
+            `${created} QSOs created, ${modified} modified and ${noDiff} with no difference`,
+          null,
+          { duration: 5000 },
+        );
+      },
+      (error) => {
+        this.snackBar.open(`Error importing from ${provider}`, null, {
+          duration: 5000,
+        });
+        console.warn(`Error importing from ${provider}:`, error);
+      },
+    );
   }
 
   importAdi($event: any): void {

@@ -1,6 +1,6 @@
 <div class="logbook-header">
   <h1>
-    {{ logbookService.logbookId$ | async }}
+    {{ logbookId() }}
     <span class="logbook-long-title">Logbook</span>
   </h1>
   <nav mat-tab-nav-bar [tabPanel]="tabPanel" backgroundColor="accent">
@@ -18,7 +18,7 @@
     }
   </nav>
   <div class="spacer"></div>
-  @if (activeQthProfileName$ | async; as profileName) {
+  @if (activeQthProfileName(); as profileName) {
     <span class="active-qth-profile">QTH {{ profileName }}</span>
   }
   <button

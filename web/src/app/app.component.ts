@@ -1,5 +1,5 @@
-import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatIconButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
@@ -31,10 +31,15 @@ import { SwUpdateComponent } from './shared/sw-update/sw-update.component';
     MatNavList,
     MatListItem,
     MatDivider,
-    AsyncPipe,
     RouterOutlet,
   ],
 })
 export class AppComponent {
   userSettingsService = inject(UserSettingsService);
+  private readonly userSettings = toSignal(this.userSettingsService.settings$, {
+    requireSync: true,
+  });
+  protected readonly starredLogbooks = computed(
+    () => this.userSettings()?.starredLogbooks ?? [],
+  );
 }
