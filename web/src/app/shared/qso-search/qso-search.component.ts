@@ -1,11 +1,13 @@
-import { AsyncPipe, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  DestroyRef,
   OnDestroy,
   OnInit,
   inject,
 } from '@angular/core';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { MatIconButton } from '@angular/material/button';
 import {
@@ -21,7 +23,7 @@ import {
   MatSlideToggleChange,
 } from '@angular/material/slide-toggle';
 import { WsjtxService } from 'ngx-kel-agent';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { LogbookService } from '../../services/logbook.service';
 import { QsoService } from '../../services/qso.service';
@@ -32,7 +34,6 @@ import { QsoService } from '../../services/qso.service';
   styleUrls: ['./qso-search.component.scss'],
   changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
-    AsyncPipe,
     FormsModule,
     MatFormField,
     MatHint,
@@ -47,35 +48,42 @@ import { QsoService } from '../../services/qso.service';
 })
 export class QsoSearchComponent implements OnInit, OnDestroy {
   wsjtx = inject(WsjtxService);
+  private destroyRef = inject(DestroyRef);
   private logbookService = inject(LogbookService);
   private qsoService = inject(QsoService);
   private active: boolean;
 
   search = '';
-  wsjtxConnected$: Observable<boolean>;
-  private wsjtxSub: Subscription;
-  syncWithWsjtx: boolean;
+  wsjtxConnected = toSignal(this.wsjtx.connected$, {
+    initialValue: false,
+  });
+  private wsjtxSub: Subscription | undefined;
+  syncWithWsjtx = false;
 
   constructor() {
-    this.wsjtxConnected$ = this.wsjtx.connected$;
     this.active = true;
   }
 
   ngOnInit(): void {
-    this.logbookService.logbookId$.subscribe((id) => this.qsoService.init(id));
-    this.wsjtx.connected$.subscribe((isUp) => {
-      if (!isUp) {
-        this.syncWithWsjtx = false;
-        this.clear();
-      }
-    });
+    this.logbookService.logbookId$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((id) => this.qsoService.init(id));
+    this.wsjtx.connected$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((isUp) => {
+        if (!isUp) {
+          this.syncWithWsjtx = false;
+          this.wsjtxSub?.unsubscribe();
+          this.wsjtxSub = undefined;
+          this.clear();
+        }
+      });
   }
 
   ngOnDestroy(): void {
     this.clear();
-    if (this.wsjtxSub) {
-      this.wsjtxSub.unsubscribe();
-    }
+    this.wsjtxSub?.unsubscribe();
+    this.wsjtxSub = undefined;
     this.active = false;
   }
 
@@ -91,12 +99,15 @@ export class QsoSearchComponent implements OnInit, OnDestroy {
 
   toggleSync($event: MatSlideToggleChange): void {
     if ($event.checked) {
-      this.wsjtxSub = this.wsjtx.status$.subscribe((status) => {
-        this.search = status.dxCall;
-        this.changed();
-      });
+      this.wsjtxSub = this.wsjtx.status$
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe((status) => {
+          this.search = status.dxCall;
+          this.changed();
+        });
     } else {
-      this.wsjtxSub.unsubscribe();
+      this.wsjtxSub?.unsubscribe();
+      this.wsjtxSub = undefined;
       this.search = '';
       this.changed();
     }

@@ -1,12 +1,12 @@
-import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatIconButton } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterLink } from '@angular/router';
-import { Auth, User } from 'firebase/auth';
+import { Auth } from 'firebase/auth';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -21,7 +21,6 @@ import { UserSettingsComponent } from '../user-settings/user-settings.component'
   styleUrls: ['./avatar.component.scss'],
   changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
-    AsyncPipe,
     MatIcon,
     MatIconButton,
     MatMenu,
@@ -37,11 +36,7 @@ export class AvatarComponent {
   private snackBar = inject(MatSnackBar);
 
   private auth: Auth = inject(FIREBASE_AUTH);
-  user$: Observable<User>;
-
-  constructor() {
-    this.user$ = authUser(this.auth);
-  }
+  protected readonly user = toSignal(authUser(this.auth), { initialValue: null });
 
   logout(): void {
     this.authService
