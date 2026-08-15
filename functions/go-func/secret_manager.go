@@ -2,9 +2,9 @@ package forester
 
 import (
 	"cloud.google.com/go/secretmanager/apiv1"
+	"cloud.google.com/go/secretmanager/apiv1/secretmanagerpb"
 	"context"
 	"google.golang.org/api/iterator"
-	secretmanagerpb "google.golang.org/genproto/googleapis/cloud/secretmanager/v1"
 )
 
 const lotwUsername = "lotw_username"
