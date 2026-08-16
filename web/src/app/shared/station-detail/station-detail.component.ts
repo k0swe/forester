@@ -29,7 +29,7 @@ import {
 } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatSelect } from '@angular/material/select';
-import isEqual from 'lodash/isEqual';
+import isEqual from 'lodash.isequal';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
