@@ -6,7 +6,7 @@
     "node": ">= 22"
   },
   "devDependencies": {
-    "@firebase/rules-unit-testing": "5.0.1",
+    "@firebase/rules-unit-testing": "5.0.2",
     "firebase-tools": "15.27.0",
     "firebase": "12.17.1",
     "mocha": "11.8.0"
