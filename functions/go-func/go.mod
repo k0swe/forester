@@ -6,7 +6,7 @@ toolchain go1.26.6
 
 require (
 	cloud.google.com/go/firestore v1.25.0
-	cloud.google.com/go/pubsub/v2 v2.6.1
+	cloud.google.com/go/pubsub/v2 v2.6.2
 	cloud.google.com/go/secretmanager v1.21.0
 	dario.cat/mergo v1.0.2
 	firebase.google.com/go/v4 v4.21.0
