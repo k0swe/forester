@@ -77,7 +77,7 @@
     "prettier": "3.9.6",
     "ts-node": "10.9.2",
     "typescript": "6.0.3",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "lint-staged": {
     "*.{js,ts,json,html,css,scss,md,yml,yaml,webmanifest}": "prettier --write"
