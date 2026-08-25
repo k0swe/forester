@@ -11,104 +11,104 @@
     "name": "@angular/animations",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "angular"
   },
   {
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "n/a"
   },
   {
     "name": "@angular/common",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "angular"
   },
   {
     "name": "@angular/compiler",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "angular"
   },
   {
     "name": "@angular/core",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "angular"
   },
   {
     "name": "@angular/forms",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "angular"
   },
   {
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "n/a"
   },
   {
     "name": "@angular/localize",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "angular"
   },
   {
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "n/a"
   },
   {
     "name": "@angular/platform-browser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "angular"
   },
   {
     "name": "@angular/platform-browser-dynamic",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "angular"
   },
   {
     "name": "@angular/router",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "angular"
   },
   {
     "name": "@angular/service-worker",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "angular"
   },
   {
@@ -139,8 +139,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "12.17.1",
-    "installedVersion": "12.17.1",
+    "comment": "12.18.0",
+    "installedVersion": "12.18.0",
     "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
@@ -187,8 +187,8 @@
     "name": "ngx-kel-agent",
     "licenseType": "Apache-2.0",
     "link": "git+ssh://git@github.com/k0swe/ngx-kel-agent.git",
-    "comment": "1.3.4",
-    "installedVersion": "1.3.4",
+    "comment": "2.0.0",
+    "installedVersion": "2.0.0",
     "author": "Chris Keller <xylo04@gmail.com>"
   },
   {
@@ -267,24 +267,24 @@
     "name": "@angular/build",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "22.1.4",
-    "installedVersion": "22.1.4",
+    "comment": "22.1.5",
+    "installedVersion": "22.1.5",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "22.1.4",
-    "installedVersion": "22.1.4",
+    "comment": "22.1.5",
+    "installedVersion": "22.1.5",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/compiler-cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.2",
-    "installedVersion": "22.1.2",
+    "comment": "22.1.3",
+    "installedVersion": "22.1.3",
     "author": "n/a"
   },
   {
@@ -315,24 +315,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "26.2.0",
-    "installedVersion": "26.2.0",
+    "comment": "26.3.0",
+    "installedVersion": "26.3.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
-    "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.67.0",
-    "installedVersion": "8.67.0",
+    "link": "https://github.com/typescript-eslint/typescript-eslint.git",
+    "comment": "8.68.0",
+    "installedVersion": "8.68.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "MIT",
-    "link": "git+https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.67.0",
-    "installedVersion": "8.67.0",
+    "link": "https://github.com/typescript-eslint/typescript-eslint.git",
+    "comment": "8.68.0",
+    "installedVersion": "8.68.0",
     "author": "n/a"
   },
   {
@@ -411,8 +411,8 @@
     "name": "vitest",
     "licenseType": "MIT",
     "link": "git+https://github.com/vitest-dev/vitest.git",
-    "comment": "4.1.10",
-    "installedVersion": "4.1.10",
+    "comment": "4.1.11",
+    "installedVersion": "4.1.11",
     "author": "Anthony Fu <anthonyfu117@hotmail.com>"
   }
 ]
