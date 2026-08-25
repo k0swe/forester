@@ -47,9 +47,11 @@ export class AgentComponent implements OnInit {
         if (qsoLogged) {
           console.log('Received WSJT-X QsoLogged message', qsoLogged);
           // Dates come across as strings; convert to objects
-          qsoLogged.dateTimeOn = new Date(qsoLogged.dateTimeOn);
-          qsoLogged.dateTimeOff = new Date(qsoLogged.dateTimeOff);
-          this.saveWsjtxQso(qsoLogged);
+          this.saveWsjtxQso({
+            ...qsoLogged,
+            dateTimeOn: new Date(qsoLogged.dateTimeOn),
+            dateTimeOff: new Date(qsoLogged.dateTimeOff),
+          });
         }
       },
       { injector: this.injector },
