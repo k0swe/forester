@@ -2,10 +2,10 @@ import { AsyncPipe, DatePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  effect,
   Injector,
   OnInit,
   ViewChild,
+  effect,
   inject,
 } from '@angular/core';
 import {

@@ -2,9 +2,9 @@ import { DecimalPipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  effect,
   Injector,
   OnInit,
+  effect,
   inject,
 } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
