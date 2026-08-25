@@ -1,7 +1,9 @@
-import { AsyncPipe, DecimalPipe } from '@angular/common';
+import { DecimalPipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  effect,
+  Injector,
   OnInit,
   inject,
 } from '@angular/core';
@@ -26,25 +28,32 @@ import { QsoService } from '../../services/qso.service';
   templateUrl: './agent.component.html',
   styleUrls: ['./agent.component.scss'],
   changeDetection: ChangeDetectionStrategy.Eager,
-  imports: [MatIcon, MatTooltip, DecimalPipe, AsyncPipe],
+  imports: [MatIcon, MatTooltip, DecimalPipe],
 })
 export class AgentComponent implements OnInit {
   agent = inject(AgentService);
   hamlib = inject(HamlibService);
   wsjtx = inject(WsjtxService);
+  private injector = inject(Injector);
   private logbookService = inject(LogbookService);
   private qsoService = inject(QsoService);
 
   ngOnInit(): void {
     this.agent.init();
     // When WSJT-X sends a QSO, log it right away
-    this.wsjtx.qsoLogged$.subscribe((qsoLogged) => {
-      console.log('Received WSJT-X QsoLogged message', qsoLogged);
-      // Dates come across as strings; convert to objects
-      qsoLogged.dateTimeOn = new Date(qsoLogged.dateTimeOn);
-      qsoLogged.dateTimeOff = new Date(qsoLogged.dateTimeOff);
-      this.saveWsjtxQso(qsoLogged);
-    });
+    effect(
+      () => {
+        const qsoLogged = this.wsjtx.qsoLogged();
+        if (qsoLogged) {
+          console.log('Received WSJT-X QsoLogged message', qsoLogged);
+          // Dates come across as strings; convert to objects
+          qsoLogged.dateTimeOn = new Date(qsoLogged.dateTimeOn);
+          qsoLogged.dateTimeOff = new Date(qsoLogged.dateTimeOff);
+          this.saveWsjtxQso(qsoLogged);
+        }
+      },
+      { injector: this.injector },
+    );
   }
 
   reconnect(): void {

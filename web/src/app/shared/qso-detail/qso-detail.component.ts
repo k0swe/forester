@@ -2,6 +2,8 @@ import { AsyncPipe, DatePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  effect,
+  Injector,
   OnInit,
   ViewChild,
   inject,
@@ -82,6 +84,7 @@ export class QsoDetailComponent implements OnInit {
   private qsoService = inject(QsoService);
   private locationService = inject(LocationService);
   private hamlib = inject(HamlibService);
+  private injector = inject(Injector);
   private dialog = inject<MatDialogRef<any>>(MatDialogRef);
 
   constructor() {
@@ -187,15 +190,19 @@ export class QsoDetailComponent implements OnInit {
     const modeField = this.qsoDetailForm.get('mode');
     if (freqField.value == null) {
       // only enable rig control updates if there's no existing freq
-      this.hamlib.rigState$.subscribe((rig) => {
-        if (rig == null) {
-          return;
-        }
-        freqField.setValue(rig.frequency / 1000000);
-        modeField.setValue(rig.mode);
-        freqField.markAsDirty();
-        modeField.markAsDirty();
-      });
+      effect(
+        () => {
+          const rig = this.hamlib.rigState();
+          if (rig == null) {
+            return;
+          }
+          freqField.setValue(rig.frequency / 1000000);
+          modeField.setValue(rig.mode);
+          freqField.markAsDirty();
+          modeField.markAsDirty();
+        },
+        { injector: this.injector },
+      );
     }
   }
 
