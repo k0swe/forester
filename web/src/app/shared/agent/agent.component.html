@@ -1,9 +1,9 @@
-@if (agent.connectedState$ | async) {
+@if (agent.connected()) {
   <div class="outside">
-    @if (wsjtx.heartbeat$ | async; as heartbeat) {
+    @if (wsjtx.heartbeat(); as heartbeat) {
       <div class="inside">{{ heartbeat.id }} {{ heartbeat.version }}</div>
     }
-    @if (hamlib.rigState$ | async; as rigState) {
+    @if (hamlib.rigState(); as rigState) {
       <div class="inside">
         {{ rigState.model }} <br />
         @if (rigState.frequency / 1000 > 2000) {

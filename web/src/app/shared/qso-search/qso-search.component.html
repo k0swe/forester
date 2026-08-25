@@ -19,9 +19,9 @@
 
 <mat-slide-toggle
   #syncToggle
-  [(ngModel)]="syncWithWsjtx"
+  [checked]="syncWithWsjtx()"
   (change)="toggleSync($event)"
-  [disabled]="!wsjtxConnected()"
+  [disabled]="!wsjtx.connected()"
 >
   Sync with WSJT-X
 </mat-slide-toggle>
