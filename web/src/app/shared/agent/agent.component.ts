@@ -2,11 +2,11 @@ import { DecimalPipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  Injector,
+  DestroyRef,
   OnInit,
-  effect,
   inject,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
 import {
@@ -34,28 +34,24 @@ export class AgentComponent implements OnInit {
   agent = inject(AgentService);
   hamlib = inject(HamlibService);
   wsjtx = inject(WsjtxService);
-  private injector = inject(Injector);
+  private destroyRef = inject(DestroyRef);
   private logbookService = inject(LogbookService);
   private qsoService = inject(QsoService);
 
   ngOnInit(): void {
     this.agent.init();
     // When WSJT-X sends a QSO, log it right away
-    effect(
-      () => {
-        const qsoLogged = this.wsjtx.qsoLogged();
-        if (qsoLogged) {
-          console.log('Received WSJT-X QsoLogged message', qsoLogged);
-          // Dates come across as strings; convert to objects
-          this.saveWsjtxQso({
-            ...qsoLogged,
-            dateTimeOn: new Date(qsoLogged.dateTimeOn),
-            dateTimeOff: new Date(qsoLogged.dateTimeOff),
-          });
-        }
-      },
-      { injector: this.injector },
-    );
+    this.wsjtx.qsoLogged$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((qsoLogged) => {
+        console.log('Received WSJT-X QsoLogged message', qsoLogged);
+        // Dates come across as strings; convert to objects
+        this.saveWsjtxQso({
+          ...qsoLogged,
+          dateTimeOn: new Date(qsoLogged.dateTimeOn),
+          dateTimeOff: new Date(qsoLogged.dateTimeOff),
+        });
+      });
   }
 
   reconnect(): void {
