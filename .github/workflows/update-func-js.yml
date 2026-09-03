@@ -25,7 +25,7 @@ jobs:
 
       - name: npm update
         run: |
-          npx npm-check-updates -u -x eslint,firebase-admin,typescript
+          npx npm-check-updates -u --peer
           npm install -f
           npm update
           npm install
