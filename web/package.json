@@ -74,7 +74,7 @@
     "license-report": "6.8.5",
     "lint-staged": "17.5.1",
     "open": "11.0.4",
-    "prettier": "3.9.8",
+    "prettier": "3.9.9",
     "ts-node": "10.9.2",
     "typescript": "6.0.3",
     "vitest": "4.1.11"
