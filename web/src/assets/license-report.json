@@ -11,112 +11,112 @@
     "name": "@angular/animations",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "angular"
   },
   {
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "n/a"
   },
   {
     "name": "@angular/common",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "angular"
   },
   {
     "name": "@angular/compiler",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "angular"
   },
   {
     "name": "@angular/core",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "angular"
   },
   {
     "name": "@angular/forms",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "angular"
   },
   {
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "n/a"
   },
   {
     "name": "@angular/localize",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "angular"
   },
   {
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "n/a"
   },
   {
     "name": "@angular/platform-browser",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "angular"
   },
   {
     "name": "@angular/platform-browser-dynamic",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "angular"
   },
   {
     "name": "@angular/router",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "angular"
   },
   {
     "name": "@angular/service-worker",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "angular"
   },
   {
     "name": "@googlemaps/js-api-loader",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/googlemaps/js-api-loader.git",
-    "comment": "2.1.1",
-    "installedVersion": "2.1.1",
+    "comment": "2.1.3",
+    "installedVersion": "2.1.3",
     "author": "n/a"
   },
   {
@@ -147,8 +147,8 @@
     "name": "google-protobuf",
     "licenseType": "(BSD-3-Clause AND Apache-2.0)",
     "link": "git+https://github.com/protocolbuffers/protobuf-javascript.git",
-    "comment": "4.0.2",
-    "installedVersion": "4.0.2",
+    "comment": "4.0.3",
+    "installedVersion": "4.0.3",
     "author": "Google Protocol Buffers Team"
   },
   {
@@ -267,24 +267,24 @@
     "name": "@angular/build",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "22.1.8",
-    "installedVersion": "22.1.8",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular-cli.git",
-    "comment": "22.1.8",
-    "installedVersion": "22.1.8",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "Angular Authors"
   },
   {
     "name": "@angular/compiler-cli",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/angular.git",
-    "comment": "22.1.7",
-    "installedVersion": "22.1.7",
+    "comment": "22.2.0",
+    "installedVersion": "22.2.0",
     "author": "n/a"
   },
   {
@@ -299,8 +299,8 @@
     "name": "@types/google.maps",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "3.66.3",
-    "installedVersion": "3.66.3",
+    "comment": "3.66.4",
+    "installedVersion": "3.66.4",
     "author": "n/a"
   },
   {
@@ -315,24 +315,24 @@
     "name": "@types/node",
     "licenseType": "MIT",
     "link": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-    "comment": "26.5.1",
-    "installedVersion": "26.5.1",
+    "comment": "26.6.3",
+    "installedVersion": "26.6.3",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.70.0",
-    "installedVersion": "8.70.0",
+    "comment": "8.70.1",
+    "installedVersion": "8.70.1",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "MIT",
     "link": "https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.70.0",
-    "installedVersion": "8.70.0",
+    "comment": "8.70.1",
+    "installedVersion": "8.70.1",
     "author": "n/a"
   },
   {
@@ -347,16 +347,16 @@
     "name": "eslint",
     "licenseType": "MIT",
     "link": "git+https://github.com/eslint/eslint.git",
-    "comment": "10.10.0",
-    "installedVersion": "10.10.0",
+    "comment": "10.11.0",
+    "installedVersion": "10.11.0",
     "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>"
   },
   {
     "name": "jsdom",
     "licenseType": "MIT",
     "link": "git+https://github.com/jsdom/jsdom.git",
-    "comment": "30.0.1",
-    "installedVersion": "30.0.1",
+    "comment": "30.1.1",
+    "installedVersion": "30.1.1",
     "author": "n/a"
   },
   {
@@ -371,8 +371,8 @@
     "name": "lint-staged",
     "licenseType": "MIT",
     "link": "git+https://github.com/lint-staged/lint-staged.git",
-    "comment": "17.5.1",
-    "installedVersion": "17.5.1",
+    "comment": "17.6.0",
+    "installedVersion": "17.6.0",
     "author": "Andrey Okonetchnikov <andrey@okonet.ru>"
   },
   {
@@ -387,8 +387,8 @@
     "name": "prettier",
     "licenseType": "MIT",
     "link": "git+https://github.com/prettier/prettier.git",
-    "comment": "3.9.7",
-    "installedVersion": "3.9.7",
+    "comment": "3.9.9",
+    "installedVersion": "3.9.9",
     "author": "James Long"
   },
   {
@@ -411,8 +411,8 @@
     "name": "vitest",
     "licenseType": "MIT",
     "link": "git+https://github.com/vitest-dev/vitest.git",
-    "comment": "4.1.11",
-    "installedVersion": "4.1.11",
+    "comment": "5.0.2",
+    "installedVersion": "5.0.2",
     "author": "Anthony Fu <anthonyfu117@hotmail.com>"
   }
 ]
