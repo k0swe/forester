@@ -323,16 +323,16 @@
     "name": "@typescript-eslint/eslint-plugin",
     "licenseType": "MIT",
     "link": "https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.70.1",
-    "installedVersion": "8.70.1",
+    "comment": "8.71.0",
+    "installedVersion": "8.71.0",
     "author": "n/a"
   },
   {
     "name": "@typescript-eslint/parser",
     "licenseType": "MIT",
     "link": "https://github.com/typescript-eslint/typescript-eslint.git",
-    "comment": "8.70.1",
-    "installedVersion": "8.70.1",
+    "comment": "8.71.0",
+    "installedVersion": "8.71.0",
     "author": "n/a"
   },
   {
