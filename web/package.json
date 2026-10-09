@@ -31,7 +31,7 @@
     "@angular/compiler": "22.2.2",
     "@angular/core": "22.2.2",
     "@angular/forms": "22.2.2",
-    "@angular/google-maps": "22.2.1",
+    "@angular/google-maps": "22.2.2",
     "@angular/localize": "22.2.2",
     "@angular/material": "22.2.2",
     "@angular/platform-browser": "22.2.2",
