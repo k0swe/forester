@@ -63,7 +63,7 @@
     "@angular/cli": "22.2.5",
     "@angular/compiler-cli": "22.2.4",
     "@trivago/prettier-plugin-sort-imports": "6.0.2",
-    "@types/google.maps": "3.66.7",
+    "@types/google.maps": "3.66.9",
     "@types/lodash.isequal": "4.5.8",
     "@types/node": "26.6.5",
     "@typescript-eslint/eslint-plugin": "8.71.2",
