@@ -19,8 +19,8 @@
     "name": "@angular/cdk",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.2.5",
-    "installedVersion": "22.2.5",
+    "comment": "22.2.6",
+    "installedVersion": "22.2.6",
     "author": "n/a"
   },
   {
@@ -59,8 +59,8 @@
     "name": "@angular/google-maps",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.2.5",
-    "installedVersion": "22.2.5",
+    "comment": "22.2.6",
+    "installedVersion": "22.2.6",
     "author": "n/a"
   },
   {
@@ -75,8 +75,8 @@
     "name": "@angular/material",
     "licenseType": "MIT",
     "link": "git+https://github.com/angular/components.git",
-    "comment": "22.2.5",
-    "installedVersion": "22.2.5",
+    "comment": "22.2.6",
+    "installedVersion": "22.2.6",
     "author": "n/a"
   },
   {
@@ -139,8 +139,8 @@
     "name": "firebase",
     "licenseType": "Apache-2.0",
     "link": "git+https://github.com/firebase/firebase-js-sdk.git",
-    "comment": "13.1.0",
-    "installedVersion": "13.1.0",
+    "comment": "13.2.0",
+    "installedVersion": "13.2.0",
     "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)"
   },
   {
