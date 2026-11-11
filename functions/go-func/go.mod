@@ -2,7 +2,7 @@ module github.com/k0swe/forester-func
 
 go 1.26.0
 
-toolchain go1.27.3
+toolchain go1.27.4
 
 require (
 	cloud.google.com/go/firestore v1.29.2
