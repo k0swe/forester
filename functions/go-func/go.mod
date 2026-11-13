@@ -9,16 +9,16 @@ require (
 	cloud.google.com/go/pubsub/v2 v2.9.0
 	cloud.google.com/go/secretmanager v1.24.0
 	dario.cat/mergo v1.0.2
-	firebase.google.com/go/v4 v4.22.0
+	firebase.google.com/go/v4 v4.23.0
 	github.com/Matir/adifparser v0.0.0-20230124172935-2c465737f437
 	github.com/antihax/optional v1.0.0
 	github.com/jinzhu/copier v0.4.0
 	github.com/k0swe/adif-json-protobuf/go v0.0.8
-	github.com/k0swe/lotw-qsl v0.4.15
-	github.com/k0swe/qrz-api v0.3.15
-	github.com/k0swe/qrz-logbook v0.3.15
+	github.com/k0swe/lotw-qsl v0.4.16
+	github.com/k0swe/qrz-api v0.3.16
+	github.com/k0swe/qrz-logbook v0.3.16
 	golang.org/x/oauth2 v0.38.0
-	google.golang.org/api v0.312.0
+	google.golang.org/api v0.314.0
 	google.golang.org/protobuf v1.36.12
 )
 
@@ -62,13 +62,13 @@ require (
 	go.opentelemetry.io/otel/sdk v1.47.0 // indirect
 	go.opentelemetry.io/otel/sdk/metric v1.47.0 // indirect
 	go.opentelemetry.io/otel/trace v1.47.0 // indirect
-	golang.org/x/crypto v0.58.0 // indirect
+	golang.org/x/crypto v0.59.0 // indirect
 	golang.org/x/net v0.62.0 // indirect
 	golang.org/x/sync v0.25.0 // indirect
 	golang.org/x/sys v0.50.0 // indirect
 	golang.org/x/text v0.44.0 // indirect
 	golang.org/x/time v0.16.0 // indirect
-	google.golang.org/appengine/v2 v2.0.6 // indirect
+	google.golang.org/appengine/v2 v2.1.0 // indirect
 	google.golang.org/genproto v0.0.0-20261110000943-09e21b237f2c // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20261110000943-09e21b237f2c // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20261110000943-09e21b237f2c // indirect
