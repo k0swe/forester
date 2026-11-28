@@ -14,7 +14,7 @@ require (
 	github.com/antihax/optional v1.0.0
 	github.com/jinzhu/copier v0.4.0
 	github.com/k0swe/adif-json-protobuf/go v0.0.8
-	github.com/k0swe/lotw-qsl v0.4.16
+	github.com/k0swe/lotw-qsl v0.4.17
 	github.com/k0swe/qrz-api v0.3.16
 	github.com/k0swe/qrz-logbook v0.3.16
 	golang.org/x/oauth2 v0.38.0
